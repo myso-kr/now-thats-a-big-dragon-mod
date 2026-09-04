@@ -48,6 +48,13 @@ left to the game.
 | Čeština (Czech) | `cs` | 620/621 (99.8%) | 32/32 | 0.54% | draft |
 | Magyar (Hungarian) | `hu` | 620/621 (99.8%) | 32/32 | 0.37% | draft |
 | Tiếng Việt (Vietnamese) | `vi` | 620/621 (99.8%) | 32/32 | 0.29% | draft |
+| Svenska (Swedish) | `sv` | 620/621 (99.8%) | 32/32 | 0.26% | draft |
+| Nederlands (Dutch) | `nl` | 620/621 (99.8%) | 32/32 | 0.25% | draft |
+| Dansk (Danish) | `da` | 620/621 (99.8%) | 32/32 | 0.22% | draft |
+| Bahasa Indonesia (Indonesian) | `id` | 620/621 (99.8%) | 32/32 | 0.16% | draft |
+| Suomi (Finnish) | `fi` | 620/621 (99.8%) | 32/32 | 0.14% | draft |
+| Norsk (Norwegian) | `nb` | 620/621 (99.8%) | 32/32 | 0.12% | draft |
+| Română (Romanian) | `ro` | 620/621 (99.8%) | 32/32 | 0.12% | draft |
 
 *Steam share* is that language's share of Steam users, which is the order languages
 are being added in. *draft* means machine-drafted and revised against reader

@@ -1,0 +1,938 @@
+{
+  "upgrades": {
+    "upgrades": "Îmbunătățiri",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Nivelul următor",
+    "currentLevel": "Curent",
+    "newGamePlusOnly": "Doar în capitolul \"Gestionarea resurselor\"",
+    "max": "Max",
+    "lockedMessage": "Îmbunătățește {{parentSkill}} mai mult ca să deblochezi asta",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Deget de fier",
+        "description": "+{{bonus}} daune pe clic",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Deget de pană",
+        "description": "+{{bonus}} clicuri pe secundă"
+      },
+      "wakeupCall": {
+        "title": "Deșteptare",
+        "description": "Fiecare clic scurtează amețeala cu {{bonus}} secunde",
+        "prefix": "-",
+        "suffix": " sec"
+      },
+      "electricalFinger": {
+        "title": "Deget electric",
+        "description": "Fiecare clic are {{bonus}}% șanse să cheme fulgerul.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Clic perfect",
+        "description": "+{{bonus}}% șanse de clic critic",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Lovitură critică",
+        "description": "+{{bonus}}x daune la clicul critic",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Explozie aurie",
+        "description": "{{bonus}}x răsplată când dai clic pe păsări",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Lider înnăscut",
+        "description": "Clicurile umplu bara de inspirație cu +{{bonus}}/clic",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Cursor de aur",
+        "description": "{{bonus}}x aur pe clic",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Cufere pline",
+        "description": "Cu {{bonus}}% mai puține șanse ca un cufăr din temniță să fie gol",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Tratament pentru încheietură",
+        "description": "Ține apăsat butonul mouse-ului ca să ataci dragonul fără oprire."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Sabie scurtă",
+        "description": "+{{bonus}}x multiplicator de daune pentru {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Spadă lungă",
+        "description": "Încă +{{bonus}}x multiplicator de daune pentru războinici",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Spadă cu două mâini",
+        "description": "Din nou +{{bonus}}x multiplicator de daune pentru războinici",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Strigăt de luptă",
+        "description": "Umple bara de inspirație cu +{{bonus}} la fiecare lovitură",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Chemare la arme",
+        "description": "Pornește singură inspirația la următorul tact, când multiplicatorul e la maximum"
+      },
+      "barbarian": {
+        "title": "Barbar",
+        "description": "+{{bonus}} daune de bază",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Armură groasă",
+        "description": "Cu {{bonus}}% mai puține daune fizice",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Armură de foc",
+        "description": "Cu {{bonus}}% mai puține trupe mor din suflul de foc",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Bolovani grei",
+        "description": "+{{bonus}}% daune de catapultă pe nivel",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Tăiș de argint",
+        "description": "+{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Tăiș de aur",
+        "description": "Încă +{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Mercenari credincioși",
+        "description": "{{typePlural}} pe care îi cumperi produc +{{bonus}}x daune pe nivel",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Slujitori credincioși",
+        "description": "Cu {{bonus}}% mai ieftin de recrutat {{type}} și tot ce e deasupra",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Lucru în echipă",
+        "description": "Recrutează {{typePlural}} în plus pentru fiecare {{type}} cumpărat",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Precizie în adânc",
+        "description": "+{{bonus}}% șanse de lovitură critică în temniță",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Zdrobitorul de labirint",
+        "description": "+{{bonus}} daune critice în temniță",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Săgeată magică",
+        "description": "+{{bonus}}x multiplicator de daune pentru {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Sabie de mana",
+        "description": "Fiecare vrăjitor încarcă sabia unui războinic cu mana. +{{bonus}}x multiplicator de daune cât timp mana e peste 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Șoarece magic",
+        "description": "Umple bara de mana cu +{{bonus}} pe clic",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Val de mana",
+        "description": "Umple bara de mana a vrăjitorilor"
+      },
+      "manaPool": {
+        "title": "Izvor de mana",
+        "description": "+{{bonus}}% mana maximă",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Impuls de mana",
+        "description": "Daunele vrăjitorilor se dublează cât timp mana e peste {{current}}",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Prognoza vremii",
+        "description": "+{{bonus}}% șanse de trăsnet",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Trăsnet",
+        "description": "Adaugă un fulger care produce +{{bonus}}x daunele de la {{type}} pentru fiecare îmbunătățire cumpărată",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Toiag de argint",
+        "description": "+{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Toiag de aur",
+        "description": "Încă +{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Foc magic",
+        "description": "Torța arde cu +{{bonus}} secunde mai mult",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Arhimag",
+        "description": "+{{bonus}} daune de bază",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Ochiul vânătorului",
+        "description": "+{{bonus}}% șanse să nimerești o pasăre din rază la fiecare tact",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Ochire ascuțită",
+        "description": "+{{bonus}}% șanse de tragere critică",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Tăietorul de frunze",
+        "description": "+{{bonus}}x daune la tragerea critică",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Sezon de vânătoare",
+        "description": "Cheamă pe loc un stol de păsări",
+        "suffix": " păsări"
+      },
+      "elvenEyes": {
+        "title": "Ochi de elf",
+        "description": "Vezi în întuneric încă +{{bonus}} secunde după ce se stinge torța",
+        "prefix": "+",
+        "suffix": " sec"
+      },
+      "multipleShot": {
+        "title": "Săgeți multiple",
+        "description": "Trage cu o săgeată în plus pe nivel",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Săgeată de argint",
+        "description": "+{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Săgeată de aur",
+        "description": "Încă +{{bonus}}x multiplicator la aur pe lovitură",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Săgeată de gheață",
+        "description": "Întârzie focul dragonului cu {{bonus}} secunde",
+        "prefix": "-",
+        "suffix": " sec"
+      },
+      "animalInstinct": {
+        "title": "Instinct animal",
+        "description": "Catapulta aruncă pisici în loc de bolovani, apoi tigri în loc de pisici, de fiecare dată cu daune de zece ori mai mari.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Paratrăsnet",
+        "description": "{{bonus}}% șanse să atragi încă un fulger când fulgerul vrăjitorilor lovește.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Săgeți refolosite",
+        "description": "Atacul elfilor consumă mai puțin lemn"
+      },
+      "lightfoot": {
+        "title": "Pas ușor",
+        "description": "Cu {{bonus}}% mai repede la mers și la întors în temniță",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Mâini iuți",
+        "description": "Scurtează cu {{bonus}} secunde timpul de a face aur"
+      },
+      "sharpDagger": {
+        "title": "Tăișul asasinului",
+        "description": "Hoții atacă și ei, cu {{current}} daune"
+      },
+      "poisonDagger": {
+        "title": "Pumnal otrăvit",
+        "description": "+{{bonus}}% șanse să otrăvești dragonul",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Mamba neagră",
+        "description": "+{{bonus}}x daune de otravă din daunele hoților",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Otravă persistentă",
+        "description": "Otrava ține cu +{{bonus}} secunde mai mult",
+        "suffix": " sec"
+      },
+      "smokeBomb": {
+        "title": "Bombă fumigenă",
+        "description": "Pune o capcană dragonului, cu {{current}}% șanse să se declanșeze la următoarea lovitură și să o oprească.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Bombă cu pisici",
+        "description": "Proiectilul catapultei explodează la impact, daune duble.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Pungaș",
+        "description": "+{{bonus}}x multiplicator la aurul produs de {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Șperaclu",
+        "description": "Fiecare expediție începe cu {{bonus}} uși deja deschise."
+      },
+      "midasTouch": {
+        "title": "Atingerea lui Midas",
+        "description": "Încă +{{bonus}}x multiplicator la aurul produs de {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Cufere îndesate",
+        "description": "+{{bonus}}% aur din cuferele temniței",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Diapazon",
+        "description": "+{{bonus}} inspirație adunată",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Solo de lăută",
+        "description": "+{{bonus}}x multiplicatorul maxim de inspirație",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Chitarist sâcâitor",
+        "description": "Inspirația ține cu +{{bonus}} secunde mai mult",
+        "suffix": " sec"
+      },
+      "piercedEardrums": {
+        "title": "Timpane sparte",
+        "description": "Numărătoarea răgetului dragonului încetinește cu {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Bis",
+        "description": "{{bonus}}% șanse ca inspirația să înceapă din nou când se termină",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Barieră sonică",
+        "description": "Numărătoarea focului dragonului încetinește cu {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Cacofonix",
+        "description": "Îți amețește propriile trupe când îl cumperi"
+      },
+      "churchChoir": {
+        "title": "Cor bisericesc",
+        "description": "Recrutează 1 seminar de fiecare dată când pornește inspirația"
+      },
+      "encore": {
+        "title": "Encore",
+        "description": "Scurtează pauza inspirației cu {{bonus}} secunde",
+        "suffix": " sec"
+      },
+      "lockerRoomSpeech": {
+        "title": "Discurs în vestiar",
+        "description": "Produce inspirație cât timp jocul e închis, la {{current}}% din ritm",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Ordine în regat",
+        "description": "Cât timp jocul e închis, muzica ta îi face pe meșteșugari să lucreze peste program și să producă resurse la {{current}}% din ritmul obișnuit",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Tonalitate majoră",
+        "description": "Cumpără o cheie de temniță. (Da, jocul de cuvinte e slab.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Frecvențe vulnerabile",
+        "description": "Dușmanii din temniță sunt nemuritori cu {{bonus}} milisecunde mai puțin după fiecare lovitură",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Resurse umane pentru eroi",
+        "description": "+{{bonus}}% șanse să recrutezi de două ori mai mulți eroi",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Aură binecuvântată",
+        "description": "Cu {{bonus}}% mai puține trupe mor din suflul de foc",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Pasăre binecuvântată",
+        "description": "{{current}}% șanse ca o pasăre să apară binecuvântată și să dea aur dublu",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Transfer de putere",
+        "description": "La fiecare recrutare, mana vrăjitorilor se umple cu 0,5 pentru fiecare preot pe care îl ai"
+      },
+      "generousLoot": {
+        "title": "Pradă darnică",
+        "description": "Când o expediție eșuează, tot păstrezi {{current}}% din pradă.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Lumină divină",
+        "description": "+{{bonus}}% șanse să reaprinzi o torță stinsă",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Recrutează războinici",
+        "description": "Îți permite să recrutezi războinici în luptă"
+      },
+      "recruitElves": {
+        "title": "Recrutează elfi",
+        "description": "Îți permite să recrutezi elfi în luptă"
+      },
+      "recruitWizards": {
+        "title": "Recrutează vrăjitori",
+        "description": "Îți permite să recrutezi vrăjitori în luptă"
+      },
+      "recruitBards": {
+        "title": "Recrutează barzi",
+        "description": "Îți permite să recrutezi barzi în luptă"
+      },
+      "recruitThieves": {
+        "title": "Recrutează hoți",
+        "description": "Îți permite să recrutezi hoți în luptă"
+      },
+      "recruitClerics": {
+        "title": "Recrutează preoți",
+        "description": "Îți permite să recrutezi preoți în luptă"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Adaugă pe lista de dorințe!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Timp de luptă",
+      "dgps": "Daune și aur pe secundă",
+      "resourceBalance": "Balanța resurselor"
+    },
+    "lifetime": {
+      "title": "Statistici totale",
+      "totalPlaytime": "Timp total de joc",
+      "totalGoldEarned": "Aur câștigat în total",
+      "totalGoldSpent": "Aur cheltuit în total",
+      "totalBirdsKilled": "Păsări doborâte în total",
+      "totalClicks": "Clicuri în total",
+      "totalHeroesRecruited": "Eroi recrutați în total",
+      "heroesPurchased": "Cumpărați",
+      "heroesRecruited": "Recrutați",
+      "tier1": "Treapta 1 recrutați (cumpărați)",
+      "tier2": "Treapta 2 recrutați (cumpărați)",
+      "tier3": "Treapta 3 recrutați (cumpărați)",
+      "totalDamageDealt": "Daune produse în total",
+      "totalUnitsDeadByFireBreath": "Pierduți din cauza suflului de foc"
+    },
+    "battleDuration": "Scurs: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Se poate câștiga așa ceva?",
+    "infiniteEstimatedVictory": "O victorie adevărată e imposibilă!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Ești eroul nostru!</strong>]; (0-1000000000)[Victorie în <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Dă clic sau apasă Z ca să ataci dragonul!</strong>]",
+    "perSec": "/sec",
+    "generationSection": "Producție",
+    "critSection": "Special",
+    "dps": "Daunele trupelor: <strong>{{dps}}/sec</strong>",
+    "gps": "Aurul trupelor: <strong>{{gps}}/sec</strong>",
+    "dpc": "Daune pe clic: <strong>{{dpc}}/clic</strong>",
+    "gpc": "Aur pe clic: <strong>{{gpc}}/clic</strong>",
+    "catapultDamage": "Daune: <strong>{{damage}}/lovitură</strong>",
+    "catapultTimeToShoot": "Până la următoarea lovitură: <strong>{{time}} sec</strong>",
+    "seconds_one": "secundă",
+    "seconds_other": "de secunde",
+    "seconds_few": "secunde",
+    "minutes_one": "minut",
+    "minutes_other": "de minute",
+    "minutes_few": "minute",
+    "hours_one": "oră",
+    "hours_other": "de ore",
+    "hours_few": "ore",
+    "days_one": "zi",
+    "days_other": "de zile",
+    "days_few": "zile",
+    "months_one": "lună",
+    "months_other": "de luni",
+    "months_few": "luni",
+    "years_one": "an",
+    "years_other": "de ani",
+    "years_few": "ani",
+    "undo": {
+      "disabledLine": "Dă clic în 10 secunde ca să anulezi o cumpărare greșită și să primești aurul înapoi.",
+      "enabledAction": "Dă clic ca să anulezi cumpărarea a {{count}} {{generator}}.",
+      "enabledRefund": "Primești înapoi {{refund}}.",
+      "enabledTimer": "Au mai rămas {{seconds}} secunde.",
+      "refundGold": "{{amount}} aur"
+    }
+  },
+  "generators": {
+    "generators": "Trupe",
+    "buy": "cumpără {{amount}}",
+    "warrior_one": "Războinic",
+    "warrior_other": "de războinici",
+    "warrior_few": "Războinici",
+    "wizard_one": "Vrăjitor",
+    "wizard_other": "de vrăjitori",
+    "wizard_few": "Vrăjitori",
+    "elf_one": "Elf",
+    "elf_other": "de elfi",
+    "elf_few": "Elfi",
+    "garrison_one": "Garnizoană",
+    "garrison_other": "de garnizoane",
+    "garrison_few": "Garnizoane",
+    "academy_one": "Academie de magie",
+    "academy_other": "de academii de magie",
+    "academy_few": "Academii de magie",
+    "academy_short_one": "Academie",
+    "academy_short_other": "de academii",
+    "academy_short_few": "Academii",
+    "outpost_one": "Avanpost de arcași",
+    "outpost_other": "de avanposturi de arcași",
+    "outpost_few": "Avanposturi de arcași",
+    "outpost_short_one": "Avanpost",
+    "outpost_short_other": "de avanposturi",
+    "outpost_short_few": "Avanposturi",
+    "council_one": "Consiliu de război",
+    "council_other": "de consilii de război",
+    "council_few": "Consilii de război",
+    "nexus_one": "Nexul arhimagilor",
+    "nexus_other": "de nexuri ale arhimagilor",
+    "nexus_few": "Nexuri ale arhimagilor",
+    "forest_one": "Pădure străveche",
+    "forest_other": "de păduri străvechi",
+    "forest_few": "Păduri străvechi",
+    "thief_one": "Hoț",
+    "thief_other": "de hoți",
+    "thief_few": "Hoți",
+    "bard_one": "Bard",
+    "bard_other": "de barzi",
+    "bard_few": "Barzi",
+    "cleric_one": "Preot",
+    "cleric_other": "de preoți",
+    "cleric_few": "Preoți",
+    "guild_one": "Breaslă a hoților",
+    "guild_other": "de bresle ale hoților",
+    "guild_few": "Bresle ale hoților",
+    "guild_short_one": "Breaslă",
+    "guild_short_other": "de bresle",
+    "guild_short_few": "Bresle",
+    "troupe_one": "Trupă de menestreli",
+    "troupe_other": "de trupe de menestreli",
+    "troupe_few": "Trupe de menestreli",
+    "troupe_short_one": "Trupă",
+    "troupe_short_other": "de trupe",
+    "troupe_short_few": "Trupe",
+    "seminary_one": "Seminar sfânt",
+    "seminary_other": "de seminare sfinte",
+    "seminary_few": "Seminare sfinte",
+    "seminary_short_one": "Seminar",
+    "seminary_short_other": "de seminare",
+    "seminary_short_few": "Seminare",
+    "congress_one": "Adunare din umbră",
+    "congress_other": "de adunări din umbră",
+    "congress_few": "Adunări din umbră",
+    "theater_one": "Teatru mare",
+    "theater_other": "de teatre mari",
+    "theater_few": "Teatre mari",
+    "college_one": "Colegiu cardinalicesc",
+    "college_other": "de colegii cardinalicești",
+    "college_few": "Colegii cardinalicești",
+    "catapult_one": "Catapultă",
+    "catapult_other": "de catapulte",
+    "catapult_few": "Catapulte",
+    "builder_one": "Constructor",
+    "builder_other": "de constructori",
+    "builder_few": "Constructori",
+    "engineer_one": "Inginer",
+    "engineer_other": "de ingineri",
+    "engineer_few": "Ingineri",
+    "farmer_one": "Fermier",
+    "farmer_other": "de fermieri",
+    "farmer_few": "Fermieri",
+    "lumberjack_one": "Tăietor de lemne",
+    "lumberjack_other": "de tăietori de lemne",
+    "lumberjack_few": "Tăietori de lemne",
+    "miner_one": "Miner",
+    "miner_other": "de mineri",
+    "miner_few": "Mineri",
+    "apprenticeships_one": "Ucenicie",
+    "apprenticeships_other": "de ucenicii",
+    "apprenticeships_few": "Ucenicii",
+    "tradespeople_one": "Meșteșugar",
+    "tradespeople_other": "de meșteșugari",
+    "tradespeople_few": "Meșteșugari",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} sec"
+    },
+    "ngPlusProductionToggle": "Pornește sau oprește producția",
+    "tabs": {
+      "troops": "Trupe",
+      "support": "Sprijin"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Concediază trupe ca să consumi mai puține resurse și totuși să păstrezi o parte din producție."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Puterea magică din spatele atacurilor vrăjitorilor.",
+    "emptyManaDescription": "Cumpără \"Val de mana\" ca să ataci din nou.",
+    "inspiration": "Inspirație",
+    "inspirationDescription": "Cât timp e activă, puterea tuturor eroilor se înmulțește.",
+    "unitDescription": {
+      "warrior": "Luptători rezistenți în corp la corp.",
+      "wizard": "Lovesc de la distanță medie, dar sunt fragili.",
+      "elf": "Trag sprinten de departe, din afara razei dragonului.",
+      "garrison": "Bază fortificată care recrutează războinici.",
+      "outpost": "Bază îndepărtată care recrutează elfi.",
+      "academy": "Școală care pregătește vrăjitori pentru luptă.",
+      "council": "Organizație militară care înființează garnizoane.",
+      "nexus": "Organizație mistică care înființează academii.",
+      "forest": "Pădure sfântă care înființează avanposturi.",
+      "thief": "Viclean: otrăvește dragonul și îi fură aurul.",
+      "bard": "Poate însufleți trupele să lupte mai aprig.",
+      "cleric": "Ocrotește și recrutează eroi noi în luptă.",
+      "guild": "Rețea subterană care recrutează hoți.",
+      "troupe": "Trupă ambulantă care recrutează barzi.",
+      "seminary": "Așezământ sfânt care pregătește preoți.",
+      "congress": "Organizație din umbră care înființează bresle ale hoților.",
+      "theater": "Așezământ măreț care înființează trupe de menestreli.",
+      "college": "Organizație religioasă care înființează seminare.",
+      "catapult": "Armă de asediu care produce daune mari dragonului.",
+      "builder": "Ridică clădiri de nivelul al doilea.",
+      "engineer": "Înființează organizații de nivel superior.",
+      "farmer": "Cultivă hrană pentru regat.",
+      "lumberjack": "Taie lemn pentru construcții.",
+      "miner": "Extrage minereu din munți.",
+      "apprenticeships": "Pregătește meșteșugari."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} daune/{{rate}} sec",
+      "wizard": "{{generatorGeneration}} daune/{{rate}} sec",
+      "elf": "{{generatorGeneration}} daune/{{rate}} sec",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "thief": "+{{generatorGeneration}} aur/{{rate}} sec",
+      "bard": "+{{generatorGeneration}} inspirație/{{rate}} sec",
+      "cleric": "+{{generatorGeneration}} eroi/{{rate}} sec",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "catapult": "{{generatorGeneration}} daune/{{rate}} sec",
+      "builder": "+{{generatorGeneration}} clădiri/{{rate}} sec",
+      "engineer": "+{{generatorGeneration}} organizații/{{rate}} sec",
+      "farmer": "+{{generatorGeneration}} hrană/{{rate}} sec",
+      "lumberjack": "+{{generatorGeneration}} lemn/{{rate}} sec",
+      "miner": "+{{generatorGeneration}} minereu/{{rate}} sec",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} sec"
+    },
+    "tabsAriaLabel": "file de trupe"
+  },
+  "settings": {
+    "settings": "Setări",
+    "buy_max": "Cumpără max",
+    "audio": "Muzică și sunet",
+    "game": "Joc",
+    "graphics": "Grafică",
+    "offline_progress": "Progres offline",
+    "wishlist_now": "Adaugă pe lista de dorințe"
+  },
+  "menus": {
+    "settings": "Setări",
+    "tabs": {
+      "game": "Joc",
+      "graphics": "Grafică",
+      "audio": "Sunet",
+      "levels": "Capitole",
+      "saveData": "Date salvate",
+      "credits": "Distribuție"
+    },
+    "credits": {
+      "title": "Distribuție",
+      "developedBy": "Dezvoltat de",
+      "developedWith": "Dezvoltat cu",
+      "bigThanksTo": "Mulțumiri deosebite",
+      "theRestOfTheDiscordServer": "tuturor celorlalți de pe serverul Discord",
+      "andYou": "și ție!"
+    },
+    "music": "Muzică",
+    "sfx": "Efecte sonore",
+    "audioSettings": "Setări de sunet",
+    "gameSettings": "Setări de joc",
+    "graphicsSettings": "Setări grafice",
+    "language": "Limbă",
+    "languages": {
+      "en": "Engleză",
+      "fr": "Franceză",
+      "de": "Germană",
+      "pt": "Portugheză",
+      "tr": "Turcă"
+    },
+    "shakeIntensity": "Zguduire",
+    "largerTextSize": "Text mai mare",
+    "crtFilter": "Filtru CRT",
+    "chromaticAberrationSlider": "Aberație cromatică",
+    "chromaticAberration": "Aberație cromatică",
+    "swordSwooshSounds": "Sunete de sabie și critice",
+    "catSounds": "Sunete de pisică",
+    "fullscreen": "Ecran complet",
+    "resume": "Continuă jocul",
+    "close": "Închide",
+    "quitGame": "Ieși din joc",
+    "joinDiscord": "Intră pe Discord",
+    "clear_save_label": "Ștergi progresul?",
+    "zoom_adjustment": "Mărirea interfeței",
+    "clear_save": "Șterge acum",
+    "are_you_sure": "Ești sigur?",
+    "cannot_be_reversed": "Asta nu se poate anula.",
+    "yes": "Da",
+    "no": "Nu",
+    "saveData": {
+      "title": "Date salvate",
+      "clearChapterTitle": "Progresul capitolelor",
+      "clearChapterExplanation": "Șterge aurul, trupele, îmbunătățirile, progresul din temniță și însemnele de terminare pentru fiecare capitol. Capitolele deblocate, statisticile totale, setările și artefactele rămân.",
+      "clearChapterButton": "Șterge progresul capitolelor",
+      "clearFullTitle": "Toate datele salvate",
+      "clearFullExplanation": "Șterge tot ce șterge resetarea capitolelor, plus artefactele, capitolele deblocate și statisticile totale. Setările de sunet, grafică și limbă rămân.",
+      "clearFullButton": "Șterge toate datele salvate",
+      "clearFullWarning": "Asta nu se poate anula. Pierzi artefactele, capitolele deblocate și statisticile totale."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspirație",
+    "inspirationDescription": "Cât timp e activă, puterea tuturor eroilor se înmulțește.",
+    "maxInspiration": "Multiplicator maxim",
+    "maxInspirationMultiplier": "Multiplicator maxim",
+    "statisticsDescription": "Cifre amănunțite despre progresul tău și despre luptă.",
+    "hudStopBird": "Oprește pasărea",
+    "hudLifetimeStats": "Statistici totale",
+    "hudHideWindows": "Ascunde ferestrele",
+    "events": {
+      "roar": "Răget amețitor",
+      "fire": "Suflu de foc",
+      "claw": "Lovitură de gheară",
+      "dialog": "Eveniment deosebit",
+      "pope_visit": "Un oaspete deosebit",
+      "dungeon_keys": "Un secret întunecat",
+      "missing_king": "Unde e regele?",
+      "catapult": "Un prototip tehnic",
+      "engineer": "Ajutor la țanc",
+      "invasion_start": "Se apropie o invazie",
+      "invasion_end": "Vești de la trupe",
+      "apprenticeships_unlock": "Ucenicii deblocate",
+      "trading": "Un negustor ambulant",
+      "dummy_toy_reveal": "Nu e ce credeam"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Evenimente",
+      "stats": "Statistici",
+      "engineering": "Inginerie",
+      "resources": "Resurse"
+    },
+    "tabs": {
+      "events": "Evenimente",
+      "stats": "Statistici",
+      "engineering": "Inginerie",
+      "resources": "Resurse"
+    },
+    "tabsAriaLabel": "file de informații"
+  },
+  "game": {
+    "dummy": "Păpușa mare de lemn",
+    "infiniteBird": "Pasărea care nu poate fi doborâtă",
+    "king": "Regele",
+    "smallDragon": "Tuth'orieth, Cel Încolțit",
+    "bigDragon": "Forth'aarh, Care Dă și Ia Viața"
+  },
+  "dungeon": {
+    "found": "Găsit",
+    "giveUp": "Renunță",
+    "tooltipDescription": "Explorează temnița (nivelul {{level}})",
+    "cooldownMessage": "Temnița se odihnește. Așteaptă {{seconds}} secunde ca să intri din nou.",
+    "cooldownShort": "{{seconds}} sec",
+    "levelLabel": "Nivel",
+    "levelShort": "Nivelul {{level}}",
+    "keysOwned": "Chei",
+    "giveUpTooltip": "Părăsește temnița (păstrezi o parte din pradă cu Pradă darnică)",
+    "moveHint": "WASD sau tastele săgeți ca să mergi",
+    "attackHint": "Dă clic pe monștri ca să ataci",
+    "chestCountsTooltip": "{{opened}} din {{total}} cufere deschise",
+    "exitDirection": "IEȘIRE"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Expediție reușită",
+      "titleFailed": "Expediție eșuată",
+      "titleStuckRescue": "Ieșit teafăr",
+      "lootSummarySubtitle": "Bilanțul prăzii",
+      "body_one": "Ai primit {{gold}} aur și {{grayKeys}} cheie",
+      "body_other": "Ai primit {{gold}} aur și {{grayKeys}} de chei",
+      "body_few": "Ai primit {{gold}} aur și {{grayKeys}} chei",
+      "artifactFound": "Ai găsit {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Pierderi din suflul de foc",
+      "body": "Ai pierdut {{list}}",
+      "none": "Nicio pierdere"
+    },
+    "fireBreathBlocked": {
+      "title": "Suflul de foc a fost oprit!",
+      "body": "O bombă fumigenă ți-a salvat trupele."
+    },
+    "toastLabel": "Mesaj din joc"
+  },
+  "levels": {
+    "title": "Capitole",
+    "locked": "Blocat",
+    "active": "În desfășurare",
+    "completed": "Terminat",
+    "continue": "Continuă",
+    "start": "Începe",
+    "restart": "Joacă din nou",
+    "restart_progress_warning": "Joci din nou acum? Pierzi progresul nesalvat din acest capitol.",
+    "names": {
+      "mainGame": "Un dragon mare",
+      "newGamePlus": "Gestionarea resurselor",
+      "dummy": "O jucărie fermecată",
+      "infinite": "Cu adevărat fără sfârșit",
+      "kingBattle": "Ultima luptă a regelui"
+    }
+  },
+  "artifacts": {
+    "title": "Artefacte",
+    "subtitle": "Artefacte rare apar uneori în cufere speciale din temniță. Ele rămân de la un capitol la altul.",
+    "notYetFound": "(încă negăsit)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Fluierul phoenixului",
+        "description": "O pasăre deosebită aduce o monedă nouă."
+      },
+      "emberforgedShield": {
+        "title": "Scut făurit în jar",
+        "description": "Războinicii nu suferă de la focul dragonului."
+      },
+      "moonwellFlask": {
+        "title": "Ploscă din fântâna lunii",
+        "description": "Vrăjitorii consumă doar jumătate din mana."
+      },
+      "windstepAnklet": {
+        "title": "Brățară a pasului de vânt",
+        "description": "Elfii nu mai sunt amețiți."
+      },
+      "fangSatchel": {
+        "title": "Traistă de colți",
+        "description": "Cât ține runda, hoții fac un colț de dragon la fiecare 30 de minute."
+      },
+      "slumberBerries": {
+        "title": "Fructe de somn",
+        "description": "Otrava întârzie răgetul și focul dragonului cu 10 secunde."
+      },
+      "echoingLute": {
+        "title": "Lăută cu ecou",
+        "description": "Barzii dau inspirație dublă."
+      },
+      "blessingCenser": {
+        "title": "Cădelnița binecuvântării",
+        "description": "Preoții recrutează mereu de două ori mai mulți."
+      },
+      "victoryTusk": {
+        "title": "Colțul victoriei",
+        "description": "Un nivel terminat dă de două ori mai mulți colți de dragon."
+      },
+      "cartographersLedger": {
+        "title": "Registrul cartografului",
+        "description": "Arată câte cufere din temniță au fost deschise."
+      },
+      "ironSkeletonKey": {
+        "title": "Șperaclu de fier",
+        "description": "Deblochează temnița până la nivelul 20."
+      },
+      "everflameLantern": {
+        "title": "Felinarul flăcării veșnice",
+        "description": "Torța nu se stinge niciodată."
+      },
+      "midasCoin": {
+        "title": "Moneda lui Midas",
+        "description": "Aur dublu în temniță."
+      },
+      "harvestIdol": {
+        "title": "Idolul recoltei",
+        "description": "Producția de resurse crește cu 25%."
+      },
+      "titanGauntlet": {
+        "title": "Mănușa titanului",
+        "description": "Daune de zece ori mai mari pe clic."
+      },
+      "wayfindersCompass": {
+        "title": "Busola călăuzei",
+        "description": "Arată ieșirea din temniță."
+      },
+      "loadedDice": {
+        "title": "Zaruri măsluite",
+        "description": "Fiecare clic e critic."
+      }
+    }
+  }
+}
