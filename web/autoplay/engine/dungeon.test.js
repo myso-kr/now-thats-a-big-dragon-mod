@@ -331,3 +331,91 @@ test('a move that changed nothing marks the cell walled, and it sticks', () => {
   d.step();
   assert.deepStrictEqual(d.report().walled, ['1,2'], 'remembered, not re-discovered');
 });
+
+// ── Not getting stuck ────────────────────────────────────────────
+// Every way this stalled looked the same on screen: the player standing there, or
+// turning on the spot, until the torch died. Reported from the other side of the
+// screen - "sometimes it just stops in the dungeon" - and every one of them was a
+// branch that did nothing and returned as though it had.
+
+function stuckDriver(picture, over = {}) {
+    const scene = sceneOf(picture, over.opts || {});
+    let clock = 0;
+    const log = [];
+    const left = [];
+    const d = D.create({
+        scene: () => scene,
+        tap: over.tap || (() => {}),
+        click: over.click || (() => true),
+        leave: () => { left.push(clock); return true; },
+        now: () => clock,
+        log: (tag, text, level) => log.push(`${level || 'info'}: ${text}`),
+        graceMs: 10,
+        timeoutMs: 50,
+        stallMs: over.stallMs || 1000,
+    });
+    return { d, scene, log, left, tick: (ms = 100) => { clock += ms; return d.step(); } };
+}
+
+test('a level where nothing changes is left rather than stood in', () => {
+    // The fake camera never moves and no chest ever opens, so this is every stall at
+    // once. The old driver returned true here for as long as the torch lasted.
+    const r = stuckDriver(SIMPLE);
+    for (let i = 0; i < 30; i += 1) r.tick(100);
+    assert.strictEqual(r.left.length, 1, 'it left, once');
+    assert.ok(r.log.some((l) => l.startsWith('warn: leaving the dungeon')), r.log.join(' | '));
+});
+
+test('a chest that will not open is given up on, and the door still gets a turn', () => {
+    // A click with nothing under it will not start working if repeated. The cell is
+    // fine - it is the thing on it we stop trying - so the way out stays reachable.
+    // The stall clock is given room here: in the game it is twenty-five seconds and
+    // eight attempts take about five, so the per-target ladder is what runs first.
+    const r = stuckDriver(['#####', '#@$.X', '#####'],
+        { opts: { facing: Math.PI / 2 }, click: () => false, stallMs: 60000 });
+    for (let i = 0; i < 40; i += 1) r.tick(100);
+    assert.ok(r.log.some((l) => l.includes('giving up on')), r.log.join(' | '));
+});
+
+test('a click that found nothing to press is said out loud, not repeated in silence', () => {
+    const r = stuckDriver(['####', '#@$#', '####'],
+        { opts: { facing: Math.PI / 2 }, click: () => false });
+    r.tick(0);
+    r.tick(100);
+    assert.ok(r.log.some((l) => l.includes('nothing to click')), r.log.join(' | '));
+});
+
+test('with nothing reachable it leaves instead of waiting', () => {
+    // A chest walled off and no way out: there is nothing to wait for.
+    const r = stuckDriver(['#####', '#@.#$', '#####']);
+    r.tick(0);
+    assert.strictEqual(r.left.length, 1);
+    assert.ok(r.log.some((l) => l.includes('nothing left that can be reached')), r.log.join(' | '));
+});
+
+test('leaving happens once, however many ticks follow', () => {
+    const r = stuckDriver(['#####', '#@.#$', '#####']);
+    for (let i = 0; i < 10; i += 1) r.tick(100);
+    assert.strictEqual(r.left.length, 1, 'the button is pressed once');
+    assert.strictEqual(r.d.report().gaveUp, true);
+});
+
+test('progress resets the stall clock', () => {
+    // Moving counts, so a long level is not mistaken for a stuck one.
+    const scene = sceneOf(['######', '#@...X', '######'], { facing: Math.PI / 2 });
+    let clock = 0;
+    const left = [];
+    const d = D.create({
+        scene: () => scene,
+        tap: (code) => { if (code === 'KeyW') scene.activeCamera.position.x += CELL; },
+        click: () => true,
+        leave: () => left.push(clock),
+        now: () => clock,
+        log: () => {},
+        graceMs: 10,
+        timeoutMs: 50,
+        stallMs: 500,
+    });
+    for (let i = 0; i < 12; i += 1) { clock += 100; d.step(); }
+    assert.strictEqual(left.length, 0, 'it was getting somewhere, so it stayed');
+});

@@ -244,10 +244,11 @@
    * one is re-planned from where we actually are - which is what makes the route
    * through several of them short rather than a series of straight lines to each.
    */
-  function nextGoal(maze) {
+  function nextGoal(maze, abandoned) {
+    const skip = abandoned || new Set();
     let best = null;
     for (const ch of maze.chests) {
-      if (!ch.shut) continue;
+      if (!ch.shut || skip.has(`${ch.cell[0]},${ch.cell[1]}`)) continue;
       // Stand beside it, not on it. Any of the four neighbours will do; the nearest one
       // is the one worth walking to.
       for (const [dr, dc] of STEPS) {
@@ -264,7 +265,7 @@
 
     // Every chest taken; now the door - walked *to*, not stood beside.
     const door = maze.exit;
-    if (!door) return null;
+    if (!door || skip.has('exit')) return null;
     const path = findPath(maze, maze.player, door.cell);
     if (!path) return null;
     return { kind: door.shut ? 'exit' : 'leave', cell: door.cell, target: door, path };
@@ -353,6 +354,20 @@
   const ACTION_BUDGET = 400;
 
   /**
+   * How long nothing may change before the level is abandoned.
+   *
+   * Every way this used to stall came out the same on screen - the player standing
+   * somewhere doing nothing, or turning on the spot, until the torch died. So there is
+   * one notion of getting somewhere (a new square, a chest open, the door open) and one
+   * answer when it stops happening. The game has a give-up button for exactly this, and
+   * walking out with part of the loot beats burning the torch in a corner.
+   */
+  const STALL_MS = 25000;
+
+  /** How many actions one chest or the door is worth before it is left alone. */
+  const OPEN_ATTEMPTS = 8;
+
+  /**
    * Drives the dungeon, one action per call.
    *
    * The controls turned out to be discrete, which is what makes this a state machine
@@ -383,12 +398,20 @@
     // Opening a chest is a click on it, not a key: the game picks whatever mesh is
     // under the pointer and opens the one it finds. Which point on the canvas that is
     // needs the engine's own picking, so it belongs to the caller - and it is not the
-    // middle of the view. The camera sits above the chest and looks level, so the
-    // chest lands below centre and a click at the middle sails over it.
-    const click = deps.click || (() => {});
+    // middle of the view. The camera sits above them and looks level, so they land
+    // below centre and a click at the middle sails over.
+    //
+    // It answers whether it found anything to press. A click with nothing under it is
+    // not a thing that will start working if repeated, and treating it as one is how
+    // the driver used to stand in front of a chest pressing forever.
+    const click = deps.click || (() => false);
+    // Leaving is the last rung of the ladder. The game has a give-up button for exactly
+    // this, and walking out with part of the loot beats burning the torch in a corner.
+    const leave = deps.leave || (() => false);
     const now = deps.now || Date.now;
     const timeoutMs = deps.timeoutMs || ACTION_TIMEOUT_MS;
     const graceMs = deps.graceMs || START_GRACE_MS;
+    const stallMs = deps.stallMs || STALL_MS;
 
     let startedAt = 0;
     let pending = null;        // { key, from: [x, z], cell: [r, c] }
@@ -396,8 +419,15 @@
     // marking one on that object lasts exactly one tick and the driver walks into the
     // same wall for as long as the torch holds out.
     let walled = new Set();
+    // Targets that would not open however we stood. Kept apart from `walled`: the cell
+    // is fine, it is the thing on it we have given up on.
+    let abandoned = new Set();
+    let tries = new Map();     // target -> how many actions spent trying to open it
     let actions = 0;
     let lastScene = null;
+    let progressAt = 0;
+    let progressMark = '';
+    let gaveUp = false;
 
     /**
      * Everything about the level resets when the scene does.
@@ -407,13 +437,29 @@
      * dependencies - and it broke the tests the moment they ran without a browser,
      * which is exactly what that rule is for.
      */
-    function freshen(sc) {
+    function freshen(sc, t) {
       if (lastScene === sc) return;
       lastScene = sc;
       walled = new Set();
+      abandoned = new Set();
+      tries = new Map();
       actions = 0;
       pending = null;
       startedAt = 0;
+      progressAt = t;
+      progressMark = '';
+      gaveUp = false;
+    }
+
+    const nameOf = (target) => (target.isExit ? 'exit' : `${target.cell[0]},${target.cell[1]}`);
+
+    /** Walk out, and say why. Once only - the button takes a moment to answer. */
+    function giveUp(why) {
+      if (gaveUp) return true;
+      gaveUp = true;
+      log('DGN', `leaving the dungeon: ${why}`, 'warn');
+      leave();
+      return true;
     }
 
     /**
@@ -424,13 +470,24 @@
       const sc = scene();
       const maze = readMaze(sc);
       if (!maze) { pending = null; return false; }
-      freshen(sc);
+      const t = now();
+      freshen(sc, t);
       for (const at of walled) {
         const [r, c] = at.split(',').map(Number);
         if (maze.blocked[r]) maze.blocked[r][c] = true;
       }
 
-      const t = now();
+      // What counts as getting somewhere: standing somewhere new, or a chest or the
+      // door having opened. Everything else is effort, and effort that never turns into
+      // one of these is the shape of every way this used to stall.
+      const shut = maze.chests.filter((c) => c.shut).length;
+      const mark = `${maze.player[0]},${maze.player[1]}|${shut}|${maze.exit && maze.exit.shut}`;
+      if (mark !== progressMark) {
+        progressMark = mark;
+        progressAt = t;
+      } else if (t - progressAt > stallMs) {
+        return giveUp(`nothing has changed for ${Math.round(stallMs / 1000)}s`);
+      }
 
       // Is the last action still playing out?
       //
@@ -454,9 +511,7 @@
           pending.settled = true;
           return true;
         }
-      }
 
-      if (pending) {
         const done = pending;
         pending = null;
         if (done.kind === 'move') {
@@ -475,48 +530,64 @@
         }
       }
 
-      if (actions >= ACTION_BUDGET) return true;
+      if (actions >= ACTION_BUDGET) {
+        return giveUp(`${ACTION_BUDGET} actions without finishing`);
+      }
 
-      const goal = nextGoal(maze);
-      if (!goal) return true;
+      const goal = nextGoal(maze, abandoned);
+      if (!goal) {
+        // Nothing left that can be reached. If the door is open we are simply done and
+        // the game will take us out; otherwise there is no way on and no reason to wait.
+        return maze.exit && !maze.exit.shut ? true : giveUp('nothing left that can be reached');
+      }
 
-      // Standing beside the chest already: face it, then open it. Walking onto it is
-      // not a thing that can happen - its collision box fills the square - so arriving
-      // is never what opens one, and the first driver walked the whole route and came
-      // back with nothing.
+      // Standing beside the chest already, or in front of the door: face it, then open
+      // it. Walking onto a chest is not a thing that can happen - its collision box
+      // fills the square - so arriving is never what opens one, and the first driver
+      // walked the whole route and came back with nothing.
       if ((goal.kind === 'chest' || goal.kind === 'exit') && !goal.path.length) {
-        const ch = goal.target;
-        if (canOpen(maze, ch)) {
-          // Nothing is recorded as opened here. The chest itself says so - the game
-          // swaps its material and drops its collisions - and an earlier version that
-          // ticked the box on its own account walked the whole level reporting chests
-          // it had never opened.
-          click(ch);
-          actions += 1;
-          // A click changes no camera state, so there is nothing to watch settle; the
-          // chest itself reports the result on the next look.
-          startedAt = t;
+        const target = goal.target;
+        const key = nameOf(target);
+        const spent = (tries.get(key) || 0) + 1;
+        tries.set(key, spent);
+        if (spent > OPEN_ATTEMPTS) {
+          // It would not open however we stood. The cell is fine; the thing on it is
+          // what we are giving up on, so the door stays reachable through it.
+          abandoned.add(key);
+          log('DGN', `giving up on ${key} after ${OPEN_ATTEMPTS} tries`, 'warn');
           return true;
         }
-        // Not square enough on yet, so turn towards it a quarter at a time.
+        if (canOpen(maze, target)) {
+          // A click that found nothing under it will not start working if repeated.
+          if (click(target)) {
+            actions += 1;
+            startedAt = t;
+            return true;
+          }
+          log('DGN', `nothing to click on ${key} from here`, 'warn');
+        }
+        // Not square enough on yet, or the click had no target. Turn towards it a
+        // quarter at a time.
         //
         // From the world offset, not the difference of cells: the door rounds onto the
         // square you use it from, so that difference is (0,0) and there is nothing to
         // turn towards. `keyFor` reads (dRow, dCol) as (z, x), which is what these are.
-        const act = keyFor(maze.facing, ch.world[1] - maze.at[1], ch.world[0] - maze.at[0]);
-
+        const act = keyFor(maze.facing, target.world[1] - maze.at[1], target.world[0] - maze.at[0]);
         // `keyFor` answers "how do I get there", and for something straight ahead or
         // straight behind the answer is to walk. Here we do not want to walk, we want
         // to look at it - and taking `KeyS` for a turn is how the player came to step
         // backwards away from a chest directly opposite and then fail to click it.
         // Facing away is fixed by turning, either way round; facing it already and
         // still out of reach means stepping closer.
-        const key = act.kind === 'move'
-          ? (act.key === 'KeyW' ? 'KeyW' : 'KeyD')
-          : act.key;
-        pending = { kind: key === 'KeyW' ? 'move' : 'turn', key, from: maze.at.slice(),
-          cell: ch.cell, seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}` };
-        tap(key);
+        const key2 = act.kind === 'move' ? (act.key === 'KeyW' ? 'KeyW' : 'KeyD') : act.key;
+        pending = {
+          kind: key2 === 'KeyW' ? 'move' : 'turn',
+          key: key2,
+          from: maze.at.slice(),
+          cell: target.cell,
+          seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}`,
+        };
+        tap(key2);
         actions += 1;
         startedAt = t;
         return true;
@@ -525,8 +596,13 @@
       if (!goal.path.length) return true;
       const next = goal.path[0];
       const act = keyFor(maze.facing, next[0] - maze.player[0], next[1] - maze.player[1]);
-      pending = { kind: act.kind, key: act.key, from: maze.at.slice(), cell: next,
-        seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}` };
+      pending = {
+        kind: act.kind,
+        key: act.key,
+        from: maze.at.slice(),
+        cell: next,
+        seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}`,
+      };
       tap(act.key);
       actions += 1;
       startedAt = t;
@@ -536,12 +612,19 @@
     return {
       step,
       /** For the panel and the tests: what it thinks it is doing. */
-      report: () => ({ actions, walled: [...walled], pending }),
+      report: () => ({
+        actions,
+        walled: [...walled],
+        abandoned: [...abandoned],
+        gaveUp,
+        pending,
+      }),
     };
   }
 
   const api = { create, readMaze, findPath, nextGoal, keyFor, canOpen,
-    SQUARE, CELL, STEPS, ACTION_TIMEOUT_MS, OPEN_RANGE, OPEN_DOT };
+    SQUARE, CELL, STEPS, ACTION_TIMEOUT_MS, OPEN_RANGE, OPEN_DOT,
+    STALL_MS, OPEN_ATTEMPTS, ACTION_BUDGET };
 
   // The game runs Electron with node_integration, so `module` exists in the renderer
   // too, and the usual "module exists, therefore Node" check is wrong here.

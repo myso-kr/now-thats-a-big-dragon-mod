@@ -195,16 +195,31 @@
         };
         canvas.dispatchEvent(new PointerEvent('pointerdown', o));
         canvas.dispatchEvent(new PointerEvent('pointerup', Object.assign({}, o, { buttons: 0 })));
-        return true;
+        return true;   // something was under the pointer
       }
     }
     return false;
+  }
+
+  /**
+   * Walk out of the dungeon.
+   *
+   * The game's own give-up button, which keeps part of the loot with Generous Loot.
+   * It is the last rung of the driver's ladder: a level that has stopped going
+   * anywhere is one to leave, not one to stand in until the torch dies.
+   */
+  function dungeonLeave() {
+    const b = document.querySelector('[data-testid=dungeon-give-up-button]');
+    if (!b) return false;
+    b.click();
+    return true;
   }
 
   const dungeon = dungeonMod && dungeonMod.create({
     scene: () => (window.__bd_dungeon || {}).scene,
     tap: dungeonTap,
     click: dungeonClick,
+    leave: dungeonLeave,
     log,
   });
 
