@@ -12,7 +12,8 @@
     "dry-run": "node tools/dry-run.js",
     "extract": "node tools/extract-i18n.js",
     "translations": "python tools/build-translation.py --all",
-    "translations:check": "python tools/build-translation.py --all --check"
+    "translations:check": "python tools/build-translation.py --all --check",
+    "reload": "node tools/reload-engine.js"
   },
   "license": "MIT",
   "author": "myso-kr",
