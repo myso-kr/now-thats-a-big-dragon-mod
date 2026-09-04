@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Uppgraderingar",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Nästa nivå",
+    "currentLevel": "Nuvarande",
+    "newGamePlusOnly": "Endast i kapitlet \"Resurshantering\"",
+    "max": "Max",
+    "lockedMessage": "Uppgradera {{parentSkill}} mer för att låsa upp den här",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Järnfinger",
+        "description": "+{{bonus}} skada per klick",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Fjäderfinger",
+        "description": "+{{bonus}} klick per sekund"
+      },
+      "wakeupCall": {
+        "title": "Väckning",
+        "description": "Varje klick kortar bedövningen med {{bonus}} sekunder",
+        "prefix": "-",
+        "suffix": " sek"
+      },
+      "electricalFinger": {
+        "title": "Elektriskt finger",
+        "description": "Varje klick har {{bonus}} % chans att kalla på blixten.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Perfekt klick",
+        "description": "+{{bonus}} % chans till kritiskt klick",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kritiskt slag",
+        "description": "+{{bonus}}x skada på kritiska klick",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Gyllene explosion",
+        "description": "{{bonus}}x belöning när du klickar på fåglar",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Född ledare",
+        "description": "Klick fyller inspirationsmätaren med +{{bonus}}/klick",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Guldmarkör",
+        "description": "{{bonus}}x guld per klick",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Fulla kistor",
+        "description": "{{bonus}} % mindre chans att en kista i fängelsehålan är tom",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Handledskur",
+        "description": "Håll ner musknappen för att anfalla draken utan uppehåll."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Kortsvärd",
+        "description": "+{{bonus}}x skademultiplikator för {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Långsvärd",
+        "description": "+{{bonus}}x skademultiplikator till för krigare",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Tvåhandssvärd",
+        "description": "Ytterligare +{{bonus}}x skademultiplikator för krigare",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Stridsrop",
+        "description": "Fyller inspirationsmätaren med +{{bonus}} per slag",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Krigsrop",
+        "description": "Utlöser inspirationen automatiskt vid nästa tick när multiplikatorn är på max"
+      },
+      "barbarian": {
+        "title": "Barbar",
+        "description": "+{{bonus}} grundskada",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Tjock rustning",
+        "description": "{{bonus}} % mindre fysisk skada",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Eldrustning",
+        "description": "{{bonus}} % färre trupper dör av eldsprutningen",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Tunga stenar",
+        "description": "+{{bonus}} % katapultskada per nivå",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Silverklinga",
+        "description": "+{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Gyllene klinga",
+        "description": "Ytterligare +{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Trogna legosoldater",
+        "description": "{{typePlural}} du köper gör +{{bonus}}x skada per nivå",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Trogna tjänare",
+        "description": "{{bonus}} % billigare att värva {{type}} och allt över",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Samarbete",
+        "description": "Värvar ytterligare {{typePlural}} för varje {{type}} du köper",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Precision i djupet",
+        "description": "+{{bonus}} % chans till kritisk träff i fängelsehålan",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Labyrintkrossaren",
+        "description": "+{{bonus}} kritisk skada i fängelsehålan",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Magisk projektil",
+        "description": "+{{bonus}}x skademultiplikator för {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Manasvärd",
+        "description": "Varje trollkarl fyller en krigares svärd med mana. +{{bonus}}x skademultiplikator när manan är över 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Magisk mus",
+        "description": "Fyller manamätaren med +{{bonus}} per klick",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Manaflöde",
+        "description": "Fyller trollkarlarnas manamätare"
+      },
+      "manaPool": {
+        "title": "Manakälla",
+        "description": "+{{bonus}} % högsta mana",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Manastöt",
+        "description": "Trollkarlarnas skada fördubblas när manan är över {{current}}",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Väderprognos",
+        "description": "+{{bonus}} % chans till blixtnedslag",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Blixtnedslag",
+        "description": "Lägger till en blixt som gör +{{bonus}}x skada av {{type}} för varje köpt uppgradering",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Silverstav",
+        "description": "+{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Gyllene stav",
+        "description": "Ytterligare +{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Magisk eld",
+        "description": "Facklan brinner +{{bonus}} sekunder längre",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Ärkemagiker",
+        "description": "+{{bonus}} grundskada",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Jägarens öga",
+        "description": "+{{bonus}} % chans att träffa en fågel inom räckhåll varje tick",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Skarpt sikte",
+        "description": "+{{bonus}} % chans till kritiskt skott",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Lövskäraren",
+        "description": "+{{bonus}}x skada på kritiska skott",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Jaktsäsong",
+        "description": "Kallar genast fram en flock fåglar",
+        "suffix": " fåglar"
+      },
+      "elvenEyes": {
+        "title": "Alvögon",
+        "description": "Du ser i mörkret +{{bonus}} sekunder efter att facklan slocknat",
+        "prefix": "+",
+        "suffix": " sek"
+      },
+      "multipleShot": {
+        "title": "Flera pilar",
+        "description": "Skjuter en pil till per nivå",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Silverpil",
+        "description": "+{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Gyllene pil",
+        "description": "Ytterligare +{{bonus}}x multiplikator på guld per slag",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Ispil",
+        "description": "Fördröjer drakens eld med {{bonus}} sekunder",
+        "prefix": "-",
+        "suffix": " sek"
+      },
+      "animalInstinct": {
+        "title": "Djurinstinkt",
+        "description": "Katapulten skjuter katter i stället för stenar, och tigrar i stället för katter, tio gånger skadan varje gång.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Åskledare",
+        "description": "{{bonus}} % chans att dra till sig en blixt till när trollkarlarnas blixt träffar.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Återvunna pilar",
+        "description": "Alvernas anfall kostar mindre trä"
+      },
+      "lightfoot": {
+        "title": "Lätt på foten",
+        "description": "+{{bonus}} % snabbare att gå och vända i fängelsehålan",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Snabba händer",
+        "description": "Kortar tiden att göra guld med {{bonus}} sekunder"
+      },
+      "sharpDagger": {
+        "title": "Lönnmördarklinga",
+        "description": "Tjuvar anfaller också, med {{current}} i skada"
+      },
+      "poisonDagger": {
+        "title": "Förgiftad dolk",
+        "description": "+{{bonus}} % chans att förgifta draken",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Svart mamba",
+        "description": "+{{bonus}}x giftskada av tjuvarnas skada",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Dröjande gift",
+        "description": "Giftet varar +{{bonus}} sekunder längre",
+        "suffix": " sek"
+      },
+      "smokeBomb": {
+        "title": "Rökbomb",
+        "description": "Lägger en fälla för draken med {{current}} % chans att utlösas vid nästa slag och stoppa det.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Kattbomb",
+        "description": "Katapultens ammunition exploderar vid träff, dubbel skada.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Ficktjuv",
+        "description": "+{{bonus}}x multiplikator på guldet {{type}} gör",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Dyrk",
+        "description": "Varje expedition börjar med {{bonus}} dörrar redan olåsta."
+      },
+      "midasTouch": {
+        "title": "Midas beröring",
+        "description": "Ytterligare +{{bonus}}x multiplikator på guldet {{type}} gör",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Proppfulla kistor",
+        "description": "+{{bonus}} % guld ur fängelsehålans kistor",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Stämgaffel",
+        "description": "+{{bonus}} inspiration samlas",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Lutsolo",
+        "description": "+{{bonus}}x högsta inspirationsmultiplikator",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Odräglig gitarrist",
+        "description": "Inspirationen varar +{{bonus}} sekunder",
+        "suffix": " sek"
+      },
+      "piercedEardrums": {
+        "title": "Spräckta trumhinnor",
+        "description": "Drakens vrålräknare går {{bonus}} % långsammare",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Extranummer",
+        "description": "{{bonus}} % chans att inspirationen börjar om när den tar slut",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Ljudbarriär",
+        "description": "Drakens eldräknare går {{bonus}} % långsammare",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofonix",
+        "description": "Bedövar dina egna trupper när du köper den"
+      },
+      "churchChoir": {
+        "title": "Kyrkokör",
+        "description": "Värvar 1 seminarium varje gång inspirationen utlöses"
+      },
+      "encore": {
+        "title": "Extranummer igen",
+        "description": "Kortar inspirationens vila med {{bonus}} sekunder",
+        "suffix": " sek"
+      },
+      "lockerRoomSpeech": {
+        "title": "Tal i omklädningsrummet",
+        "description": "Gör inspiration medan spelet är stängt, i {{current}} % av takten",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Ordning i kungariket",
+        "description": "När spelet är stängt får din musik hantverkarna att jobba över och göra resurser i {{current}} % av vanlig takt",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Durtonart",
+        "description": "Köper en nyckel till fängelsehålan. (Ja, ordvitsen är usel.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Sårbara frekvenser",
+        "description": "Fienderna i fängelsehålan är odödliga {{bonus}} millisekunder kortare efter varje slag",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Hjältepersonalen",
+        "description": "+{{bonus}} % chans att värva dubbelt så många hjältar",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Välsignad aura",
+        "description": "{{bonus}} % färre trupper dör av eldsprutningen",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Välsignad fågel",
+        "description": "{{current}} % chans att en fågel kommer välsignad och ger dubbelt guld",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Kraftöverföring",
+        "description": "Vid varje värvning fyller trollkarlarnas mana på med 0,5 för varje präst du har"
+      },
+      "generousLoot": {
+        "title": "Frikostigt byte",
+        "description": "När en expedition misslyckas behåller du ändå {{current}} % av bytet.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Gudomligt ljus",
+        "description": "+{{bonus}} % chans att tända en slocknad fackla igen",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Värva krigare",
+        "description": "Låter dig värva krigare till striden"
+      },
+      "recruitElves": {
+        "title": "Värva alver",
+        "description": "Låter dig värva alver till striden"
+      },
+      "recruitWizards": {
+        "title": "Värva trollkarlar",
+        "description": "Låter dig värva trollkarlar till striden"
+      },
+      "recruitBards": {
+        "title": "Värva barder",
+        "description": "Låter dig värva barder till striden"
+      },
+      "recruitThieves": {
+        "title": "Värva tjuvar",
+        "description": "Låter dig värva tjuvar till striden"
+      },
+      "recruitClerics": {
+        "title": "Värva präster",
+        "description": "Låter dig värva präster till striden"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Lägg till i önskelistan!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Stridstid",
+      "dgps": "Skada och guld per sekund",
+      "resourceBalance": "Resursbalans"
+    },
+    "lifetime": {
+      "title": "Total statistik",
+      "totalPlaytime": "Total speltid",
+      "totalGoldEarned": "Guld intjänat totalt",
+      "totalGoldSpent": "Guld spenderat totalt",
+      "totalBirdsKilled": "Fåglar nedskjutna totalt",
+      "totalClicks": "Klick totalt",
+      "totalHeroesRecruited": "Hjältar värvade totalt",
+      "heroesPurchased": "Köpta",
+      "heroesRecruited": "Värvade",
+      "tier1": "Nivå 1 värvade (köpta)",
+      "tier2": "Nivå 2 värvade (köpta)",
+      "tier3": "Nivå 3 värvade (köpta)",
+      "totalDamageDealt": "Skada gjord totalt",
+      "totalUnitsDeadByFireBreath": "Förlorade till eldsprutning"
+    },
+    "battleDuration": "Förfluten tid: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Går det ens att vinna?",
+    "infiniteEstimatedVictory": "Verklig seger är omöjlig!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Du är vår hjälte!</strong>]; (0-1000000000)[Seger om <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Klicka eller tryck Z för att anfalla draken!</strong>]",
+    "perSec": "/sek",
+    "generationSection": "Produktion",
+    "critSection": "Särskilt",
+    "dps": "Truppernas skada: <strong>{{dps}}/sek</strong>",
+    "gps": "Truppernas guld: <strong>{{gps}}/sek</strong>",
+    "dpc": "Skada per klick: <strong>{{dpc}}/klick</strong>",
+    "gpc": "Guld per klick: <strong>{{gpc}}/klick</strong>",
+    "catapultDamage": "Skada: <strong>{{damage}}/skott</strong>",
+    "catapultTimeToShoot": "Till nästa skott: <strong>{{time}} sek</strong>",
+    "seconds_one": "sekund",
+    "seconds_other": "sekunder",
+    "minutes_one": "minut",
+    "minutes_other": "minuter",
+    "hours_one": "timme",
+    "hours_other": "timmar",
+    "days_one": "dag",
+    "days_other": "dagar",
+    "months_one": "månad",
+    "months_other": "månader",
+    "years_one": "år",
+    "years_other": "år",
+    "undo": {
+      "disabledLine": "Klicka inom 10 sekunder för att ångra ett felköp och få tillbaka guldet.",
+      "enabledAction": "Klicka för att ångra köpet av {{count}} {{generator}}.",
+      "enabledRefund": "Du får tillbaka {{refund}}.",
+      "enabledTimer": "{{seconds}} sekunder kvar.",
+      "refundGold": "{{amount}} guld"
+    }
+  },
+  "generators": {
+    "generators": "Trupper",
+    "buy": "köp {{amount}}",
+    "warrior_one": "Krigare",
+    "warrior_other": "Krigare",
+    "wizard_one": "Trollkarl",
+    "wizard_other": "Trollkarlar",
+    "elf_one": "Alv",
+    "elf_other": "Alver",
+    "garrison_one": "Garnison",
+    "garrison_other": "Garnisoner",
+    "academy_one": "Magiakademi",
+    "academy_other": "Magiakademier",
+    "academy_short_one": "Akademi",
+    "academy_short_other": "Akademier",
+    "outpost_one": "Bågskytteutpost",
+    "outpost_other": "Bågskytteutposter",
+    "outpost_short_one": "Utpost",
+    "outpost_short_other": "Utposter",
+    "council_one": "Krigsråd",
+    "council_other": "Krigsråd",
+    "nexus_one": "Ärkemagikernas nav",
+    "nexus_other": "Ärkemagikernas nav",
+    "forest_one": "Uråldrig skog",
+    "forest_other": "Uråldriga skogar",
+    "thief_one": "Tjuv",
+    "thief_other": "Tjuvar",
+    "bard_one": "Barder",
+    "bard_other": "Barder",
+    "cleric_one": "Präst",
+    "cleric_other": "Präster",
+    "guild_one": "Tjuvgille",
+    "guild_other": "Tjuvgillen",
+    "guild_short_one": "Gille",
+    "guild_short_other": "Gillen",
+    "troupe_one": "Gycklartrupp",
+    "troupe_other": "Gycklartrupper",
+    "troupe_short_one": "Trupp",
+    "troupe_short_other": "Trupper",
+    "seminary_one": "Heligt seminarium",
+    "seminary_other": "Heliga seminarier",
+    "seminary_short_one": "Seminarium",
+    "seminary_short_other": "Seminarier",
+    "congress_one": "Skuggkonvent",
+    "congress_other": "Skuggkonvent",
+    "theater_one": "Stor teater",
+    "theater_other": "Stora teatrar",
+    "college_one": "Kardinalskollegium",
+    "college_other": "Kardinalskollegier",
+    "catapult_one": "Katapult",
+    "catapult_other": "Katapulter",
+    "builder_one": "Byggare",
+    "builder_other": "Byggare",
+    "engineer_one": "Ingenjör",
+    "engineer_other": "Ingenjörer",
+    "farmer_one": "Bonde",
+    "farmer_other": "Bönder",
+    "lumberjack_one": "Skogshuggare",
+    "lumberjack_other": "Skogshuggare",
+    "miner_one": "Gruvarbetare",
+    "miner_other": "Gruvarbetare",
+    "apprenticeships_one": "Lärlingsplats",
+    "apprenticeships_other": "Lärlingsplatser",
+    "tradespeople_one": "Hantverkare",
+    "tradespeople_other": "Hantverkare",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} sek"
+    },
+    "ngPlusProductionToggle": "Slå på eller av produktion",
+    "tabs": {
+      "troops": "Trupper",
+      "support": "Stöd"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Avskeda trupper för att dra ner på resurserna och ändå behålla en del av produktionen."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Den magiska kraft som driver trollkarlarnas anfall.",
+    "emptyManaDescription": "Köp \"Manaflöde\" för att anfalla igen.",
+    "inspiration": "Inspiration",
+    "inspirationDescription": "När den är igång mångdubblas alla hjältars styrka.",
+    "unitDescription": {
+      "warrior": "Tåliga närstridskämpar.",
+      "wizard": "Slår på medeldistans, men tål inget.",
+      "elf": "Skjuter smidigt på långt håll, utom räckhåll för draken.",
+      "garrison": "Befäst bas som värvar krigare.",
+      "outpost": "Avlägsen bas som värvar alver.",
+      "academy": "Skola som utbildar trollkarlar för strid.",
+      "council": "Militär organisation som upprättar garnisoner.",
+      "nexus": "Mystisk organisation som upprättar akademier.",
+      "forest": "Helig skog som upprättar utposter.",
+      "thief": "Slug: förgiftar draken och stjäl dess guld.",
+      "bard": "Kan inspirera trupperna att slåss hårdare.",
+      "cleric": "Beskyddar och värvar nya hjältar till striden.",
+      "guild": "Undre nätverk som värvar tjuvar.",
+      "troupe": "Kringresande sällskap som värvar barder.",
+      "seminary": "Helig inrättning som utbildar präster.",
+      "congress": "Organisation i skuggorna som upprättar tjuvgillen.",
+      "theater": "Väldig inrättning som upprättar gycklartrupper.",
+      "college": "Religiös organisation som upprättar seminarier.",
+      "catapult": "Belägringsvapen som gör stor skada på draken.",
+      "builder": "Bygger byggnader på nivå 2.",
+      "engineer": "Upprättar organisationer på nivå 3.",
+      "farmer": "Odlar mat åt kungariket.",
+      "lumberjack": "Fäller trä till bygget.",
+      "miner": "Bryter malm i bergen.",
+      "apprenticeships": "Utbildar hantverkare."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} skada/{{rate}} sek",
+      "wizard": "{{generatorGeneration}} skada/{{rate}} sek",
+      "elf": "{{generatorGeneration}} skada/{{rate}} sek",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "thief": "+{{generatorGeneration}} guld/{{rate}} sek",
+      "bard": "+{{generatorGeneration}} inspiration/{{rate}} sek",
+      "cleric": "+{{generatorGeneration}} hjältar/{{rate}} sek",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "catapult": "{{generatorGeneration}} skada/{{rate}} sek",
+      "builder": "+{{generatorGeneration}} byggnader/{{rate}} sek",
+      "engineer": "+{{generatorGeneration}} organisationer/{{rate}} sek",
+      "farmer": "+{{generatorGeneration}} mat/{{rate}} sek",
+      "lumberjack": "+{{generatorGeneration}} trä/{{rate}} sek",
+      "miner": "+{{generatorGeneration}} malm/{{rate}} sek",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} sek"
+    },
+    "tabsAriaLabel": "truppflikar"
+  },
+  "settings": {
+    "settings": "Inställningar",
+    "buy_max": "Köp max",
+    "audio": "Musik och ljud",
+    "game": "Spel",
+    "graphics": "Grafik",
+    "offline_progress": "Framsteg offline",
+    "wishlist_now": "Lägg till i önskelistan"
+  },
+  "menus": {
+    "settings": "Inställningar",
+    "tabs": {
+      "game": "Spel",
+      "graphics": "Grafik",
+      "audio": "Ljud",
+      "levels": "Kapitel",
+      "saveData": "Sparade data",
+      "credits": "Medverkande"
+    },
+    "credits": {
+      "title": "Medverkande",
+      "developedBy": "Utvecklat av",
+      "developedWith": "Utvecklat med",
+      "bigThanksTo": "Ett stort tack till",
+      "theRestOfTheDiscordServer": "alla andra på Discord-servern",
+      "andYou": "och dig!"
+    },
+    "music": "Musik",
+    "sfx": "Ljudeffekter",
+    "audioSettings": "Ljudinställningar",
+    "gameSettings": "Spelinställningar",
+    "graphicsSettings": "Grafikinställningar",
+    "language": "Språk",
+    "languages": {
+      "en": "Engelska",
+      "fr": "Franska",
+      "de": "Tyska",
+      "pt": "Portugisiska",
+      "tr": "Turkiska"
+    },
+    "shakeIntensity": "Skakning",
+    "largerTextSize": "Större text",
+    "crtFilter": "CRT-filter",
+    "chromaticAberrationSlider": "Färgspridning",
+    "chromaticAberration": "Färgspridning",
+    "swordSwooshSounds": "Svärds- och kritiska ljud",
+    "catSounds": "Kattljud",
+    "fullscreen": "Helskärm",
+    "resume": "Fortsätt spela",
+    "close": "Stäng",
+    "quitGame": "Avsluta spelet",
+    "joinDiscord": "Gå med i Discord",
+    "clear_save_label": "Radera dina framsteg?",
+    "zoom_adjustment": "Gränssnittets zoom",
+    "clear_save": "Radera nu",
+    "are_you_sure": "Är du säker?",
+    "cannot_be_reversed": "Det här går inte att ångra.",
+    "yes": "Ja",
+    "no": "Nej",
+    "saveData": {
+      "title": "Sparade data",
+      "clearChapterTitle": "Kapitlens framsteg",
+      "clearChapterExplanation": "Raderar guld, trupper, uppgraderingar, framsteg i fängelsehålan och klaratmärken för varje kapitel. Upplåsta kapitel, total statistik, inställningar och artefakter behålls.",
+      "clearChapterButton": "Radera kapitlens framsteg",
+      "clearFullTitle": "Alla sparade data",
+      "clearFullExplanation": "Raderar allt som kapitelåterställningen gör, och dessutom artefakter, upplåsta kapitel och total statistik. Inställningar för ljud, grafik och språk behålls.",
+      "clearFullButton": "Radera alla sparade data",
+      "clearFullWarning": "Det går inte att ångra. Du förlorar artefakter, upplåsta kapitel och total statistik."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspiration",
+    "inspirationDescription": "När den är igång mångdubblas alla hjältars styrka.",
+    "maxInspiration": "Högsta multiplikator",
+    "maxInspirationMultiplier": "Högsta multiplikator",
+    "statisticsDescription": "Utförlig statistik om dina framsteg och striden.",
+    "hudStopBird": "Stoppa fågeln",
+    "hudLifetimeStats": "Total statistik",
+    "hudHideWindows": "Dölj fönster",
+    "events": {
+      "roar": "Bedövande vrål",
+      "fire": "Eldsprutning",
+      "claw": "Klohugg",
+      "dialog": "Särskild händelse",
+      "pope_visit": "Ett särskilt besök",
+      "dungeon_keys": "En mörk hemlighet",
+      "missing_king": "Var är kungen?",
+      "catapult": "En teknisk prototyp",
+      "engineer": "Hjälp i rättan tid",
+      "invasion_start": "En invasion är på väg",
+      "invasion_end": "Bud från trupperna",
+      "apprenticeships_unlock": "Lärlingsplatser upplåsta",
+      "trading": "En kringresande handelsman",
+      "dummy_toy_reveal": "Inte vad jag trodde"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Händelser",
+      "stats": "Statistik",
+      "engineering": "Teknik",
+      "resources": "Resurser"
+    },
+    "tabs": {
+      "events": "Händelser",
+      "stats": "Statistik",
+      "engineering": "Teknik",
+      "resources": "Resurser"
+    },
+    "tabsAriaLabel": "informationsflikar"
+  },
+  "game": {
+    "dummy": "Den stora trädockan",
+    "infiniteBird": "Fågeln som inte går att fälla",
+    "king": "Kungen",
+    "smallDragon": "Tuth'orieth, den grodde",
+    "bigDragon": "Forth'aarh, som ger och tar liv"
+  },
+  "dungeon": {
+    "found": "Hittat",
+    "giveUp": "Ge upp",
+    "tooltipDescription": "Utforska fängelsehålan (nivå {{level}})",
+    "cooldownMessage": "Fängelsehålan vilar. Vänta {{seconds}} sekunder på att gå in igen.",
+    "cooldownShort": "{{seconds}} sek",
+    "levelLabel": "Nivå",
+    "levelShort": "Nivå {{level}}",
+    "keysOwned": "Nycklar",
+    "giveUpTooltip": "Lämna fängelsehålan (behåll en del av bytet med Frikostigt byte)",
+    "moveHint": "WASD eller piltangenter för att gå",
+    "attackHint": "Klicka på monster för att anfalla",
+    "chestCountsTooltip": "{{opened}} av {{total}} kistor öppnade",
+    "exitDirection": "UTGÅNG"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Lyckad expedition",
+      "titleFailed": "Misslyckad expedition",
+      "titleStuckRescue": "Räddad ut",
+      "lootSummarySubtitle": "Sammanställning av bytet",
+      "body_one": "Fick {{gold}} guld och {{grayKeys}} nyckel",
+      "body_other": "Fick {{gold}} guld och {{grayKeys}} nycklar",
+      "artifactFound": "Hittade {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Förluster till eldsprutningen",
+      "body": "Förlorade {{list}}",
+      "none": "Inga förluster"
+    },
+    "fireBreathBlocked": {
+      "title": "Eldsprutningen stoppades!",
+      "body": "En rökbomb räddade dina trupper."
+    },
+    "toastLabel": "Spelmeddelande"
+  },
+  "levels": {
+    "title": "Kapitel",
+    "locked": "Låst",
+    "active": "Pågår",
+    "completed": "Klarat",
+    "continue": "Fortsätt",
+    "start": "Börja",
+    "restart": "Spela om",
+    "restart_progress_warning": "Spela om nu? Du förlorar osparade framsteg i det här kapitlet.",
+    "names": {
+      "mainGame": "En stor drake",
+      "newGamePlus": "Resurshantering",
+      "dummy": "En magisk leksak",
+      "infinite": "Verkligen oändligt",
+      "kingBattle": "Kungens sista strid"
+    }
+  },
+  "artifacts": {
+    "title": "Artefakter",
+    "subtitle": "Sällsynta artefakter dyker ibland upp i särskilda kistor i fängelsehålan. De följer med mellan kapitlen.",
+    "notYetFound": "(inte hittad än)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Fenixvisslan",
+        "description": "En särskild fågel bär med sig ett nytt slags mynt."
+      },
+      "emberforgedShield": {
+        "title": "Glödsmidd sköld",
+        "description": "Krigare tar ingen skada av drakeld."
+      },
+      "moonwellFlask": {
+        "title": "Månbrunnsflaska",
+        "description": "Trollkarlar förbrukar bara hälften så mycket mana."
+      },
+      "windstepAnklet": {
+        "title": "Vindstegets ankelring",
+        "description": "Alver blir inte bedövade."
+      },
+      "fangSatchel": {
+        "title": "Huggtandsväska",
+        "description": "Medan omgången pågår gör tjuvar en draktand var trettionde minut."
+      },
+      "slumberBerries": {
+        "title": "Sömnbär",
+        "description": "Giftet fördröjer drakens vrål och eld med 10 sekunder."
+      },
+      "echoingLute": {
+        "title": "Ekande luta",
+        "description": "Barder ger dubbel inspirationsbelöning."
+      },
+      "blessingCenser": {
+        "title": "Välsignelsens rökelsekar",
+        "description": "Präster värvar alltid dubbelt så många."
+      },
+      "victoryTusk": {
+        "title": "Segerbetan",
+        "description": "En klarad nivå ger dubbelt så många draktänder."
+      },
+      "cartographersLedger": {
+        "title": "Kartritarens bok",
+        "description": "Visar hur många av fängelsehålans kistor som är öppnade."
+      },
+      "ironSkeletonKey": {
+        "title": "Dyrk av järn",
+        "description": "Låser upp fängelsehålan till nivå 20."
+      },
+      "everflameLantern": {
+        "title": "Evigflammans lykta",
+        "description": "Facklan slocknar aldrig."
+      },
+      "midasCoin": {
+        "title": "Midasmyntet",
+        "description": "Dubbelt så mycket guld i fängelsehålan."
+      },
+      "harvestIdol": {
+        "title": "Skördeguden",
+        "description": "Resursproduktionen ökar med 25 %."
+      },
+      "titanGauntlet": {
+        "title": "Titanhandsken",
+        "description": "Tio gånger så mycket skada per klick."
+      },
+      "wayfindersCompass": {
+        "title": "Vägvisarens kompass",
+        "description": "Pekar mot fängelsehålans utgång."
+      },
+      "loadedDice": {
+        "title": "Riggade tärningar",
+        "description": "Varje klick blir kritiskt."
+      }
+    }
+  }
+}

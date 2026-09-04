@@ -442,29 +442,9 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "fonts": [
-        {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
-          "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
-        }
-      ],
-      "steamShare": 0.26
+      "fonts": [],
+      "steamShare": 0.26,
+      "status": "draft"
     },
     "nl": {
       "name": "Nederlands",
@@ -477,29 +457,9 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "fonts": [
-        {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
-          "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
-        }
-      ],
-      "steamShare": 0.25
+      "fonts": [],
+      "steamShare": 0.25,
+      "status": "draft"
     },
     "da": {
       "name": "Dansk",
@@ -514,27 +474,16 @@
       ],
       "fonts": [
         {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
+          "family": "bd_da_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-da-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
         }
       ],
-      "steamShare": 0.22
+      "steamShare": 0.22,
+      "status": "draft"
     },
     "id": {
       "name": "Bahasa Indonesia",
@@ -548,29 +497,9 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "fonts": [
-        {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
-          "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
-        }
-      ],
-      "steamShare": 0.16
+      "fonts": [],
+      "steamShare": 0.16,
+      "status": "draft"
     },
     "fi": {
       "name": "Suomi",
@@ -583,29 +512,9 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "fonts": [
-        {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
-          "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
-        }
-      ],
-      "steamShare": 0.14
+      "fonts": [],
+      "steamShare": 0.14,
+      "status": "draft"
     },
     "nb": {
       "name": "Norsk",
@@ -622,27 +531,16 @@
       ],
       "fonts": [
         {
-          "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
-        },
-        {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
+          "family": "bd_nb_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-nb-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
         }
       ],
-      "steamShare": 0.12
+      "steamShare": 0.12,
+      "status": "draft"
     },
     "ro": {
       "name": "Română",
@@ -658,26 +556,23 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
-          "pxPerEm": 8,
-          "basePxPerEm": 6,
-          "ascentOverride": 150,
-          "descentOverride": 50
+          "family": "bd_ro_body",
+          "file": "Everyday_Standard-bd.woff2",
+          "url": "fonts/bd-ro-body.woff2",
+          "pxPerEm": 6,
+          "basePxPerEm": 6
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
-          "pxPerEm": 10,
-          "basePxPerEm": 9,
-          "ascentOverride": 122.222,
-          "descentOverride": 55.556
+          "family": "bd_ro_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-ro-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
         }
       ],
-      "steamShare": 0.12
+      "steamShare": 0.12,
+      "status": "draft"
     },
     "el": {
       "name": "Ελληνικά",

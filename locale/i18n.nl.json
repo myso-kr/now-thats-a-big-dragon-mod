@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Upgrades",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Volgend niveau",
+    "currentLevel": "Huidig",
+    "newGamePlusOnly": "Alleen in het hoofdstuk \"Grondstoffenbeheer\"",
+    "max": "Max",
+    "lockedMessage": "Upgrade {{parentSkill}} verder om deze vrij te spelen",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "IJzeren vinger",
+        "description": "+{{bonus}} schade per klik",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Verenvinger",
+        "description": "+{{bonus}} kliks per seconde"
+      },
+      "wakeupCall": {
+        "title": "Wekroep",
+        "description": "Elke klik kort de verdoving met {{bonus}} seconden in",
+        "prefix": "-",
+        "suffix": " sec"
+      },
+      "electricalFinger": {
+        "title": "Elektrische vinger",
+        "description": "Elke klik heeft {{bonus}}% kans om de bliksem te roepen.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Perfecte klik",
+        "description": "+{{bonus}}% kans op een kritieke klik",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kritieke slag",
+        "description": "+{{bonus}}x schade bij een kritieke klik",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Gouden explosie",
+        "description": "{{bonus}}x beloning als je op vogels klikt",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Geboren leider",
+        "description": "Kliks vullen de inspiratiebalk met +{{bonus}}/klik",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Goudcursor",
+        "description": "{{bonus}}x goud per klik",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Volle kisten",
+        "description": "{{bonus}}% minder kans dat een kist in de kerker leeg is",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Polskuur",
+        "description": "Houd de muisknop ingedrukt om de draak onafgebroken aan te vallen."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Kort zwaard",
+        "description": "+{{bonus}}x schadevermenigvuldiger voor {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Lang zwaard",
+        "description": "Nog +{{bonus}}x schadevermenigvuldiger voor krijgers",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Tweehandig zwaard",
+        "description": "Nogmaals +{{bonus}}x schadevermenigvuldiger voor krijgers",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Strijdkreet",
+        "description": "Vult de inspiratiebalk met +{{bonus}} per slag",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Oorlogskreet",
+        "description": "Zet inspiratie vanzelf aan bij de volgende tik zodra de vermenigvuldiger op het hoogste staat"
+      },
+      "barbarian": {
+        "title": "Barbaar",
+        "description": "+{{bonus}} basisschade",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Dik harnas",
+        "description": "{{bonus}}% minder fysieke schade",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Vuurharnas",
+        "description": "{{bonus}}% minder troepen sterven door de vuuradem",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Zware rotsen",
+        "description": "+{{bonus}}% katapultschade per niveau",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Zilveren kling",
+        "description": "+{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Gouden kling",
+        "description": "Nog +{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Trouwe huurlingen",
+        "description": "{{typePlural}} die je koopt doen +{{bonus}}x schade per niveau",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Trouwe dienaren",
+        "description": "{{bonus}}% goedkoper om {{type}} en alles daarboven te werven",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Samenwerking",
+        "description": "Werft extra {{typePlural}} voor elke {{type}} die je koopt",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Nauwkeurigheid in de diepte",
+        "description": "+{{bonus}}% kans op een kritieke treffer in de kerker",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Doolhofbreker",
+        "description": "+{{bonus}} kritieke schade in de kerker",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Magische pijl",
+        "description": "+{{bonus}}x schadevermenigvuldiger voor {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Manazwaard",
+        "description": "Elke tovenaar laadt het zwaard van een krijger met mana. +{{bonus}}x schadevermenigvuldiger zolang de mana boven 90 staat",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Magische muis",
+        "description": "Vult de manabalk met +{{bonus}} per klik",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Manastroom",
+        "description": "Vult de manabalk van je tovenaars"
+      },
+      "manaPool": {
+        "title": "Manabron",
+        "description": "+{{bonus}}% hoogste mana",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Manastoot",
+        "description": "De schade van tovenaars verdubbelt zolang de mana boven {{current}} staat",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Weerbericht",
+        "description": "+{{bonus}}% kans op een blikseminslag",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Blikseminslag",
+        "description": "Voegt een bliksem toe van +{{bonus}}x de schade van {{type}} voor elke gekochte upgrade",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Zilveren staf",
+        "description": "+{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Gouden staf",
+        "description": "Nog +{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Magisch vuur",
+        "description": "De fakkel brandt +{{bonus}} seconden langer",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Aartsmagiër",
+        "description": "+{{bonus}} basisschade",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Jagersoog",
+        "description": "+{{bonus}}% kans om elke tik een vogel binnen bereik te raken",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Scherp vizier",
+        "description": "+{{bonus}}% kans op een kritiek schot",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Bladsnijder",
+        "description": "+{{bonus}}x schade bij een kritiek schot",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Jachtseizoen",
+        "description": "Roept meteen een zwerm vogels op",
+        "suffix": " vogels"
+      },
+      "elvenEyes": {
+        "title": "Elfenogen",
+        "description": "Je ziet nog +{{bonus}} seconden in het donker nadat de fakkel uitgaat",
+        "prefix": "+",
+        "suffix": " sec"
+      },
+      "multipleShot": {
+        "title": "Meerdere pijlen",
+        "description": "Schiet per niveau een pijl extra",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Zilveren pijl",
+        "description": "+{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Gouden pijl",
+        "description": "Nog +{{bonus}}x vermenigvuldiger op goud per slag",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "IJspijl",
+        "description": "Vertraagt het vuur van de draak met {{bonus}} seconden",
+        "prefix": "-",
+        "suffix": " sec"
+      },
+      "animalInstinct": {
+        "title": "Dierlijk instinct",
+        "description": "De katapult schiet katten in plaats van rotsen, en tijgers in plaats van katten, elke keer tien keer de schade.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Bliksemafleider",
+        "description": "{{bonus}}% kans om nog een bliksem aan te trekken als de bliksem van je tovenaars raakt.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Hergebruikte pijlen",
+        "description": "De aanval van elfen kost minder hout"
+      },
+      "lightfoot": {
+        "title": "Lichtvoetig",
+        "description": "+{{bonus}}% sneller lopen en draaien in de kerker",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Snelle handen",
+        "description": "Kort de tijd om goud te maken met {{bonus}} seconden in"
+      },
+      "sharpDagger": {
+        "title": "Sluipmoordenaarskling",
+        "description": "Dieven vallen ook aan, met {{current}} schade"
+      },
+      "poisonDagger": {
+        "title": "Vergiftigde dolk",
+        "description": "+{{bonus}}% kans om de draak te vergiftigen",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Zwarte mamba",
+        "description": "+{{bonus}}x gifschade van de schade van dieven",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Nawerkend gif",
+        "description": "Het gif werkt +{{bonus}} seconden langer",
+        "suffix": " sec"
+      },
+      "smokeBomb": {
+        "title": "Rookbom",
+        "description": "Zet een val voor de draak met {{current}}% kans dat hij bij de volgende slag afgaat en die tegenhoudt.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Kattenbom",
+        "description": "De lading van de katapult ontploft bij de inslag, dubbele schade.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Zakkenroller",
+        "description": "+{{bonus}}x vermenigvuldiger op het goud dat {{type}} maakt",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Loper",
+        "description": "Elke tocht begint met {{bonus}} deuren die al open zijn."
+      },
+      "midasTouch": {
+        "title": "Aanraking van Midas",
+        "description": "Nog +{{bonus}}x vermenigvuldiger op het goud dat {{type}} maakt",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Propvolle kisten",
+        "description": "+{{bonus}}% goud uit de kisten in de kerker",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Stemvork",
+        "description": "+{{bonus}} inspiratie verzameld",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Luitsolo",
+        "description": "+{{bonus}}x hoogste inspiratievermenigvuldiger",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Vervelende gitarist",
+        "description": "Inspiratie duurt +{{bonus}} seconden langer",
+        "suffix": " sec"
+      },
+      "piercedEardrums": {
+        "title": "Doorboorde trommelvliezen",
+        "description": "De brulteller van de draak loopt {{bonus}}% trager",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Toegift",
+        "description": "{{bonus}}% kans dat de inspiratie opnieuw begint als ze afloopt",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Geluidsbarrière",
+        "description": "De vuurteller van de draak loopt {{bonus}}% trager",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofonix",
+        "description": "Verdooft je eigen troepen zodra je hem koopt"
+      },
+      "churchChoir": {
+        "title": "Kerkkoor",
+        "description": "Werft 1 seminarie telkens als de inspiratie aanslaat"
+      },
+      "encore": {
+        "title": "Bis",
+        "description": "Kort de rust van de inspiratie met {{bonus}} seconden in",
+        "suffix": " sec"
+      },
+      "lockerRoomSpeech": {
+        "title": "Toespraak in de kleedkamer",
+        "description": "Maakt inspiratie terwijl het spel dicht is, op {{current}}% van het tempo",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Orde in het koninkrijk",
+        "description": "Terwijl het spel dicht is, laat je muziek de ambachtslieden overwerken en grondstoffen maken op {{current}}% van het gewone tempo",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Grote terts",
+        "description": "Koopt een sleutel voor de kerker. (Ja, de woordgrap is slecht.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Kwetsbare frequenties",
+        "description": "Vijanden in de kerker zijn na elke slag {{bonus}} milliseconden korter onkwetsbaar",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Personeelszaken voor helden",
+        "description": "+{{bonus}}% kans om dubbel zoveel helden te werven",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Gezegende aura",
+        "description": "{{bonus}}% minder troepen sterven door de vuuradem",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Gezegende vogel",
+        "description": "{{current}}% kans dat een vogel gezegend verschijnt en dubbel goud geeft",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Krachtoverdracht",
+        "description": "Bij elke werving vult de mana van je tovenaars met 0,5 per priester die je hebt"
+      },
+      "generousLoot": {
+        "title": "Gulle buit",
+        "description": "Als een tocht mislukt, houd je toch {{current}}% van de buit.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Goddelijk licht",
+        "description": "+{{bonus}}% kans om een gedoofde fakkel weer aan te steken",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Krijgers werven",
+        "description": "Hiermee kun je krijgers voor de strijd werven"
+      },
+      "recruitElves": {
+        "title": "Elfen werven",
+        "description": "Hiermee kun je elfen voor de strijd werven"
+      },
+      "recruitWizards": {
+        "title": "Tovenaars werven",
+        "description": "Hiermee kun je tovenaars voor de strijd werven"
+      },
+      "recruitBards": {
+        "title": "Barden werven",
+        "description": "Hiermee kun je barden voor de strijd werven"
+      },
+      "recruitThieves": {
+        "title": "Dieven werven",
+        "description": "Hiermee kun je dieven voor de strijd werven"
+      },
+      "recruitClerics": {
+        "title": "Priesters werven",
+        "description": "Hiermee kun je priesters voor de strijd werven"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Zet op je verlanglijst!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Gevechtstijd",
+      "dgps": "Schade en goud per seconde",
+      "resourceBalance": "Grondstoffenbalans"
+    },
+    "lifetime": {
+      "title": "Totale statistieken",
+      "totalPlaytime": "Totale speeltijd",
+      "totalGoldEarned": "Goud verdiend",
+      "totalGoldSpent": "Goud uitgegeven",
+      "totalBirdsKilled": "Vogels neergehaald",
+      "totalClicks": "Kliks",
+      "totalHeroesRecruited": "Helden geworven",
+      "heroesPurchased": "Gekocht",
+      "heroesRecruited": "Geworven",
+      "tier1": "Rang 1 geworven (gekocht)",
+      "tier2": "Rang 2 geworven (gekocht)",
+      "tier3": "Rang 3 geworven (gekocht)",
+      "totalDamageDealt": "Schade toegebracht",
+      "totalUnitsDeadByFireBreath": "Verloren aan vuuradem"
+    },
+    "battleDuration": "Verstreken: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Valt dit wel te winnen?",
+    "infiniteEstimatedVictory": "Echt winnen kan niet!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Je bent onze held!</strong>]; (0-1000000000)[Overwinning over <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Klik of druk op Z om de draak aan te vallen!</strong>]",
+    "perSec": "/sec",
+    "generationSection": "Productie",
+    "critSection": "Bijzonder",
+    "dps": "Schade van je troepen: <strong>{{dps}}/sec</strong>",
+    "gps": "Goud van je troepen: <strong>{{gps}}/sec</strong>",
+    "dpc": "Schade per klik: <strong>{{dpc}}/klik</strong>",
+    "gpc": "Goud per klik: <strong>{{gpc}}/klik</strong>",
+    "catapultDamage": "Schade: <strong>{{damage}}/schot</strong>",
+    "catapultTimeToShoot": "Tot het volgende schot: <strong>{{time}} sec</strong>",
+    "seconds_one": "seconde",
+    "seconds_other": "seconden",
+    "minutes_one": "minuut",
+    "minutes_other": "minuten",
+    "hours_one": "uur",
+    "hours_other": "uur",
+    "days_one": "dag",
+    "days_other": "dagen",
+    "months_one": "maand",
+    "months_other": "maanden",
+    "years_one": "jaar",
+    "years_other": "jaar",
+    "undo": {
+      "disabledLine": "Klik binnen 10 seconden om een miskoop terug te draaien en je goud terug te krijgen.",
+      "enabledAction": "Klik om de aankoop van {{count}} {{generator}} terug te draaien.",
+      "enabledRefund": "Je krijgt {{refund}} terug.",
+      "enabledTimer": "Nog {{seconds}} seconden.",
+      "refundGold": "{{amount}} goud"
+    }
+  },
+  "generators": {
+    "generators": "Troepen",
+    "buy": "koop {{amount}}",
+    "warrior_one": "Krijger",
+    "warrior_other": "Krijgers",
+    "wizard_one": "Tovenaar",
+    "wizard_other": "Tovenaars",
+    "elf_one": "Elf",
+    "elf_other": "Elfen",
+    "garrison_one": "Garnizoen",
+    "garrison_other": "Garnizoenen",
+    "academy_one": "Magieacademie",
+    "academy_other": "Magieacademies",
+    "academy_short_one": "Academie",
+    "academy_short_other": "Academies",
+    "outpost_one": "Boogschuttersvoorpost",
+    "outpost_other": "Boogschuttersvoorposten",
+    "outpost_short_one": "Voorpost",
+    "outpost_short_other": "Voorposten",
+    "council_one": "Krijgsraad",
+    "council_other": "Krijgsraden",
+    "nexus_one": "Knooppunt der aartsmagiërs",
+    "nexus_other": "Knooppunten der aartsmagiërs",
+    "forest_one": "Eeuwenoud woud",
+    "forest_other": "Eeuwenoude wouden",
+    "thief_one": "Dief",
+    "thief_other": "Dieven",
+    "bard_one": "Bard",
+    "bard_other": "Barden",
+    "cleric_one": "Priester",
+    "cleric_other": "Priesters",
+    "guild_one": "Dievengilde",
+    "guild_other": "Dievengilden",
+    "guild_short_one": "Gilde",
+    "guild_short_other": "Gilden",
+    "troupe_one": "Troubadoursgezelschap",
+    "troupe_other": "Troubadoursgezelschappen",
+    "troupe_short_one": "Gezelschap",
+    "troupe_short_other": "Gezelschappen",
+    "seminary_one": "Heilig seminarie",
+    "seminary_other": "Heilige seminaries",
+    "seminary_short_one": "Seminarie",
+    "seminary_short_other": "Seminaries",
+    "congress_one": "Schaduwconvent",
+    "congress_other": "Schaduwconventen",
+    "theater_one": "Groot theater",
+    "theater_other": "Grote theaters",
+    "college_one": "Kardinaalscollege",
+    "college_other": "Kardinaalscolleges",
+    "catapult_one": "Katapult",
+    "catapult_other": "Katapulten",
+    "builder_one": "Bouwer",
+    "builder_other": "Bouwers",
+    "engineer_one": "Ingenieur",
+    "engineer_other": "Ingenieurs",
+    "farmer_one": "Boer",
+    "farmer_other": "Boeren",
+    "lumberjack_one": "Houthakker",
+    "lumberjack_other": "Houthakkers",
+    "miner_one": "Mijnwerker",
+    "miner_other": "Mijnwerkers",
+    "apprenticeships_one": "Leerplaats",
+    "apprenticeships_other": "Leerplaatsen",
+    "tradespeople_one": "Ambachtslieden",
+    "tradespeople_other": "Ambachtslieden",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} sec"
+    },
+    "ngPlusProductionToggle": "Productie aan of uit",
+    "tabs": {
+      "troops": "Troepen",
+      "support": "Steun"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Ontsla troepen om minder grondstoffen te verbruiken en toch een deel van de productie te houden."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "De magische kracht achter de aanvallen van je tovenaars.",
+    "emptyManaDescription": "Koop \"Manastroom\" om weer aan te vallen.",
+    "inspiration": "Inspiratie",
+    "inspirationDescription": "Zodra ze werkt, wordt de kracht van al je helden vermenigvuldigd.",
+    "unitDescription": {
+      "warrior": "Taaie vechters van dichtbij.",
+      "wizard": "Slaan toe op halve afstand, maar zijn kwetsbaar.",
+      "elf": "Schieten wendbaar van ver, buiten bereik van de draak.",
+      "garrison": "Versterkte basis die krijgers werft.",
+      "outpost": "Afgelegen basis die elfen werft.",
+      "academy": "School die tovenaars voor de strijd opleidt.",
+      "council": "Militaire organisatie die garnizoenen sticht.",
+      "nexus": "Mystieke organisatie die academies sticht.",
+      "forest": "Heilig woud dat voorposten sticht.",
+      "thief": "Sluw: vergiftigt de draak en steelt zijn goud.",
+      "bard": "Kan je troepen inspireren om harder te vechten.",
+      "cleric": "Beschermt en werft nieuwe helden voor de strijd.",
+      "guild": "Ondergronds netwerk dat dieven werft.",
+      "troupe": "Rondtrekkend gezelschap dat barden werft.",
+      "seminary": "Heilige instelling die priesters opleidt.",
+      "congress": "Organisatie in de schaduw die dievengilden sticht.",
+      "theater": "Machtige instelling die gezelschappen sticht.",
+      "college": "Religieuze organisatie die seminaries sticht.",
+      "catapult": "Belegeringswapen dat de draak zwaar raakt.",
+      "builder": "Bouwt gebouwen van het tweede niveau.",
+      "engineer": "Sticht organisaties van het derde niveau.",
+      "farmer": "Verbouwt voedsel voor het koninkrijk.",
+      "lumberjack": "Hakt hout om te bouwen.",
+      "miner": "Delft erts in de bergen.",
+      "apprenticeships": "Leidt ambachtslieden op."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} schade/{{rate}} sec",
+      "wizard": "{{generatorGeneration}} schade/{{rate}} sec",
+      "elf": "{{generatorGeneration}} schade/{{rate}} sec",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "thief": "+{{generatorGeneration}} goud/{{rate}} sec",
+      "bard": "+{{generatorGeneration}} inspiratie/{{rate}} sec",
+      "cleric": "+{{generatorGeneration}} helden/{{rate}} sec",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} sec",
+      "catapult": "{{generatorGeneration}} schade/{{rate}} sec",
+      "builder": "+{{generatorGeneration}} gebouwen/{{rate}} sec",
+      "engineer": "+{{generatorGeneration}} organisaties/{{rate}} sec",
+      "farmer": "+{{generatorGeneration}} voedsel/{{rate}} sec",
+      "lumberjack": "+{{generatorGeneration}} hout/{{rate}} sec",
+      "miner": "+{{generatorGeneration}} erts/{{rate}} sec",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} sec"
+    },
+    "tabsAriaLabel": "troepentabbladen"
+  },
+  "settings": {
+    "settings": "Instellingen",
+    "buy_max": "Koop max",
+    "audio": "Muziek en geluid",
+    "game": "Spel",
+    "graphics": "Beeld",
+    "offline_progress": "Voortgang offline",
+    "wishlist_now": "Zet op je verlanglijst"
+  },
+  "menus": {
+    "settings": "Instellingen",
+    "tabs": {
+      "game": "Spel",
+      "graphics": "Beeld",
+      "audio": "Geluid",
+      "levels": "Hoofdstukken",
+      "saveData": "Opgeslagen gegevens",
+      "credits": "Met dank aan"
+    },
+    "credits": {
+      "title": "Met dank aan",
+      "developedBy": "Gemaakt door",
+      "developedWith": "Gemaakt met",
+      "bigThanksTo": "Veel dank aan",
+      "theRestOfTheDiscordServer": "iedereen op de Discord-server",
+      "andYou": "en jou!"
+    },
+    "music": "Muziek",
+    "sfx": "Geluidseffecten",
+    "audioSettings": "Geluidsinstellingen",
+    "gameSettings": "Spelinstellingen",
+    "graphicsSettings": "Beeldinstellingen",
+    "language": "Taal",
+    "languages": {
+      "en": "Engels",
+      "fr": "Frans",
+      "de": "Duits",
+      "pt": "Portugees",
+      "tr": "Turks"
+    },
+    "shakeIntensity": "Schudden",
+    "largerTextSize": "Grotere tekst",
+    "crtFilter": "CRT-filter",
+    "chromaticAberrationSlider": "Kleurschifting",
+    "chromaticAberration": "Kleurschifting",
+    "swordSwooshSounds": "Zwaard- en kritieke geluiden",
+    "catSounds": "Kattengeluiden",
+    "fullscreen": "Volledig scherm",
+    "resume": "Verder spelen",
+    "close": "Sluiten",
+    "quitGame": "Spel afsluiten",
+    "joinDiscord": "Kom op Discord",
+    "clear_save_label": "Je voortgang wissen?",
+    "zoom_adjustment": "Zoom van het scherm",
+    "clear_save": "Nu wissen",
+    "are_you_sure": "Weet je het zeker?",
+    "cannot_be_reversed": "Dit kun je niet terugdraaien.",
+    "yes": "Ja",
+    "no": "Nee",
+    "saveData": {
+      "title": "Opgeslagen gegevens",
+      "clearChapterTitle": "Voortgang van de hoofdstukken",
+      "clearChapterExplanation": "Wist goud, troepen, upgrades, voortgang in de kerker en uitgespeeld-tekens van elk hoofdstuk. Vrijgespeelde hoofdstukken, totale statistieken, instellingen en artefacten blijven.",
+      "clearChapterButton": "Voortgang van de hoofdstukken wissen",
+      "clearFullTitle": "Alle opgeslagen gegevens",
+      "clearFullExplanation": "Wist alles wat de hoofdstukreset wist, en bovendien artefacten, vrijgespeelde hoofdstukken en totale statistieken. Instellingen voor geluid, beeld en taal blijven.",
+      "clearFullButton": "Alle opgeslagen gegevens wissen",
+      "clearFullWarning": "Dit kun je niet terugdraaien. Je verliest artefacten, vrijgespeelde hoofdstukken en totale statistieken."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspiratie",
+    "inspirationDescription": "Zodra ze werkt, wordt de kracht van al je helden vermenigvuldigd.",
+    "maxInspiration": "Hoogste vermenigvuldiger",
+    "maxInspirationMultiplier": "Hoogste vermenigvuldiger",
+    "statisticsDescription": "Uitgebreide cijfers over je voortgang en het gevecht.",
+    "hudStopBird": "Stop de vogel",
+    "hudLifetimeStats": "Totale statistieken",
+    "hudHideWindows": "Vensters verbergen",
+    "events": {
+      "roar": "Verdovend gebrul",
+      "fire": "Vuuradem",
+      "claw": "Klauwslag",
+      "dialog": "Bijzondere gebeurtenis",
+      "pope_visit": "Bijzonder bezoek",
+      "dungeon_keys": "Een duister geheim",
+      "missing_king": "Waar is de koning?",
+      "catapult": "Een technisch prototype",
+      "engineer": "Hulp op tijd",
+      "invasion_start": "Er komt een invasie aan",
+      "invasion_end": "Bericht van je troepen",
+      "apprenticeships_unlock": "Leerplaatsen vrijgespeeld",
+      "trading": "Een rondtrekkende koopman",
+      "dummy_toy_reveal": "Niet wat ik dacht"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Gebeurtenissen",
+      "stats": "Statistieken",
+      "engineering": "Techniek",
+      "resources": "Grondstoffen"
+    },
+    "tabs": {
+      "events": "Gebeurtenissen",
+      "stats": "Statistieken",
+      "engineering": "Techniek",
+      "resources": "Grondstoffen"
+    },
+    "tabsAriaLabel": "informatietabbladen"
+  },
+  "game": {
+    "dummy": "De grote houten pop",
+    "infiniteBird": "De vogel die niet valt",
+    "king": "De koning",
+    "smallDragon": "Tuth'orieth, de ontsprotene",
+    "bigDragon": "Forth'aarh, die leven geeft en neemt"
+  },
+  "dungeon": {
+    "found": "Gevonden",
+    "giveUp": "Opgeven",
+    "tooltipDescription": "Verken de kerker (niveau {{level}})",
+    "cooldownMessage": "De kerker rust. Wacht {{seconds}} seconden om weer naar binnen te gaan.",
+    "cooldownShort": "{{seconds}} sec",
+    "levelLabel": "Niveau",
+    "levelShort": "Niveau {{level}}",
+    "keysOwned": "Sleutels",
+    "giveUpTooltip": "Verlaat de kerker (met Gulle buit houd je een deel van de buit)",
+    "moveHint": "WASD of pijltjestoetsen om te lopen",
+    "attackHint": "Klik op monsters om aan te vallen",
+    "chestCountsTooltip": "{{opened}} van {{total}} kisten geopend",
+    "exitDirection": "UITGANG"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Geslaagde tocht",
+      "titleFailed": "Mislukte tocht",
+      "titleStuckRescue": "Veilig eruit",
+      "lootSummarySubtitle": "Overzicht van de buit",
+      "body_one": "{{gold}} goud en {{grayKeys}} sleutel gekregen",
+      "body_other": "{{gold}} goud en {{grayKeys}} sleutels gekregen",
+      "artifactFound": "{{artifactName}} gevonden."
+    },
+    "fireBreathCasualties": {
+      "title": "Verliezen door de vuuradem",
+      "body": "{{list}} verloren",
+      "none": "Geen verliezen"
+    },
+    "fireBreathBlocked": {
+      "title": "De vuuradem is tegengehouden!",
+      "body": "Een rookbom heeft je troepen gered."
+    },
+    "toastLabel": "Spelmelding"
+  },
+  "levels": {
+    "title": "Hoofdstukken",
+    "locked": "Op slot",
+    "active": "Bezig",
+    "completed": "Uitgespeeld",
+    "continue": "Verder",
+    "start": "Beginnen",
+    "restart": "Opnieuw spelen",
+    "restart_progress_warning": "Nu opnieuw beginnen? Je verliest de niet-opgeslagen voortgang in dit hoofdstuk.",
+    "names": {
+      "mainGame": "Een grote draak",
+      "newGamePlus": "Grondstoffenbeheer",
+      "dummy": "Een magisch speeltje",
+      "infinite": "Werkelijk eindeloos",
+      "kingBattle": "Het laatste gevecht van de koning"
+    }
+  },
+  "artifacts": {
+    "title": "Artefacten",
+    "subtitle": "Zeldzame artefacten liggen soms in bijzondere kisten in de kerker. Ze blijven van hoofdstuk tot hoofdstuk.",
+    "notYetFound": "(nog niet gevonden)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Feniksfluitje",
+        "description": "Een bijzondere vogel brengt een nieuwe munt mee."
+      },
+      "emberforgedShield": {
+        "title": "In sintels gesmeed schild",
+        "description": "Krijgers zijn bestand tegen drakenvuur."
+      },
+      "moonwellFlask": {
+        "title": "Fles van de maanbron",
+        "description": "Tovenaars gebruiken maar de helft van de mana."
+      },
+      "windstepAnklet": {
+        "title": "Enkelband van de windstap",
+        "description": "Elfen worden niet verdoofd."
+      },
+      "fangSatchel": {
+        "title": "Tandentas",
+        "description": "Zolang de ronde loopt, maken dieven elk half uur een drakentand."
+      },
+      "slumberBerries": {
+        "title": "Sluimerbessen",
+        "description": "Gif vertraagt het gebrul en het vuur van de draak met 10 seconden."
+      },
+      "echoingLute": {
+        "title": "Echoënde luit",
+        "description": "Barden geven dubbele inspiratie."
+      },
+      "blessingCenser": {
+        "title": "Wierookvat van de zegen",
+        "description": "Priesters werven altijd het dubbele aantal."
+      },
+      "victoryTusk": {
+        "title": "Overwinningstand",
+        "description": "Een uitgespeeld niveau geeft dubbel zoveel drakentanden."
+      },
+      "cartographersLedger": {
+        "title": "Boek van de kaartenmaker",
+        "description": "Laat zien hoeveel kisten in de kerker al open zijn."
+      },
+      "ironSkeletonKey": {
+        "title": "IJzeren loper",
+        "description": "Speelt de kerker vrij tot niveau 20."
+      },
+      "everflameLantern": {
+        "title": "Lantaarn van de eeuwige vlam",
+        "description": "De fakkel gaat nooit uit."
+      },
+      "midasCoin": {
+        "title": "Munt van Midas",
+        "description": "Dubbel zoveel goud in de kerker."
+      },
+      "harvestIdol": {
+        "title": "Oogstbeeld",
+        "description": "Grondstoffen komen 25% sneller binnen."
+      },
+      "titanGauntlet": {
+        "title": "Titanenhandschoen",
+        "description": "Tien keer zoveel schade per klik."
+      },
+      "wayfindersCompass": {
+        "title": "Kompas van de wegwijzer",
+        "description": "Wijst naar de uitgang van de kerker."
+      },
+      "loadedDice": {
+        "title": "Verzwaarde dobbelstenen",
+        "description": "Elke klik is kritiek."
+      }
+    }
+  }
+}
