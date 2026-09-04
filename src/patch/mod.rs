@@ -165,6 +165,8 @@ pub struct Applied {
     pub stats: Option<String>,
     pub stores_wrapped: Option<String>,
     pub stores_found: Vec<String>,
+    /// The identifier the dungeon's scene has in the bundle, when it was found.
+    pub dungeon_scene: Option<String>,
     /// How many upgrade tree nodes were read out of the bundle. Zero means autoplay
     /// cannot send the unlock signals, and stalls at twelve of the eighty-eight.
     pub tree_nodes: usize,
@@ -255,6 +257,11 @@ pub fn bundle(src: &str, plan: &Plan) -> Result<(String, Applied), String> {
         rep.stores_wrapped = b.wrapped;
         rep.stores_found = b.found;
     }
+
+    // The dungeon's Babylon scene, which is otherwise reachable from nowhere.
+    let d = bridge::inject_dungeon(&out);
+    out = d.code;
+    rep.dungeon_scene = d.id;
 
     // Three things the injected scripts read off `window`, put in front of the bundle
     // rather than into the prelude: the tree is read from this very source, so it

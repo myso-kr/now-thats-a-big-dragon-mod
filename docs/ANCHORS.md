@@ -21,6 +21,7 @@ survive intact.
 |---|---|---|---|---|---|
 | A1 | i18n tables | 13 namespace names, matched on containment | preserved | every translation | `patch/i18n.rs` · `patch/bundle.js` |
 | A2 | time units | `{seconds:1,…,years:31536e3}` | preserved | "minutes" stays English | same |
+| A11 | dungeon scene | `new X(canvas,!0)`, a scene on it, then `.clearColor=` | preserved | no dungeon farming | `patch/bridge.rs` · `patch/bridge.js` |
 | A10 | upgrade tree | `click:[{id:ge.` + the `n.Xxx="xxx"` name table | preserved | autoplay stalls at 12 of the 88 upgrades | `patch/tree.rs` · `patch/tree.js` |
 | A9 | flags and labels | `{en:"us.png",…}` · `languages:{en:"English",…}` | preserved | the settings screen shows no flag or name | `patch/locale.rs` · `patch/locale.js` |
 | A3 | store factory | the string `savePrefix` | preserved | resource cheats, autoplay reads | `patch/bridge.rs` · `injectStoreBridge` |

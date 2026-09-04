@@ -56,6 +56,7 @@ console.log(`time units: ${out.timeScale.patched
   ? (out.timeScale.labels ? out.timeScale.labels.join(' / ') : 'a Scale of its own was added')
   : 'none (the English units stay)'}`);
 console.log(`store bridge: ${out.stores.wrapped ? 'wrapped ' + out.stores.wrapped + ' factories' : 'failed'}`);
+console.log(`dungeon scene: ${out.dungeon.scene || 'not found - autoplay cannot farm it'}`);
 console.log(`upgrade tree: ${out.tree.nodes ? out.tree.nodes + ' nodes in ' + out.tree.branches + ' branches' : 'not found'}`);
 console.log(`size: ${src.length.toLocaleString()} -> ${out.code.length.toLocaleString()} bytes`);
 

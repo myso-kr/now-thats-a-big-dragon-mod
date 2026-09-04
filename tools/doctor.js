@@ -125,6 +125,7 @@ if (!jsBuf) {
     say(`  ${mark(res.statsBridge && res.statsBridge.id)} A5 stat table     ${(res.statsBridge && res.statsBridge.id) || 'not found'}`);
     const slots = res.stores && res.stores.found ? Object.keys(res.stores.found).length : 0;
     say(`  ${mark(slots > 0)} A6 slot registry  ${slots}`);
+    say(`  ${mark(res.dungeon.scene)} A11 dungeon scene ${res.dungeon.scene || 'not found'}`);
     say(`  ${mark(res.tree.nodes > 0)} A10 upgrade tree  ${res.tree.nodes ? res.tree.nodes + ' nodes' : 'not found - autoplay stalls at 12 upgrades'}`);
     say();
     row('patched', `${src.length.toLocaleString()} -> ${res.code.length.toLocaleString()} bytes`);

@@ -296,3 +296,127 @@ mod tests {
         assert_eq!(quote("ab"), "ab");
     }
 }
+
+/// The dungeon's Babylon scene, which is otherwise reachable from nowhere.
+///
+/// The dungeon is drawn to a canvas, so there are no DOM tiles to read the way a
+/// dialogue has them, and the scene is a `const` inside a React effect that no ref
+/// holds - so no fiber walk reaches it either. It is handed over at the one place it
+/// is knowable: the effect builds an engine over the canvas, makes a scene on it, and
+/// immediately sets a clear colour.
+///
+///   const Kt=I.current, Wr=new Ye(Kt,!0), Ci=new _t(Wr); Ci.clearColor=new ke(0,0,0,1);
+///
+/// That whole shape occurs exactly once in the eight megabytes, while `.clearColor=`
+/// alone occurs seventeen times. Matching the shape rather than the name is what keeps
+/// it from binding to a Babylon internal.
+///
+/// `patch/bridge.js` is the Node reference implementation; `tests/bundle.rs` compares
+/// the two byte for byte on a real bundle.
+pub fn inject_dungeon(src: &str) -> Injected {
+    // Rust's regex has no backreferences, so the shape is matched with four separate
+    // captures and the two identities are checked here. Node writes the same thing with
+    // `\1` and `\2`; `tests/bundle.rs` is what proves the two still agree.
+    let re = Regex::new(
+        r"([A-Za-z0-9_$]+)=new [A-Za-z0-9_$]+\([A-Za-z0-9_$]+,!0\),([A-Za-z0-9_$]+)=new [A-Za-z0-9_$]+\(([A-Za-z0-9_$]+)\);([A-Za-z0-9_$]+)\.clearColor=",
+    )
+    .expect("a valid pattern");
+    for m in re.captures_iter(src) {
+        let engine = &m[1];
+        let scene = &m[2];
+        if &m[3] != engine || &m[4] != scene {
+            continue;
+        }
+        // After the whole clear-colour statement, not inside its expression: the value
+        // being assigned is a constructor call, and splicing into it only produced an
+        // unbalanced paren and a bundle that would not parse.
+        let Some(at) = end_of_statement(src, m.get(0).expect("the match").end()) else {
+            continue;
+        };
+        let mut out = String::with_capacity(src.len() + 96);
+        out.push_str(&src[..at]);
+        out.push_str(&format!(
+            "window.__bd_dungeon={{scene:{scene},engine:{engine},at:Date.now()}};"
+        ));
+        out.push_str(&src[at..]);
+        return Injected {
+            code: out,
+            id: Some(scene.to_owned()),
+        };
+    }
+    Injected {
+        code: src.to_owned(),
+        id: None,
+    }
+}
+
+/// Just past the `;` that ends the statement starting at `from`.
+///
+/// Only depth zero counts - `new ke(0,0,0,1)` has none of its own, but a future
+/// expression with a function literal in it would, and a `;` inside a string is not
+/// the end of anything.
+fn end_of_statement(src: &str, from: usize) -> Option<usize> {
+    let b = src.as_bytes();
+    let mut depth: i32 = 0;
+    let mut quote: Option<u8> = None;
+    let mut escaped = false;
+    for (i, &c) in b.iter().enumerate().skip(from) {
+        if let Some(q) = quote {
+            if escaped {
+                escaped = false;
+            } else if c == b'\\' {
+                escaped = true;
+            } else if c == q {
+                quote = None;
+            }
+            continue;
+        }
+        match c {
+            b'"' | b'\'' | b'`' => quote = Some(c),
+            b'(' | b'[' | b'{' => depth += 1,
+            b')' | b']' | b'}' => {
+                depth -= 1;
+                if depth < 0 {
+                    return None;
+                }
+            }
+            b';' if depth == 0 => return Some(i + 1),
+            _ => {}
+        }
+    }
+    None
+}
+
+#[cfg(test)]
+mod dungeon_tests {
+    use super::*;
+
+    const SCENE: &str = "const Kt=I.current,Wr=new Ye(Kt,!0),Ci=new _t(Wr);\
+                         Ci.clearColor=new ke(0,0,0,1);const fo=1;";
+
+    #[test]
+    fn hands_the_scene_over_after_the_statement_that_makes_it() {
+        let out = inject_dungeon(SCENE);
+        assert_eq!(out.id.as_deref(), Some("Ci"));
+        assert!(out
+            .code
+            .contains("Ci.clearColor=new ke(0,0,0,1);window.__bd_dungeon="));
+        assert!(out.code.contains("scene:Ci,engine:Wr"));
+    }
+
+    #[test]
+    fn a_bundle_without_the_shape_is_left_exactly_as_it_was() {
+        // Seventeen other things set a clear colour; none of them is the dungeon.
+        let other = "this._gl.clearColor(1,0,0,1);";
+        let out = inject_dungeon(other);
+        assert_eq!(out.code, other);
+        assert!(out.id.is_none());
+    }
+
+    #[test]
+    fn the_statement_end_steps_over_brackets_and_strings() {
+        assert_eq!(end_of_statement("a=f(1;2);b", 2), Some(9));
+        assert_eq!(end_of_statement("a=\";\";b", 2), Some(6));
+        assert_eq!(end_of_statement("a=1", 2), None);
+    }
+}
