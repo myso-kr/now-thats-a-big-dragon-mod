@@ -1,0 +1,166 @@
+{
+  "source": "https://cdn.jsdelivr.net/npm/flag-icons@7.3.2/flags/4x3",
+  "license": "MIT",
+  "size": [
+    40,
+    30
+  ],
+  "files": {
+    "bg.png": {
+      "language": "bg",
+      "svgSha256": "b6d979fc96dc6b46c1697a5e05ecfe1fac1fa912ed480ca7a2a9b450f087faf6",
+      "pngSha256": "e97595e9ba634e560765e1cab52ecf5cb8c5b9c4904e5e82c68e8d226431298a",
+      "bytes": 101
+    },
+    "cn.png": {
+      "language": "zh-Hans",
+      "svgSha256": "981da9bdf82d48e31691f20578cefcb26cf7d0bd95e4ebd5c0df00bdfe988c1a",
+      "pngSha256": "85d3b06e23dae390b7cb5c67b7db767d82c0f71746758db5a92b270fc0ae96af",
+      "bytes": 253
+    },
+    "cz.png": {
+      "language": "cs",
+      "svgSha256": "d601fcc2e5b1fd48b79d53c55108af4c0e90793f146db51f3ee449d8d69512bc",
+      "pngSha256": "df150f2151587324c5ef45339d15b6023bfbec3ce0f37158fab43683e8c06c9d",
+      "bytes": 237
+    },
+    "dk.png": {
+      "language": "da",
+      "svgSha256": "d2847c0bd7a1fb97977ee51f2f618c5ebc5898dd66ef9804f187613c27bdca1a",
+      "pngSha256": "bcf650a9e4a077b2fd6a9d737f5015a364994538376c664e2edca9276e16e49f",
+      "bytes": 156
+    },
+    "es.png": {
+      "language": "es",
+      "svgSha256": "1d60aebdd9ecfc669e11ea317a9f5ba8af6a9d6b98a841b9f70d8243e65b60eb",
+      "pngSha256": "09dbd7c27f4b009ad46b3b0bb896601a88cc2588b9904d5ff2338fc80b0ed305",
+      "bytes": 455
+    },
+    "fi.png": {
+      "language": "fi",
+      "svgSha256": "012edd984cf1879463c2855b7df02dea2f7de7f7a66b244fb1e22b4227f7aa65",
+      "pngSha256": "ac02d5e9f69164a0cbd784a4f861d2e63f3571b61d65c26ffb4296cf38511414",
+      "bytes": 111
+    },
+    "gr.png": {
+      "language": "el",
+      "svgSha256": "a184070f7678b06777be8ac38cb05ba41829591a6dac9b64b2b72db66aec82f5",
+      "pngSha256": "7324ff64ec0a7703b9186b4c8de144cc3b9ac69fc7c6b46b3781ed3cfe45b94e",
+      "bytes": 213
+    },
+    "hu.png": {
+      "language": "hu",
+      "svgSha256": "ffc4edd580d4b9789bee68f33cef24afe826ae571464350fe7b98c7a36b4ff8f",
+      "pngSha256": "5575e3b52542e19618351c4aec7742ad6516de80d6d70ca765633ec77cd364be",
+      "bytes": 101
+    },
+    "id.png": {
+      "language": "id",
+      "svgSha256": "5cd3acc4939dd7eae6318c8d75df8c0d1733f650e2504a2635b0dbf3dfabb040",
+      "pngSha256": "7d8616507894f9a4e313ab74a82a8bb0f64e4819418974dda77440bb25ce42cc",
+      "bytes": 95
+    },
+    "it.png": {
+      "language": "it",
+      "svgSha256": "9fa88118818d9b64838f578e2babcca3d0630aed21b5c33b34aff7ac5ce506bc",
+      "pngSha256": "59aa82017933b314c29a77f490d9239a99cb00792266cb1e9ff431559d46a071",
+      "bytes": 123
+    },
+    "jp.png": {
+      "language": "ja",
+      "svgSha256": "bfea80baf9989383dc4bf7ca594ed95be0df0ff125bfc88d0bfa878eb0198022",
+      "pngSha256": "81c2812ed787caf6dee2dcd916e327b936bf5381d91382545667e3621b926159",
+      "bytes": 251
+    },
+    "kr.png": {
+      "language": "ko",
+      "svgSha256": "7a6cd5b51d0e2841ed8b79b1147ad8a66cf3c09f6344d4a63b5e4413ffa5d15b",
+      "pngSha256": "c6951f62ffb1a38d69540b5273ee69ab1c9381b338b7d08e5e4814aa92c55c30",
+      "bytes": 585
+    },
+    "mx.png": {
+      "language": "es-419",
+      "svgSha256": "bf69fcf0118ebf04d391c522883b36da521d44169163c290435192930d28a109",
+      "pngSha256": "712cf74ba35c9d5816ab4359dc6b55cfc59e8b588f52426482b7dff9a1b75988",
+      "bytes": 395
+    },
+    "my.png": {
+      "language": "ms",
+      "svgSha256": "bb30e84a099d2d9dc286ab091bdd40ae7a8e332eb49827f2df4f11803e613667",
+      "pngSha256": "2b176f1936768fad18104f49b2e7faa5ab4bdda04b057c69a5ef77b891c480f8",
+      "bytes": 347
+    },
+    "nl.png": {
+      "language": "nl",
+      "svgSha256": "8f691f17fe70894537af8e92f2ca47761d353639b0defc15cbe561eb503ab010",
+      "pngSha256": "a53a655f75596b4c5afe2ece6d055fc193fbb4f46bdaba5e10863400ac7d02a6",
+      "bytes": 101
+    },
+    "no.png": {
+      "language": "nb",
+      "svgSha256": "ceea17af051dceefd5759a824213eb40ac8a8095aa88a6874a7bbc8de637357a",
+      "pngSha256": "2faad7129cecdd55cdbfd70658ff0451bd3a7c7e4fa80c12bdb1c619b169f5fb",
+      "bytes": 197
+    },
+    "ph.png": {
+      "language": "fil",
+      "svgSha256": "c3bd5e08ddc5f6dbdfa899af9efb45577e3841402e6a7f5d00fef754816b2884",
+      "pngSha256": "fbbc9ea9c8db6eb7795caeb91bb2d977628052b79de8c73d46dba3fdab75cf4f",
+      "bytes": 512
+    },
+    "pl.png": {
+      "language": "pl",
+      "svgSha256": "369bb3e14ee718df1ee15fd2fb3ad0dae713f78f622e277710fb2b30a313f2aa",
+      "pngSha256": "5e0ae55b7b768d030c80c68018fc5a40af9e83553666c6518ba329e0021497a8",
+      "bytes": 97
+    },
+    "ro.png": {
+      "language": "ro",
+      "svgSha256": "17a3a747fc5e63302aaa670a667e5812f3676f46768e5a3e87b254bd41762840",
+      "pngSha256": "a0ce47c1dd0aa0410a786ff628b659d6f44f5f70686cb204a31700fae3f1625b",
+      "bytes": 123
+    },
+    "ru.png": {
+      "language": "ru",
+      "svgSha256": "7100aaae51ff3b6a2bf0ca932b3bc518bdc760814725e7cca31d821a26c3dd7c",
+      "pngSha256": "ec0c4d36defa031047db97aad371f09316626cc9a91977473cd74aba2a50face",
+      "bytes": 101
+    },
+    "sa.png": {
+      "language": "ar",
+      "svgSha256": "a199a6b3737f1de2dfc91edf67c168202b7962a648624c0e56715e6c29cbfcde",
+      "pngSha256": "8e2ae984e2e4f489d6ffc79e2b5317e3cca6dcd53ed7c27aef5a9af0d2f839da",
+      "bytes": 456
+    },
+    "se.png": {
+      "language": "sv",
+      "svgSha256": "b3b5071e6c1d4a0e3db828bab5c7dfd68d0e90fcf3b25b15e9a2c4f96c1f79c9",
+      "pngSha256": "5c1542546336aede7f7a3e697090006c37101f540027cc8908587bb4fc725d30",
+      "bytes": 102
+    },
+    "th.png": {
+      "language": "th",
+      "svgSha256": "329cc0d520536d6eb4b9304105f23650c2d02bbdba8f8696e996dbf166de6f2e",
+      "pngSha256": "6554e4b9d62bc384241e6d199f4b21f148ee824f52deb9d2c3ed69b4c3676bb8",
+      "bytes": 127
+    },
+    "tw.png": {
+      "language": "zh-Hant",
+      "svgSha256": "931757f06b9ee751fd1a0cc8dd7cf862e21fdcaf894d10ed7bcc68dabcca59ad",
+      "pngSha256": "dbbb02b1436d10906217ff6b55e4eae668abe58c8e6f9aef59cd36bbf2b7c698",
+      "bytes": 300
+    },
+    "ua.png": {
+      "language": "uk",
+      "svgSha256": "2d869c23ebfefb2ae0a633297c11dee06fcb666ce7b3ca75eba09b7a1a3a03ac",
+      "pngSha256": "9af10c78ac862fcd0ef40fc7aa09c208b9e3852b4362500142b4d9a0a512799f",
+      "bytes": 95
+    },
+    "vn.png": {
+      "language": "vi",
+      "svgSha256": "2355037201315d74581ab0ad60b5587a29a087d26b0525bdeb8676e64fae5b86",
+      "pngSha256": "581626bed007b96f1eae8297cf483f566774cceb795fb147713b51fb9eedc090",
+      "bytes": 255
+    }
+  }
+}

@@ -1,0 +1,938 @@
+{
+  "upgrades": {
+    "upgrades": "Mejoras",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Siguiente nivel",
+    "currentLevel": "Actual",
+    "newGamePlusOnly": "Solo disponible en el capítulo \"Gestión de recursos\"",
+    "max": "Máx.",
+    "lockedMessage": "Mejora {{parentSkill}} un poco más para desbloquear esto",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Dedo de hierro",
+        "description": "Daño de los clics +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Dedo ligero",
+        "description": "Clics por segundo +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Toque de diana",
+        "description": "Cada clic reduce el aturdimiento en {{bonus}} seg",
+        "prefix": "-",
+        "suffix": " seg"
+      },
+      "electricalFinger": {
+        "title": "Dedo eléctrico",
+        "description": "Un {{bonus}}% de probabilidad de lanzar un rayo con cada clic.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Clic perfecto",
+        "description": "Probabilidad de clic crítico +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Golpe crítico",
+        "description": "Aumenta el daño del clic crítico en +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Explosión dorada",
+        "description": "Multiplica por {{bonus}} la recompensa al hacer clic en pájaros",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Líder nato",
+        "description": "Los clics llenan la barra de Inspiración +{{bonus}} por clic",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Cursor de oro",
+        "description": "Multiplica por {{bonus}} el oro que generan los clics",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Cofres llenos",
+        "description": "Reduce un {{bonus}}% la probabilidad de que un cofre esté vacío",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Cura del túnel carpiano",
+        "description": "Mantén pulsado el botón del ratón para atacar sin parar."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Espada corta",
+        "description": "Multiplicador de daño de {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Espada larga",
+        "description": "Multiplicador adicional al daño del guerrero +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Mandoble",
+        "description": "Otro multiplicador más al daño del guerrero +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Grito de batalla",
+        "description": "Ayuda a llenar la barra de Inspiración +{{bonus}} por ataque",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Grito de guerra",
+        "description": "Activa la Inspiración automáticamente en el siguiente tic cuando llega a su multiplicador máximo"
+      },
+      "barbarian": {
+        "title": "Bárbaro",
+        "description": "Aumenta el daño base en +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Armadura gruesa",
+        "description": "Reduce un {{bonus}}% el daño físico recibido",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Armadura ignífuga",
+        "description": "Reduce un {{bonus}}% las muertes por aliento de fuego",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Rocas pesadas",
+        "description": "Aumenta el daño de la catapulta un {{bonus}}% por nivel",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Hoja de plata",
+        "description": "Añade un multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Hoja de oro",
+        "description": "Añade otro multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Mercenarios leales",
+        "description": "Los {{typePlural}} que compres infligen +{{bonus}}x más daño por nivel",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Sirvientes leales",
+        "description": "El coste de reclutar {{type}} y niveles superiores baja un {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Trabajo en equipo",
+        "description": "Recluta {{typePlural}} adicionales por cada {{type}} que compres",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Precisión de mazmorra",
+        "description": "Aumenta un {{bonus}}% la probabilidad de crítico dentro de las mazmorras",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Rompelaberintos",
+        "description": "Aumenta en {{bonus}} el bono de daño crítico dentro de la mazmorra",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Proyectil mágico",
+        "description": "Multiplicador de daño de {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Espada de maná",
+        "description": "Cada mago impregna de maná la espada de un guerrero. El multiplicador de daño sube +{{bonus}}x mientras el maná supere 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Ratón mágico",
+        "description": "Llena la barra de maná +{{bonus}} por clic",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Rellenar maná",
+        "description": "Rellena la barra de maná de los magos"
+      },
+      "manaPool": {
+        "title": "Depósito de maná",
+        "description": "Aumenta el maná máximo un {{bonus}}%",
+        "suffix": " de maná"
+      },
+      "manaBoost": {
+        "title": "Impulso de maná",
+        "description": "El daño del mago se duplica mientras el maná supere {{current}}",
+        "suffix": " de maná"
+      },
+      "weatherForecast": {
+        "title": "Predicción del tiempo",
+        "description": "Aumenta un {{bonus}}% la probabilidad de que caiga un rayo",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Descarga eléctrica",
+        "description": "Un rayo adicional que causa +{{bonus}}x del daño de {{type}} por cada mejora comprada",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Bastón de plata",
+        "description": "Añade un multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Bastón de oro",
+        "description": "Añade otro multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Fuego mágico",
+        "description": "Aumenta la duración de la antorcha en +{{bonus}} seg",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Archimago",
+        "description": "Aumenta el daño base en +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Ojo del cazador",
+        "description": "Aumenta un +{{bonus}}% la probabilidad de abatir 1 pájaro a tiro en cada tic",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Puntería astuta",
+        "description": "Probabilidad de disparo crítico +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Cortahojas",
+        "description": "Aumenta el daño del disparo crítico en +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Temporada de caza",
+        "description": "Hace aparecer una bandada de pájaros al instante",
+        "suffix": " pájaros"
+      },
+      "elvenEyes": {
+        "title": "Ojos élficos",
+        "description": "Cuando la antorcha se apaga, sigues viendo en la oscuridad +{{bonus}} seg",
+        "prefix": "+",
+        "suffix": " seg"
+      },
+      "multipleShot": {
+        "title": "Disparo múltiple",
+        "description": "Dispara una flecha más por nivel",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Flecha de plata",
+        "description": "Añade un multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Flecha de oro",
+        "description": "Añade otro multiplicador de {{bonus}}x al oro por ataque",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Flecha de hielo",
+        "description": "Retrasa {{bonus}} seg el ataque de fuego del dragón",
+        "prefix": "-",
+        "suffix": " seg"
+      },
+      "animalInstinct": {
+        "title": "Instinto animal",
+        "description": "Mejora los proyectiles de la catapulta: de rocas a gatos y de gatos a tigres, multiplicando el daño por 10 cada vez.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Pararrayos",
+        "description": "Un {{bonus}}% de probabilidad de atraer un rayo extra cuando el rayo del mago acierta.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Flechas recicladas",
+        "description": "Los ataques de los elfos gastan menos madera"
+      },
+      "lightfoot": {
+        "title": "Pie ligero",
+        "description": "Aumenta un {{bonus}}% la velocidad de movimiento y giro en las mazmorras",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Manos rápidas",
+        "description": "Reduce {{bonus}} seg el tiempo de generación de oro"
+      },
+      "sharpDagger": {
+        "title": "Hoja del asesino",
+        "description": "El ladrón también ataca, con un daño de {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Daga envenenada",
+        "description": "Aumenta un +{{bonus}}% la probabilidad de envenenar al dragón",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Mamba negra",
+        "description": "Multiplicador del daño del veneno +{{bonus}}x del daño del ladrón",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Toxina persistente",
+        "description": "Aumenta la duración del veneno +{{bonus}} seg",
+        "suffix": " seg"
+      },
+      "smokeBomb": {
+        "title": "Bomba de humo",
+        "description": "Prepara una trampa para el dragón con un {{current}}% de activarse en su siguiente ataque y detenerlo.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Felinos explosivos",
+        "description": "Los proyectiles de la catapulta estallan al impactar y duplican su daño.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Carterista",
+        "description": "Añade un multiplicador de {{bonus}}x al oro que genera {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Ganzúa",
+        "description": "Al empezar cada incursión hay {{bonus}} puertas más abiertas."
+      },
+      "midasTouch": {
+        "title": "Toque de Midas",
+        "description": "Añade otro multiplicador de {{bonus}}x al oro que genera {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Cofres repletos",
+        "description": "Aumenta un {{bonus}}% el oro de los cofres de mazmorra",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Diapasón",
+        "description": "Aumenta la generación de inspiración en +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Solo de laúd",
+        "description": "Aumenta el multiplicador máximo de inspiración en +{{bonus}}x",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Guitarrista insufrible",
+        "description": "Duración del bono de Inspiración +{{bonus}} seg",
+        "suffix": " seg"
+      },
+      "piercedEardrums": {
+        "title": "Tímpanos perforados",
+        "description": "El temporizador del rugido del dragón se ralentiza un {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Repetición",
+        "description": "Un {{bonus}}% de probabilidad de reiniciar la Inspiración cuando se acaba",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Barrera sónica",
+        "description": "El temporizador del aliento de fuego se ralentiza un {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Asuranceturix",
+        "description": "Aturde a tus unidades al comprarla"
+      },
+      "churchChoir": {
+        "title": "Coro de la iglesia",
+        "description": "Recluta 1 seminario cada vez que se activa la Inspiración"
+      },
+      "encore": {
+        "title": "Bis",
+        "description": "Reduce {{bonus}} seg el tiempo de espera de la Inspiración",
+        "suffix": " seg"
+      },
+      "lockerRoomSpeech": {
+        "title": "Charla de vestuario",
+        "description": "Genera Inspiración con el juego cerrado a un ritmo del {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Orden en el reino",
+        "description": "Con el juego cerrado, tu música hace que los artesanos trabajen fuera de horario y generen recursos al {{current}}% del ritmo normal",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Llave mayor",
+        "description": "Compra una llave de mazmorra. (Sí, en Do mayor. Perdón.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Frecuencias vulnerables",
+        "description": "Reduce {{bonus}} ms la invulnerabilidad de los enemigos tras cada golpe",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Recursos heroicos",
+        "description": "La probabilidad de duplicar los héroes reclutados sube un +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Aura bendita",
+        "description": "Reduce un -{{bonus}}% las muertes por aliento de fuego",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Pájaro bendito",
+        "description": "Los pájaros tienen un {{current}}% de aparecer benditos y dar el doble de oro",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Transferencia de poder",
+        "description": "Al reclutar, el maná de los magos se recupera 0,5 por cada clérigo que tengas"
+      },
+      "generousLoot": {
+        "title": "Botín generoso",
+        "description": "Sí una incursión fracasa, conservas el {{current}}% del botín.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Luz divina",
+        "description": "Aumenta un {{bonus}}% la probabilidad de reavivar la antorcha apagada",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Reclutar guerreros",
+        "description": "Permite reclutar guerreros para la lucha"
+      },
+      "recruitElves": {
+        "title": "Reclutar elfos",
+        "description": "Permite reclutar elfos para la lucha"
+      },
+      "recruitWizards": {
+        "title": "Reclutar magos",
+        "description": "Permite reclutar magos para la lucha"
+      },
+      "recruitBards": {
+        "title": "Reclutar bardos",
+        "description": "Permite reclutar bardos para la lucha"
+      },
+      "recruitThieves": {
+        "title": "Reclutar ladrones",
+        "description": "Permite reclutar ladrones para la lucha"
+      },
+      "recruitClerics": {
+        "title": "Reclutar clérigos",
+        "description": "Permite reclutar clérigos para la lucha"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "¡Añádelo a tu lista de deseados!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Tiempo de combate",
+      "dgps": "Daño y oro por segundo",
+      "resourceBalance": "Balance de recursos"
+    },
+    "lifetime": {
+      "title": "Estadísticas totales",
+      "totalPlaytime": "Tiempo jugado",
+      "totalGoldEarned": "Oro ganado",
+      "totalGoldSpent": "Oro gastado",
+      "totalBirdsKilled": "Pájaros abatidos",
+      "totalClicks": "Clics",
+      "totalHeroesRecruited": "Héroes reclutados",
+      "heroesPurchased": "Comprados",
+      "heroesRecruited": "Reclutados",
+      "tier1": "Nivel 1 reclutados (comprados)",
+      "tier2": "Nivel 2 reclutados (comprados)",
+      "tier3": "Nivel 3 reclutados (comprados)",
+      "totalDamageDealt": "Daño infligido",
+      "totalUnitsDeadByFireBreath": "Perdidos por el aliento de fuego"
+    },
+    "battleDuration": "Transcurrido: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "¿Es siquiera posible ganar?",
+    "infiniteEstimatedVictory": "¡La victoria es realmente imposible!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>¡Eres nuestro héroe!</strong>]; (0-1000000000)[Victoria en <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>¡Haz clic o pulsa Z para atacar al dragón!</strong>]",
+    "perSec": "/seg",
+    "generationSection": "Producción",
+    "critSection": "Especial",
+    "dps": "Daño de tropas: <strong>{{dps}}/seg</strong>",
+    "gps": "Oro de tropas: <strong>{{gps}}/seg</strong>",
+    "dpc": "Daño por clic: <strong>{{dpc}}/clic</strong>",
+    "gpc": "Oro por clic: <strong>{{gpc}}/clic</strong>",
+    "catapultDamage": "Daño: <strong>{{damage}}/disparo</strong>",
+    "catapultTimeToShoot": "Tiempo de disparo: <strong>{{time}} seg</strong>",
+    "seconds_one": "segundo",
+    "seconds_other": "segundos",
+    "seconds_many": "segundos",
+    "minutes_one": "minuto",
+    "minutes_other": "minutos",
+    "minutes_many": "minutos",
+    "hours_one": "hora",
+    "hours_other": "horas",
+    "hours_many": "horas",
+    "days_one": "día",
+    "days_other": "días",
+    "days_many": "días",
+    "months_one": "mes",
+    "months_other": "meses",
+    "months_many": "meses",
+    "years_one": "año",
+    "years_other": "años",
+    "years_many": "años",
+    "undo": {
+      "disabledLine": "Haz clic en los 10 seg siguientes para deshacer una compra por error y recuperar el oro.",
+      "enabledAction": "Haz clic para deshacer la compra de {{count}} {{generator}}.",
+      "enabledRefund": "Se te devolverán {{refund}}.",
+      "enabledTimer": "Quedan {{seconds}} seg.",
+      "refundGold": "{{amount}} de oro"
+    }
+  },
+  "generators": {
+    "generators": "Tropas",
+    "buy": "comprar {{amount}}",
+    "warrior_one": "Guerrero",
+    "warrior_other": "Guerreros",
+    "warrior_many": "Guerreros",
+    "wizard_one": "Mago",
+    "wizard_other": "Magos",
+    "wizard_many": "Magos",
+    "elf_one": "Elfo",
+    "elf_other": "Elfos",
+    "elf_many": "Elfos",
+    "garrison_one": "Guarnición",
+    "garrison_other": "Guarniciones",
+    "garrison_many": "Guarniciones",
+    "academy_one": "Academia de hechicería",
+    "academy_other": "Academias de hechicería",
+    "academy_many": "Academias de hechicería",
+    "academy_short_one": "Academia",
+    "academy_short_other": "Academias",
+    "academy_short_many": "Academias",
+    "outpost_one": "Puesto de arqueros",
+    "outpost_other": "Puestos de arqueros",
+    "outpost_many": "Puestos de arqueros",
+    "outpost_short_one": "Puesto",
+    "outpost_short_other": "Puestos",
+    "outpost_short_many": "Puestos",
+    "council_one": "Consejo militar",
+    "council_other": "Consejos militares",
+    "council_many": "Consejos militares",
+    "nexus_one": "Nexo del archimago",
+    "nexus_other": "Nexos del archimago",
+    "nexus_many": "Nexos del archimago",
+    "forest_one": "Bosque ancestral",
+    "forest_other": "Bosques ancestrales",
+    "forest_many": "Bosques ancestrales",
+    "thief_one": "Ladrón",
+    "thief_other": "Ladrones",
+    "thief_many": "Ladrones",
+    "bard_one": "Bardo",
+    "bard_other": "Bardos",
+    "bard_many": "Bardos",
+    "cleric_one": "Clérigo",
+    "cleric_other": "Clérigos",
+    "cleric_many": "Clérigos",
+    "guild_one": "Gremio de ladrones",
+    "guild_other": "Gremios de ladrones",
+    "guild_many": "Gremios de ladrones",
+    "guild_short_one": "Gremio",
+    "guild_short_other": "Gremios",
+    "guild_short_many": "Gremios",
+    "troupe_one": "Compañía de artistas",
+    "troupe_other": "Compañías de artistas",
+    "troupe_many": "Compañías de artistas",
+    "troupe_short_one": "Compañía",
+    "troupe_short_other": "Compañías",
+    "troupe_short_many": "Compañías",
+    "seminary_one": "Seminario sagrado",
+    "seminary_other": "Seminarios sagrados",
+    "seminary_many": "Seminarios sagrados",
+    "seminary_short_one": "Seminario",
+    "seminary_short_other": "Seminarios",
+    "seminary_short_many": "Seminarios",
+    "congress_one": "Congreso de las sombras",
+    "congress_other": "Congresos de las sombras",
+    "congress_many": "Congresos de las sombras",
+    "theater_one": "Gran teatro",
+    "theater_other": "Grandes teatros",
+    "theater_many": "Grandes teatros",
+    "college_one": "Colegio cardenalicio",
+    "college_other": "Colegios cardenalicios",
+    "college_many": "Colegios cardenalicios",
+    "catapult_one": "Catapulta",
+    "catapult_other": "Catapultas",
+    "catapult_many": "Catapultas",
+    "builder_one": "Constructor",
+    "builder_other": "Constructores",
+    "builder_many": "Constructores",
+    "engineer_one": "Ingeniero",
+    "engineer_other": "Ingenieros",
+    "engineer_many": "Ingenieros",
+    "farmer_one": "Granjero",
+    "farmer_other": "Granjeros",
+    "farmer_many": "Granjeros",
+    "lumberjack_one": "Leñador",
+    "lumberjack_other": "Leñadores",
+    "lumberjack_many": "Leñadores",
+    "miner_one": "Minero",
+    "miner_other": "Mineros",
+    "miner_many": "Mineros",
+    "apprenticeships_one": "Aprendizaje",
+    "apprenticeships_other": "Aprendizajes",
+    "apprenticeships_many": "Aprendizajes",
+    "tradespeople_one": "Artesano",
+    "tradespeople_other": "Artesanos",
+    "tradespeople_many": "Artesanos",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} seg"
+    },
+    "ngPlusProductionToggle": "Alternar producción",
+    "tabs": {
+      "troops": "Tropas",
+      "support": "Apoyo"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Despide unidades para recortar su consumo de recursos sin perder toda la producción."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Maná",
+    "manaDescription": "Energía mágica que alimenta los ataques de los magos.",
+    "emptyManaDescription": "Compra [Rellenar maná] para seguir atacando.",
+    "inspiration": "Inspiración",
+    "inspirationDescription": "Al activarse, el poder de todos los héroes se multiplica por cierta cantidad.",
+    "unitDescription": {
+      "warrior": "Combatientes cuerpo a cuerpo resistentes.",
+      "wizard": "Atacan con magia a media distancia, pero son frágiles.",
+      "elf": "Versátiles a distancia, lejos del alcance del dragón.",
+      "garrison": "Base fortificada que recluta guerreros.",
+      "outpost": "Base remota que recluta elfos.",
+      "academy": "Escuela que entrena magos para el combate.",
+      "council": "Organización militar que funda guarniciones.",
+      "nexus": "Organización arcana que funda academias.",
+      "forest": "Arboleda sagrada que funda puestos.",
+      "thief": "Traicioneros: envenenan al dragón y le roban oro.",
+      "bard": "Pueden inspirar a las tropas a luchar con más fuerza.",
+      "cleric": "Dan protección y reclutan nuevos héroes para la lucha.",
+      "guild": "Red oculta que recluta ladrones.",
+      "troupe": "Compañía itinerante que recluta bardos.",
+      "seminary": "Institución sagrada que forma clérigos.",
+      "congress": "Organización en la sombra que funda gremios de ladrones.",
+      "theater": "Gran institución que funda compañías de artistas.",
+      "college": "Organización religiosa que funda seminarios.",
+      "catapult": "Unidad de asedio que inflige mucho daño al dragón.",
+      "builder": "Construye edificios de nivel 2.",
+      "engineer": "Crea organizaciones de nivel 3.",
+      "farmer": "Cultiva alimento para el reino.",
+      "lumberjack": "Tala madera para la construcción.",
+      "miner": "Extrae mineral de las montañas.",
+      "apprenticeships": "Forma artesanos."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} de daño/{{rate}} seg",
+      "wizard": "{{generatorGeneration}} de daño/{{rate}} seg",
+      "elf": "{{generatorGeneration}} de daño/{{rate}} seg",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "thief": "+{{generatorGeneration}} de oro/{{rate}} seg",
+      "bard": "+{{generatorGeneration}} de inspiración/{{rate}} seg",
+      "cleric": "+{{generatorGeneration}} héroe/{{rate}} seg",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} seg",
+      "catapult": "{{generatorGeneration}} de daño/{{rate}} seg",
+      "builder": "+{{generatorGeneration}} edificio/{{rate}} seg",
+      "engineer": "+{{generatorGeneration}} organización/{{rate}} seg",
+      "farmer": "+{{generatorGeneration}} de alimento/{{rate}} seg",
+      "lumberjack": "+{{generatorGeneration}} de madera/{{rate}} seg",
+      "miner": "+{{generatorGeneration}} de mineral/{{rate}} seg",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} seg"
+    },
+    "tabsAriaLabel": "pestañas de tropas"
+  },
+  "settings": {
+    "settings": "Ajustes",
+    "buy_max": "Comprar máx.",
+    "audio": "Música/Sonido",
+    "game": "Juego",
+    "graphics": "Gráficos",
+    "offline_progress": "Progreso sin conexión",
+    "wishlist_now": "Añadir a deseados"
+  },
+  "menus": {
+    "settings": "Ajustes",
+    "tabs": {
+      "game": "Juego",
+      "graphics": "Gráficos",
+      "audio": "Sonido",
+      "levels": "Capítulos",
+      "saveData": "Partida guardada",
+      "credits": "Créditos"
+    },
+    "credits": {
+      "title": "Créditos",
+      "developedBy": "Desarrollado por",
+      "developedWith": "Desarrollado con",
+      "bigThanksTo": "Agradecimientos especiales a",
+      "theRestOfTheDiscordServer": "el resto del servidor de Discord",
+      "andYou": "y a ti"
+    },
+    "music": "Música",
+    "sfx": "Efectos",
+    "audioSettings": "Ajustes de sonido",
+    "gameSettings": "Ajustes de juego",
+    "graphicsSettings": "Ajustes de gráficos",
+    "language": "Idioma",
+    "languages": {
+      "en": "Inglés",
+      "fr": "Francés",
+      "de": "Alemán",
+      "pt": "Portugués",
+      "tr": "Turco"
+    },
+    "shakeIntensity": "Intensidad del temblor",
+    "largerTextSize": "Texto grande",
+    "crtFilter": "Filtro CRT",
+    "chromaticAberrationSlider": "Aberración cromática",
+    "chromaticAberration": "Aberración cromática",
+    "swordSwooshSounds": "Sonidos de espada y críticos",
+    "catSounds": "Sonidos de gato",
+    "fullscreen": "Pantalla completa",
+    "resume": "Reanudar partida",
+    "close": "Cerrar",
+    "quitGame": "Salir del juego",
+    "joinDiscord": "Únete al Discord",
+    "clear_save_label": "¿Borrar tu progreso?",
+    "zoom_adjustment": "Zoom de la interfaz",
+    "clear_save": "Borrar ahora",
+    "are_you_sure": "¿Seguro?",
+    "cannot_be_reversed": "Esta acción no se puede deshacer.",
+    "yes": "Sí",
+    "no": "No",
+    "saveData": {
+      "title": "Partida guardada",
+      "clearChapterTitle": "Progreso de los capítulos",
+      "clearChapterExplanation": "Borra el oro, las unidades, las mejoras, el progreso de mazmorras y las insignias de todos los capítulos. Se conservan los capítulos desbloqueados, las estadísticas totales, los ajustes y los artefactos.",
+      "clearChapterButton": "Borrar el progreso de los capítulos",
+      "clearFullTitle": "Toda la partida guardada",
+      "clearFullExplanation": "Borra todo lo que borra el reinicio de capítulos, y además los artefactos, los capítulos desbloqueados y las estadísticas totales. Se conservan los ajustes de sonido, gráficos e idioma.",
+      "clearFullButton": "Borrar toda la partida guardada",
+      "clearFullWarning": "Esto no se puede deshacer. Perderás los artefactos, los capítulos desbloqueados y las estadísticas totales."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspiración",
+    "inspirationDescription": "Al activarse, el poder de todos los héroes se multiplica por cierta cantidad.",
+    "maxInspiration": "Multiplicador máx.",
+    "maxInspirationMultiplier": "Multiplicador máx.",
+    "statisticsDescription": "Estadísticas detalladas de tu progreso y rendimiento en el combate.",
+    "hudStopBird": "Detener pájaro",
+    "hudLifetimeStats": "Estadísticas totales",
+    "hudHideWindows": "Ocultar ventanas",
+    "events": {
+      "roar": "Rugido aturdidor",
+      "fire": "Aliento de fuego",
+      "claw": "Zarpazo",
+      "dialog": "Evento especial",
+      "pope_visit": "Una visita especial",
+      "dungeon_keys": "Un secreto oscuro",
+      "missing_king": "¿Dónde está el rey?",
+      "catapult": "Prototipo de ingeniería",
+      "engineer": "Una ayuda oportuna",
+      "invasion_start": "Se acerca una invasión",
+      "invasion_end": "Noticias de nuestras tropas",
+      "apprenticeships_unlock": "Aprendizajes disponibles",
+      "trading": "Mercader ambulante",
+      "dummy_toy_reveal": "No es lo que esperaba"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Eventos",
+      "stats": "Estadísticas",
+      "engineering": "Ingeniería",
+      "resources": "Recursos"
+    },
+    "tabs": {
+      "events": "Eventos",
+      "stats": "Estad.",
+      "engineering": "Ing.",
+      "resources": "Rec."
+    },
+    "tabsAriaLabel": "pestañas de información"
+  },
+  "game": {
+    "dummy": "Gran muñeco",
+    "infiniteBird": "El pájaro insumergible",
+    "king": "El rey",
+    "smallDragon": "Tuth'orieth, la Naciente",
+    "bigDragon": "Forth'aarh, Dador y Segador de Vida"
+  },
+  "dungeon": {
+    "found": "Encontrado",
+    "giveUp": "Rendirse",
+    "tooltipDescription": "Adéntrate en la mazmorra (nv. {{level}})",
+    "cooldownMessage": "Mazmorra en espera. Aguarda {{seconds}} seg para volver a entrar.",
+    "cooldownShort": "{{seconds}} seg",
+    "levelLabel": "Nivel",
+    "levelShort": "Nv. {{level}}",
+    "keysOwned": "Llaves",
+    "giveUpTooltip": "Salir de la mazmorra (conservas parte del botín si tienes Botín generoso)",
+    "moveHint": "WASD o flechas para moverte",
+    "attackHint": "Haz clic en el monstruo para atacar",
+    "chestCountsTooltip": "{{opened}} de {{total}} cofres abiertos",
+    "exitDirection": "SALIDA"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Incursión completada",
+      "titleFailed": "Incursión fallida",
+      "titleStuckRescue": "Salida segura",
+      "lootSummarySubtitle": "Resumen del botín",
+      "body_one": "Obtienes {{gold}} de oro y {{grayKeys}} llave",
+      "body_other": "Obtienes {{gold}} de oro y {{grayKeys}} llaves",
+      "body_many": "Obtienes {{gold}} de oro y {{grayKeys}} llaves",
+      "artifactFound": "Has encontrado {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Bajas por el aliento de fuego",
+      "body": "Has perdido {{list}}",
+      "none": "Sin bajas"
+    },
+    "fireBreathBlocked": {
+      "title": "¡Aliento de fuego bloqueado!",
+      "body": "Una bomba de humo salvó a tus tropas."
+    },
+    "toastLabel": "Aviso del juego"
+  },
+  "levels": {
+    "title": "Capítulos",
+    "locked": "Bloqueado",
+    "active": "En curso",
+    "completed": "Completado",
+    "continue": "Continuar",
+    "start": "Empezar",
+    "restart": "Reiniciar",
+    "restart_progress_warning": "¿Reiniciar ahora? Perderás el progreso no guardado de este capítulo.",
+    "names": {
+      "mainGame": "Un gran dragón",
+      "newGamePlus": "Gestión de recursos",
+      "dummy": "El juguete mágico",
+      "infinite": "Realmente infinito",
+      "kingBattle": "La última batalla del rey"
+    }
+  },
+  "artifacts": {
+    "title": "Artefactos",
+    "subtitle": "A veces aparecen artefactos raros en cofres especiales de las mazmorras. Se conservan entre capítulos.",
+    "notYetFound": "(aún sin encontrar)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Silbato de fénix",
+        "description": "Un pájaro especial trae una nueva moneda."
+      },
+      "emberforgedShield": {
+        "title": "Escudo forjado en brasas",
+        "description": "Los guerreros son inmunes al fuego del dragón."
+      },
+      "moonwellFlask": {
+        "title": "Frasco del pozo lunar",
+        "description": "Los magos gastan la mitad de maná."
+      },
+      "windstepAnklet": {
+        "title": "Tobillera del paso del viento",
+        "description": "Los elfos no quedan aturdidos."
+      },
+      "fangSatchel": {
+        "title": "Zurrón de colmillos",
+        "description": "Mientras la partida está en curso, los ladrones producen 1 diente de dragón cada 30 minutos."
+      },
+      "slumberBerries": {
+        "title": "Bayas del sueño",
+        "description": "El veneno retrasa 10 segundos el rugido y el fuego del dragón."
+      },
+      "echoingLute": {
+        "title": "Laúd resonante",
+        "description": "El bardo duplica el bono de Inspiración."
+      },
+      "blessingCenser": {
+        "title": "Incensario de bendición",
+        "description": "El clérigo recluta siempre el doble de unidades."
+      },
+      "victoryTusk": {
+        "title": "Colmillo de la victoria",
+        "description": "Superar un nivel duplica la recompensa en dientes de dragón."
+      },
+      "cartographersLedger": {
+        "title": "Registro del cartógrafo",
+        "description": "Muestra cuántos cofres de la mazmorra se han abierto y cuántos hay."
+      },
+      "ironSkeletonKey": {
+        "title": "Ganzúa de hierro",
+        "description": "Desbloquea la mazmorra hasta el nivel 20."
+      },
+      "everflameLantern": {
+        "title": "Farol de llama eterna",
+        "description": "La antorcha nunca se apaga."
+      },
+      "midasCoin": {
+        "title": "Moneda de Midas",
+        "description": "El doble de oro en las mazmorras."
+      },
+      "harvestIdol": {
+        "title": "Ídolo de la cosecha",
+        "description": "La producción de recursos aumenta un 25%."
+      },
+      "titanGauntlet": {
+        "title": "Guantelete de titán",
+        "description": "Daño por clic x10."
+      },
+      "wayfindersCompass": {
+        "title": "Brújula del explorador",
+        "description": "Muestra la dirección de la salida de la mazmorra."
+      },
+      "loadedDice": {
+        "title": "Dados cargados",
+        "description": "Los clics siempre son críticos."
+      }
+    }
+  }
+}

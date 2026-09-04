@@ -1,0 +1,976 @@
+{
+  "upgrades": {
+    "upgrades": "Покращення",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Наступний рівень",
+    "currentLevel": "Зараз",
+    "newGamePlusOnly": "Доступно лише в розділі \"Управління ресурсами\"",
+    "max": "Макс.",
+    "lockedMessage": "Прокачайте {{parentSkill}} далі, щоб відкрити це",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Залізний палець",
+        "description": "Шкода від кліків +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Легкий палець",
+        "description": "Кліків за секунду +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Побудка",
+        "description": "Кожен клік скорочує оглушення на {{bonus}} сек",
+        "prefix": "-",
+        "suffix": " сек"
+      },
+      "electricalFinger": {
+        "title": "Електричний палець",
+        "description": "З шансом {{bonus}}% кожен клік викликає блискавку.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Ідеальний клік",
+        "description": "Шанс критичного кліка +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Критичний удар",
+        "description": "Збільшує шкоду критичного кліка на +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Золотий вибух",
+        "description": "Збільшує нагороду за клік по птахах у {{bonus}}x",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Природжений лідер",
+        "description": "Кліки наповнюють шкалу Натхнення на +{{bonus}} за клік",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Грошовий курсор",
+        "description": "Збільшує золото від кліків у {{bonus}}x",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Повні скрині",
+        "description": "Знижує шанс порожньої скрині в підземеллі на {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Ліки для зап'ястя",
+        "description": "Утримання кнопки миші атакує дракона безперервно."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Короткий меч",
+        "description": "Множник шкоди {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Довгий меч",
+        "description": "Додатковий множник шкоди воїна +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Дворучний меч",
+        "description": "Ще один множник шкоди воїна +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Бойовий клич",
+        "description": "Допомагає наповнювати шкалу Натхнення: +{{bonus}} за атаку",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Воєнний клич",
+        "description": "Автоматично вмикає Натхнення на наступному такті, коли множник сягає максимуму"
+      },
+      "barbarian": {
+        "title": "Варвар",
+        "description": "Збільшує базову шкоду на +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Товста броня",
+        "description": "Знижує вхідну фізичну шкоду на {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Вогнетривка броня",
+        "description": "Знижує втрати від вогняного подиху на {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Важке каміння",
+        "description": "Збільшує шкоду катапульти на {{bonus}}% за рівень",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Срібне лезо",
+        "description": "Додає множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Золоте лезо",
+        "description": "Додає ще множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Вірні найманці",
+        "description": "{{typePlural}}, куплені вами, завдають на +{{bonus}}x більше шкоди за рівень",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Вірні слуги",
+        "description": "Вартість набору {{type}} і вищих рангів знижена на {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Злагоджена робота",
+        "description": "Набирає додаткових {{typePlural}} за кожного купленого {{type}}",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Точність у підземеллі",
+        "description": "Збільшує шанс критичної шкоди в підземеллях на {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Нищитель лабіринтів",
+        "description": "Збільшує бонус критичної шкоди в підземеллі на {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Магічна стріла",
+        "description": "Множник шкоди {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Меч мани",
+        "description": "Кожен маг наповнює маною меч одного воїна. Множник шкоди росте на +{{bonus}}x, поки мана вище 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Чарівна миша",
+        "description": "Наповнює шкалу мани на +{{bonus}} за клік",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Поповнити ману",
+        "description": "Поповнює шкалу мани магів"
+      },
+      "manaPool": {
+        "title": "Резервуар мани",
+        "description": "Збільшує максимум мани на {{bonus}}%",
+        "suffix": " мани"
+      },
+      "manaBoost": {
+        "title": "Приплив мани",
+        "description": "Шкода мага подвоюється, поки мана вище {{current}}",
+        "suffix": " мани"
+      },
+      "weatherForecast": {
+        "title": "Прогноз погоди",
+        "description": "Збільшує шанс удару блискавки на {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Удар блискавки",
+        "description": "Додаткова блискавка завдає +{{bonus}}x шкоди {{type}} за кожне куплене покращення",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Срібний посох",
+        "description": "Додає множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Золотий посох",
+        "description": "Додає ще множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Магічний вогонь",
+        "description": "Збільшує час горіння смолоскипа на +{{bonus}} сек",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Архімаг",
+        "description": "Збільшує базову шкоду на +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Око мисливця",
+        "description": "Збільшує шанс збити 1 птаха в радіусі щотакту на +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Влучне око",
+        "description": "Шанс критичного пострілу +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Листоріз",
+        "description": "Збільшує шкоду критичного пострілу на +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Мисливський сезон",
+        "description": "Негайно викликає зграю птахів",
+        "suffix": " птахів"
+      },
+      "elvenEyes": {
+        "title": "Ельфійський зір",
+        "description": "Коли смолоскип гасне, ви бачите в темряві ще +{{bonus}} сек",
+        "prefix": "+",
+        "suffix": " сек"
+      },
+      "multipleShot": {
+        "title": "Множинний постріл",
+        "description": "Стріляє додатковою стрілою за рівень",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Срібна стріла",
+        "description": "Додає множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Золота стріла",
+        "description": "Додає ще множник {{bonus}}x до золота за атаку",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Крижана стріла",
+        "description": "Сповільнює вогняну атаку дракона на {{bonus}} сек",
+        "prefix": "-",
+        "suffix": " сек"
+      },
+      "animalInstinct": {
+        "title": "Звіриний інстинкт",
+        "description": "Покращує снаряди катапульти: каміння, коти, тигри - щоразу шкода росте в 10 разів.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Громовідвід",
+        "description": "З шансом {{bonus}}% притягує зайву блискавку, коли блискавка мага влучає у ворога.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Стріли з вторсировини",
+        "description": "Атаки ельфів витрачають менше деревини"
+      },
+      "lightfoot": {
+        "title": "Легка хода",
+        "description": "Збільшує швидкість руху й повороту в підземеллях на {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Спритні руки",
+        "description": "Скорочує час здобуття золота на {{bonus}} сек"
+      },
+      "sharpDagger": {
+        "title": "Клинок асасина",
+        "description": "Злодій теж атакує, зі шкодою {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Отруєний кинджал",
+        "description": "Збільшує шанс отруїти дракона на +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Чорна мамба",
+        "description": "Множник шкоди від отрути +{{bonus}}x від шкоди злодія",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Стійкий токсин",
+        "description": "Збільшує тривалість отрути на +{{bonus}} сек",
+        "suffix": " сек"
+      },
+      "smokeBomb": {
+        "title": "Димова бомба",
+        "description": "Ставить драконові пастку з шансом {{current}}% спрацювати на наступній атаці й перервати її.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Вибухові коти",
+        "description": "Снаряди катапульти вибухають при влучанні, подвоюючи шкоду.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Кишеньковий злодій",
+        "description": "Додає множник {{bonus}}x до здобутку золота {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Відмичка",
+        "description": "На початку кожної вилазки відчинено на {{bonus}} дверей підземелля більше."
+      },
+      "midasTouch": {
+        "title": "Дотик Мідаса",
+        "description": "Додає ще множник {{bonus}}x до здобутку золота {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Напхані скрині",
+        "description": "Збільшує золото зі скринь підземелля на {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Камертон",
+        "description": "Збільшує набір натхнення на +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Соло на лютні",
+        "description": "Збільшує максимальний множник натхнення на +{{bonus}}x",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Настирливий гітарист",
+        "description": "Тривалість бонусу Натхнення +{{bonus}} сек",
+        "suffix": " сек"
+      },
+      "piercedEardrums": {
+        "title": "Пробиті перетинки",
+        "description": "Таймер реву дракона йде повільніше на {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "На біс",
+        "description": "З шансом {{bonus}}% перезапускає Натхнення, коли воно скінчилося",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Звуковий бар'єр",
+        "description": "Таймер вогняного подиху дракона йде повільніше на {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Какофонікс",
+        "description": "При покупці оглушує ваших бійців"
+      },
+      "churchChoir": {
+        "title": "Церковний хор",
+        "description": "Набирає 1 семінарію щоразу, коли вмикається Натхнення"
+      },
+      "encore": {
+        "title": "Біс",
+        "description": "Скорочує перезарядку набору Натхнення на {{bonus}} сек",
+        "suffix": " сек"
+      },
+      "lockerRoomSpeech": {
+        "title": "Промова в роздягальні",
+        "description": "Набирає Натхнення, поки гра закрита, зі швидкістю {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Лад у королівстві",
+        "description": "Поки гра закрита, ваша музика змушує ремісників працювати понаднормово, здобуваючи ресурси зі швидкістю {{current}}% від звичайної",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Мажорний ключ",
+        "description": "Купити ключ від підземелля. (Так, каламбур жахливий.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Вразливі частоти",
+        "description": "Скорочує невразливість ворогів підземелля після кожного удару на {{bonus}} мс",
+        "prefix": "-",
+        "suffix": " мс"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Відділ героїв",
+        "description": "Шанс подвоїти набраних героїв росте на +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Благословенна аура",
+        "description": "Знижує втрати від вогняного подиху на -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Благословенний птах",
+        "description": "З шансом {{current}}% птахи з'являються благословенними і дають удвічі більше золота",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Передача сили",
+        "description": "При наборі героїв мана магів також відновлюється на 0,5 за кожного жерця"
+      },
+      "generousLoot": {
+        "title": "Щедра здобич",
+        "description": "Коли вилазка провалюється, ви зберігаєте {{current}}% здобичі.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Божественне світло",
+        "description": "Збільшує шанс знову запалити згаслий смолоскип на {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Набір воїнів",
+        "description": "Відкриває набір воїнів у бій"
+      },
+      "recruitElves": {
+        "title": "Набір ельфів",
+        "description": "Відкриває набір ельфів у бій"
+      },
+      "recruitWizards": {
+        "title": "Набір магів",
+        "description": "Відкриває набір магів у бій"
+      },
+      "recruitBards": {
+        "title": "Набір бардів",
+        "description": "Відкриває набір бардів у бій"
+      },
+      "recruitThieves": {
+        "title": "Набір злодіїв",
+        "description": "Відкриває набір злодіїв у бій"
+      },
+      "recruitClerics": {
+        "title": "Набір жерців",
+        "description": "Відкриває набір жерців у бій"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Додати до бажаного!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Час бою",
+      "dgps": "Шкода і золото за секунду",
+      "resourceBalance": "Баланс ресурсів"
+    },
+    "lifetime": {
+      "title": "Статистика за весь час",
+      "totalPlaytime": "Усього зіграно",
+      "totalGoldEarned": "Усього золота здобуто",
+      "totalGoldSpent": "Усього золота витрачено",
+      "totalBirdsKilled": "Усього птахів збито",
+      "totalClicks": "Усього кліків",
+      "totalHeroesRecruited": "Усього героїв найнято",
+      "heroesPurchased": "Куплено",
+      "heroesRecruited": "Найнято",
+      "tier1": "Ранг 1: найнято (куплено)",
+      "tier2": "Ранг 2: найнято (куплено)",
+      "tier3": "Ранг 3: найнято (куплено)",
+      "totalDamageDealt": "Усього шкоди завдано",
+      "totalUnitsDeadByFireBreath": "Втрачено від вогняного подиху"
+    },
+    "battleDuration": "Минуло: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "А перемога взагалі можлива?",
+    "infiniteEstimatedVictory": "Перемога справді неможлива!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Ви наш герой!</strong>]; (0-1000000000)[Перемога через <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Клікайте або тисніть Z, щоб бити дракона!</strong>]",
+    "perSec": "/сек",
+    "generationSection": "Виробництво",
+    "critSection": "Особливе",
+    "dps": "Шкода загонів: <strong>{{dps}}/сек</strong>",
+    "gps": "Золото загонів: <strong>{{gps}}/сек</strong>",
+    "dpc": "Шкода за клік: <strong>{{dpc}}/клік</strong>",
+    "gpc": "Золото за клік: <strong>{{gpc}}/клік</strong>",
+    "catapultDamage": "Шкода: <strong>{{damage}}/постріл</strong>",
+    "catapultTimeToShoot": "До пострілу: <strong>{{time}} сек</strong>",
+    "seconds_one": "секунда",
+    "seconds_other": "секунди",
+    "seconds_few": "секунди",
+    "seconds_many": "секунд",
+    "minutes_one": "хвилина",
+    "minutes_other": "хвилини",
+    "minutes_few": "хвилини",
+    "minutes_many": "хвилин",
+    "hours_one": "година",
+    "hours_other": "години",
+    "hours_few": "години",
+    "hours_many": "годин",
+    "days_one": "день",
+    "days_other": "дня",
+    "days_few": "дні",
+    "days_many": "днів",
+    "months_one": "місяць",
+    "months_other": "місяця",
+    "months_few": "місяці",
+    "months_many": "місяців",
+    "years_one": "рік",
+    "years_other": "року",
+    "years_few": "роки",
+    "years_many": "років",
+    "undo": {
+      "disabledLine": "Натисніть протягом 10 сек, щоб скасувати випадкову покупку і повернути золото.",
+      "enabledAction": "Натисніть, щоб скасувати покупку: {{count}} {{generator}}.",
+      "enabledRefund": "Вам повернеться {{refund}}.",
+      "enabledTimer": "Лишилося {{seconds}} сек.",
+      "refundGold": "{{amount}} золота"
+    }
+  },
+  "generators": {
+    "generators": "Загони",
+    "buy": "купити {{amount}}",
+    "warrior_one": "Воїн",
+    "warrior_other": "Воїна",
+    "warrior_few": "Воїни",
+    "warrior_many": "Воїнів",
+    "wizard_one": "Маг",
+    "wizard_other": "Мага",
+    "wizard_few": "Маги",
+    "wizard_many": "Магів",
+    "elf_one": "Ельф",
+    "elf_other": "Ельфа",
+    "elf_few": "Ельфи",
+    "elf_many": "Ельфів",
+    "garrison_one": "Гарнізон",
+    "garrison_other": "Гарнізону",
+    "garrison_few": "Гарнізони",
+    "garrison_many": "Гарнізонів",
+    "academy_one": "Академія магії",
+    "academy_other": "Академії магії",
+    "academy_few": "Академії магії",
+    "academy_many": "Академій магії",
+    "academy_short_one": "Академія",
+    "academy_short_other": "Академії",
+    "academy_short_few": "Академії",
+    "academy_short_many": "Академій",
+    "outpost_one": "Застава лучників",
+    "outpost_other": "Застави лучників",
+    "outpost_few": "Застави лучників",
+    "outpost_many": "Застав лучників",
+    "outpost_short_one": "Застава",
+    "outpost_short_other": "Застави",
+    "outpost_short_few": "Застави",
+    "outpost_short_many": "Застав",
+    "council_one": "Військова рада",
+    "council_other": "Військової ради",
+    "council_few": "Військові ради",
+    "council_many": "Військових рад",
+    "nexus_one": "Нексус архімага",
+    "nexus_other": "Нексуса архімага",
+    "nexus_few": "Нексуси архімага",
+    "nexus_many": "Нексусів архімага",
+    "forest_one": "Прадавній ліс",
+    "forest_other": "Прадавнього лісу",
+    "forest_few": "Прадавні ліси",
+    "forest_many": "Прадавніх лісів",
+    "thief_one": "Злодій",
+    "thief_other": "Злодія",
+    "thief_few": "Злодії",
+    "thief_many": "Злодіїв",
+    "bard_one": "Бард",
+    "bard_other": "Барда",
+    "bard_few": "Барди",
+    "bard_many": "Бардів",
+    "cleric_one": "Жрець",
+    "cleric_other": "Жерця",
+    "cleric_few": "Жерці",
+    "cleric_many": "Жерців",
+    "guild_one": "Гільдія злодіїв",
+    "guild_other": "Гільдії злодіїв",
+    "guild_few": "Гільдії злодіїв",
+    "guild_many": "Гільдій злодіїв",
+    "guild_short_one": "Гільдія",
+    "guild_short_other": "Гільдії",
+    "guild_short_few": "Гільдії",
+    "guild_short_many": "Гільдій",
+    "troupe_one": "Трупа артистів",
+    "troupe_other": "Трупи артистів",
+    "troupe_few": "Трупи артистів",
+    "troupe_many": "Труп артистів",
+    "troupe_short_one": "Трупа",
+    "troupe_short_other": "Трупи",
+    "troupe_short_few": "Трупи",
+    "troupe_short_many": "Труп",
+    "seminary_one": "Свята семінарія",
+    "seminary_other": "Святої семінарії",
+    "seminary_few": "Святі семінарії",
+    "seminary_many": "Святих семінарій",
+    "seminary_short_one": "Семінарія",
+    "seminary_short_other": "Семінарії",
+    "seminary_short_few": "Семінарії",
+    "seminary_short_many": "Семінарій",
+    "congress_one": "Тіньовий конгрес",
+    "congress_other": "Тіньового конгресу",
+    "congress_few": "Тіньові конгреси",
+    "congress_many": "Тіньових конгресів",
+    "theater_one": "Великий театр",
+    "theater_other": "Великого театру",
+    "theater_few": "Великі театри",
+    "theater_many": "Великих театрів",
+    "college_one": "Колегія кардиналів",
+    "college_other": "Колегії кардиналів",
+    "college_few": "Колегії кардиналів",
+    "college_many": "Колегій кардиналів",
+    "catapult_one": "Катапульта",
+    "catapult_other": "Катапульти",
+    "catapult_few": "Катапульти",
+    "catapult_many": "Катапульт",
+    "builder_one": "Будівельник",
+    "builder_other": "Будівельника",
+    "builder_few": "Будівельники",
+    "builder_many": "Будівельників",
+    "engineer_one": "Інженер",
+    "engineer_other": "Інженера",
+    "engineer_few": "Інженери",
+    "engineer_many": "Інженерів",
+    "farmer_one": "Фермер",
+    "farmer_other": "Фермера",
+    "farmer_few": "Фермери",
+    "farmer_many": "Фермерів",
+    "lumberjack_one": "Лісоруб",
+    "lumberjack_other": "Лісоруба",
+    "lumberjack_few": "Лісоруби",
+    "lumberjack_many": "Лісорубів",
+    "miner_one": "Шахтар",
+    "miner_other": "Шахтаря",
+    "miner_few": "Шахтарі",
+    "miner_many": "Шахтарів",
+    "apprenticeships_one": "Учнівство",
+    "apprenticeships_other": "Учнівства",
+    "apprenticeships_few": "Учнівства",
+    "apprenticeships_many": "Учнівств",
+    "tradespeople_one": "Ремісник",
+    "tradespeople_other": "Ремісника",
+    "tradespeople_few": "Ремісники",
+    "tradespeople_many": "Ремісників",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} сек"
+    },
+    "ngPlusProductionToggle": "Перемкнути виробництво",
+    "tabs": {
+      "troops": "Загони",
+      "support": "Підтримка"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Звільніть бійців, щоб зменшити витрату ресурсів, зберігши частину виробництва."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Мана",
+    "manaDescription": "Магічна енергія, що живить атаки магів.",
+    "emptyManaDescription": "Купіть \"Поповнити ману\", щоб атакувати далі.",
+    "inspiration": "Натхнення",
+    "inspirationDescription": "Після активації сила всіх героїв множиться на певну величину.",
+    "unitDescription": {
+      "warrior": "Витривалі бійці ближнього бою.",
+      "wizard": "Б'ють магією з середньої відстані, але тілом крихкі.",
+      "elf": "Різнобічні стрільці, поза досяжністю дракона.",
+      "garrison": "Укріплена база, що набирає воїнів.",
+      "outpost": "Далека база, що набирає ельфів.",
+      "academy": "Школа, що готує магів до бою.",
+      "council": "Військова організація, що засновує гарнізони.",
+      "nexus": "Таємна організація, що засновує академії.",
+      "forest": "Священний гай, що засновує застави.",
+      "thief": "Підступні: труять дракона і крадуть у нього золото.",
+      "bard": "Можуть надихнути загони битися завзятіше.",
+      "cleric": "Дають захист і набирають нових героїв у бій.",
+      "guild": "Прихована мережа, що набирає злодіїв.",
+      "troupe": "Мандрівна компанія, що набирає бардів.",
+      "seminary": "Свята установа, що готує жерців.",
+      "congress": "Тіньова організація, що засновує гільдії злодіїв.",
+      "theater": "Велична установа, що засновує трупи артистів.",
+      "college": "Релігійна організація, що засновує семінарії.",
+      "catapult": "Облогова машина, що завдає драконові великої шкоди.",
+      "builder": "Зводить будівлі 2-го рівня.",
+      "engineer": "Створює організації 3-го рівня.",
+      "farmer": "Вирощує їжу для королівства.",
+      "lumberjack": "Рубає деревину для будівництва.",
+      "miner": "Видобуває руду в горах.",
+      "apprenticeships": "Навчає ремісників."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} шкоди/{{rate}} сек",
+      "wizard": "{{generatorGeneration}} шкоди/{{rate}} сек",
+      "elf": "{{generatorGeneration}} шкоди/{{rate}} сек",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "thief": "+{{generatorGeneration}} золота/{{rate}} сек",
+      "bard": "+{{generatorGeneration}} натхнення/{{rate}} сек",
+      "cleric": "+{{generatorGeneration}} героя/{{rate}} сек",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} сек",
+      "catapult": "{{generatorGeneration}} шкоди/{{rate}} сек",
+      "builder": "+{{generatorGeneration}} будівлі/{{rate}} сек",
+      "engineer": "+{{generatorGeneration}} організації/{{rate}} сек",
+      "farmer": "+{{generatorGeneration}} їжі/{{rate}} сек",
+      "lumberjack": "+{{generatorGeneration}} деревини/{{rate}} сек",
+      "miner": "+{{generatorGeneration}} руди/{{rate}} сек",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} сек"
+    },
+    "tabsAriaLabel": "вкладки загонів"
+  },
+  "settings": {
+    "settings": "Налаштування",
+    "buy_max": "Купити макс.",
+    "audio": "Музика/Звуки",
+    "game": "Гра",
+    "graphics": "Графіка",
+    "offline_progress": "Прогрес офлайн",
+    "wishlist_now": "Додати до бажаного"
+  },
+  "menus": {
+    "settings": "Налаштування",
+    "tabs": {
+      "game": "Гра",
+      "graphics": "Графіка",
+      "audio": "Звук",
+      "levels": "Розділи",
+      "saveData": "Збереження",
+      "credits": "Автори"
+    },
+    "credits": {
+      "title": "Автори",
+      "developedBy": "Розробка",
+      "developedWith": "Зроблено за допомогою",
+      "bigThanksTo": "Особлива подяка",
+      "theRestOfTheDiscordServer": "решті Discord-сервера",
+      "andYou": "і вам!"
+    },
+    "music": "Музика",
+    "sfx": "Звуки",
+    "audioSettings": "Налаштування звуку",
+    "gameSettings": "Налаштування гри",
+    "graphicsSettings": "Налаштування графіки",
+    "language": "Мова",
+    "languages": {
+      "en": "Англійська",
+      "fr": "Французька",
+      "de": "Німецька",
+      "pt": "Португальська",
+      "tr": "Турецька"
+    },
+    "shakeIntensity": "Сила тремтіння",
+    "largerTextSize": "Більший текст",
+    "crtFilter": "CRT-фільтр",
+    "chromaticAberrationSlider": "Хроматична аберація",
+    "chromaticAberration": "Хроматична аберація",
+    "swordSwooshSounds": "Звуки меча і критів",
+    "catSounds": "Котячі звуки",
+    "fullscreen": "На весь екран",
+    "resume": "Продовжити гру",
+    "close": "Закрити",
+    "quitGame": "Вийти з гри",
+    "joinDiscord": "Приєднатися до Discord",
+    "clear_save_label": "Стерти ваш прогрес?",
+    "zoom_adjustment": "Масштаб інтерфейсу",
+    "clear_save": "Стерти зараз",
+    "are_you_sure": "Ви впевнені?",
+    "cannot_be_reversed": "Цю дію не можна скасувати.",
+    "yes": "Так",
+    "no": "Ні",
+    "saveData": {
+      "title": "Збереження",
+      "clearChapterTitle": "Прогрес розділів",
+      "clearChapterExplanation": "Стирає золото, бійців, покращення, прогрес підземель і значки проходження в усіх розділах. Відкриті розділи, статистика за весь час, налаштування та артефакти лишаються.",
+      "clearChapterButton": "Стерти прогрес розділів",
+      "clearFullTitle": "Усі дані збереження",
+      "clearFullExplanation": "Стирає все те саме, що й скидання розділів, а на додачу артефакти, відкриті розділи та статистику за весь час. Звук, графіка й мова лишаються.",
+      "clearFullButton": "Стерти всі дані збереження",
+      "clearFullWarning": "Це не можна скасувати. Ви втратите артефакти, відкриті розділи та статистику за весь час."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Натхнення",
+    "inspirationDescription": "Після активації сила всіх героїв множиться на певну величину.",
+    "maxInspiration": "Макс. множник",
+    "maxInspirationMultiplier": "Макс. множник",
+    "statisticsDescription": "Докладна статистика вашого бою і результатів.",
+    "hudStopBird": "Зупинити птаха",
+    "hudLifetimeStats": "Статистика за весь час",
+    "hudHideWindows": "Сховати вікна",
+    "events": {
+      "roar": "Оглушливий рев",
+      "fire": "Вогняний подих",
+      "claw": "Удар кігтями",
+      "dialog": "Особлива подія",
+      "pope_visit": "Особливий гість",
+      "dungeon_keys": "Темна таємниця",
+      "missing_king": "Де король?",
+      "catapult": "Інженерний прототип",
+      "engineer": "Допомога вчасно",
+      "invasion_start": "Наближається вторгнення",
+      "invasion_end": "Звістки від наших загонів",
+      "apprenticeships_unlock": "Учнівство доступне",
+      "trading": "Мандрівний торговець",
+      "dummy_toy_reveal": "Не того я чекав"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Події",
+      "stats": "Статистика",
+      "engineering": "Інженерія",
+      "resources": "Ресурси"
+    },
+    "tabs": {
+      "events": "Події",
+      "stats": "Стат.",
+      "engineering": "Інж.",
+      "resources": "Рес."
+    },
+    "tabsAriaLabel": "вкладки відомостей"
+  },
+  "game": {
+    "dummy": "Великий манекен",
+    "infiniteBird": "Непотоплюваний птах",
+    "king": "Король",
+    "smallDragon": "Тут'оріет, Проростаюча",
+    "bigDragon": "Форт'аарх, Дарувальник і Завершувач життя"
+  },
+  "dungeon": {
+    "found": "Знайдено",
+    "giveUp": "Здатися",
+    "tooltipDescription": "Вирушити в підземелля (рів. {{level}})",
+    "cooldownMessage": "Підземелля відновлюється. Зачекайте {{seconds}} сек, щоб зайти знову.",
+    "cooldownShort": "{{seconds}} сек",
+    "levelLabel": "Рівень",
+    "levelShort": "Рів. {{level}}",
+    "keysOwned": "Ключів у наявності",
+    "giveUpTooltip": "Покинути підземелля (частина здобичі лишиться, якщо є Щедра здобич)",
+    "moveHint": "WASD або стрілки для руху",
+    "attackHint": "Натисніть на монстра, щоб атакувати",
+    "chestCountsTooltip": "Відкрито скринь: {{opened}} з {{total}}",
+    "exitDirection": "ВИХІД"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Вилазка вдалася",
+      "titleFailed": "Вилазка провалилася",
+      "titleStuckRescue": "Безпечний вихід",
+      "lootSummarySubtitle": "Підсумок здобичі",
+      "body_one": "Отримано {{gold}} золота і {{grayKeys}} ключ",
+      "body_other": "Отримано {{gold}} золота і {{grayKeys}} ключа",
+      "body_few": "Отримано {{gold}} золота і {{grayKeys}} ключі",
+      "body_many": "Отримано {{gold}} золота і {{grayKeys}} ключів",
+      "artifactFound": "Знайдено: {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Втрати від вогняного подиху",
+      "body": "Втрачено {{list}}",
+      "none": "Втрат немає"
+    },
+    "fireBreathBlocked": {
+      "title": "Вогняний подих відбито!",
+      "body": "Димова бомба врятувала ваші загони."
+    },
+    "toastLabel": "Ігрове сповіщення"
+  },
+  "levels": {
+    "title": "Розділи",
+    "locked": "Закрито",
+    "active": "Зараз граєте",
+    "completed": "Пройдено",
+    "continue": "Продовжити",
+    "start": "Почати",
+    "restart": "Спочатку",
+    "restart_progress_warning": "Почати спочатку? Незбережений прогрес у цьому розділі буде втрачено.",
+    "names": {
+      "mainGame": "Великий дракон",
+      "newGamePlus": "Управління ресурсами",
+      "dummy": "Чарівна іграшка",
+      "infinite": "Справді нескінченно",
+      "kingBattle": "Останній бій короля"
+    }
+  },
+  "artifacts": {
+    "title": "Артефакти",
+    "subtitle": "Рідкісні артефакти інколи трапляються в особливих скринях підземель. Вони лишаються з вами між розділами.",
+    "notYetFound": "(ще не знайдено)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Свисток фенікса",
+        "description": "Особливий птах приносить нову валюту."
+      },
+      "emberforgedShield": {
+        "title": "Щит із жару",
+        "description": "Воїни несприйнятливі до драконячого вогню."
+      },
+      "moonwellFlask": {
+        "title": "Фляга місячного джерела",
+        "description": "Маги витрачають удвічі менше мани."
+      },
+      "windstepAnklet": {
+        "title": "Браслет вітрокроку",
+        "description": "Ельфів не оглушує."
+      },
+      "fangSatchel": {
+        "title": "Торба з іклами",
+        "description": "Поки триває забіг, злодії здобувають 1 драконячий зуб щопівгодини."
+      },
+      "slumberBerries": {
+        "title": "Сонні ягоди",
+        "description": "Отруєння затримує рев і вогонь дракона на 10 секунд."
+      },
+      "echoingLute": {
+        "title": "Лунка лютня",
+        "description": "Бард подвоює бонус Натхнення."
+      },
+      "blessingCenser": {
+        "title": "Кадило благословення",
+        "description": "Жрець завжди набирає вдвічі більше бійців."
+      },
+      "victoryTusk": {
+        "title": "Ікло перемоги",
+        "description": "За пройдений рівень дають удвічі більше драконячих зубів."
+      },
+      "cartographersLedger": {
+        "title": "Журнал картографа",
+        "description": "Показує, скільки скринь підземелля відкрито і скільки всього."
+      },
+      "ironSkeletonKey": {
+        "title": "Залізна відмичка",
+        "description": "Відкриває підземелля до 20-го рівня."
+      },
+      "everflameLantern": {
+        "title": "Незгасний ліхтар",
+        "description": "Смолоскип ніколи не гасне."
+      },
+      "midasCoin": {
+        "title": "Монета Мідаса",
+        "description": "Удвічі більше золота в підземеллях."
+      },
+      "harvestIdol": {
+        "title": "Ідол врожаю",
+        "description": "Видобуток ресурсів вищий на 25%."
+      },
+      "titanGauntlet": {
+        "title": "Рукавиця титана",
+        "description": "Шкода від кліків x10."
+      },
+      "wayfindersCompass": {
+        "title": "Компас провідника",
+        "description": "Показує напрямок до виходу з підземелля."
+      },
+      "loadedDice": {
+        "title": "Обтяжені кості",
+        "description": "Кліки завжди критичні."
+      }
+    }
+  }
+}

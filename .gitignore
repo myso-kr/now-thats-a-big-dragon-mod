@@ -1,0 +1,38 @@
+# ── Extracted from the game ───────────────────────────────────────
+# Not committed. It is the game's own text, or derived from it, and anyone with a
+# copy of the game can make it again with tools/.
+generated/i18n.en.json
+# The seed is the English text copied into a translation scaffold - the game's words
+# either way, so it is no more committable than the file it comes from.
+generated/i18n.ko.seed.json
+generated/dialogs/
+extracted/
+
+# generated/fingerprint.json is deliberately NOT here. It is our own record of which
+# game builds were verified, not anything taken out of the game, and the README and the
+# release notes both read from it.
+
+# ── Runtime output ────────────────────────────────────────────────
+# The watchdog writes these as it goes. They are a record of play rather than
+# anything to publish, and leaving them makes the repository dirty on every run.
+snapshots/
+doctor.txt
+*.log
+
+# ── Build ─────────────────────────────────────────────────────────
+/target/
+dist/
+*.pdb
+
+# ── Node ──────────────────────────────────────────────────────────
+# There are no runtime dependencies. A lint tool would land here.
+node_modules/
+package-lock.json
+
+# ── Editors and operating systems ─────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

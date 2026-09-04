@@ -1,0 +1,33 @@
+[package]
+name = "bigdragon"
+version = "0.4.0"
+edition = "2021"
+rust-version = "1.82"
+description = "Korean patch, cheat widget, and autoplay for Now THAT'S a Big Dragon! — injected over CDP, no game files modified"
+license = "MIT"
+repository = "https://github.com/myso-kr/now-thats-a-big-dragon-mod"
+
+[[bin]]
+name = "bigdragon"
+path = "src/main.rs"
+
+[dependencies]
+# CDP 는 WebSocket 위의 JSON-RPC 다. 비동기 런타임을 들이지 않는다 —
+# 우리가 다루는 동시성은 "요청 하나 보내고 응답 하나 받기" 와 이벤트 루프뿐이라
+# 동기 소켓으로 충분하고, 그만큼 바이너리가 작아진다.
+tungstenite = "0.24"
+serde = { version = "1", features = ["derive"] }
+# preserve_order keeps object keys in the order the bundle had them. The game's
+# tables are curated lists - the upgrade details even carry "// SECTION" markers -
+# and re-sorting them alphabetically changes what the game reads back.
+serde_json = { version = "1", features = ["preserve_order"] }
+regex = "1"
+# CDP 는 응답 본문을 base64 로 준다
+base64 = "0.22"
+
+[profile.release]
+opt-level = "z"      # 배포물 크기가 곧 진입 장벽이다
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

@@ -1,0 +1,139 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rust:
+    name: Launcher (Rust)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo test --locked
+
+  web:
+    name: Injected scripts (JS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+
+      # Code under web/ runs inside the game's renderer. A syntax error there leaves
+      # nothing at all in the launcher log; it just dies quietly. This is the only net.
+      - name: node --check (everything)
+        run: |
+          set -e
+          find . -name '*.js' -not -path './node_modules/*' -not -path './target/*' \
+            -print0 | xargs -0 -n1 -t node --check
+
+      # Unit tests for the injected scripts. They run without the game.
+      - name: Autoplay module tests
+        run: node --test "web/**/*.test.js" "patch/*.test.js"
+
+      - name: JSON parses
+        run: |
+          set -e
+          for f in $(git ls-files '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
+              || { echo "::error file=$f::failed to parse"; exit 1; }
+          done
+
+  locale:
+    name: Translations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      # Only for the Node-versus-Rust comparison at the end of this job.
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with: { key: locale }
+
+      # Everything under locale/ is generated from the tables under translations/. A
+      # string edited in the exported worksheet and never carried back into its table
+      # would be silently undone by the next build. This runs the real importer,
+      # compares against what ships byte for byte, and puts the file back.
+      - name: Source reproduces what ships
+        run: python tools/build-translation.py --all --check
+
+      # Without the game installed the source text cannot be compared. Structure can.
+      - name: Dialogue structure
+        run: node tools/check-dialogs.js || echo "::warning::skipped - no game installation"
+
+      - name: Fonts and their licences are bundled
+        run: |
+          set -e
+          ls locale/fonts/OFL-*.txt >/dev/null || { echo "::error::no OFL licence files"; exit 1; }
+          node -e "
+            const fs=require('fs'), path=require('path'), cfg=require('./config');
+            let n=0;
+            for (const lang of Object.keys(require('./locale/languages.json').languages)) {
+              for (const f of cfg.language(lang).fonts) {
+                const p = path.join(cfg.PATHS.FONTS, f.file);
+                if (!fs.existsSync(p)) {
+                  console.error('::error::' + lang + ' references a font that is not here: ' + p);
+                  process.exit(1);
+                }
+                n += 1;
+              }
+            }
+            console.log(n + ' font references check out');
+          "
+
+      # Whether the characters a translation uses are actually in that language's font.
+      # Galmuri's Han characters are the traditional forms used for Korean hanja only,
+      # so 269 simplified characters once shipped as blank boxes with nothing logged.
+      - name: Font character coverage
+        run: node tools/check-fonts.js
+
+      # Autoplay picks a dialogue option by where it sits in the .ink file and finds it
+      # on screen by its label, and both launchers build that table themselves. If they
+      # ever disagreed, autoplay would choose the wrong option in silence.
+      - name: Dialogue option labels agree between Node and Rust
+        run: |
+          set -e
+          node tools/dialog-choices.js > choices.json
+          BD_NODE_CHOICES=choices.json cargo test --test bundle the_rust_dialogue_choices
+
+      # A .ink file with CRLF or a BOM unsettles the game's Ink compilation.
+      - name: Encoding and line endings
+        run: |
+          set -e
+          fail=0
+          for f in $(git ls-files 'locale/**/*.ink'); do
+            if head -c3 "$f" | grep -q $'\xef\xbb\xbf'; then
+              echo "::error file=$f::has a BOM"; fail=1
+            fi
+            if grep -qU $'\r' "$f"; then
+              echo "::error file=$f::has CRLF line endings"; fail=1
+            fi
+          done
+          exit $fail
+
+  # Checks that need the game installed cannot run in CI. A green tick here means
+  # "the code does not contradict itself", not "this works on game 1.0.6".

@@ -1,0 +1,30 @@
+# GitHub Pages (Settings → Pages → Source: main /docs)
+title: "Now THAT'S a Big Dragon! — Korean patch, cheats, and autoplay"
+description: >-
+  Unofficial mod for the Steam idle game Now THAT'S a Big Dragon!.
+  Korean translation (한글패치), an in-game cheat widget, and a fully autonomous
+  autoplay — injected over the Chrome DevTools Protocol. No game files are modified.
+url: "https://myso-kr.github.io"
+baseurl: "/now-thats-a-big-dragon-mod"
+lang: en
+
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-seo-tag      # og: / twitter: / canonical / JSON-LD
+  - jekyll-sitemap      # sitemap.xml
+
+# 검색엔진이 이 이름들로 찾아온다. 게임 정식 명칭을 그대로 둔다.
+author: myso-kr
+twitter:
+  card: summary_large_image
+
+defaults:
+  - scope: { path: "" }
+    values: { lang: en }
+  - scope: { path: "ko" }
+    values: { lang: ko }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock

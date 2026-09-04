@@ -1,0 +1,41 @@
+{
+  "name": "big-dragon-mod",
+  "version": "0.4.0",
+  "description": "Korean patch, cheat widget, and full autoplay for Now THAT'S a Big Dragon! — injected over CDP, no game files modified",
+  "scripts": {
+    "start": "node launcher.js",
+    "attach": "node launcher.js --attach",
+    "doctor": "node tools/doctor.js",
+    "fingerprint": "node tools/fingerprint.js",
+    "test": "node --test \"web/**/*.test.js\" \"patch/*.test.js\" \"lib/*.test.js\" \"tools/*.test.js\"",
+    "check-fonts": "node tools/check-fonts.js",
+    "dry-run": "node tools/dry-run.js",
+    "extract": "node tools/extract-i18n.js",
+    "translations": "python tools/build-translation.py --all",
+    "translations:check": "python tools/build-translation.py --all --check"
+  },
+  "license": "MIT",
+  "author": "myso-kr",
+  "homepage": "https://github.com/myso-kr/now-thats-a-big-dragon-mod#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myso-kr/now-thats-a-big-dragon-mod.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myso-kr/now-thats-a-big-dragon-mod/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "bigDragon": {
+    "supportedGameVersions": [
+      "1.0.5",
+      "1.0.5b"
+    ],
+    "supportedBuildIds": [
+      "25092954",
+      "25111589"
+    ],
+    "steamAppId": "3834590"
+  }
+}

@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "升级",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "下一级",
+    "currentLevel": "当前",
+    "newGamePlusOnly": "仅在「资源管理」章节中可用",
+    "max": "满级",
+    "lockedMessage": "继续升级{{parentSkill}}以解锁此项",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "铁指",
+        "description": "点击攻击伤害 +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "羽指",
+        "description": "每秒点击次数 +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "当头棒喝",
+        "description": "每次点击攻击使眩晕时间减少 {{bonus}} 秒",
+        "prefix": "-",
+        "suffix": " 秒"
+      },
+      "electricalFinger": {
+        "title": "电指",
+        "description": "每次点击有 {{bonus}}% 概率触发闪电攻击。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "完美点击",
+        "description": "点击暴击概率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "致命一击",
+        "description": "点击暴击伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "黄金爆炸",
+        "description": "点击飞鸟的奖励倍率 +{{bonus}}",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "天生领袖",
+        "description": "点击攻击为鼓舞条充能 +{{bonus}}/次",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "黄金光标",
+        "description": "点击攻击的金币倍率 +{{bonus}}",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "满箱",
+        "description": "地下城宝箱为空的概率降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "腕伤特效药",
+        "description": "按住鼠标即可持续攻击巨龙。"
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "短剑",
+        "description": "{{type}}伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "长剑",
+        "description": "战士伤害的额外倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "双手剑",
+        "description": "再叠一层战士伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "战吼",
+        "description": "每次攻击为鼓舞条充能 +{{bonus}}",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "冲锋号令",
+        "description": "鼓舞倍率达到上限时，在下一刻自动发动"
+      },
+      "barbarian": {
+        "title": "蛮族",
+        "description": "基础伤害提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "厚甲",
+        "description": "受到的物理伤害降低 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "火焰护甲",
+        "description": "火焰吐息造成的死亡减少 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "重石",
+        "description": "每级使投石机伤害提高 {{bonus}}%",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "银刃",
+        "description": "每次攻击的金币倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "金刃",
+        "description": "每次攻击的金币倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "忠诚佣兵",
+        "description": "你购买的{{typePlural}}每级伤害倍率 +{{bonus}}",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "忠诚仆从",
+        "description": "{{type}}及更高阶单位的招募费用降低 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "团队协作",
+        "description": "每购买一个{{type}}，额外招募{{typePlural}}",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "地下城精准",
+        "description": "在地下城中造成暴击的概率提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "迷宫粉碎者",
+        "description": "在地下城中造成的暴击伤害加成提高 {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "魔法飞弹",
+        "description": "{{type}}伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "法力之剑",
+        "description": "每名法师为一名战士的剑注入法力。法力高于 90 时伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "魔法鼠标",
+        "description": "每次点击为法力条充能 +{{bonus}}",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "补充法力",
+        "description": "将法师的法力条补满"
+      },
+      "manaPool": {
+        "title": "法力池",
+        "description": "法力上限提高 {{bonus}}%",
+        "suffix": " 法力"
+      },
+      "manaBoost": {
+        "title": "法力涌动",
+        "description": "法力高于 {{current}} 时，法师伤害翻倍",
+        "suffix": " 法力"
+      },
+      "weatherForecast": {
+        "title": "天气预报",
+        "description": "闪电落下的概率提高 {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "雷击",
+        "description": "每购买一级，额外发动一次闪电攻击，伤害为{{type}}的 +{{bonus}} 倍",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "银杖",
+        "description": "每次攻击的金币倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "金杖",
+        "description": "每次攻击的金币倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "魔法之火",
+        "description": "火把持续时间延长 +{{bonus}} 秒",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "大魔导师",
+        "description": "基础伤害提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "猎人之眼",
+        "description": "每刻射中射程内一只飞鸟的概率提高 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "精明瞄准",
+        "description": "射击暴击概率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "切叶者",
+        "description": "射击暴击伤害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "狩猎季",
+        "description": "立即刷出一群飞鸟",
+        "suffix": " 只"
+      },
+      "elvenEyes": {
+        "title": "精灵之眼",
+        "description": "火把熄灭后，你仍能在黑暗中看见 +{{bonus}} 秒",
+        "prefix": "+",
+        "suffix": " 秒"
+      },
+      "multipleShot": {
+        "title": "多重射击",
+        "description": "每级多射出一支箭",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "银箭",
+        "description": "每次攻击的金币倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "金箭",
+        "description": "每次攻击的金币倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "冰箭",
+        "description": "巨龙的火焰攻击减慢 {{bonus}} 秒",
+        "prefix": "-",
+        "suffix": " 秒"
+      },
+      "animalInstinct": {
+        "title": "野性本能",
+        "description": "投石机的弹药从石头升级为猫，再升级为老虎，每次升级伤害提高 10 倍。",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "避雷针",
+        "description": "法师的闪电命中敌人时，有 {{bonus}}% 概率引来额外一道雷击。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "回收箭矢",
+        "description": "精灵攻击消耗的木材减少"
+      },
+      "lightfoot": {
+        "title": "轻足",
+        "description": "在地下城中的移动和转向速度提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "快手",
+        "description": "产出金币所需时间减少 {{bonus}} 秒"
+      },
+      "sharpDagger": {
+        "title": "刺客之刃",
+        "description": "盗贼也会发动攻击，伤害为 {{current}}"
+      },
+      "poisonDagger": {
+        "title": "毒匕",
+        "description": "使巨龙中毒的概率提高 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "黑曼巴",
+        "description": "毒伤倍率为盗贼伤害的 +{{bonus}}",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "残毒",
+        "description": "中毒持续时间延长 +{{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "smokeBomb": {
+        "title": "烟雾弹",
+        "description": "为巨龙布下陷阱，有 {{current}}% 概率在其下次攻击时触发并将其打断。",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "会炸的喵",
+        "description": "投石机的弹药命中敌人时爆炸，伤害翻倍。",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "扒手",
+        "description": "{{type}}的金币产出倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "撬锁",
+        "description": "每次探索开始时，额外有 {{bonus}} 扇地下城门是打开的。"
+      },
+      "midasTouch": {
+        "title": "点金术",
+        "description": "{{type}}的金币产出倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "塞满的宝箱",
+        "description": "地下城宝箱的金币奖励提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "音叉",
+        "description": "鼓舞产出提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "鲁特琴独奏",
+        "description": "鼓舞倍率上限 +{{bonus}}",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "聒噪吉他手",
+        "description": "鼓舞加成持续时间 +{{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "piercedEardrums": {
+        "title": "刺穿的耳膜",
+        "description": "巨龙咆哮的计时速度降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "返场",
+        "description": "鼓舞结束时，有 {{bonus}}% 概率重新开始",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "音障",
+        "description": "巨龙火焰吐息的计时速度降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "卡冬风",
+        "description": "购买时会让你的部队陷入眩晕"
+      },
+      "churchChoir": {
+        "title": "教堂唱诗班",
+        "description": "每次发动鼓舞时招募 1 座神学院"
+      },
+      "encore": {
+        "title": "安可",
+        "description": "鼓舞的冷却时间减少 {{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "lockerRoomSpeech": {
+        "title": "更衣室演说",
+        "description": "游戏关闭时，以 {{current}}% 的速率产出鼓舞",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "加班条例",
+        "description": "游戏关闭时，你的音乐让工匠们在下班时间也照常干活，以正常速率的 {{current}}% 产出资源",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "大调钥匙",
+        "description": "购买一把地下城钥匙。（是的，就是这么冷的音乐谐音梗。）"
+      },
+      "vulnerableFrequencies": {
+        "title": "脆弱频率",
+        "description": "每次命中后，地下城敌人的无敌时间减少 {{bonus}} 毫秒",
+        "prefix": "-",
+        "suffix": "ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "英雄资源",
+        "description": "招募英雄时数量翻倍的概率提高 +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "祝福光环",
+        "description": "火焰吐息造成的死亡减少 -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "受祝福的飞鸟",
+        "description": "飞鸟有 {{current}}% 概率带着祝福出现，金币奖励翻倍",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "力量传递",
+        "description": "招募时，每拥有一名牧师就为法师恢复 0.5 点法力"
+      },
+      "generousLoot": {
+        "title": "慷慨战利品",
+        "description": "地下城探索失败时，你仍保留 {{current}}% 的战利品。",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "圣光",
+        "description": "火把熄灭后重新点燃的概率提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "招募战士",
+        "description": "允许招募战士参战"
+      },
+      "recruitElves": {
+        "title": "招募精灵",
+        "description": "允许招募精灵参战"
+      },
+      "recruitWizards": {
+        "title": "招募法师",
+        "description": "允许招募法师参战"
+      },
+      "recruitBards": {
+        "title": "招募吟游诗人",
+        "description": "允许招募吟游诗人参战"
+      },
+      "recruitThieves": {
+        "title": "招募盗贼",
+        "description": "允许招募盗贼参战"
+      },
+      "recruitClerics": {
+        "title": "招募牧师",
+        "description": "允许招募牧师参战"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "立即加入愿望单！"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "战斗时间",
+      "dgps": "每秒伤害与金币",
+      "resourceBalance": "资源收支"
+    },
+    "lifetime": {
+      "title": "生涯统计",
+      "totalPlaytime": "总游玩时间",
+      "totalGoldEarned": "累计获得金币",
+      "totalGoldSpent": "累计花费金币",
+      "totalBirdsKilled": "累计击落飞鸟",
+      "totalClicks": "累计点击次数",
+      "totalHeroesRecruited": "累计招募英雄",
+      "heroesPurchased": "购买",
+      "heroesRecruited": "招募",
+      "tier1": "一阶招募（购买）",
+      "tier2": "二阶招募（购买）",
+      "tier3": "三阶招募（购买）",
+      "totalDamageDealt": "累计造成伤害",
+      "totalUnitsDeadByFireBreath": "死于火焰吐息的单位"
+    },
+    "battleDuration": "已用时间：<strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "这也能赢吗？",
+    "infiniteEstimatedVictory": "这是真的赢不了！",
+    "estimatedVictory": "(0)[<strong class='text-danger'>你就是我们的英雄！</strong>]; (0-1000000000)[还有 <strong>{{count}} {{timePrefix}}</strong> 获胜];(1000000001-inf)[<strong class='text-danger'>点击或按 Z 攻击巨龙！</strong>]",
+    "perSec": "/秒",
+    "generationSection": "产出",
+    "critSection": "特殊",
+    "dps": "单位伤害：<strong>{{dps}}/秒</strong>",
+    "gps": "单位金币：<strong>{{gps}}/秒</strong>",
+    "dpc": "点击伤害：<strong>{{dpc}}/次</strong>",
+    "gpc": "点击金币：<strong>{{gpc}}/次</strong>",
+    "catapultDamage": "伤害：<strong>{{damage}}/发</strong>",
+    "catapultTimeToShoot": "发射间隔：<strong>{{time}} 秒</strong>",
+    "seconds_one": "秒",
+    "seconds_other": "秒",
+    "minutes_one": "分钟",
+    "minutes_other": "分钟",
+    "hours_one": "小时",
+    "hours_other": "小时",
+    "days_one": "天",
+    "days_other": "天",
+    "months_one": "个月",
+    "months_other": "个月",
+    "years_one": "年",
+    "years_other": "年",
+    "undo": {
+      "disabledLine": "买错了？在 10 秒内点击即可撤销并退款。",
+      "enabledAction": "点击撤销购买的 {{count}} 个{{generator}}。",
+      "enabledRefund": "将退还 {{refund}}。",
+      "enabledTimer": "剩余 {{seconds}} 秒。",
+      "refundGold": "{{amount}} 金币"
+    }
+  },
+  "generators": {
+    "generators": "部队",
+    "buy": "购买 {{amount}}",
+    "warrior_one": "战士",
+    "warrior_other": "战士",
+    "wizard_one": "法师",
+    "wizard_other": "法师",
+    "elf_one": "精灵",
+    "elf_other": "精灵",
+    "garrison_one": "驻防营",
+    "garrison_other": "驻防营",
+    "academy_one": "魔法学院",
+    "academy_other": "魔法学院",
+    "academy_short_one": "学院",
+    "academy_short_other": "学院",
+    "outpost_one": "弓手前哨",
+    "outpost_other": "弓手前哨",
+    "outpost_short_one": "前哨",
+    "outpost_short_other": "前哨",
+    "council_one": "军事议会",
+    "council_other": "军事议会",
+    "nexus_one": "大魔导师枢纽",
+    "nexus_other": "大魔导师枢纽",
+    "forest_one": "远古森林",
+    "forest_other": "远古森林",
+    "thief_one": "盗贼",
+    "thief_other": "盗贼",
+    "bard_one": "吟游诗人",
+    "bard_other": "吟游诗人",
+    "cleric_one": "牧师",
+    "cleric_other": "牧师",
+    "guild_one": "盗贼公会",
+    "guild_other": "盗贼公会",
+    "guild_short_one": "公会",
+    "guild_short_other": "公会",
+    "troupe_one": "艺人剧团",
+    "troupe_other": "艺人剧团",
+    "troupe_short_one": "剧团",
+    "troupe_short_other": "剧团",
+    "seminary_one": "圣言神学院",
+    "seminary_other": "圣言神学院",
+    "seminary_short_one": "神学院",
+    "seminary_short_other": "神学院",
+    "congress_one": "暗影议会",
+    "congress_other": "暗影议会",
+    "theater_one": "大剧院",
+    "theater_other": "大剧院",
+    "college_one": "枢机学院",
+    "college_other": "枢机学院",
+    "catapult_one": "投石机",
+    "catapult_other": "投石机",
+    "builder_one": "建造者",
+    "builder_other": "建造者",
+    "engineer_one": "工程师",
+    "engineer_other": "工程师",
+    "farmer_one": "农夫",
+    "farmer_other": "农夫",
+    "lumberjack_one": "伐木工",
+    "lumberjack_other": "伐木工",
+    "miner_one": "矿工",
+    "miner_other": "矿工",
+    "apprenticeships_one": "学徒制",
+    "apprenticeships_other": "学徒制",
+    "tradespeople_one": "工匠",
+    "tradespeople_other": "工匠",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}}秒"
+    },
+    "ngPlusProductionToggle": "切换生产",
+    "tabs": {
+      "troops": "部队",
+      "support": "支援"
+    },
+    "fireUnitsButton": {
+      "tooltip": "解雇单位以削减资源消耗，同时保留部分产出。"
+    },
+    "ownedUnits": "拥有的{{unit}}：{{amount}}",
+    "mana": "法力",
+    "manaDescription": "为法师的攻击提供动力的魔法能量。",
+    "emptyManaDescription": "购买「补充法力」以继续攻击。",
+    "inspiration": "鼓舞",
+    "inspirationDescription": "发动后，所有英雄的能力都会获得一定倍率的提升。",
+    "unitDescription": {
+      "warrior": "坚韧的近战斗士。",
+      "wizard": "中距离魔法攻击，但体质脆弱。",
+      "elf": "远程攻击全能，站在巨龙够不到的地方。",
+      "garrison": "招募战士的坚固基地。",
+      "outpost": "招募精灵的边远基地。",
+      "academy": "为战斗培养法师的学校。",
+      "council": "设立驻防营的军事组织。",
+      "nexus": "设立魔法学院的奥术组织。",
+      "forest": "设立前哨的神圣林地。",
+      "thief": "奸诈之徒，让巨龙中毒并偷走它的金币。",
+      "bard": "能鼓舞部队更奋力地作战。",
+      "cleric": "提供保护并招募新英雄参战。",
+      "guild": "招募盗贼的隐秘网络。",
+      "troupe": "招募吟游诗人的巡演班子。",
+      "seminary": "培养牧师的神圣机构。",
+      "congress": "设立盗贼公会的暗影组织。",
+      "theater": "设立艺人剧团的宏伟机构。",
+      "college": "设立神学院的宗教组织。",
+      "catapult": "对巨龙造成高额伤害的攻城单位。",
+      "builder": "建造二级建筑。",
+      "engineer": "创建三级组织。",
+      "farmer": "为王国种植粮食。",
+      "lumberjack": "为建造砍伐木材。",
+      "miner": "从山中开采矿石。",
+      "apprenticeships": "培养工匠。"
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} 伤害/{{rate}}秒",
+      "wizard": "{{generatorGeneration}} 伤害/{{rate}}秒",
+      "elf": "{{generatorGeneration}} 伤害/{{rate}}秒",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "academy": "+{{generatorGeneration}}  $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "thief": "+{{generatorGeneration}} 金币/{{rate}}秒",
+      "bard": "+{{generatorGeneration}} 鼓舞/{{rate}}秒",
+      "cleric": "+{{generatorGeneration}} 英雄/{{rate}}秒",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "catapult": "{{generatorGeneration}} 伤害/{{rate}}秒",
+      "builder": "+{{generatorGeneration}} 建筑/{{rate}}秒",
+      "engineer": "+{{generatorGeneration}} 组织/{{rate}}秒",
+      "farmer": "+{{generatorGeneration}} 食物/{{rate}}秒",
+      "lumberjack": "+{{generatorGeneration}} 木材/{{rate}}秒",
+      "miner": "+{{generatorGeneration}} 矿石/{{rate}}秒",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}}秒"
+    },
+    "tabsAriaLabel": "部队标签页"
+  },
+  "settings": {
+    "settings": "设置",
+    "buy_max": "批量购买",
+    "audio": "音乐/音效",
+    "game": "游戏",
+    "graphics": "画面",
+    "offline_progress": "离线进度",
+    "wishlist_now": "加入愿望单"
+  },
+  "menus": {
+    "settings": "设置",
+    "tabs": {
+      "game": "游戏",
+      "graphics": "画面",
+      "audio": "音频",
+      "levels": "章节",
+      "saveData": "存档",
+      "credits": "制作名单"
+    },
+    "credits": {
+      "title": "制作名单",
+      "developedBy": "开发",
+      "developedWith": "技术支持",
+      "bigThanksTo": "特别鸣谢",
+      "theRestOfTheDiscordServer": "以及 Discord 服务器的各位",
+      "andYou": "还有你！"
+    },
+    "music": "音乐",
+    "sfx": "音效",
+    "audioSettings": "音频设置",
+    "gameSettings": "游戏设置",
+    "graphicsSettings": "画面设置",
+    "language": "语言",
+    "languages": {
+      "en": "英语",
+      "fr": "法语",
+      "de": "德语",
+      "pt": "葡萄牙语",
+      "tr": "土耳其语"
+    },
+    "shakeIntensity": "震动强度",
+    "largerTextSize": "更大字号",
+    "crtFilter": "CRT 滤镜",
+    "chromaticAberrationSlider": "色差",
+    "chromaticAberration": "色差",
+    "swordSwooshSounds": "剑击与暴击音效",
+    "catSounds": "猫叫音效",
+    "fullscreen": "全屏",
+    "resume": "继续游戏",
+    "close": "关闭",
+    "quitGame": "退出游戏",
+    "joinDiscord": "加入 Discord",
+    "clear_save_label": "清除你的进度？",
+    "zoom_adjustment": "界面缩放",
+    "clear_save": "立即清除",
+    "are_you_sure": "确定吗？",
+    "cannot_be_reversed": "此操作无法撤销。",
+    "yes": "是",
+    "no": "否",
+    "saveData": {
+      "title": "存档",
+      "clearChapterTitle": "章节进度",
+      "clearChapterExplanation": "清除每个章节的金币、部队、升级、地下城进度和通关徽章。章节解锁、生涯统计、设置和神器会保留。",
+      "clearChapterButton": "清除章节进度",
+      "clearFullTitle": "全部存档数据",
+      "clearFullExplanation": "除章节重置清除的内容外，还会清除神器、章节解锁和生涯统计。音效、画面和语言设置会保留。",
+      "clearFullButton": "清除全部存档数据",
+      "clearFullWarning": "此操作无法撤销。你将失去神器、章节解锁和生涯统计。"
+    }
+  },
+  "tooltip": {
+    "inspiration": "鼓舞",
+    "inspirationDescription": "发动后，所有英雄的能力都会获得一定倍率的提升。",
+    "maxInspiration": "最大倍率",
+    "maxInspirationMultiplier": "最大倍率",
+    "statisticsDescription": "关于你的战斗进度与表现的详细统计。",
+    "hudStopBird": "停止打鸟",
+    "hudLifetimeStats": "生涯统计",
+    "hudHideWindows": "隐藏窗口",
+    "events": {
+      "roar": "震慑咆哮",
+      "fire": "火焰吐息",
+      "claw": "利爪攻击",
+      "dialog": "特殊事件",
+      "pope_visit": "一位特殊访客",
+      "dungeon_keys": "黑暗的秘密",
+      "missing_king": "国王去哪了？",
+      "catapult": "工程原型机",
+      "engineer": "及时的援手",
+      "invasion_start": "入侵将至",
+      "invasion_end": "前线传来的消息",
+      "apprenticeships_unlock": "学徒制已开放",
+      "trading": "旅行商人",
+      "dummy_toy_reveal": "这可不是我想的那样"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "事件",
+      "stats": "统计",
+      "engineering": "工程",
+      "resources": "资源"
+    },
+    "tabs": {
+      "events": "事件",
+      "stats": "统计",
+      "engineering": "工程",
+      "resources": "资源"
+    },
+    "tabsAriaLabel": "信息标签页"
+  },
+  "game": {
+    "dummy": "大木人桩",
+    "infiniteBird": "不沉之鸟",
+    "king": "国王",
+    "smallDragon": "图索里斯·萌生者",
+    "bigDragon": "弗萨尔·赐生与终结者"
+  },
+  "dungeon": {
+    "found": "已找到",
+    "giveUp": "放弃",
+    "tooltipDescription": "展开一场地下城探索（{{level}} 级）",
+    "cooldownMessage": "地下城冷却中。等待 {{seconds}} 秒后可再次进入。",
+    "cooldownShort": "{{seconds}}秒",
+    "levelLabel": "等级",
+    "levelShort": "{{level}} 级",
+    "keysOwned": "拥有钥匙",
+    "giveUpTooltip": "离开地下城（若拥有「慷慨战利品」则保留部分战利品）",
+    "moveHint": "用 WASD 或方向键移动",
+    "attackHint": "点击怪物进行攻击",
+    "chestCountsTooltip": "已开启 {{total}} 个宝箱中的 {{opened}} 个",
+    "exitDirection": "出口"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "探索成功",
+      "titleFailed": "探索失败",
+      "titleStuckRescue": "安全撤离",
+      "lootSummarySubtitle": "战利品汇总",
+      "body_one": "获得 {{gold}} 金币和 {{grayKeys}} 把钥匙",
+      "body_other": "获得 {{gold}} 金币和 {{grayKeys}} 把钥匙",
+      "artifactFound": "找到了{{artifactName}}。"
+    },
+    "fireBreathCasualties": {
+      "title": "火焰吐息伤亡",
+      "body": "损失 {{list}}",
+      "none": "无伤亡"
+    },
+    "fireBreathBlocked": {
+      "title": "火焰吐息已被挡下！",
+      "body": "一枚烟雾弹救下了你的部队。"
+    },
+    "toastLabel": "游戏通知"
+  },
+  "levels": {
+    "title": "章节",
+    "locked": "未解锁",
+    "active": "游玩中",
+    "completed": "已通关",
+    "continue": "继续",
+    "start": "开始",
+    "restart": "重新开始",
+    "restart_progress_warning": "现在重新开始？你将失去本章节中尚未保存的进度。",
+    "names": {
+      "mainGame": "一条大龙",
+      "newGamePlus": "资源管理",
+      "dummy": "魔法玩具",
+      "infinite": "真·无尽",
+      "kingBattle": "国王的最后一战"
+    }
+  },
+  "artifacts": {
+    "title": "神器",
+    "subtitle": "稀有神器偶尔会出现在地下城的特殊宝箱里。它们在章节之间保留。",
+    "notYetFound": "（尚未找到）",
+    "details": {
+      "phoenixWhistle": {
+        "title": "凤凰哨",
+        "description": "一只特别的鸟会带来新的货币。"
+      },
+      "emberforgedShield": {
+        "title": "余烬锻盾",
+        "description": "战士免疫巨龙的火焰。"
+      },
+      "moonwellFlask": {
+        "title": "月泉水瓶",
+        "description": "法师的法力消耗减半。"
+      },
+      "windstepAnklet": {
+        "title": "风步足环",
+        "description": "精灵不会被眩晕。"
+      },
+      "fangSatchel": {
+        "title": "尖牙袋",
+        "description": "本轮进行期间，盗贼每 30 分钟产出 1 颗龙牙。"
+      },
+      "slumberBerries": {
+        "title": "安眠浆果",
+        "description": "毒素攻击将巨龙的咆哮和火焰延后 10 秒。"
+      },
+      "echoingLute": {
+        "title": "回声鲁特琴",
+        "description": "吟游诗人使鼓舞加成翻倍。"
+      },
+      "blessingCenser": {
+        "title": "祝福香炉",
+        "description": "牧师招募的单位始终翻倍。"
+      },
+      "victoryTusk": {
+        "title": "胜利之牙",
+        "description": "通关一关时龙牙奖励翻倍。"
+      },
+      "cartographersLedger": {
+        "title": "制图师账簿",
+        "description": "显示地下城宝箱已开启的数量与总数。"
+      },
+      "ironSkeletonKey": {
+        "title": "铁万能钥匙",
+        "description": "解锁地下城直到第 20 层。"
+      },
+      "everflameLantern": {
+        "title": "长明灯",
+        "description": "火把永不熄灭。"
+      },
+      "midasCoin": {
+        "title": "迈达斯金币",
+        "description": "地下城的金币奖励翻倍。"
+      },
+      "harvestIdol": {
+        "title": "丰收神像",
+        "description": "资源产量提高 25%。"
+      },
+      "titanGauntlet": {
+        "title": "泰坦护手",
+        "description": "点击伤害 10 倍。"
+      },
+      "wayfindersCompass": {
+        "title": "向导罗盘",
+        "description": "显示地下城出口的方向。"
+      },
+      "loadedDice": {
+        "title": "灌铅骰子",
+        "description": "点击必定暴击。"
+      }
+    }
+  }
+}

@@ -1,0 +1,799 @@
+{
+  "//": "Every language this mod can add to the game, ordered by Steam share.",
+  "//how": [
+    "The game ships en/fr/de/pt/tr and picks one from the system locale itself.",
+    "Anything else is added to the game's own language list, so it appears in",
+    "the settings screen as one more flag - English stays English.",
+    "",
+    "'matches' are the system-locale prefixes that select this language, and a",
+    "longer prefix wins, so zh-Hant beats zh for zh-Hant-TW.",
+    "'steamShare' is that language's share of the Steam Hardware Survey",
+    "(August 2026). It is the translation priority, not a promise: a language",
+    "listed here is only applied once locale/i18n.<code>.json exists.",
+    "'fonts' name the woff2 files under locale/fonts/ that replace each game",
+    "font, with the pixel-grid numbers that keep them looking like the original.",
+    "An empty list means no pixel font covers the script and the system one draws it.",
+    "'status' is how much trust the translation has earned: 'draft' means a machine draft nobody has reviewed, 'reviewed' means a speaker has been through it."
+  ],
+  "gameSupports": [
+    "en",
+    "fr",
+    "de",
+    "pt",
+    "tr"
+  ],
+  "languages": {
+    "zh-Hans": {
+      "name": "简体中文",
+      "english": "Simplified Chinese",
+      "matches": [
+        "zh-hans",
+        "zh-cn",
+        "zh-sg",
+        "zh"
+      ],
+      "flagFile": "cn.png",
+      "fallback": [
+        "Microsoft YaHei",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "FusionPixel8-zh_hans.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "FusionPixel10-zh_hans.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 23.97,
+      "status": "draft"
+    },
+    "ru": {
+      "name": "Русский",
+      "english": "Russian",
+      "matches": [
+        "ru"
+      ],
+      "flagFile": "ru.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 9.9,
+      "note": "Everyday_Standard already draws Cyrillic; only High_Birth does not, so only the heading slot is replaced.",
+      "status": "draft"
+    },
+    "es": {
+      "name": "Español",
+      "english": "Spanish",
+      "matches": [
+        "es-es",
+        "es"
+      ],
+      "flagFile": "es.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 4.53,
+      "note": "The game's own fonts already cover Latin-1; no font of ours is needed.",
+      "status": "draft"
+    },
+    "ja": {
+      "name": "日本語",
+      "english": "Japanese",
+      "matches": [
+        "ja"
+      ],
+      "flagFile": "jp.png",
+      "fallback": [
+        "Yu Gothic",
+        "Meiryo",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "FusionPixel8-ja.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "FusionPixel10-ja.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 2.5
+    },
+    "pl": {
+      "name": "Polski",
+      "english": "Polish",
+      "matches": [
+        "pl"
+      ],
+      "flagFile": "pl.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
+        }
+      ],
+      "steamShare": 1.69,
+      "note": "The game's own body font already draws Polish; only High_Birth is missing the diacritics, and tools/extend-font.py adds them to the game's own font rather than swapping in another.",
+      "status": "draft"
+    },
+    "ko": {
+      "name": "한국어",
+      "english": "Korean",
+      "matches": [
+        "ko"
+      ],
+      "flagFile": "kr.png",
+      "fallback": [
+        "Malgun Gothic",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 1.63,
+      "status": "reviewed"
+    },
+    "zh-Hant": {
+      "name": "繁體中文",
+      "english": "Traditional Chinese",
+      "matches": [
+        "zh-hant",
+        "zh-tw",
+        "zh-hk",
+        "zh-mo"
+      ],
+      "flagFile": "tw.png",
+      "fallback": [
+        "Microsoft JhengHei",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "FusionPixel8-zh_hant.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "FusionPixel10-zh_hant.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 1.31,
+      "status": "draft"
+    },
+    "th": {
+      "name": "ไทย",
+      "english": "Thai",
+      "matches": [
+        "th"
+      ],
+      "flagFile": "th.png",
+      "fallback": [
+        "Leelawadee UI",
+        "Tahoma",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.89,
+      "note": "No open pixel font covers Thai at the game's sizes; the system font draws it.",
+      "systemScripts": [
+        [
+          3584,
+          3711
+        ]
+      ],
+      "status": "draft"
+    },
+    "es-419": {
+      "name": "Español (Latinoamérica)",
+      "english": "Spanish (Latin America)",
+      "matches": [
+        "es-419",
+        "es-mx",
+        "es-ar",
+        "es-co",
+        "es-cl"
+      ],
+      "flagFile": "mx.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.81,
+      "note": "Latin American Spanish. Same base as es, with the regionalisms Steam users there expect (Configuración, mouse, presionar). The game's own fonts cover it.",
+      "status": "draft"
+    },
+    "uk": {
+      "name": "Українська",
+      "english": "Ukrainian",
+      "matches": [
+        "uk"
+      ],
+      "flagFile": "ua.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.73,
+      "note": "The game's own body font covers Cyrillic; only High_Birth does not.",
+      "status": "draft"
+    },
+    "it": {
+      "name": "Italiano",
+      "english": "Italian",
+      "matches": [
+        "it"
+      ],
+      "flagFile": "it.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.61,
+      "note": "The game's own fonts already cover Italian; no font of ours is needed.",
+      "status": "draft"
+    },
+    "cs": {
+      "name": "Čeština",
+      "english": "Czech",
+      "matches": [
+        "cs"
+      ],
+      "flagFile": "cz.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Everyday_Standard-bd.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 6,
+          "basePxPerEm": 6
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
+        }
+      ],
+      "steamShare": 0.54,
+      "note": "The game's own fonts (VEXED, CC BY 4.0) extended by tools/extend-font.py with the 28 letters Czech, Hungarian and Romanian need. Same face and same grid, so nothing mixes.",
+      "status": "draft"
+    },
+    "hu": {
+      "name": "Magyar",
+      "english": "Hungarian",
+      "matches": [
+        "hu"
+      ],
+      "flagFile": "hu.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Everyday_Standard-bd.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 6,
+          "basePxPerEm": 6
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "High_Birth-bd.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 9,
+          "basePxPerEm": 9
+        }
+      ],
+      "steamShare": 0.37,
+      "note": "The game's own fonts, extended with the double acute (ő ű) they lack.",
+      "status": "draft"
+    },
+    "vi": {
+      "name": "Tiếng Việt",
+      "english": "Vietnamese",
+      "matches": [
+        "vi"
+      ],
+      "flagFile": "vn.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.29,
+      "note": "Stacked tone marks need vertical room the game's 6 px/em grid does not have - 60 of the 100 letters carry two marks, and on a capital the second one runs past the ascent. Galmuri has all 134 and its lowercase x-height matches the game's exactly, so only capitals differ.",
+      "status": "draft"
+    },
+    "sv": {
+      "name": "Svenska",
+      "english": "Swedish",
+      "matches": [
+        "sv"
+      ],
+      "flagFile": "se.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.26
+    },
+    "nl": {
+      "name": "Nederlands",
+      "english": "Dutch",
+      "matches": [
+        "nl"
+      ],
+      "flagFile": "nl.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.25
+    },
+    "da": {
+      "name": "Dansk",
+      "english": "Danish",
+      "matches": [
+        "da"
+      ],
+      "flagFile": "dk.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.22
+    },
+    "id": {
+      "name": "Bahasa Indonesia",
+      "english": "Indonesian",
+      "matches": [
+        "id",
+        "in"
+      ],
+      "flagFile": "id.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.16
+    },
+    "fi": {
+      "name": "Suomi",
+      "english": "Finnish",
+      "matches": [
+        "fi"
+      ],
+      "flagFile": "fi.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.14
+    },
+    "nb": {
+      "name": "Norsk",
+      "english": "Norwegian",
+      "matches": [
+        "nb",
+        "nn",
+        "no"
+      ],
+      "flagFile": "no.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.12
+    },
+    "ro": {
+      "name": "Română",
+      "english": "Romanian",
+      "matches": [
+        "ro"
+      ],
+      "flagFile": "ro.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.12
+    },
+    "el": {
+      "name": "Ελληνικά",
+      "english": "Greek",
+      "matches": [
+        "el"
+      ],
+      "flagFile": "gr.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.06,
+      "note": "Galmuri has no glyphs for this script; the system font draws it."
+    },
+    "bg": {
+      "name": "Български",
+      "english": "Bulgarian",
+      "matches": [
+        "bg"
+      ],
+      "flagFile": "bg.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.04,
+      "note": "Galmuri has no glyphs for this script; the system font draws it."
+    },
+    "ar": {
+      "name": "العربية",
+      "english": "Arabic",
+      "matches": [
+        "ar"
+      ],
+      "flagFile": "sa.png",
+      "fallback": [
+        "Segoe UI",
+        "Tahoma",
+        "sans-serif"
+      ],
+      "fonts": [],
+      "steamShare": 0.0,
+      "note": "Right-to-left. The game's layout has not been checked for it."
+    },
+    "ms": {
+      "name": "Bahasa Melayu",
+      "english": "Malay",
+      "matches": [
+        "ms"
+      ],
+      "flagFile": "my.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
+      "steamShare": 0.0
+    },
+    "fil": {
+      "name": "Filipino",
+      "english": "Filipino",
+      "matches": [
+        "fil",
+        "tl"
+      ],
+      "flagFile": "ph.png",
+      "fallback": [
+        "Segoe UI",
+        "sans-serif"
+      ],
+      "fonts": [
+        {
+          "replaces": "everyday_standard",
+          "family": "bd_body",
+          "file": "Galmuri7.woff2",
+          "url": "fonts/bd-body.woff2",
+          "pxPerEm": 8,
+          "basePxPerEm": 6,
+          "ascentOverride": 150,
+          "descentOverride": 50
+        },
+        {
+          "replaces": "high_birth",
+          "family": "bd_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ]
+    }
+  }
+}

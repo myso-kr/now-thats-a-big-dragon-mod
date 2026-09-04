@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "升級",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "下一級",
+    "currentLevel": "當前",
+    "newGamePlusOnly": "僅在「資源管理」章節中可用",
+    "max": "滿級",
+    "lockedMessage": "繼續升級{{parentSkill}}以解鎖此項",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "鐵指",
+        "description": "點擊攻擊傷害 +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "羽指",
+        "description": "每秒點擊次數 +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "當頭棒喝",
+        "description": "每次點擊攻擊使眩暈時間減少 {{bonus}} 秒",
+        "prefix": "-",
+        "suffix": " 秒"
+      },
+      "electricalFinger": {
+        "title": "電指",
+        "description": "每次點擊有 {{bonus}}% 機率觸發閃電攻擊。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "完美點擊",
+        "description": "點擊暴擊機率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "致命一擊",
+        "description": "點擊暴擊傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "黃金爆炸",
+        "description": "點擊飛鳥的獎勵倍率 +{{bonus}}",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "天生領袖",
+        "description": "點擊攻擊為鼓舞條充能 +{{bonus}}/次",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "黃金游標",
+        "description": "點擊攻擊的金幣倍率 +{{bonus}}",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "滿箱",
+        "description": "地下城寶箱為空的機率降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "腕傷特效藥",
+        "description": "按住滑鼠即可持續攻擊巨龍。"
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "短劍",
+        "description": "{{type}}傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "長劍",
+        "description": "戰士傷害的額外倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "雙手劍",
+        "description": "再疊一層戰士傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "戰吼",
+        "description": "每次攻擊為鼓舞條充能 +{{bonus}}",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "衝鋒號令",
+        "description": "鼓舞倍率達到上限時，在下一刻自動發動"
+      },
+      "barbarian": {
+        "title": "蠻族",
+        "description": "基礎傷害提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "厚甲",
+        "description": "受到的物理傷害降低 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "火焰護甲",
+        "description": "火焰吐息造成的死亡減少 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "重石",
+        "description": "每級使投石機傷害提高 {{bonus}}%",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "銀刃",
+        "description": "每次攻擊的金幣倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "金刃",
+        "description": "每次攻擊的金幣倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "忠誠傭兵",
+        "description": "你購買的{{typePlural}}每級傷害倍率 +{{bonus}}",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "忠誠僕從",
+        "description": "{{type}}及更高階單位的招募費用降低 {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "團隊協作",
+        "description": "每購買一個{{type}}，額外招募{{typePlural}}",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "地下城精準",
+        "description": "在地下城中造成暴擊的機率提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "迷宮粉碎者",
+        "description": "在地下城中造成的暴擊傷害加成提高 {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "魔法飛彈",
+        "description": "{{type}}傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "法力之劍",
+        "description": "每名法師為一名戰士的劍注入法力。法力高於 90 時傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "魔法滑鼠",
+        "description": "每次點擊為法力條充能 +{{bonus}}",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "補充法力",
+        "description": "將法師的法力條補滿"
+      },
+      "manaPool": {
+        "title": "法力池",
+        "description": "法力上限提高 {{bonus}}%",
+        "suffix": " 法力"
+      },
+      "manaBoost": {
+        "title": "法力湧動",
+        "description": "法力高於 {{current}} 時，法師傷害翻倍",
+        "suffix": " 法力"
+      },
+      "weatherForecast": {
+        "title": "天氣預報",
+        "description": "閃電落下的機率提高 {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "雷擊",
+        "description": "每購買一級，額外發動一次閃電攻擊，傷害為{{type}}的 +{{bonus}} 倍",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "銀杖",
+        "description": "每次攻擊的金幣倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "金杖",
+        "description": "每次攻擊的金幣倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "魔法之火",
+        "description": "火把持續時間延長 +{{bonus}} 秒",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "大魔導師",
+        "description": "基礎傷害提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "獵人之眼",
+        "description": "每刻射中射程內一隻飛鳥的機率提高 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "精明瞄準",
+        "description": "射擊暴擊機率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "切葉者",
+        "description": "射擊暴擊傷害倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "狩獵季",
+        "description": "立即刷出一群飛鳥",
+        "suffix": " 只"
+      },
+      "elvenEyes": {
+        "title": "精靈之眼",
+        "description": "火把熄滅後，你仍能在黑暗中看見 +{{bonus}} 秒",
+        "prefix": "+",
+        "suffix": " 秒"
+      },
+      "multipleShot": {
+        "title": "多重射擊",
+        "description": "每級多射出一支箭",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "銀箭",
+        "description": "每次攻擊的金幣倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "金箭",
+        "description": "每次攻擊的金幣倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "冰箭",
+        "description": "巨龍的火焰攻擊減慢 {{bonus}} 秒",
+        "prefix": "-",
+        "suffix": " 秒"
+      },
+      "animalInstinct": {
+        "title": "野性本能",
+        "description": "投石機的彈藥從石頭升級為貓，再升級為老虎，每次升級傷害提高 10 倍。",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "避雷針",
+        "description": "法師的閃電命中敵人時，有 {{bonus}}% 機率引來額外一道雷擊。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "回收箭矢",
+        "description": "精靈攻擊消耗的木材減少"
+      },
+      "lightfoot": {
+        "title": "輕足",
+        "description": "在地下城中的移動和轉向速度提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "快手",
+        "description": "產出金幣所需時間減少 {{bonus}} 秒"
+      },
+      "sharpDagger": {
+        "title": "刺客之刃",
+        "description": "盜賊也會發動攻擊，傷害為 {{current}}"
+      },
+      "poisonDagger": {
+        "title": "毒匕",
+        "description": "使巨龍中毒的機率提高 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "黑曼巴",
+        "description": "毒傷倍率為盜賊傷害的 +{{bonus}}",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "殘毒",
+        "description": "中毒持續時間延長 +{{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "smokeBomb": {
+        "title": "煙霧彈",
+        "description": "為巨龍佈下陷阱，有 {{current}}% 機率在其下次攻擊時觸發並將其打斷。",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "會炸的喵",
+        "description": "投石機的彈藥命中敵人時爆炸，傷害翻倍。",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "扒手",
+        "description": "{{type}}的金幣產出倍率 +{{bonus}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "撬鎖",
+        "description": "每次探索開始時，額外有 {{bonus}} 扇地下城門是開啟的。"
+      },
+      "midasTouch": {
+        "title": "點金術",
+        "description": "{{type}}的金幣產出倍率再 +{{bonus}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "塞滿的寶箱",
+        "description": "地下城寶箱的金幣獎勵提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "音叉",
+        "description": "鼓舞產出提高 +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "魯特琴獨奏",
+        "description": "鼓舞倍率上限 +{{bonus}}",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "聒噪吉他手",
+        "description": "鼓舞加成持續時間 +{{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "piercedEardrums": {
+        "title": "刺穿的耳膜",
+        "description": "巨龍咆哮的計時速度降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "返場",
+        "description": "鼓舞結束時，有 {{bonus}}% 機率重新開始",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "音障",
+        "description": "巨龍火焰吐息的計時速度降低 {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "卡冬風",
+        "description": "購買時會讓你的部隊陷入眩暈"
+      },
+      "churchChoir": {
+        "title": "教堂唱詩班",
+        "description": "每次發動鼓舞時招募 1 座神學院"
+      },
+      "encore": {
+        "title": "安可",
+        "description": "鼓舞的冷卻時間減少 {{bonus}} 秒",
+        "suffix": " 秒"
+      },
+      "lockerRoomSpeech": {
+        "title": "更衣室演說",
+        "description": "遊戲關閉時，以 {{current}}% 的速率產出鼓舞",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "加班條例",
+        "description": "遊戲關閉時，你的音樂讓工匠們在下班時間也照常幹活，以正常速率的 {{current}}% 產出資源",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "大調鑰匙",
+        "description": "購買一把地下城鑰匙。（是的，就是這麼冷的音樂諧音梗。）"
+      },
+      "vulnerableFrequencies": {
+        "title": "脆弱頻率",
+        "description": "每次命中後，地下城敵人的無敵時間減少 {{bonus}} 毫秒",
+        "prefix": "-",
+        "suffix": "ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "英雄資源",
+        "description": "招募英雄時數量翻倍的機率提高 +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "祝福光環",
+        "description": "火焰吐息造成的死亡減少 -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "受祝福的飛鳥",
+        "description": "飛鳥有 {{current}}% 機率帶著祝福出現，金幣獎勵翻倍",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "力量傳遞",
+        "description": "招募時，每擁有一名牧師就為法師恢復 0.5 點法力"
+      },
+      "generousLoot": {
+        "title": "慷慨戰利品",
+        "description": "地下城探索失敗時，你仍保留 {{current}}% 的戰利品。",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "聖光",
+        "description": "火把熄滅後重新點燃的機率提高 {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "招募戰士",
+        "description": "允許招募戰士參戰"
+      },
+      "recruitElves": {
+        "title": "招募精靈",
+        "description": "允許招募精靈參戰"
+      },
+      "recruitWizards": {
+        "title": "招募法師",
+        "description": "允許招募法師參戰"
+      },
+      "recruitBards": {
+        "title": "招募吟遊詩人",
+        "description": "允許招募吟遊詩人參戰"
+      },
+      "recruitThieves": {
+        "title": "招募盜賊",
+        "description": "允許招募盜賊參戰"
+      },
+      "recruitClerics": {
+        "title": "招募牧師",
+        "description": "允許招募牧師參戰"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "立即加入願望單！"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "戰鬥時間",
+      "dgps": "每秒傷害與金幣",
+      "resourceBalance": "資源收支"
+    },
+    "lifetime": {
+      "title": "生涯統計",
+      "totalPlaytime": "總遊玩時間",
+      "totalGoldEarned": "累計獲得金幣",
+      "totalGoldSpent": "累計花費金幣",
+      "totalBirdsKilled": "累計擊落飛鳥",
+      "totalClicks": "累計點擊次數",
+      "totalHeroesRecruited": "累計招募英雄",
+      "heroesPurchased": "購買",
+      "heroesRecruited": "招募",
+      "tier1": "一階招募（購買）",
+      "tier2": "二階招募（購買）",
+      "tier3": "三階招募（購買）",
+      "totalDamageDealt": "累計造成傷害",
+      "totalUnitsDeadByFireBreath": "死於火焰吐息的單位"
+    },
+    "battleDuration": "已用時間：<strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "這也能贏嗎？",
+    "infiniteEstimatedVictory": "這是真的贏不了！",
+    "estimatedVictory": "(0)[<strong class='text-danger'>你就是我們的英雄！</strong>]; (0-1000000000)[還有 <strong>{{count}} {{timePrefix}}</strong> 獲勝];(1000000001-inf)[<strong class='text-danger'>點擊或按 Z 攻擊巨龍！</strong>]",
+    "perSec": "/秒",
+    "generationSection": "產出",
+    "critSection": "特殊",
+    "dps": "單位傷害：<strong>{{dps}}/秒</strong>",
+    "gps": "單位金幣：<strong>{{gps}}/秒</strong>",
+    "dpc": "點擊傷害：<strong>{{dpc}}/次</strong>",
+    "gpc": "點擊金幣：<strong>{{gpc}}/次</strong>",
+    "catapultDamage": "傷害：<strong>{{damage}}/發</strong>",
+    "catapultTimeToShoot": "發射間隔：<strong>{{time}} 秒</strong>",
+    "seconds_one": "秒",
+    "seconds_other": "秒",
+    "minutes_one": "分鐘",
+    "minutes_other": "分鐘",
+    "hours_one": "小時",
+    "hours_other": "小時",
+    "days_one": "天",
+    "days_other": "天",
+    "months_one": "個月",
+    "months_other": "個月",
+    "years_one": "年",
+    "years_other": "年",
+    "undo": {
+      "disabledLine": "買錯了？在 10 秒內點擊即可撤銷並退款。",
+      "enabledAction": "點擊撤銷購買的 {{count}} 個{{generator}}。",
+      "enabledRefund": "將退還 {{refund}}。",
+      "enabledTimer": "剩餘 {{seconds}} 秒。",
+      "refundGold": "{{amount}} 金幣"
+    }
+  },
+  "generators": {
+    "generators": "部隊",
+    "buy": "購買 {{amount}}",
+    "warrior_one": "戰士",
+    "warrior_other": "戰士",
+    "wizard_one": "法師",
+    "wizard_other": "法師",
+    "elf_one": "精靈",
+    "elf_other": "精靈",
+    "garrison_one": "駐防營",
+    "garrison_other": "駐防營",
+    "academy_one": "魔法學院",
+    "academy_other": "魔法學院",
+    "academy_short_one": "學院",
+    "academy_short_other": "學院",
+    "outpost_one": "弓手前哨",
+    "outpost_other": "弓手前哨",
+    "outpost_short_one": "前哨",
+    "outpost_short_other": "前哨",
+    "council_one": "軍事議會",
+    "council_other": "軍事議會",
+    "nexus_one": "大魔導師樞紐",
+    "nexus_other": "大魔導師樞紐",
+    "forest_one": "遠古森林",
+    "forest_other": "遠古森林",
+    "thief_one": "盜賊",
+    "thief_other": "盜賊",
+    "bard_one": "吟遊詩人",
+    "bard_other": "吟遊詩人",
+    "cleric_one": "牧師",
+    "cleric_other": "牧師",
+    "guild_one": "盜賊公會",
+    "guild_other": "盜賊公會",
+    "guild_short_one": "公會",
+    "guild_short_other": "公會",
+    "troupe_one": "藝人劇團",
+    "troupe_other": "藝人劇團",
+    "troupe_short_one": "劇團",
+    "troupe_short_other": "劇團",
+    "seminary_one": "聖言神學院",
+    "seminary_other": "聖言神學院",
+    "seminary_short_one": "神學院",
+    "seminary_short_other": "神學院",
+    "congress_one": "暗影議會",
+    "congress_other": "暗影議會",
+    "theater_one": "大劇院",
+    "theater_other": "大劇院",
+    "college_one": "樞機學院",
+    "college_other": "樞機學院",
+    "catapult_one": "投石機",
+    "catapult_other": "投石機",
+    "builder_one": "建造者",
+    "builder_other": "建造者",
+    "engineer_one": "工程師",
+    "engineer_other": "工程師",
+    "farmer_one": "農夫",
+    "farmer_other": "農夫",
+    "lumberjack_one": "伐木工",
+    "lumberjack_other": "伐木工",
+    "miner_one": "礦工",
+    "miner_other": "礦工",
+    "apprenticeships_one": "學徒制",
+    "apprenticeships_other": "學徒制",
+    "tradespeople_one": "工匠",
+    "tradespeople_other": "工匠",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}}秒"
+    },
+    "ngPlusProductionToggle": "切換生產",
+    "tabs": {
+      "troops": "部隊",
+      "support": "支援"
+    },
+    "fireUnitsButton": {
+      "tooltip": "解僱單位以削減資源消耗，同時保留部分產出。"
+    },
+    "ownedUnits": "擁有的{{unit}}：{{amount}}",
+    "mana": "法力",
+    "manaDescription": "為法師的攻擊提供動力的魔法能量。",
+    "emptyManaDescription": "購買「補充法力」以繼續攻擊。",
+    "inspiration": "鼓舞",
+    "inspirationDescription": "發動後，所有英雄的能力都會獲得一定倍率的提升。",
+    "unitDescription": {
+      "warrior": "堅韌的近戰鬥士。",
+      "wizard": "中距離魔法攻擊，但體質脆弱。",
+      "elf": "遠端攻擊全能，站在巨龍夠不到的地方。",
+      "garrison": "招募戰士的堅固基地。",
+      "outpost": "招募精靈的邊遠基地。",
+      "academy": "為戰鬥培養法師的學校。",
+      "council": "設立駐防營的軍事組織。",
+      "nexus": "設立魔法學院的奧術組織。",
+      "forest": "設立前哨的神聖林地。",
+      "thief": "奸詐之徒，讓巨龍中毒並偷走它的金幣。",
+      "bard": "能鼓舞部隊更奮力地作戰。",
+      "cleric": "提供保護並招募新英雄參戰。",
+      "guild": "招募盜賊的隱秘網路。",
+      "troupe": "招募吟遊詩人的巡演班子。",
+      "seminary": "培養牧師的神聖機構。",
+      "congress": "設立盜賊公會的暗影組織。",
+      "theater": "設立藝人劇團的宏偉機構。",
+      "college": "設立神學院的宗教組織。",
+      "catapult": "對巨龍造成高額傷害的攻城單位。",
+      "builder": "建造二級建築。",
+      "engineer": "建立三級組織。",
+      "farmer": "為王國種植糧食。",
+      "lumberjack": "為建造砍伐木材。",
+      "miner": "從山中開採礦石。",
+      "apprenticeships": "培養工匠。"
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} 傷害/{{rate}}秒",
+      "wizard": "{{generatorGeneration}} 傷害/{{rate}}秒",
+      "elf": "{{generatorGeneration}} 傷害/{{rate}}秒",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "academy": "+{{generatorGeneration}}  $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "thief": "+{{generatorGeneration}} 金幣/{{rate}}秒",
+      "bard": "+{{generatorGeneration}} 鼓舞/{{rate}}秒",
+      "cleric": "+{{generatorGeneration}} 英雄/{{rate}}秒",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "catapult": "{{generatorGeneration}} 傷害/{{rate}}秒",
+      "builder": "+{{generatorGeneration}} 建築/{{rate}}秒",
+      "engineer": "+{{generatorGeneration}} 組織/{{rate}}秒",
+      "farmer": "+{{generatorGeneration}} 食物/{{rate}}秒",
+      "lumberjack": "+{{generatorGeneration}} 木材/{{rate}}秒",
+      "miner": "+{{generatorGeneration}} 礦石/{{rate}}秒",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}}秒"
+    },
+    "tabsAriaLabel": "部隊標籤頁"
+  },
+  "settings": {
+    "settings": "設定",
+    "buy_max": "批次購買",
+    "audio": "音樂/音效",
+    "game": "遊戲",
+    "graphics": "畫面",
+    "offline_progress": "離線進度",
+    "wishlist_now": "加入願望單"
+  },
+  "menus": {
+    "settings": "設定",
+    "tabs": {
+      "game": "遊戲",
+      "graphics": "畫面",
+      "audio": "音訊",
+      "levels": "章節",
+      "saveData": "存檔",
+      "credits": "製作名單"
+    },
+    "credits": {
+      "title": "製作名單",
+      "developedBy": "開發",
+      "developedWith": "技術支援",
+      "bigThanksTo": "特別鳴謝",
+      "theRestOfTheDiscordServer": "以及 Discord 伺服器的各位",
+      "andYou": "還有你！"
+    },
+    "music": "音樂",
+    "sfx": "音效",
+    "audioSettings": "音訊設定",
+    "gameSettings": "遊戲設定",
+    "graphicsSettings": "畫面設定",
+    "language": "語言",
+    "languages": {
+      "en": "英語",
+      "fr": "法語",
+      "de": "德語",
+      "pt": "葡萄牙語",
+      "tr": "土耳其語"
+    },
+    "shakeIntensity": "震動強度",
+    "largerTextSize": "更大字號",
+    "crtFilter": "CRT 濾鏡",
+    "chromaticAberrationSlider": "色差",
+    "chromaticAberration": "色差",
+    "swordSwooshSounds": "劍擊與暴擊音效",
+    "catSounds": "貓叫音效",
+    "fullscreen": "全螢幕",
+    "resume": "繼續遊戲",
+    "close": "關閉",
+    "quitGame": "退出遊戲",
+    "joinDiscord": "加入 Discord",
+    "clear_save_label": "清除你的進度？",
+    "zoom_adjustment": "介面縮放",
+    "clear_save": "立即清除",
+    "are_you_sure": "確定嗎？",
+    "cannot_be_reversed": "此操作無法撤銷。",
+    "yes": "是",
+    "no": "否",
+    "saveData": {
+      "title": "存檔",
+      "clearChapterTitle": "章節進度",
+      "clearChapterExplanation": "清除每個章節的金幣、部隊、升級、地下城進度和通關徽章。章節解鎖、生涯統計、設定和神器會保留。",
+      "clearChapterButton": "清除章節進度",
+      "clearFullTitle": "全部存檔資料",
+      "clearFullExplanation": "除章節重置清除的內容外，還會清除神器、章節解鎖和生涯統計。音效、畫面和語言設定會保留。",
+      "clearFullButton": "清除全部存檔資料",
+      "clearFullWarning": "此操作無法撤銷。你將失去神器、章節解鎖和生涯統計。"
+    }
+  },
+  "tooltip": {
+    "inspiration": "鼓舞",
+    "inspirationDescription": "發動後，所有英雄的能力都會獲得一定倍率的提升。",
+    "maxInspiration": "最大倍率",
+    "maxInspirationMultiplier": "最大倍率",
+    "statisticsDescription": "關於你的戰鬥進度與表現的詳細統計。",
+    "hudStopBird": "停止打鳥",
+    "hudLifetimeStats": "生涯統計",
+    "hudHideWindows": "隱藏視窗",
+    "events": {
+      "roar": "震懾咆哮",
+      "fire": "火焰吐息",
+      "claw": "利爪攻擊",
+      "dialog": "特殊事件",
+      "pope_visit": "一位特殊訪客",
+      "dungeon_keys": "黑暗的秘密",
+      "missing_king": "國王去哪了？",
+      "catapult": "工程原型機",
+      "engineer": "及時的援手",
+      "invasion_start": "入侵將至",
+      "invasion_end": "前線傳來的訊息",
+      "apprenticeships_unlock": "學徒制已開放",
+      "trading": "旅行商人",
+      "dummy_toy_reveal": "這可不是我想的那樣"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "事件",
+      "stats": "統計",
+      "engineering": "工程",
+      "resources": "資源"
+    },
+    "tabs": {
+      "events": "事件",
+      "stats": "統計",
+      "engineering": "工程",
+      "resources": "資源"
+    },
+    "tabsAriaLabel": "資訊標籤頁"
+  },
+  "game": {
+    "dummy": "大木人樁",
+    "infiniteBird": "不沉之鳥",
+    "king": "國王",
+    "smallDragon": "圖索里斯·萌生者",
+    "bigDragon": "弗薩爾·賜生與終結者"
+  },
+  "dungeon": {
+    "found": "已找到",
+    "giveUp": "放棄",
+    "tooltipDescription": "展開一場地下城探索（{{level}} 級）",
+    "cooldownMessage": "地下城冷卻中。等待 {{seconds}} 秒後可再次進入。",
+    "cooldownShort": "{{seconds}}秒",
+    "levelLabel": "等級",
+    "levelShort": "{{level}} 級",
+    "keysOwned": "擁有鑰匙",
+    "giveUpTooltip": "離開地下城（若擁有「慷慨戰利品」則保留部分戰利品）",
+    "moveHint": "用 WASD 或方向鍵移動",
+    "attackHint": "點擊怪物進行攻擊",
+    "chestCountsTooltip": "已開啟 {{total}} 個寶箱中的 {{opened}} 個",
+    "exitDirection": "出口"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "探索成功",
+      "titleFailed": "探索失敗",
+      "titleStuckRescue": "安全撤離",
+      "lootSummarySubtitle": "戰利品彙總",
+      "body_one": "獲得 {{gold}} 金幣和 {{grayKeys}} 把鑰匙",
+      "body_other": "獲得 {{gold}} 金幣和 {{grayKeys}} 把鑰匙",
+      "artifactFound": "找到了{{artifactName}}。"
+    },
+    "fireBreathCasualties": {
+      "title": "火焰吐息傷亡",
+      "body": "損失 {{list}}",
+      "none": "無傷亡"
+    },
+    "fireBreathBlocked": {
+      "title": "火焰吐息已被擋下！",
+      "body": "一枚煙霧彈救下了你的部隊。"
+    },
+    "toastLabel": "遊戲通知"
+  },
+  "levels": {
+    "title": "章節",
+    "locked": "未解鎖",
+    "active": "遊玩中",
+    "completed": "已通關",
+    "continue": "繼續",
+    "start": "開始",
+    "restart": "重新開始",
+    "restart_progress_warning": "現在重新開始？你將失去本章節中尚未儲存的進度。",
+    "names": {
+      "mainGame": "一條大龍",
+      "newGamePlus": "資源管理",
+      "dummy": "魔法玩具",
+      "infinite": "真·無盡",
+      "kingBattle": "國王的最後一戰"
+    }
+  },
+  "artifacts": {
+    "title": "神器",
+    "subtitle": "稀有神器偶爾會出現在地下城的特殊寶箱裡。它們在章節之間保留。",
+    "notYetFound": "（尚未找到）",
+    "details": {
+      "phoenixWhistle": {
+        "title": "鳳凰哨",
+        "description": "一隻特別的鳥會帶來新的貨幣。"
+      },
+      "emberforgedShield": {
+        "title": "餘燼鍛盾",
+        "description": "戰士免疫巨龍的火焰。"
+      },
+      "moonwellFlask": {
+        "title": "月泉水瓶",
+        "description": "法師的法力消耗減半。"
+      },
+      "windstepAnklet": {
+        "title": "風步足環",
+        "description": "精靈不會被眩暈。"
+      },
+      "fangSatchel": {
+        "title": "尖牙袋",
+        "description": "本輪進行期間，盜賊每 30 分鐘產出 1 顆龍牙。"
+      },
+      "slumberBerries": {
+        "title": "安眠漿果",
+        "description": "毒素攻擊將巨龍的咆哮和火焰延後 10 秒。"
+      },
+      "echoingLute": {
+        "title": "回聲魯特琴",
+        "description": "吟遊詩人使鼓舞加成翻倍。"
+      },
+      "blessingCenser": {
+        "title": "祝福香爐",
+        "description": "牧師招募的單位始終翻倍。"
+      },
+      "victoryTusk": {
+        "title": "勝利之牙",
+        "description": "通關一關時龍牙獎勵翻倍。"
+      },
+      "cartographersLedger": {
+        "title": "製圖師賬簿",
+        "description": "顯示地下城寶箱已開啟的數量與總數。"
+      },
+      "ironSkeletonKey": {
+        "title": "鐵萬能鑰匙",
+        "description": "解鎖地下城直到第 20 層。"
+      },
+      "everflameLantern": {
+        "title": "長明燈",
+        "description": "火把永不熄滅。"
+      },
+      "midasCoin": {
+        "title": "邁達斯金幣",
+        "description": "地下城的金幣獎勵翻倍。"
+      },
+      "harvestIdol": {
+        "title": "豐收神像",
+        "description": "資源產量提高 25%。"
+      },
+      "titanGauntlet": {
+        "title": "泰坦護手",
+        "description": "點擊傷害 10 倍。"
+      },
+      "wayfindersCompass": {
+        "title": "嚮導羅盤",
+        "description": "顯示地下城出口的方向。"
+      },
+      "loadedDice": {
+        "title": "灌鉛骰子",
+        "description": "點擊必定暴擊。"
+      }
+    }
+  }
+}

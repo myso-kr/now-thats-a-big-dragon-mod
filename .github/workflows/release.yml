@@ -1,0 +1,144 @@
+name: Release
+
+# Pushing a tag builds the binaries and attaches them to a release.
+#   git tag v0.4.0 && git push origin v0.4.0
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build by hand (e.g. v0.4.0)'
+        required: true
+
+permissions:
+  contents: write        # needed to create the release
+
+jobs:
+  build:
+    name: ${{ matrix.label }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # The game is Windows-only, so this is the real one.
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            label: Windows x64
+            ext: .exe
+          # A secondary build for anyone running the game through Proton or Wine.
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            label: Linux x64
+            ext: ''
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: Build
+        run: cargo build --release --locked --target ${{ matrix.target }}
+
+      - name: Assemble the distribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN="target/${{ matrix.target }}/release/bigdragon${{ matrix.ext }}"
+          test -f "$BIN" || { echo "::error::no build output at $BIN"; exit 1; }
+
+          OUT="dist/bigdragon-${{ matrix.target }}"
+          mkdir -p "$OUT"
+          cp "$BIN" "$OUT/"
+          cp README.md LICENSE NOTICE "$OUT/" 2>/dev/null || true
+          # The OFL requires the full licence text to travel with the distribution.
+          mkdir -p "$OUT/licenses"
+          cp locale/fonts/OFL-*.txt "$OUT/licenses/"
+
+          ( cd dist && zip -r "bigdragon-${{ matrix.target }}.zip" "bigdragon-${{ matrix.target }}" )
+          ls -la dist/
+
+      - name: Checksums
+        shell: bash
+        run: |
+          cd dist
+          sha256sum "bigdragon-${{ matrix.target }}.zip" > "bigdragon-${{ matrix.target }}.zip.sha256"
+          cat "bigdragon-${{ matrix.target }}.zip.sha256"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bigdragon-${{ matrix.target }}
+          path: |
+            dist/*.zip
+            dist/*.sha256
+          if-no-files-found: error
+
+  release:
+    name: Publish the release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      # The release notes must always say which game build this was verified against.
+      # The mod depends on the shape of the game's bundle, so without that an issue
+      # report cannot be triaged at all.
+      - name: Compose the release notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME:-${{ github.event.inputs.tag }}}"
+          GAME=$(node -e "console.log(require('./package.json').bigDragon.supportedGameVersions.join(', '))" 2>/dev/null || echo "not recorded")
+          BUILD=$(node -e "console.log(require('./package.json').bigDragon.supportedBuildIds.join(', '))" 2>/dev/null || echo "not recorded")
+
+          {
+            echo "## Verified game versions"
+            echo
+            echo "| Game | Steam buildid |"
+            echo "|---|---|"
+            echo "| $GAME | $BUILD |"
+            echo
+            echo "> This release was checked against the versions above. After a game"
+            echo "> update the translation may revert to English, or the widgets may not"
+            echo "> appear. If that happens, follow what \`bigdragon --help\` says, or open"
+            echo "> an issue."
+            echo
+            echo "## Installing"
+            echo
+            echo '1. Download and unpack `bigdragon-x86_64-pc-windows-msvc.zip` below'
+            echo '2. Run `bigdragon.exe` (the game must be closed)'
+            echo '3. In game: **F8** for cheats, **F9** for autoplay'
+            echo
+            echo "There are no runtime dependencies. Node.js is not needed."
+            echo
+            echo "## Checksums"
+            echo '```'
+            cat artifacts/*.sha256
+            echo '```'
+          } > notes.md
+          cat notes.md
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name || github.event.inputs.tag }}
+          name: ${{ github.ref_name || github.event.inputs.tag }}
+          body_path: notes.md
+          files: |
+            artifacts/*.zip
+            artifacts/*.sha256
+          fail_on_unmatched_files: true

@@ -1,0 +1,976 @@
+{
+  "upgrades": {
+    "upgrades": "Vylepšení",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Další úroveň",
+    "currentLevel": "Nyní",
+    "newGamePlusOnly": "Dostupné jen v kapitole \"Správa zdrojů\"",
+    "max": "Max.",
+    "lockedMessage": "Vylepši {{parentSkill}} dál, abys tohle odemkl",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Železný prst",
+        "description": "Poškození z kliknutí +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Lehký prst",
+        "description": "Kliknutí za sekundu +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Budíček",
+        "description": "Každé kliknutí zkrátí omráčení o {{bonus}} s",
+        "prefix": "-",
+        "suffix": " s"
+      },
+      "electricalFinger": {
+        "title": "Elektrický prst",
+        "description": "Každé kliknutí má {{bonus}}% šanci vyvolat blesk.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Dokonalé kliknutí",
+        "description": "Šance na kritické kliknutí +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kritický zásah",
+        "description": "Zvyšuje poškození kritického kliknutí o +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Zlatý výbuch",
+        "description": "Zvyšuje odměnu za kliknutí na ptáky o {{bonus}}x",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Rozený vůdce",
+        "description": "Kliknutí plní ukazatel Inspirace o +{{bonus}} za klik",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Zlatý kurzor",
+        "description": "Zvyšuje zlato z kliknutí o {{bonus}}x",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Plné truhly",
+        "description": "Snižuje šanci na prázdnou truhlu v kobce o {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Lék na zápěstí",
+        "description": "Držení tlačítka myši útočí na draka nepřetržitě."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Krátký meč",
+        "description": "Násobitel poškození {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Dlouhý meč",
+        "description": "Další násobitel poškození bojovníka +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Obouruční meč",
+        "description": "Ještě jeden násobitel poškození bojovníka +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Bojový pokřik",
+        "description": "Pomáhá plnit ukazatel Inspirace: +{{bonus}} za útok",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Válečný pokřik",
+        "description": "Spustí Inspiraci automaticky v dalším taktu, jakmile dosáhne maxima"
+      },
+      "barbarian": {
+        "title": "Barbar",
+        "description": "Zvyšuje základní poškození o +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Silné brnění",
+        "description": "Snižuje utrpěné fyzické poškození o {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Ohnivzdorné brnění",
+        "description": "Snižuje ztráty ohnivým dechem o {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Těžké balvany",
+        "description": "Zvyšuje poškození katapultu o {{bonus}}% za úroveň",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Stříbrná čepel",
+        "description": "Přidává násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Zlatá čepel",
+        "description": "Přidává další násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Věrní žoldnéři",
+        "description": "{{typePlural}}, které koupíš, působí o +{{bonus}}x větší poškození za úroveň",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Věrní služebníci",
+        "description": "Cena verbování {{type}} a vyšších stupňů klesá o {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Týmová práce",
+        "description": "Naverbuje {{typePlural}} navíc za každého koupeného {{type}}",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Přesnost v kobce",
+        "description": "Zvyšuje šanci na kritické poškození v kobkách o {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Drtič bludišť",
+        "description": "Zvyšuje bonus ke kritickému poškození v kobce o {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Magická střela",
+        "description": "Násobitel poškození {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Meč many",
+        "description": "Každý mág prosytí manou meč jednoho bojovníka. Násobitel poškození roste o +{{bonus}}x, dokud je mana nad 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Kouzelná myš",
+        "description": "Plní ukazatel many o +{{bonus}} za kliknutí",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Doplnit manu",
+        "description": "Doplní ukazatel many mágů"
+      },
+      "manaPool": {
+        "title": "Zásobník many",
+        "description": "Zvyšuje maximum many o {{bonus}}%",
+        "suffix": " many"
+      },
+      "manaBoost": {
+        "title": "Příval many",
+        "description": "Poškození mága se zdvojnásobí, dokud je mana nad {{current}}",
+        "suffix": " many"
+      },
+      "weatherForecast": {
+        "title": "Předpověď počasí",
+        "description": "Zvyšuje šanci na úder blesku o {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Úder blesku",
+        "description": "Další blesk působí +{{bonus}}x poškození {{type}} za každé koupené vylepšení",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Stříbrná hůl",
+        "description": "Přidává násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Zlatá hůl",
+        "description": "Přidává další násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Magický oheň",
+        "description": "Prodlužuje hoření pochodně o +{{bonus}} s",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Arcimág",
+        "description": "Zvyšuje základní poškození o +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Lovcovo oko",
+        "description": "Zvyšuje šanci zasáhnout 1 ptáka v dosahu každý takt o +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Bystrá muška",
+        "description": "Šance na kritický výstřel +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Listořez",
+        "description": "Zvyšuje poškození kritického výstřelu o +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Lovecká sezóna",
+        "description": "Okamžitě přivolá hejno ptáků",
+        "suffix": " ptáků"
+      },
+      "elvenEyes": {
+        "title": "Elfí zrak",
+        "description": "Když pochodeň zhasne, vidíš ve tmě ještě +{{bonus}} s",
+        "prefix": "+",
+        "suffix": " s"
+      },
+      "multipleShot": {
+        "title": "Vícenásobný výstřel",
+        "description": "Vystřelí další šíp za úroveň",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Stříbrný šíp",
+        "description": "Přidává násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Zlatý šíp",
+        "description": "Přidává další násobitel {{bonus}}x ke zlatu za útok",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Ledový šíp",
+        "description": "Zpomalí ohnivý útok draka o {{bonus}} s",
+        "prefix": "-",
+        "suffix": " s"
+      },
+      "animalInstinct": {
+        "title": "Zvířecí instinkt",
+        "description": "Vylepší střelivo katapultu z balvanů na kočky a z koček na tygry, pokaždé s desetinásobným poškozením.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Hromosvod",
+        "description": "Má {{bonus}}% šanci přitáhnout další blesk, když mágův blesk zasáhne nepřítele.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Recyklované šípy",
+        "description": "Útoky elfů spotřebují méně dřeva"
+      },
+      "lightfoot": {
+        "title": "Lehká noha",
+        "description": "Zvyšuje rychlost pohybu a otáčení v kobkách o {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Rychlé ruce",
+        "description": "Zkracuje dobu výroby zlata o {{bonus}} s"
+      },
+      "sharpDagger": {
+        "title": "Vrahova čepel",
+        "description": "Zloděj také útočí, s poškozením {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Otrávená dýka",
+        "description": "Zvyšuje šanci otrávit draka o +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Černá mamba",
+        "description": "Násobitel poškození jedem +{{bonus}}x poškození zloděje",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Přetrvávající toxin",
+        "description": "Prodlužuje účinek jedu o +{{bonus}} s",
+        "suffix": " s"
+      },
+      "smokeBomb": {
+        "title": "Dýmovnice",
+        "description": "Nastraží drakovi past s {{current}}% šancí spustit se při dalším útoku a zastavit ho.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Výbušné kočky",
+        "description": "Střelivo katapultu vybuchne při zásahu a zdvojnásobí poškození.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Kapsář",
+        "description": "Přidává násobitel {{bonus}}x ke zlatu, které vyrábí {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Paklíč",
+        "description": "Na začátku každé výpravy je otevřeno o {{bonus}} dveří kobky víc."
+      },
+      "midasTouch": {
+        "title": "Midasův dotek",
+        "description": "Přidává další násobitel {{bonus}}x ke zlatu, které vyrábí {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Nacpané truhly",
+        "description": "Zvyšuje zlato z truhel v kobce o {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Ladička",
+        "description": "Zvyšuje přírůstek inspirace o +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Sólo na loutnu",
+        "description": "Zvyšuje maximální násobitel inspirace o +{{bonus}}x",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Otravný kytarista",
+        "description": "Doba trvání bonusu Inspirace +{{bonus}} s",
+        "suffix": " s"
+      },
+      "piercedEardrums": {
+        "title": "Protržené bubínky",
+        "description": "Časovač dračího řevu se zpomalí o {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Repríza",
+        "description": "Má {{bonus}}% šanci znovu spustit Inspiraci, když skončí",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Zvuková bariéra",
+        "description": "Časovač dračího ohnivého dechu se zpomalí o {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofonix",
+        "description": "Při koupi omráčí tvé jednotky"
+      },
+      "churchChoir": {
+        "title": "Kostelní sbor",
+        "description": "Naverbuje 1 seminář pokaždé, když se spustí Inspirace"
+      },
+      "encore": {
+        "title": "Přídavek",
+        "description": "Zkracuje obnovu Inspirace o {{bonus}} s",
+        "suffix": " s"
+      },
+      "lockerRoomSpeech": {
+        "title": "Proslov v šatně",
+        "description": "Vytváří Inspiraci i při zavřené hře rychlostí {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Pořádek v království",
+        "description": "Při zavřené hře tvá hudba nutí řemeslníky pracovat přesčas a vyrábět zdroje rychlostí {{current}}% normálu",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Durový klíč",
+        "description": "Kup klíč od kobky. (Ano, ta hudební slovní hříčka je příšerná.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Zranitelné frekvence",
+        "description": "Zkracuje nezranitelnost nepřátel v kobce po každém zásahu o {{bonus}} ms",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Personální oddělení hrdinů",
+        "description": "Šance na zdvojnásobení naverbovaných hrdinů roste o +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Požehnaná aura",
+        "description": "Snižuje úmrtí ohnivým dechem o -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Požehnaný pták",
+        "description": "Ptáci mají {{current}}% šanci objevit se požehnaní a dát dvojnásobek zlata",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Přenos síly",
+        "description": "Při verbování se mana mágů obnoví o 0,5 za každého vlastněného kněze"
+      },
+      "generousLoot": {
+        "title": "Štědrá kořist",
+        "description": "Když výprava selže, ponecháš si {{current}}% kořisti.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Božské světlo",
+        "description": "Zvyšuje šanci znovu zapálit zhaslou pochodeň o {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Verbovat bojovníky",
+        "description": "Umožní verbovat bojovníky do boje"
+      },
+      "recruitElves": {
+        "title": "Verbovat elfy",
+        "description": "Umožní verbovat elfy do boje"
+      },
+      "recruitWizards": {
+        "title": "Verbovat mágy",
+        "description": "Umožní verbovat mágy do boje"
+      },
+      "recruitBards": {
+        "title": "Verbovat bardy",
+        "description": "Umožní verbovat bardy do boje"
+      },
+      "recruitThieves": {
+        "title": "Verbovat zloděje",
+        "description": "Umožní verbovat zloděje do boje"
+      },
+      "recruitClerics": {
+        "title": "Verbovat kněze",
+        "description": "Umožní verbovat kněze do boje"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Přidat na seznam přání!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Čas boje",
+      "dgps": "Poškození a zlato za sekundu",
+      "resourceBalance": "Bilance zdrojů"
+    },
+    "lifetime": {
+      "title": "Celkové statistiky",
+      "totalPlaytime": "Celkový čas hraní",
+      "totalGoldEarned": "Získané zlato",
+      "totalGoldSpent": "Utracené zlato",
+      "totalBirdsKilled": "Sestřelení ptáci",
+      "totalClicks": "Počet kliknutí",
+      "totalHeroesRecruited": "Naverbovaní hrdinové",
+      "heroesPurchased": "Koupeno",
+      "heroesRecruited": "Naverbováno",
+      "tier1": "Stupeň 1: naverbováno (koupeno)",
+      "tier2": "Stupeň 2: naverbováno (koupeno)",
+      "tier3": "Stupeň 3: naverbováno (koupeno)",
+      "totalDamageDealt": "Způsobené poškození",
+      "totalUnitsDeadByFireBreath": "Ztráty ohnivým dechem"
+    },
+    "battleDuration": "Uplynulo: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Je vítězství vůbec možné?",
+    "infiniteEstimatedVictory": "Vítězství je opravdu nemožné!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Jsi náš hrdina!</strong>]; (0-1000000000)[Vítězství za <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Klikej nebo mačkej Z, ať draka zasáhneš!</strong>]",
+    "perSec": "/s",
+    "generationSection": "Výroba",
+    "critSection": "Zvláštní",
+    "dps": "Poškození jednotek: <strong>{{dps}}/s</strong>",
+    "gps": "Zlato jednotek: <strong>{{gps}}/s</strong>",
+    "dpc": "Poškození za klik: <strong>{{dpc}}/klik</strong>",
+    "gpc": "Zlato za klik: <strong>{{gpc}}/klik</strong>",
+    "catapultDamage": "Poškození: <strong>{{damage}}/výstřel</strong>",
+    "catapultTimeToShoot": "Do výstřelu: <strong>{{time}} s</strong>",
+    "seconds_one": "sekunda",
+    "seconds_other": "sekund",
+    "seconds_few": "sekundy",
+    "seconds_many": "sekundy",
+    "minutes_one": "minuta",
+    "minutes_other": "minut",
+    "minutes_few": "minuty",
+    "minutes_many": "minuty",
+    "hours_one": "hodina",
+    "hours_other": "hodin",
+    "hours_few": "hodiny",
+    "hours_many": "hodiny",
+    "days_one": "den",
+    "days_other": "dní",
+    "days_few": "dny",
+    "days_many": "dne",
+    "months_one": "měsíc",
+    "months_other": "měsíců",
+    "months_few": "měsíce",
+    "months_many": "měsíce",
+    "years_one": "rok",
+    "years_other": "let",
+    "years_few": "roky",
+    "years_many": "roku",
+    "undo": {
+      "disabledLine": "Klikni do 10 s, ať zrušíš omylem provedený nákup a dostaneš zlato zpět.",
+      "enabledAction": "Klikni pro zrušení nákupu: {{count}} {{generator}}.",
+      "enabledRefund": "Vrátí se ti {{refund}}.",
+      "enabledTimer": "Zbývá {{seconds}} s.",
+      "refundGold": "{{amount}} zlata"
+    }
+  },
+  "generators": {
+    "generators": "Jednotky",
+    "buy": "koupit {{amount}}",
+    "warrior_one": "Bojovník",
+    "warrior_other": "Bojovníků",
+    "warrior_few": "Bojovníci",
+    "warrior_many": "Bojovníka",
+    "wizard_one": "Mág",
+    "wizard_other": "Mágů",
+    "wizard_few": "Mágové",
+    "wizard_many": "Mága",
+    "elf_one": "Elf",
+    "elf_other": "Elfů",
+    "elf_few": "Elfové",
+    "elf_many": "Elfa",
+    "garrison_one": "Posádka",
+    "garrison_other": "Posádek",
+    "garrison_few": "Posádky",
+    "garrison_many": "Posádky",
+    "academy_one": "Akademie magie",
+    "academy_other": "Akademií magie",
+    "academy_few": "Akademie magie",
+    "academy_many": "Akademie magie",
+    "academy_short_one": "Akademie",
+    "academy_short_other": "Akademií",
+    "academy_short_few": "Akademie",
+    "academy_short_many": "Akademie",
+    "outpost_one": "Lučištnická základna",
+    "outpost_other": "Lučištnických základen",
+    "outpost_few": "Lučištnické základny",
+    "outpost_many": "Lučištnické základny",
+    "outpost_short_one": "Základna",
+    "outpost_short_other": "Základen",
+    "outpost_short_few": "Základny",
+    "outpost_short_many": "Základny",
+    "council_one": "Vojenská rada",
+    "council_other": "Vojenských rad",
+    "council_few": "Vojenské rady",
+    "council_many": "Vojenské rady",
+    "nexus_one": "Nexus arcimága",
+    "nexus_other": "Nexusů arcimága",
+    "nexus_few": "Nexusy arcimága",
+    "nexus_many": "Nexusu arcimága",
+    "forest_one": "Prastarý les",
+    "forest_other": "Prastarých lesů",
+    "forest_few": "Prastaré lesy",
+    "forest_many": "Prastarého lesa",
+    "thief_one": "Zloděj",
+    "thief_other": "Zlodějů",
+    "thief_few": "Zloději",
+    "thief_many": "Zloděje",
+    "bard_one": "Bard",
+    "bard_other": "Bardů",
+    "bard_few": "Bardi",
+    "bard_many": "Barda",
+    "cleric_one": "Kněz",
+    "cleric_other": "Kněží",
+    "cleric_few": "Kněží",
+    "cleric_many": "Kněze",
+    "guild_one": "Cech zlodějů",
+    "guild_other": "Cechů zlodějů",
+    "guild_few": "Cechy zlodějů",
+    "guild_many": "Cechu zlodějů",
+    "guild_short_one": "Cech",
+    "guild_short_other": "Cechů",
+    "guild_short_few": "Cechy",
+    "guild_short_many": "Cechu",
+    "troupe_one": "Herecká družina",
+    "troupe_other": "Hereckých družin",
+    "troupe_few": "Herecké družiny",
+    "troupe_many": "Herecké družiny",
+    "troupe_short_one": "Družina",
+    "troupe_short_other": "Družin",
+    "troupe_short_few": "Družiny",
+    "troupe_short_many": "Družiny",
+    "seminary_one": "Svatý seminář",
+    "seminary_other": "Svatých seminářů",
+    "seminary_few": "Svaté semináře",
+    "seminary_many": "Svatého semináře",
+    "seminary_short_one": "Seminář",
+    "seminary_short_other": "Seminářů",
+    "seminary_short_few": "Semináře",
+    "seminary_short_many": "Semináře",
+    "congress_one": "Stínový kongres",
+    "congress_other": "Stínových kongresů",
+    "congress_few": "Stínové kongresy",
+    "congress_many": "Stínového kongresu",
+    "theater_one": "Velké divadlo",
+    "theater_other": "Velkých divadel",
+    "theater_few": "Velká divadla",
+    "theater_many": "Velkého divadla",
+    "college_one": "Kardinálské kolegium",
+    "college_other": "Kardinálských kolegií",
+    "college_few": "Kardinálská kolegia",
+    "college_many": "Kardinálského kolegia",
+    "catapult_one": "Katapult",
+    "catapult_other": "Katapultů",
+    "catapult_few": "Katapulty",
+    "catapult_many": "Katapultu",
+    "builder_one": "Stavitel",
+    "builder_other": "Stavitelů",
+    "builder_few": "Stavitelé",
+    "builder_many": "Stavitele",
+    "engineer_one": "Inženýr",
+    "engineer_other": "Inženýrů",
+    "engineer_few": "Inženýři",
+    "engineer_many": "Inženýra",
+    "farmer_one": "Farmář",
+    "farmer_other": "Farmářů",
+    "farmer_few": "Farmáři",
+    "farmer_many": "Farmáře",
+    "lumberjack_one": "Dřevorubec",
+    "lumberjack_other": "Dřevorubců",
+    "lumberjack_few": "Dřevorubci",
+    "lumberjack_many": "Dřevorubce",
+    "miner_one": "Horník",
+    "miner_other": "Horníků",
+    "miner_few": "Horníci",
+    "miner_many": "Horníka",
+    "apprenticeships_one": "Učňovství",
+    "apprenticeships_other": "Učňovství",
+    "apprenticeships_few": "Učňovství",
+    "apprenticeships_many": "Učňovství",
+    "tradespeople_one": "Řemeslník",
+    "tradespeople_other": "Řemeslníků",
+    "tradespeople_few": "Řemeslníci",
+    "tradespeople_many": "Řemeslníka",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} s"
+    },
+    "ngPlusProductionToggle": "Přepnout výrobu",
+    "tabs": {
+      "troops": "Jednotky",
+      "support": "Podpora"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Propusť jednotky, ať sníží spotřebu zdrojů a přitom část výroby zůstane."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Magická energie, která pohání útoky mágů.",
+    "emptyManaDescription": "Kup \"Doplnit manu\", ať můžeš útočit dál.",
+    "inspiration": "Inspirace",
+    "inspirationDescription": "Po aktivaci se síla všech hrdinů násobí danou hodnotou.",
+    "unitDescription": {
+      "warrior": "Odolní bojovníci na blízko.",
+      "wizard": "Útočí magií ze střední vzdálenosti, ale jsou křehcí.",
+      "elf": "Všestranní střelci mimo dosah draka.",
+      "garrison": "Opevněná základna, která verbuje bojovníky.",
+      "outpost": "Vzdálená základna, která verbuje elfy.",
+      "academy": "Škola, která cvičí mágy do boje.",
+      "council": "Vojenská organizace, která zakládá posádky.",
+      "nexus": "Tajemná organizace, která zakládá akademie.",
+      "forest": "Posvátný háj, který zakládá základny.",
+      "thief": "Zákeřní: otravují draka a kradou mu zlato.",
+      "bard": "Dokážou nadchnout jednotky k tvrdšímu boji.",
+      "cleric": "Poskytují ochranu a verbují nové hrdiny do boje.",
+      "guild": "Skrytá síť, která verbuje zloděje.",
+      "troupe": "Kočovná společnost, která verbuje bardy.",
+      "seminary": "Svatá instituce, která cvičí kněze.",
+      "congress": "Stínová organizace, která zakládá cechy zlodějů.",
+      "theater": "Velkolepá instituce, která zakládá herecké družiny.",
+      "college": "Náboženská organizace, která zakládá semináře.",
+      "catapult": "Obléhací stroj, který draku působí velké poškození.",
+      "builder": "Staví budovy 2. úrovně.",
+      "engineer": "Zakládá organizace 3. úrovně.",
+      "farmer": "Pěstuje jídlo pro království.",
+      "lumberjack": "Kácí dřevo na stavbu.",
+      "miner": "Těží rudu v horách.",
+      "apprenticeships": "Školí řemeslníky."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} poškození/{{rate}} s",
+      "wizard": "{{generatorGeneration}} poškození/{{rate}} s",
+      "elf": "{{generatorGeneration}} poškození/{{rate}} s",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "thief": "+{{generatorGeneration}} zlata/{{rate}} s",
+      "bard": "+{{generatorGeneration}} inspirace/{{rate}} s",
+      "cleric": "+{{generatorGeneration}} hrdiny/{{rate}} s",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "catapult": "{{generatorGeneration}} poškození/{{rate}} s",
+      "builder": "+{{generatorGeneration}} budovy/{{rate}} s",
+      "engineer": "+{{generatorGeneration}} organizace/{{rate}} s",
+      "farmer": "+{{generatorGeneration}} jídla/{{rate}} s",
+      "lumberjack": "+{{generatorGeneration}} dřeva/{{rate}} s",
+      "miner": "+{{generatorGeneration}} rudy/{{rate}} s",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} s"
+    },
+    "tabsAriaLabel": "karty jednotek"
+  },
+  "settings": {
+    "settings": "Nastavení",
+    "buy_max": "Koupit max.",
+    "audio": "Hudba/Zvuky",
+    "game": "Hra",
+    "graphics": "Grafika",
+    "offline_progress": "Postup offline",
+    "wishlist_now": "Přidat na přání"
+  },
+  "menus": {
+    "settings": "Nastavení",
+    "tabs": {
+      "game": "Hra",
+      "graphics": "Grafika",
+      "audio": "Zvuk",
+      "levels": "Kapitoly",
+      "saveData": "Uložená hra",
+      "credits": "Tvůrci"
+    },
+    "credits": {
+      "title": "Tvůrci",
+      "developedBy": "Vývoj",
+      "developedWith": "Vytvořeno pomocí",
+      "bigThanksTo": "Zvláštní poděkování",
+      "theRestOfTheDiscordServer": "zbytku Discord serveru",
+      "andYou": "a tobě!"
+    },
+    "music": "Hudba",
+    "sfx": "Zvuky",
+    "audioSettings": "Nastavení zvuku",
+    "gameSettings": "Nastavení hry",
+    "graphicsSettings": "Nastavení grafiky",
+    "language": "Jazyk",
+    "languages": {
+      "en": "Angličtina",
+      "fr": "Francouzština",
+      "de": "Němčina",
+      "pt": "Portugalština",
+      "tr": "Turečtina"
+    },
+    "shakeIntensity": "Síla otřesů",
+    "largerTextSize": "Větší text",
+    "crtFilter": "Filtr CRT",
+    "chromaticAberrationSlider": "Chromatická aberace",
+    "chromaticAberration": "Chromatická aberace",
+    "swordSwooshSounds": "Zvuky meče a kritů",
+    "catSounds": "Kočičí zvuky",
+    "fullscreen": "Celá obrazovka",
+    "resume": "Pokračovat ve hře",
+    "close": "Zavřít",
+    "quitGame": "Ukončit hru",
+    "joinDiscord": "Připojit se na Discord",
+    "clear_save_label": "Smazat tvůj postup?",
+    "zoom_adjustment": "Zvětšení rozhraní",
+    "clear_save": "Smazat teď",
+    "are_you_sure": "Určitě?",
+    "cannot_be_reversed": "Tuhle akci nelze vrátit zpět.",
+    "yes": "Ano",
+    "no": "Ne",
+    "saveData": {
+      "title": "Uložená hra",
+      "clearChapterTitle": "Postup v kapitolách",
+      "clearChapterExplanation": "Smaže zlato, jednotky, vylepšení, postup v kobkách a odznaky dokončení ve všech kapitolách. Odemčené kapitoly, celkové statistiky, nastavení a artefakty zůstanou.",
+      "clearChapterButton": "Smazat postup v kapitolách",
+      "clearFullTitle": "Celá uložená hra",
+      "clearFullExplanation": "Smaže vše, co maže reset kapitol, a navíc artefakty, odemčené kapitoly a celkové statistiky. Nastavení zvuku, grafiky a jazyka zůstane.",
+      "clearFullButton": "Smazat celou uloženou hru",
+      "clearFullWarning": "Tohle nelze vrátit zpět. Přijdeš o artefakty, odemčené kapitoly a celkové statistiky."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspirace",
+    "inspirationDescription": "Po aktivaci se síla všech hrdinů násobí danou hodnotou.",
+    "maxInspiration": "Max. násobitel",
+    "maxInspirationMultiplier": "Max. násobitel",
+    "statisticsDescription": "Podrobné statistiky tvého postupu a výsledků v boji.",
+    "hudStopBird": "Zastavit ptáka",
+    "hudLifetimeStats": "Celkové statistiky",
+    "hudHideWindows": "Skrýt okna",
+    "events": {
+      "roar": "Omračující řev",
+      "fire": "Ohnivý dech",
+      "claw": "Úder drápem",
+      "dialog": "Zvláštní událost",
+      "pope_visit": "Vzácný host",
+      "dungeon_keys": "Temné tajemství",
+      "missing_king": "Kde je král?",
+      "catapult": "Inženýrský prototyp",
+      "engineer": "Pomoc v pravý čas",
+      "invasion_start": "Blíží se invaze",
+      "invasion_end": "Zprávy od našich jednotek",
+      "apprenticeships_unlock": "Učňovství dostupné",
+      "trading": "Potulný kupec",
+      "dummy_toy_reveal": "Tohle jsem nečekal"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Události",
+      "stats": "Statistiky",
+      "engineering": "Inženýrství",
+      "resources": "Zdroje"
+    },
+    "tabs": {
+      "events": "Události",
+      "stats": "Stat.",
+      "engineering": "Inž.",
+      "resources": "Zdr."
+    },
+    "tabsAriaLabel": "karty informací"
+  },
+  "game": {
+    "dummy": "Velký panák",
+    "infiniteBird": "Nepotopitelný pták",
+    "king": "Král",
+    "smallDragon": "Tuth'orieth, Rašící",
+    "bigDragon": "Forth'aarh, Dárce a Konec života"
+  },
+  "dungeon": {
+    "found": "Nalezeno",
+    "giveUp": "Vzdát se",
+    "tooltipDescription": "Vydej se do kobky (úr. {{level}})",
+    "cooldownMessage": "Kobka se obnovuje. Počkej {{seconds}} s, ať můžeš vejít znovu.",
+    "cooldownShort": "{{seconds}} s",
+    "levelLabel": "Úroveň",
+    "levelShort": "Úr. {{level}}",
+    "keysOwned": "Vlastněné klíče",
+    "giveUpTooltip": "Opustit kobku (část kořisti zůstane, pokud máš Štědrou kořist)",
+    "moveHint": "WASD nebo šipky pro pohyb",
+    "attackHint": "Klikni na příšeru, ať zaútočíš",
+    "chestCountsTooltip": "Otevřeno {{opened}} z {{total}} truhel",
+    "exitDirection": "VÝCHOD"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Výprava se zdařila",
+      "titleFailed": "Výprava selhala",
+      "titleStuckRescue": "Bezpečný odchod",
+      "lootSummarySubtitle": "Shrnutí kořisti",
+      "body_one": "Získáno {{gold}} zlata a {{grayKeys}} klíč",
+      "body_other": "Získáno {{gold}} zlata a {{grayKeys}} klíčů",
+      "body_few": "Získáno {{gold}} zlata a {{grayKeys}} klíče",
+      "body_many": "Získáno {{gold}} zlata a {{grayKeys}} klíče",
+      "artifactFound": "Nalezeno: {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Ztráty ohnivým dechem",
+      "body": "Ztraceno {{list}}",
+      "none": "Žádné ztráty"
+    },
+    "fireBreathBlocked": {
+      "title": "Ohnivý dech zablokován!",
+      "body": "Dýmovnice zachránila tvé jednotky."
+    },
+    "toastLabel": "Herní oznámení"
+  },
+  "levels": {
+    "title": "Kapitoly",
+    "locked": "Zamčeno",
+    "active": "Právě hraješ",
+    "completed": "Dokončeno",
+    "continue": "Pokračovat",
+    "start": "Začít",
+    "restart": "Od začátku",
+    "restart_progress_warning": "Začít znovu? Přijdeš o neuložený postup v této kapitole.",
+    "names": {
+      "mainGame": "Velký drak",
+      "newGamePlus": "Správa zdrojů",
+      "dummy": "Kouzelná hračka",
+      "infinite": "Opravdu nekonečné",
+      "kingBattle": "Poslední králův boj"
+    }
+  },
+  "artifacts": {
+    "title": "Artefakty",
+    "subtitle": "Vzácné artefakty se občas najdou ve zvláštních truhlách v kobkách. Zůstávají napříč kapitolami.",
+    "notYetFound": "(zatím nenalezeno)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Fénixova píšťalka",
+        "description": "Zvláštní pták přináší novou měnu."
+      },
+      "emberforgedShield": {
+        "title": "Štít kovaný v žáru",
+        "description": "Bojovníci jsou odolní vůči dračímu ohni."
+      },
+      "moonwellFlask": {
+        "title": "Lahvička měsíční studny",
+        "description": "Mágové spotřebují polovinu many."
+      },
+      "windstepAnklet": {
+        "title": "Nákotník větrného kroku",
+        "description": "Elfové nejsou omráčeni."
+      },
+      "fangSatchel": {
+        "title": "Brašna s tesáky",
+        "description": "Dokud hra běží, zloději vyrobí 1 dračí zub každých 30 minut."
+      },
+      "slumberBerries": {
+        "title": "Uspávací bobule",
+        "description": "Jed zdrží dračí řev a oheň o 10 sekund."
+      },
+      "echoingLute": {
+        "title": "Ozvěnná loutna",
+        "description": "Bard zdvojnásobí bonus Inspirace."
+      },
+      "blessingCenser": {
+        "title": "Kadidelnice požehnání",
+        "description": "Kněz vždy naverbuje dvojnásobek jednotek."
+      },
+      "victoryTusk": {
+        "title": "Kel vítězství",
+        "description": "Dokončení úrovně zdvojnásobí odměnu v dračích zubech."
+      },
+      "cartographersLedger": {
+        "title": "Kartografova kniha",
+        "description": "Ukazuje, kolik truhel v kobce je otevřeno a kolik jich je celkem."
+      },
+      "ironSkeletonKey": {
+        "title": "Železný paklíč",
+        "description": "Odemkne kobku až do úrovně 20."
+      },
+      "everflameLantern": {
+        "title": "Lucerna věčného plamene",
+        "description": "Pochodeň nikdy nezhasne."
+      },
+      "midasCoin": {
+        "title": "Midasova mince",
+        "description": "Dvojnásobná odměna ve zlatě v kobkách."
+      },
+      "harvestIdol": {
+        "title": "Modla sklizně",
+        "description": "Výroba zdrojů vyšší o 25%."
+      },
+      "titanGauntlet": {
+        "title": "Titánova rukavice",
+        "description": "Poškození za klik x10."
+      },
+      "wayfindersCompass": {
+        "title": "Kompas průvodce",
+        "description": "Ukazuje směr k východu z kobky."
+      },
+      "loadedDice": {
+        "title": "Cinknuté kostky",
+        "description": "Kliknutí jsou vždy kritická."
+      }
+    }
+  }
+}

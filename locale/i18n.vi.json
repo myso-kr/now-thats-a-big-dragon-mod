@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Nâng cấp",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Cấp tiếp theo",
+    "currentLevel": "Hiện tại",
+    "newGamePlusOnly": "Chỉ có trong chương \"Quản lý tài nguyên\"",
+    "max": "Tối đa",
+    "lockedMessage": "Nâng cấp {{parentSkill}} thêm để mở khóa mục này",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Ngón tay sắt",
+        "description": "Sát thương từ nhấp +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Ngón tay nhẹ",
+        "description": "Số nhấp mỗi giây +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Gọi thức giấc",
+        "description": "Mỗi cú nhấp rút ngắn thời gian choáng {{bonus}} giây",
+        "prefix": "-",
+        "suffix": " giây"
+      },
+      "electricalFinger": {
+        "title": "Ngón tay điện",
+        "description": "Mỗi cú nhấp có {{bonus}}% cơ hội gọi sét.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Cú nhấp hoàn hảo",
+        "description": "Cơ hội nhấp chí mạng +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Đòn chí mạng",
+        "description": "Tăng sát thương nhấp chí mạng +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Vụ nổ vàng",
+        "description": "Tăng phần thưởng khi nhấp vào chim {{bonus}}x",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Thủ lĩnh bẩm sinh",
+        "description": "Nhấp làm đầy thanh Cảm hứng +{{bonus}}/nhấp",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Con trỏ vàng",
+        "description": "Tăng vàng từ nhấp {{bonus}}x",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Rương đầy",
+        "description": "Giảm {{bonus}}% khả năng rương hầm ngục rỗng",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Thuốc chữa cổ tay",
+        "description": "Giữ nút chuột để tấn công rồng liên tục."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Kiếm ngắn",
+        "description": "Hệ số sát thương của {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Kiếm dài",
+        "description": "Thêm hệ số sát thương cho chiến binh +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Kiếm hai tay",
+        "description": "Thêm một hệ số sát thương nữa cho chiến binh +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Tiếng hô xung trận",
+        "description": "Giúp làm đầy thanh Cảm hứng +{{bonus}} mỗi đòn",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Tiếng thét chiến tranh",
+        "description": "Tự kích hoạt Cảm hứng ở nhịp kế tiếp khi đạt hệ số tối đa"
+      },
+      "barbarian": {
+        "title": "Man tộc",
+        "description": "Tăng sát thương cơ bản +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Giáp dày",
+        "description": "Giảm {{bonus}}% sát thương vật lý nhận vào",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Giáp chống lửa",
+        "description": "Giảm {{bonus}}% số quân chết vì hơi thở lửa",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Đá nặng",
+        "description": "Tăng sát thương máy bắn đá {{bonus}}% mỗi cấp",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Lưỡi bạc",
+        "description": "Thêm hệ số {{bonus}}x vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Lưỡi vàng",
+        "description": "Thêm hệ số {{bonus}}x nữa vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Lính đánh thuê trung thành",
+        "description": "{{typePlural}} bạn mua gây thêm +{{bonus}}x sát thương mỗi cấp",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Người hầu trung thành",
+        "description": "Chi phí chiêu mộ {{type}} và các bậc cao hơn giảm {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Phối hợp",
+        "description": "Chiêu mộ thêm {{typePlural}} cho mỗi {{type}} bạn mua",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Độ chính xác hầm ngục",
+        "description": "Tăng {{bonus}}% cơ hội chí mạng trong hầm ngục",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Kẻ phá mê cung",
+        "description": "Tăng {{bonus}} thưởng sát thương chí mạng trong hầm ngục",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Phi tiêu phép",
+        "description": "Hệ số sát thương của {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Kiếm mana",
+        "description": "Mỗi pháp sư truyền mana vào kiếm của một chiến binh. Hệ số sát thương tăng +{{bonus}}x khi mana trên 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Chuột phép",
+        "description": "Làm đầy thanh mana +{{bonus}} mỗi cú nhấp",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Hồi mana",
+        "description": "Làm đầy thanh mana của pháp sư"
+      },
+      "manaPool": {
+        "title": "Hồ mana",
+        "description": "Tăng mana tối đa {{bonus}}%",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Bùng mana",
+        "description": "Sát thương của pháp sư nhân đôi khi mana trên {{current}}",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Dự báo thời tiết",
+        "description": "Tăng {{bonus}}% cơ hội sét đánh",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Sét đánh",
+        "description": "Thêm một tia sét gây +{{bonus}}x sát thương của {{type}} cho mỗi nâng cấp đã mua",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Trượng bạc",
+        "description": "Thêm hệ số {{bonus}}x vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Trượng vàng",
+        "description": "Thêm hệ số {{bonus}}x nữa vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Lửa phép",
+        "description": "Kéo dài thời gian cháy của đuốc +{{bonus}} giây",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Đại pháp sư",
+        "description": "Tăng sát thương cơ bản +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Mắt thợ săn",
+        "description": "Tăng +{{bonus}}% cơ hội bắn trúng 1 con chim trong tầm mỗi nhịp",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Ngắm sắc bén",
+        "description": "Cơ hội bắn chí mạng +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Kẻ cắt lá",
+        "description": "Tăng sát thương phát bắn chí mạng +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Mùa săn",
+        "description": "Gọi ngay một đàn chim",
+        "suffix": " chim"
+      },
+      "elvenEyes": {
+        "title": "Mắt tiên tộc",
+        "description": "Khi đuốc tắt, bạn vẫn nhìn được trong bóng tối thêm +{{bonus}} giây",
+        "prefix": "+",
+        "suffix": " giây"
+      },
+      "multipleShot": {
+        "title": "Bắn nhiều mũi",
+        "description": "Bắn thêm một mũi tên mỗi cấp",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Mũi tên bạc",
+        "description": "Thêm hệ số {{bonus}}x vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Mũi tên vàng",
+        "description": "Thêm hệ số {{bonus}}x nữa vào vàng mỗi đòn",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Mũi tên băng",
+        "description": "Làm chậm đòn lửa của rồng {{bonus}} giây",
+        "prefix": "-",
+        "suffix": " giây"
+      },
+      "animalInstinct": {
+        "title": "Bản năng thú",
+        "description": "Nâng đạn máy bắn đá từ đá lên mèo, từ mèo lên hổ, mỗi lần nhân sát thương lên 10 lần.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Cột thu lôi",
+        "description": "Có {{bonus}}% cơ hội hút thêm một tia sét khi sét của pháp sư trúng kẻ địch.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Mũi tên tái chế",
+        "description": "Đòn đánh của tiên tộc tốn ít gỗ hơn"
+      },
+      "lightfoot": {
+        "title": "Chân nhẹ",
+        "description": "Tăng {{bonus}}% tốc độ di chuyển và xoay trong hầm ngục",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Tay nhanh",
+        "description": "Rút ngắn thời gian tạo vàng {{bonus}} giây"
+      },
+      "sharpDagger": {
+        "title": "Lưỡi sát thủ",
+        "description": "Đạo tặc cũng tấn công, với sát thương {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Dao găm tẩm độc",
+        "description": "Tăng +{{bonus}}% cơ hội đầu độc rồng",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Rắn mamba đen",
+        "description": "Hệ số sát thương độc +{{bonus}}x sát thương của đạo tặc",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Độc dai dẳng",
+        "description": "Kéo dài thời gian độc +{{bonus}} giây",
+        "suffix": " giây"
+      },
+      "smokeBomb": {
+        "title": "Bom khói",
+        "description": "Đặt bẫy cho rồng với {{current}}% cơ hội kích hoạt ở đòn kế tiếp và chặn nó lại.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Mèo nổ",
+        "description": "Đạn máy bắn đá nổ khi chạm địch, nhân đôi sát thương.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Kẻ móc túi",
+        "description": "Thêm hệ số {{bonus}}x vào vàng do {{type}} tạo ra",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Que mở khóa",
+        "description": "Đầu mỗi chuyến đi có thêm {{bonus}} cửa hầm ngục mở sẵn."
+      },
+      "midasTouch": {
+        "title": "Cái chạm Midas",
+        "description": "Thêm hệ số {{bonus}}x nữa vào vàng do {{type}} tạo ra",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Rương chật ních",
+        "description": "Tăng {{bonus}}% vàng từ rương hầm ngục",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Âm thoa",
+        "description": "Tăng lượng cảm hứng tích được +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Độc tấu đàn luýt",
+        "description": "Tăng hệ số cảm hứng tối đa +{{bonus}}x",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Tay ghi-ta phiền phức",
+        "description": "Thời gian hiệu lực của Cảm hứng +{{bonus}} giây",
+        "suffix": " giây"
+      },
+      "piercedEardrums": {
+        "title": "Thủng màng nhĩ",
+        "description": "Bộ đếm tiếng gầm của rồng chậm lại {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Diễn lại",
+        "description": "Có {{bonus}}% cơ hội khởi động lại Cảm hứng khi nó hết",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Rào âm thanh",
+        "description": "Bộ đếm hơi thở lửa của rồng chậm lại {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kẻ lạc điệu",
+        "description": "Khi mua sẽ làm choáng quân của bạn"
+      },
+      "churchChoir": {
+        "title": "Ca đoàn nhà thờ",
+        "description": "Chiêu mộ 1 chủng viện mỗi lần Cảm hứng kích hoạt"
+      },
+      "encore": {
+        "title": "Diễn thêm",
+        "description": "Rút ngắn thời gian hồi Cảm hứng {{bonus}} giây",
+        "suffix": " giây"
+      },
+      "lockerRoomSpeech": {
+        "title": "Bài diễn văn phòng thay đồ",
+        "description": "Tạo Cảm hứng khi đóng game với tốc độ {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Trật tự trong vương quốc",
+        "description": "Khi đóng game, nhạc của bạn khiến thợ thủ công làm ngoài giờ, tạo tài nguyên bằng {{current}}% tốc độ thường",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Cung trưởng",
+        "description": "Mua một chìa khóa hầm ngục. (Vâng, câu chơi chữ âm nhạc này rất tệ.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Tần số yếu điểm",
+        "description": "Rút ngắn thời gian bất tử của địch trong hầm ngục sau mỗi đòn {{bonus}} mili giây",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Phòng nhân sự anh hùng",
+        "description": "Cơ hội nhân đôi anh hùng chiêu mộ tăng +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Hào quang ban phước",
+        "description": "Giảm -{{bonus}}% số quân chết vì hơi thở lửa",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Chim được ban phước",
+        "description": "Chim có {{current}}% cơ hội xuất hiện với phước lành, cho gấp đôi vàng",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Truyền sức mạnh",
+        "description": "Khi chiêu mộ, mana của pháp sư hồi 0,5 cho mỗi tư tế đang có"
+      },
+      "generousLoot": {
+        "title": "Chiến lợi phẩm hào phóng",
+        "description": "Khi chuyến đi thất bại, bạn vẫn giữ {{current}}% chiến lợi phẩm.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Ánh sáng thần thánh",
+        "description": "Tăng {{bonus}}% cơ hội thắp lại ngọn đuốc đã tắt",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Chiêu mộ chiến binh",
+        "description": "Cho phép chiêu mộ chiến binh vào trận"
+      },
+      "recruitElves": {
+        "title": "Chiêu mộ tiên tộc",
+        "description": "Cho phép chiêu mộ tiên tộc vào trận"
+      },
+      "recruitWizards": {
+        "title": "Chiêu mộ pháp sư",
+        "description": "Cho phép chiêu mộ pháp sư vào trận"
+      },
+      "recruitBards": {
+        "title": "Chiêu mộ thi nhân",
+        "description": "Cho phép chiêu mộ thi nhân vào trận"
+      },
+      "recruitThieves": {
+        "title": "Chiêu mộ đạo tặc",
+        "description": "Cho phép chiêu mộ đạo tặc vào trận"
+      },
+      "recruitClerics": {
+        "title": "Chiêu mộ tư tế",
+        "description": "Cho phép chiêu mộ tư tế vào trận"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Thêm vào danh sách mong muốn!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Thời gian chiến đấu",
+      "dgps": "Sát thương và vàng mỗi giây",
+      "resourceBalance": "Cân bằng tài nguyên"
+    },
+    "lifetime": {
+      "title": "Thống kê tổng",
+      "totalPlaytime": "Tổng thời gian chơi",
+      "totalGoldEarned": "Tổng vàng kiếm được",
+      "totalGoldSpent": "Tổng vàng đã tiêu",
+      "totalBirdsKilled": "Tổng số chim bắn hạ",
+      "totalClicks": "Tổng số lần nhấp",
+      "totalHeroesRecruited": "Tổng anh hùng chiêu mộ",
+      "heroesPurchased": "Đã mua",
+      "heroesRecruited": "Đã chiêu mộ",
+      "tier1": "Bậc 1 chiêu mộ (đã mua)",
+      "tier2": "Bậc 2 chiêu mộ (đã mua)",
+      "tier3": "Bậc 3 chiêu mộ (đã mua)",
+      "totalDamageDealt": "Tổng sát thương gây ra",
+      "totalUnitsDeadByFireBreath": "Mất vì hơi thở lửa"
+    },
+    "battleDuration": "Đã qua: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Liệu có thắng nổi không?",
+    "infiniteEstimatedVictory": "Chiến thắng thật sự là không thể!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Bạn là anh hùng của chúng tôi!</strong>]; (0-1000000000)[Chiến thắng sau <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Nhấp hoặc nhấn Z để tấn công rồng!</strong>]",
+    "perSec": "/giây",
+    "generationSection": "Sản xuất",
+    "critSection": "Đặc biệt",
+    "dps": "Sát thương quân: <strong>{{dps}}/giây</strong>",
+    "gps": "Vàng của quân: <strong>{{gps}}/giây</strong>",
+    "dpc": "Sát thương mỗi nhấp: <strong>{{dpc}}/nhấp</strong>",
+    "gpc": "Vàng mỗi nhấp: <strong>{{gpc}}/nhấp</strong>",
+    "catapultDamage": "Sát thương: <strong>{{damage}}/phát</strong>",
+    "catapultTimeToShoot": "Đến lượt bắn: <strong>{{time}} giây</strong>",
+    "seconds_one": "giây",
+    "seconds_other": "giây",
+    "minutes_one": "phút",
+    "minutes_other": "phút",
+    "hours_one": "giờ",
+    "hours_other": "giờ",
+    "days_one": "ngày",
+    "days_other": "ngày",
+    "months_one": "tháng",
+    "months_other": "tháng",
+    "years_one": "năm",
+    "years_other": "năm",
+    "undo": {
+      "disabledLine": "Nhấp trong vòng 10 giây để hoàn tác lần mua nhầm và nhận lại vàng.",
+      "enabledAction": "Nhấp để hoàn tác việc mua {{count}} {{generator}}.",
+      "enabledRefund": "Bạn sẽ được hoàn {{refund}}.",
+      "enabledTimer": "Còn {{seconds}} giây.",
+      "refundGold": "{{amount}} vàng"
+    }
+  },
+  "generators": {
+    "generators": "Quân",
+    "buy": "mua {{amount}}",
+    "warrior_one": "Chiến binh",
+    "warrior_other": "Chiến binh",
+    "wizard_one": "Pháp sư",
+    "wizard_other": "Pháp sư",
+    "elf_one": "Tiên tộc",
+    "elf_other": "Tiên tộc",
+    "garrison_one": "Đồn trú",
+    "garrison_other": "Đồn trú",
+    "academy_one": "Học viện phép thuật",
+    "academy_other": "Học viện phép thuật",
+    "academy_short_one": "Học viện",
+    "academy_short_other": "Học viện",
+    "outpost_one": "Tiền đồn cung thủ",
+    "outpost_other": "Tiền đồn cung thủ",
+    "outpost_short_one": "Tiền đồn",
+    "outpost_short_other": "Tiền đồn",
+    "council_one": "Hội đồng quân sự",
+    "council_other": "Hội đồng quân sự",
+    "nexus_one": "Trung tâm đại pháp sư",
+    "nexus_other": "Trung tâm đại pháp sư",
+    "forest_one": "Rừng cổ thụ",
+    "forest_other": "Rừng cổ thụ",
+    "thief_one": "Đạo tặc",
+    "thief_other": "Đạo tặc",
+    "bard_one": "Thi nhân",
+    "bard_other": "Thi nhân",
+    "cleric_one": "Tư tế",
+    "cleric_other": "Tư tế",
+    "guild_one": "Hội đạo tặc",
+    "guild_other": "Hội đạo tặc",
+    "guild_short_one": "Hội",
+    "guild_short_other": "Hội",
+    "troupe_one": "Gánh nghệ sĩ",
+    "troupe_other": "Gánh nghệ sĩ",
+    "troupe_short_one": "Gánh hát",
+    "troupe_short_other": "Gánh hát",
+    "seminary_one": "Chủng viện thánh",
+    "seminary_other": "Chủng viện thánh",
+    "seminary_short_one": "Chủng viện",
+    "seminary_short_other": "Chủng viện",
+    "congress_one": "Nghị hội bóng tối",
+    "congress_other": "Nghị hội bóng tối",
+    "theater_one": "Đại hí viện",
+    "theater_other": "Đại hí viện",
+    "college_one": "Hồng y đoàn",
+    "college_other": "Hồng y đoàn",
+    "catapult_one": "Máy bắn đá",
+    "catapult_other": "Máy bắn đá",
+    "builder_one": "Thợ xây",
+    "builder_other": "Thợ xây",
+    "engineer_one": "Kỹ sư",
+    "engineer_other": "Kỹ sư",
+    "farmer_one": "Nông dân",
+    "farmer_other": "Nông dân",
+    "lumberjack_one": "Tiều phu",
+    "lumberjack_other": "Tiều phu",
+    "miner_one": "Thợ mỏ",
+    "miner_other": "Thợ mỏ",
+    "apprenticeships_one": "Học nghề",
+    "apprenticeships_other": "Học nghề",
+    "tradespeople_one": "Thợ thủ công",
+    "tradespeople_other": "Thợ thủ công",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} giây"
+    },
+    "ngPlusProductionToggle": "Bật/tắt sản xuất",
+    "tabs": {
+      "troops": "Quân",
+      "support": "Hỗ trợ"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Sa thải bớt quân để giảm tiêu hao tài nguyên mà vẫn giữ được một phần sản xuất."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Năng lượng phép thuật nuôi các đòn đánh của pháp sư.",
+    "emptyManaDescription": "Mua \"Hồi mana\" để tiếp tục tấn công.",
+    "inspiration": "Cảm hứng",
+    "inspirationDescription": "Khi kích hoạt, sức mạnh của mọi anh hùng được nhân lên.",
+    "unitDescription": {
+      "warrior": "Chiến binh cận chiến bền bỉ.",
+      "wizard": "Đánh phép tầm trung, nhưng thân thể mỏng manh.",
+      "elf": "Bắn xa linh hoạt, ngoài tầm với của rồng.",
+      "garrison": "Căn cứ kiên cố chiêu mộ chiến binh.",
+      "outpost": "Căn cứ xa xôi chiêu mộ tiên tộc.",
+      "academy": "Trường đào tạo pháp sư ra trận.",
+      "council": "Tổ chức quân sự lập ra các đồn trú.",
+      "nexus": "Tổ chức huyền bí lập ra các học viện.",
+      "forest": "Rừng thiêng lập ra các tiền đồn.",
+      "thief": "Xảo quyệt: đầu độc rồng và trộm vàng của nó.",
+      "bard": "Có thể truyền cảm hứng cho quân chiến đấu hăng hơn.",
+      "cleric": "Che chở và chiêu mộ anh hùng mới vào trận.",
+      "guild": "Mạng lưới ngầm chiêu mộ đạo tặc.",
+      "troupe": "Đoàn lưu diễn chiêu mộ thi nhân.",
+      "seminary": "Cơ sở thánh đào tạo tư tế.",
+      "congress": "Tổ chức trong bóng tối lập ra các hội đạo tặc.",
+      "theater": "Cơ sở đồ sộ lập ra các gánh nghệ sĩ.",
+      "college": "Tổ chức tôn giáo lập ra các chủng viện.",
+      "catapult": "Vũ khí công thành gây sát thương lớn lên rồng.",
+      "builder": "Xây công trình cấp 2.",
+      "engineer": "Lập tổ chức cấp 3.",
+      "farmer": "Trồng lương thực cho vương quốc.",
+      "lumberjack": "Đốn gỗ để xây dựng.",
+      "miner": "Khai thác quặng trong núi.",
+      "apprenticeships": "Đào tạo thợ thủ công."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} sát thương/{{rate}} giây",
+      "wizard": "{{generatorGeneration}} sát thương/{{rate}} giây",
+      "elf": "{{generatorGeneration}} sát thương/{{rate}} giây",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "thief": "+{{generatorGeneration}} vàng/{{rate}} giây",
+      "bard": "+{{generatorGeneration}} cảm hứng/{{rate}} giây",
+      "cleric": "+{{generatorGeneration}} anh hùng/{{rate}} giây",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} giây",
+      "catapult": "{{generatorGeneration}} sát thương/{{rate}} giây",
+      "builder": "+{{generatorGeneration}} công trình/{{rate}} giây",
+      "engineer": "+{{generatorGeneration}} tổ chức/{{rate}} giây",
+      "farmer": "+{{generatorGeneration}} lương thực/{{rate}} giây",
+      "lumberjack": "+{{generatorGeneration}} gỗ/{{rate}} giây",
+      "miner": "+{{generatorGeneration}} quặng/{{rate}} giây",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} giây"
+    },
+    "tabsAriaLabel": "thẻ quân"
+  },
+  "settings": {
+    "settings": "Cài đặt",
+    "buy_max": "Mua tối đa",
+    "audio": "Nhạc/Âm thanh",
+    "game": "Trò chơi",
+    "graphics": "Đồ họa",
+    "offline_progress": "Tiến độ ngoại tuyến",
+    "wishlist_now": "Thêm vào mong muốn"
+  },
+  "menus": {
+    "settings": "Cài đặt",
+    "tabs": {
+      "game": "Trò chơi",
+      "graphics": "Đồ họa",
+      "audio": "Âm thanh",
+      "levels": "Chương",
+      "saveData": "Dữ liệu lưu",
+      "credits": "Đội ngũ"
+    },
+    "credits": {
+      "title": "Đội ngũ",
+      "developedBy": "Phát triển bởi",
+      "developedWith": "Phát triển với",
+      "bigThanksTo": "Cảm ơn đặc biệt tới",
+      "theRestOfTheDiscordServer": "tất cả mọi người trên máy chủ Discord",
+      "andYou": "và bạn!"
+    },
+    "music": "Nhạc",
+    "sfx": "Âm thanh",
+    "audioSettings": "Cài đặt âm thanh",
+    "gameSettings": "Cài đặt trò chơi",
+    "graphicsSettings": "Cài đặt đồ họa",
+    "language": "Ngôn ngữ",
+    "languages": {
+      "en": "Tiếng Anh",
+      "fr": "Tiếng Pháp",
+      "de": "Tiếng Đức",
+      "pt": "Tiếng Bồ Đào Nha",
+      "tr": "Tiếng Thổ Nhĩ Kỳ"
+    },
+    "shakeIntensity": "Độ rung",
+    "largerTextSize": "Chữ lớn hơn",
+    "crtFilter": "Bộ lọc CRT",
+    "chromaticAberrationSlider": "Sai sắc",
+    "chromaticAberration": "Sai sắc",
+    "swordSwooshSounds": "Âm thanh kiếm và chí mạng",
+    "catSounds": "Tiếng mèo",
+    "fullscreen": "Toàn màn hình",
+    "resume": "Tiếp tục chơi",
+    "close": "Đóng",
+    "quitGame": "Thoát trò chơi",
+    "joinDiscord": "Tham gia Discord",
+    "clear_save_label": "Xóa tiến độ của bạn?",
+    "zoom_adjustment": "Thu phóng giao diện",
+    "clear_save": "Xóa ngay",
+    "are_you_sure": "Bạn chắc chứ?",
+    "cannot_be_reversed": "Hành động này không thể hoàn tác.",
+    "yes": "Có",
+    "no": "Không",
+    "saveData": {
+      "title": "Dữ liệu lưu",
+      "clearChapterTitle": "Tiến độ các chương",
+      "clearChapterExplanation": "Xóa vàng, quân, nâng cấp, tiến độ hầm ngục và huy hiệu hoàn thành của mọi chương. Chương đã mở, thống kê tổng, cài đặt và cổ vật vẫn được giữ.",
+      "clearChapterButton": "Xóa tiến độ các chương",
+      "clearFullTitle": "Toàn bộ dữ liệu lưu",
+      "clearFullExplanation": "Xóa mọi thứ mà việc đặt lại chương xóa, cộng thêm cổ vật, chương đã mở và thống kê tổng. Cài đặt âm thanh, đồ họa và ngôn ngữ vẫn được giữ.",
+      "clearFullButton": "Xóa toàn bộ dữ liệu lưu",
+      "clearFullWarning": "Không thể hoàn tác. Bạn sẽ mất cổ vật, chương đã mở và thống kê tổng."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Cảm hứng",
+    "inspirationDescription": "Khi kích hoạt, sức mạnh của mọi anh hùng được nhân lên.",
+    "maxInspiration": "Hệ số tối đa",
+    "maxInspirationMultiplier": "Hệ số tối đa",
+    "statisticsDescription": "Thống kê chi tiết về tiến độ và kết quả chiến đấu của bạn.",
+    "hudStopBird": "Dừng chim",
+    "hudLifetimeStats": "Thống kê tổng",
+    "hudHideWindows": "Ẩn cửa sổ",
+    "events": {
+      "roar": "Tiếng gầm choáng váng",
+      "fire": "Hơi thở lửa",
+      "claw": "Đòn vuốt",
+      "dialog": "Sự kiện đặc biệt",
+      "pope_visit": "Vị khách đặc biệt",
+      "dungeon_keys": "Bí mật đen tối",
+      "missing_king": "Nhà vua đâu rồi?",
+      "catapult": "Nguyên mẫu kỹ thuật",
+      "engineer": "Sự giúp đỡ đúng lúc",
+      "invasion_start": "Cuộc xâm lược đang đến",
+      "invasion_end": "Tin từ quân ta",
+      "apprenticeships_unlock": "Đã mở học nghề",
+      "trading": "Thương nhân lữ hành",
+      "dummy_toy_reveal": "Không như tôi tưởng"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Sự kiện",
+      "stats": "Thống kê",
+      "engineering": "Kỹ thuật",
+      "resources": "Tài nguyên"
+    },
+    "tabs": {
+      "events": "Sự kiện",
+      "stats": "Thống kê",
+      "engineering": "Kỹ thuật",
+      "resources": "Tài nguyên"
+    },
+    "tabsAriaLabel": "thẻ thông tin"
+  },
+  "game": {
+    "dummy": "Hình nộm lớn",
+    "infiniteBird": "Con chim không thể hạ",
+    "king": "Nhà vua",
+    "smallDragon": "Tuth'orieth, Kẻ Nảy Mầm",
+    "bigDragon": "Forth'aarh, Kẻ Ban và Kết Thúc Sự Sống"
+  },
+  "dungeon": {
+    "found": "Đã tìm thấy",
+    "giveUp": "Bỏ cuộc",
+    "tooltipDescription": "Thám hiểm hầm ngục (cấp {{level}})",
+    "cooldownMessage": "Hầm ngục đang hồi. Chờ {{seconds}} giây để vào lại.",
+    "cooldownShort": "{{seconds}} giây",
+    "levelLabel": "Cấp",
+    "levelShort": "Cấp {{level}}",
+    "keysOwned": "Chìa khóa đang có",
+    "giveUpTooltip": "Rời hầm ngục (giữ được một phần chiến lợi phẩm nếu có Chiến lợi phẩm hào phóng)",
+    "moveHint": "WASD hoặc phím mũi tên để di chuyển",
+    "attackHint": "Nhấp vào quái vật để tấn công",
+    "chestCountsTooltip": "Đã mở {{opened}} trong {{total}} rương",
+    "exitDirection": "LỐI RA"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Chuyến đi thành công",
+      "titleFailed": "Chuyến đi thất bại",
+      "titleStuckRescue": "Thoát ra an toàn",
+      "lootSummarySubtitle": "Tổng kết chiến lợi phẩm",
+      "body_one": "Nhận {{gold}} vàng và {{grayKeys}} chìa khóa",
+      "body_other": "Nhận {{gold}} vàng và {{grayKeys}} chìa khóa",
+      "artifactFound": "Đã tìm thấy {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Thiệt hại do hơi thở lửa",
+      "body": "Đã mất {{list}}",
+      "none": "Không thiệt hại"
+    },
+    "fireBreathBlocked": {
+      "title": "Đã chặn được hơi thở lửa!",
+      "body": "Một quả bom khói đã cứu quân của bạn."
+    },
+    "toastLabel": "Thông báo trò chơi"
+  },
+  "levels": {
+    "title": "Chương",
+    "locked": "Đã khóa",
+    "active": "Đang chơi",
+    "completed": "Đã hoàn thành",
+    "continue": "Tiếp tục",
+    "start": "Bắt đầu",
+    "restart": "Chơi lại",
+    "restart_progress_warning": "Chơi lại ngay? Bạn sẽ mất tiến độ chưa lưu trong chương này.",
+    "names": {
+      "mainGame": "Một con rồng lớn",
+      "newGamePlus": "Quản lý tài nguyên",
+      "dummy": "Món đồ chơi phép thuật",
+      "infinite": "Thật sự bất tận",
+      "kingBattle": "Trận cuối của nhà vua"
+    }
+  },
+  "artifacts": {
+    "title": "Cổ vật",
+    "subtitle": "Cổ vật hiếm đôi khi xuất hiện trong những rương đặc biệt ở hầm ngục. Chúng còn lại qua các chương.",
+    "notYetFound": "(chưa tìm thấy)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Còi phượng hoàng",
+        "description": "Một con chim đặc biệt mang tới loại tiền mới."
+      },
+      "emberforgedShield": {
+        "title": "Khiên rèn từ than hồng",
+        "description": "Chiến binh miễn nhiễm với lửa rồng."
+      },
+      "moonwellFlask": {
+        "title": "Bình giếng trăng",
+        "description": "Pháp sư chỉ tiêu một nửa mana."
+      },
+      "windstepAnklet": {
+        "title": "Vòng chân bước gió",
+        "description": "Tiên tộc không bị choáng."
+      },
+      "fangSatchel": {
+        "title": "Túi răng nanh",
+        "description": "Trong lúc lượt chơi diễn ra, đạo tặc tạo ra 1 răng rồng mỗi 30 phút."
+      },
+      "slumberBerries": {
+        "title": "Quả ngủ mê",
+        "description": "Đòn độc làm chậm tiếng gầm và lửa của rồng 10 giây."
+      },
+      "echoingLute": {
+        "title": "Đàn luýt vọng âm",
+        "description": "Thi nhân nhân đôi thưởng Cảm hứng."
+      },
+      "blessingCenser": {
+        "title": "Lư hương chúc phúc",
+        "description": "Tư tế luôn chiêu mộ gấp đôi số quân."
+      },
+      "victoryTusk": {
+        "title": "Ngà chiến thắng",
+        "description": "Vượt qua một cấp cho gấp đôi phần thưởng răng rồng."
+      },
+      "cartographersLedger": {
+        "title": "Sổ tay người vẽ bản đồ",
+        "description": "Cho biết đã mở bao nhiêu rương trên tổng số rương trong hầm ngục."
+      },
+      "ironSkeletonKey": {
+        "title": "Chìa vạn năng bằng sắt",
+        "description": "Mở khóa hầm ngục tới cấp 20."
+      },
+      "everflameLantern": {
+        "title": "Đèn lửa bất diệt",
+        "description": "Đuốc không bao giờ tắt."
+      },
+      "midasCoin": {
+        "title": "Đồng tiền Midas",
+        "description": "Gấp đôi vàng thưởng trong hầm ngục."
+      },
+      "harvestIdol": {
+        "title": "Thần tượng mùa màng",
+        "description": "Sản xuất tài nguyên tăng 25%."
+      },
+      "titanGauntlet": {
+        "title": "Găng tay khổng lồ",
+        "description": "Sát thương mỗi nhấp x10."
+      },
+      "wayfindersCompass": {
+        "title": "La bàn dẫn đường",
+        "description": "Chỉ hướng lối ra của hầm ngục."
+      },
+      "loadedDice": {
+        "title": "Xúc xắc gian lận",
+        "description": "Mọi cú nhấp đều chí mạng."
+      }
+    }
+  }
+}

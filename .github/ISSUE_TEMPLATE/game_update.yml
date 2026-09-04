@@ -1,0 +1,47 @@
+name: A game update broke the patch
+description: The translation, the cheats or autoplay stopped working after the game updated
+title: "[game X.Y.Z] anchor broken: "
+labels: ["game-update", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This mod attaches to the **internal structure** of the game's bundle. When the
+        game updates, that structure can move and the mod breaks. That is expected, and
+        it is fixable.
+
+        Running this one line and pasting the result usually settles the diagnosis:
+
+        ```
+        npm run doctor
+        ```
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: doctor output
+      description: Paste the whole thing. It includes your game path, which you are welcome to redact.
+      render: text
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: broken
+    attributes:
+      label: What is not working
+      options:
+        - label: "The translation (the UI is in English)"
+        - label: "The dialogues (only the dialogue is in English)"
+        - label: "The font (empty boxes, or garbled text)"
+        - label: "The cheat widget, F8"
+        - label: "Autoplay, F9"
+        - label: "The launcher does not start at all"
+
+  - type: textarea
+    id: log
+    attributes:
+      label: The full launcher log
+      description: "Lines beginning with `✘` matter most."
+      render: text
+    validations:
+      required: true

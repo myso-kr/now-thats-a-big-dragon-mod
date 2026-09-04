@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "업그레이드",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "다음 레벨",
+    "currentLevel": "현재",
+    "newGamePlusOnly": "'자원 관리' 챕터에서만 이용할 수 있습니다",
+    "max": "최대",
+    "lockedMessage": "{{parentSkill}}을(를) 더 강화하면 해금됩니다",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "강철 손가락",
+        "description": "클릭 공격 피해량 +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "깃털 손가락",
+        "description": "초당 클릭 횟수 +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "각성의 일격",
+        "description": "클릭 공격마다 기절 지속시간이 {{bonus}}초 줄어듭니다",
+        "prefix": "-",
+        "suffix": "초"
+      },
+      "electricalFinger": {
+        "title": "전기 손가락",
+        "description": "클릭할 때마다 {{bonus}}% 확률로 번개 공격이 발동합니다.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "완벽한 클릭",
+        "description": "클릭 치명타 확률 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "치명적인 일격",
+        "description": "클릭 치명타 피해량이 +{{bonus}}배 증가합니다",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "황금 폭발",
+        "description": "새를 클릭할 때의 보상이 {{bonus}}배 증가합니다",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "타고난 지도자",
+        "description": "클릭 공격이 영감 게이지를 클릭당 +{{bonus}}만큼 채웁니다",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "황금 커서",
+        "description": "클릭 공격으로 얻는 골드가 {{bonus}}배 증가합니다",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "가득 찬 상자",
+        "description": "던전 상자가 비어 있을 확률이 {{bonus}}% 줄어듭니다",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "손목 치료",
+        "description": "마우스 버튼을 누르고 있으면 드래곤을 계속 공격합니다."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "단검",
+        "description": "{{type}} 피해량 배수 +{{bonus}}배",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "장검",
+        "description": "전사의 피해량에 추가 배수 +{{bonus}}배",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "양손검",
+        "description": "전사의 피해량에 또 한 번의 배수 +{{bonus}}배",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "전투의 함성",
+        "description": "공격마다 영감 게이지를 +{{bonus}}만큼 더 채웁니다",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "전쟁의 포효",
+        "description": "영감이 최대 배수에 도달하면 다음 틱에 자동으로 발동합니다"
+      },
+      "barbarian": {
+        "title": "야만전사",
+        "description": "기본 피해량이 +{{bonus}} 증가합니다",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "두꺼운 갑옷",
+        "description": "받는 물리 피해가 {{bonus}}% 감소합니다",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "화염 갑옷",
+        "description": "화염 브레스로 인한 사망이 {{bonus}}% 감소합니다",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "무거운 바위",
+        "description": "레벨당 투석기 피해량이 {{bonus}}% 증가합니다",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "은빛 검날",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 더합니다",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "황금 검날",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 추가로 더합니다",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "충성스러운 용병",
+        "description": "직접 구매한 {{typePlural}}이(가) 레벨당 +{{bonus}}배의 피해를 더 줍니다",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "충성스러운 하인",
+        "description": "{{type}} 이상 등급의 영입 비용이 {{bonus}}% 감소합니다",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "팀워크",
+        "description": "{{type}}을(를) 구매할 때마다 {{typePlural}}을(를) 추가로 영입합니다",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "던전의 정밀함",
+        "description": "던전 안에서 치명타가 터질 확률이 {{bonus}}% 증가합니다",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "미궁 파괴자",
+        "description": "던전 안에서 주는 치명타 추가 피해가 {{bonus}} 증가합니다",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "마력 화살",
+        "description": "{{type}} 피해량 배수 +{{bonus}}배",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "마나 검",
+        "description": "마법사 한 명이 전사 한 명의 검에 마나를 불어넣습니다. 마나가 90을 넘으면 피해량 배수가 +{{bonus}}배 증가합니다",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "마법 마우스",
+        "description": "클릭당 마나 게이지를 +{{bonus}}만큼 채웁니다",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "마나 충전",
+        "description": "마법사의 마나 게이지를 가득 채웁니다"
+      },
+      "manaPool": {
+        "title": "마나 저수지",
+        "description": "최대 마나가 {{bonus}}% 증가합니다",
+        "suffix": " 마나"
+      },
+      "manaBoost": {
+        "title": "마나 증폭",
+        "description": "마나가 {{current}} 이상이면 마법사의 피해량이 두 배가 됩니다",
+        "suffix": " 마나"
+      },
+      "weatherForecast": {
+        "title": "일기 예보",
+        "description": "번개가 칠 확률이 {{bonus}}% 증가합니다",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "번개 강타",
+        "description": "업그레이드 구매마다 {{type}} 피해량의 +{{bonus}}배에 해당하는 번개 공격이 추가됩니다",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "은 지팡이",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 더합니다",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "황금 지팡이",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 추가로 더합니다",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "마법의 불꽃",
+        "description": "횃불 지속시간이 +{{bonus}}초 증가합니다",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "대마법사",
+        "description": "기본 피해량이 +{{bonus}} 증가합니다",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "사냥꾼의 눈",
+        "description": "매 틱마다 사정거리 안의 새 1마리를 맞힐 확률이 +{{bonus}}% 증가합니다",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "날카로운 조준",
+        "description": "치명타 사격 확률 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "잎사귀 절단기",
+        "description": "치명타 사격 피해량이 +{{bonus}}배 증가합니다",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "사냥철",
+        "description": "즉시 새 떼를 불러옵니다",
+        "suffix": " 마리"
+      },
+      "elvenEyes": {
+        "title": "엘프의 눈",
+        "description": "횃불이 꺼져도 +{{bonus}}초 동안 어둠 속에서 볼 수 있습니다",
+        "prefix": "+",
+        "suffix": "초"
+      },
+      "multipleShot": {
+        "title": "다중 사격",
+        "description": "레벨당 화살을 하나씩 더 발사합니다",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "은 화살",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 더합니다",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "황금 화살",
+        "description": "공격당 획득 골드에 {{bonus}}배 배수를 추가로 더합니다",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "얼음 화살",
+        "description": "드래곤의 화염 공격을 {{bonus}}초 늦춥니다",
+        "prefix": "-",
+        "suffix": "초"
+      },
+      "animalInstinct": {
+        "title": "야성의 본능",
+        "description": "투석기 탄환을 바위에서 고양이로, 다시 호랑이로 강화해 매번 피해량을 10배로 올립니다.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "피뢰침",
+        "description": "마법사의 번개가 적중할 때 {{bonus}}% 확률로 번개가 한 번 더 떨어집니다.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "재활용 화살",
+        "description": "엘프의 공격에 목재를 덜 사용합니다"
+      },
+      "lightfoot": {
+        "title": "가벼운 발걸음",
+        "description": "던전에서 이동 속도와 회전 속도가 {{bonus}}% 증가합니다",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "빠른 손놀림",
+        "description": "골드 생산 시간이 {{bonus}}초 줄어듭니다"
+      },
+      "sharpDagger": {
+        "title": "암살자의 칼날",
+        "description": "도적도 {{current}}의 피해량으로 함께 공격합니다"
+      },
+      "poisonDagger": {
+        "title": "독 단검",
+        "description": "드래곤을 중독시킬 확률이 +{{bonus}}% 증가합니다",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "블랙 맘바",
+        "description": "독 피해량이 도적 피해량의 +{{bonus}}배가 됩니다",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "잔류 독성",
+        "description": "독 지속시간이 +{{bonus}}초 증가합니다",
+        "suffix": "초"
+      },
+      "smokeBomb": {
+        "title": "연막탄",
+        "description": "드래곤에게 덫을 놓아 다음 공격을 {{current}}% 확률로 막아냅니다.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "폭발하는 고양이",
+        "description": "투석기 탄환이 적과 부딪히며 폭발해 피해량이 두 배가 됩니다.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "소매치기",
+        "description": "{{type}}의 골드 생산에 {{bonus}}배 배수를 더합니다",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "자물쇠 따기",
+        "description": "탐험을 시작할 때 던전 문이 {{bonus}}개 더 열려 있습니다."
+      },
+      "midasTouch": {
+        "title": "미다스의 손길",
+        "description": "{{type}}의 골드 생산에 {{bonus}}배 배수를 추가로 더합니다",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "가득 채운 상자",
+        "description": "던전 상자의 골드 보상이 {{bonus}}% 증가합니다",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "소리굽쇠",
+        "description": "영감 생성량이 +{{bonus}} 증가합니다",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "류트 독주",
+        "description": "최대 영감 배수가 +{{bonus}}배 증가합니다",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "시끄러운 기타리스트",
+        "description": "영감 효과 지속시간 +{{bonus}}초",
+        "suffix": "초"
+      },
+      "piercedEardrums": {
+        "title": "찢어진 고막",
+        "description": "드래곤의 포효 타이머 속도가 {{bonus}}% 느려집니다",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "앙코르 연주",
+        "description": "영감이 끝날 때 {{bonus}}% 확률로 다시 시작됩니다",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "음파 장벽",
+        "description": "드래곤의 화염 브레스 타이머 속도가 {{bonus}}% 느려집니다",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "불협화음",
+        "description": "구매하면 아군 유닛이 기절합니다"
+      },
+      "churchChoir": {
+        "title": "성가대",
+        "description": "영감이 발동될 때마다 신학교를 1개 영입합니다"
+      },
+      "encore": {
+        "title": "재연",
+        "description": "영감 생성 재사용 대기시간이 {{bonus}}초 줄어듭니다",
+        "suffix": "초"
+      },
+      "lockerRoomSpeech": {
+        "title": "라커룸 연설",
+        "description": "게임을 꺼 둔 동안에도 {{current}}%의 속도로 영감이 쌓입니다",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "영국식 질서",
+        "description": "게임을 꺼 둔 동안에도 당신의 음악이 장인들을 비번에 일하게 만들어, 평소의 {{current}}% 속도로 자원을 생산합니다",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "장조 열쇠",
+        "description": "던전 열쇠를 구매합니다. (네, 말장난입니다.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "취약 주파수",
+        "description": "던전 적이 피격 후 무적이 되는 시간이 {{bonus}}ms 줄어듭니다",
+        "prefix": "-",
+        "suffix": "ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "영웅 인사부",
+        "description": "영입한 영웅이 두 배가 될 확률이 +{{bonus}}% 증가합니다",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "축복의 오라",
+        "description": "화염 브레스로 인한 사망이 -{{bonus}}% 감소합니다",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "축복받은 새",
+        "description": "새가 {{current}}% 확률로 축복받은 상태로 나타나 골드 보상이 두 배가 됩니다",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "힘의 전달",
+        "description": "영입할 때 보유한 성직자 1명당 마법사의 마나가 0.5씩 회복됩니다"
+      },
+      "generousLoot": {
+        "title": "넉넉한 전리품",
+        "description": "던전 탐험에 실패해도 전리품의 {{current}}%를 유지합니다.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "신성한 빛",
+        "description": "횃불이 꺼진 뒤 다시 붙을 확률이 {{bonus}}% 증가합니다",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "전사 영입",
+        "description": "전사를 전투에 영입할 수 있게 됩니다"
+      },
+      "recruitElves": {
+        "title": "엘프 영입",
+        "description": "엘프를 전투에 영입할 수 있게 됩니다"
+      },
+      "recruitWizards": {
+        "title": "마법사 영입",
+        "description": "마법사를 전투에 영입할 수 있게 됩니다"
+      },
+      "recruitBards": {
+        "title": "음유시인 영입",
+        "description": "음유시인을 전투에 영입할 수 있게 됩니다"
+      },
+      "recruitThieves": {
+        "title": "도적 영입",
+        "description": "도적을 전투에 영입할 수 있게 됩니다"
+      },
+      "recruitClerics": {
+        "title": "성직자 영입",
+        "description": "성직자를 전투에 영입할 수 있게 됩니다"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "위시리스트에 추가!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "전투 시간",
+      "dgps": "초당 피해량과 골드",
+      "resourceBalance": "자원 수지"
+    },
+    "lifetime": {
+      "title": "누적 통계",
+      "totalPlaytime": "총 플레이 시간",
+      "totalGoldEarned": "총 획득 골드",
+      "totalGoldSpent": "총 사용 골드",
+      "totalBirdsKilled": "총 처치한 새",
+      "totalClicks": "총 클릭 수",
+      "totalHeroesRecruited": "총 영입한 영웅",
+      "heroesPurchased": "구매",
+      "heroesRecruited": "영입",
+      "tier1": "1티어 영입 (구매)",
+      "tier2": "2티어 영입 (구매)",
+      "tier3": "3티어 영입 (구매)",
+      "totalDamageDealt": "총 입힌 피해량",
+      "totalUnitsDeadByFireBreath": "화염 브레스로 잃은 유닛"
+    },
+    "battleDuration": "경과: <strong>{{time}}{{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "승리가 가능하기는 할까?",
+    "infiniteEstimatedVictory": "승리는 정말로 불가능하다!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>당신이 우리의 영웅입니다!</strong>]; (0-1000000000)[<strong>{{count}}{{timePrefix}}</strong> 후 승리];(1000000001-inf)[<strong class='text-danger'>드래곤을 클릭하거나 Z를 눌러 공격하세요!</strong>]",
+    "perSec": "/초",
+    "generationSection": "생산",
+    "critSection": "특수",
+    "dps": "유닛 피해량: <strong>{{dps}}/초</strong>",
+    "gps": "유닛 골드: <strong>{{gps}}/초</strong>",
+    "dpc": "클릭 피해량: <strong>{{dpc}}/클릭</strong>",
+    "gpc": "클릭 골드: <strong>{{gpc}}/클릭</strong>",
+    "catapultDamage": "피해량: <strong>{{damage}}/발</strong>",
+    "catapultTimeToShoot": "발사 대기: <strong>{{time}}초</strong>",
+    "seconds_one": "초",
+    "seconds_other": "초",
+    "minutes_one": "분",
+    "minutes_other": "분",
+    "hours_one": "시간",
+    "hours_other": "시간",
+    "days_one": "일",
+    "days_other": "일",
+    "months_one": "개월",
+    "months_other": "개월",
+    "years_one": "년",
+    "years_other": "년",
+    "undo": {
+      "disabledLine": "실수로 구매한 유닛은 10초 안에 클릭하면 되돌리고 환불받을 수 있습니다.",
+      "enabledAction": "클릭하면 {{generator}} {{count}}개 구매를 취소합니다.",
+      "enabledRefund": "{{refund}}을(를) 환불받습니다.",
+      "enabledTimer": "{{seconds}}초 남음.",
+      "refundGold": "{{amount}} 골드"
+    }
+  },
+  "generators": {
+    "generators": "부대",
+    "buy": "{{amount}} 구매",
+    "warrior_one": "전사",
+    "warrior_other": "전사",
+    "wizard_one": "마법사",
+    "wizard_other": "마법사",
+    "elf_one": "엘프",
+    "elf_other": "엘프",
+    "garrison_one": "주둔지",
+    "garrison_other": "주둔지",
+    "academy_one": "마법 학교",
+    "academy_other": "마법 학교",
+    "academy_short_one": "학교",
+    "academy_short_other": "학교",
+    "outpost_one": "궁수 전초기지",
+    "outpost_other": "궁수 전초기지",
+    "outpost_short_one": "전초기지",
+    "outpost_short_other": "전초기지",
+    "council_one": "군사 평의회",
+    "council_other": "군사 평의회",
+    "nexus_one": "대마법사의 결절",
+    "nexus_other": "대마법사의 결절",
+    "forest_one": "고대의 숲",
+    "forest_other": "고대의 숲",
+    "thief_one": "도적",
+    "thief_other": "도적",
+    "bard_one": "음유시인",
+    "bard_other": "음유시인",
+    "cleric_one": "성직자",
+    "cleric_other": "성직자",
+    "guild_one": "도적 길드",
+    "guild_other": "도적 길드",
+    "guild_short_one": "길드",
+    "guild_short_other": "길드",
+    "troupe_one": "예술가 극단",
+    "troupe_other": "예술가 극단",
+    "troupe_short_one": "극단",
+    "troupe_short_other": "극단",
+    "seminary_one": "신학교",
+    "seminary_other": "신학교",
+    "seminary_short_one": "신학교",
+    "seminary_short_other": "신학교",
+    "congress_one": "그림자 의회",
+    "congress_other": "그림자 의회",
+    "theater_one": "대극장",
+    "theater_other": "대극장",
+    "college_one": "추기경 학원",
+    "college_other": "추기경 학원",
+    "catapult_one": "투석기",
+    "catapult_other": "투석기",
+    "builder_one": "건축가",
+    "builder_other": "건축가",
+    "engineer_one": "기술자",
+    "engineer_other": "기술자",
+    "farmer_one": "농부",
+    "farmer_other": "농부",
+    "lumberjack_one": "나무꾼",
+    "lumberjack_other": "나무꾼",
+    "miner_one": "광부",
+    "miner_other": "광부",
+    "apprenticeships_one": "견습 제도",
+    "apprenticeships_other": "견습 제도",
+    "tradespeople_one": "장인",
+    "tradespeople_other": "장인",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}}초"
+    },
+    "ngPlusProductionToggle": "생산 전환",
+    "tabs": {
+      "troops": "부대",
+      "support": "지원"
+    },
+    "fireUnitsButton": {
+      "tooltip": "유닛을 해고해 자원 소모를 줄이면서 생산은 일부 유지합니다."
+    },
+    "ownedUnits": "보유 {{unit}}: {{amount}}",
+    "mana": "마나",
+    "manaDescription": "마법사의 공격에 쓰이는 마법 에너지입니다.",
+    "emptyManaDescription": "계속 공격하려면 [마나 충전]을 구매하세요.",
+    "inspiration": "영감",
+    "inspirationDescription": "발동하면 모든 영웅의 능력이 일정 배수만큼 증가합니다.",
+    "unitDescription": {
+      "warrior": "맷집이 좋은 근접 전투원.",
+      "wizard": "중거리 마법 공격을 하지만 몸이 약합니다.",
+      "elf": "드래곤의 손이 닿지 않는 곳에서 다재다능한 원거리 공격을 합니다.",
+      "garrison": "전사를 모집하는 요새화된 거점.",
+      "outpost": "엘프를 모집하는 외곽 거점.",
+      "academy": "마법사를 전투용으로 훈련시키는 학교.",
+      "council": "주둔지를 세우는 군사 조직.",
+      "nexus": "마법 학교를 세우는 비전 조직.",
+      "forest": "전초기지를 세우는 신성한 숲.",
+      "thief": "드래곤에게 독을 쓰고 골드를 훔치는 배신자.",
+      "bard": "부대의 사기를 북돋아 더 강하게 싸우게 합니다.",
+      "cleric": "보호를 제공하고 새로운 영웅을 전투에 영입합니다.",
+      "guild": "도적을 모집하는 숨겨진 조직망.",
+      "troupe": "음유시인을 모집하는 유랑 극단.",
+      "seminary": "성직자를 양성하는 신성한 기관.",
+      "congress": "도적 길드를 세우는 그림자 조직.",
+      "theater": "예술가 극단을 세우는 거대한 기관.",
+      "college": "신학교를 세우는 종교 조직.",
+      "catapult": "드래곤에게 큰 피해를 주는 공성 병기.",
+      "builder": "2단계 건물을 짓습니다.",
+      "engineer": "3단계 조직을 만듭니다.",
+      "farmer": "왕국을 먹일 식량을 재배합니다.",
+      "lumberjack": "건설용 목재를 벱니다.",
+      "miner": "산에서 광석을 캡니다.",
+      "apprenticeships": "장인을 양성합니다."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} 피해량/{{rate}}초",
+      "wizard": "{{generatorGeneration}} 피해량/{{rate}}초",
+      "elf": "{{generatorGeneration}} 피해량/{{rate}}초",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "academy": "+{{generatorGeneration}}  $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "thief": "+{{generatorGeneration}} 골드/{{rate}}초",
+      "bard": "+{{generatorGeneration}} 영감/{{rate}}초",
+      "cleric": "+{{generatorGeneration}} 영웅/{{rate}}초",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}}초",
+      "catapult": "{{generatorGeneration}} 피해량/{{rate}}초",
+      "builder": "+{{generatorGeneration}} 건물/{{rate}}초",
+      "engineer": "+{{generatorGeneration}} 조직/{{rate}}초",
+      "farmer": "+{{generatorGeneration}} 식량/{{rate}}초",
+      "lumberjack": "+{{generatorGeneration}} 목재/{{rate}}초",
+      "miner": "+{{generatorGeneration}} 광석/{{rate}}초",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}}초"
+    },
+    "tabsAriaLabel": "부대 탭"
+  },
+  "settings": {
+    "settings": "설정",
+    "buy_max": "최대 구매",
+    "audio": "음악/효과음",
+    "game": "게임",
+    "graphics": "그래픽",
+    "offline_progress": "오프라인 진행",
+    "wishlist_now": "위시리스트 추가"
+  },
+  "menus": {
+    "settings": "설정",
+    "tabs": {
+      "game": "게임",
+      "graphics": "그래픽",
+      "audio": "사운드",
+      "levels": "챕터",
+      "saveData": "저장 데이터",
+      "credits": "크레딧"
+    },
+    "credits": {
+      "title": "크레딧",
+      "developedBy": "개발",
+      "developedWith": "사용 기술",
+      "bigThanksTo": "특별히 감사드립니다",
+      "theRestOfTheDiscordServer": "그리고 디스코드 서버의 모든 분들",
+      "andYou": "그리고 당신!"
+    },
+    "music": "음악",
+    "sfx": "효과음",
+    "audioSettings": "사운드 설정",
+    "gameSettings": "게임 설정",
+    "graphicsSettings": "그래픽 설정",
+    "language": "언어",
+    "languages": {
+      "en": "한국어",
+      "fr": "프랑스어",
+      "de": "독일어",
+      "pt": "포르투갈어",
+      "tr": "튀르키예어"
+    },
+    "shakeIntensity": "화면 흔들림",
+    "largerTextSize": "큰 글씨",
+    "crtFilter": "CRT 필터",
+    "chromaticAberrationSlider": "색수차",
+    "chromaticAberration": "색수차",
+    "swordSwooshSounds": "검격 · 치명타 소리",
+    "catSounds": "고양이 소리",
+    "fullscreen": "전체 화면",
+    "resume": "게임으로 돌아가기",
+    "close": "닫기",
+    "quitGame": "게임 종료",
+    "joinDiscord": "디스코드 참여",
+    "clear_save_label": "진행 상황을 삭제할까요?",
+    "zoom_adjustment": "UI 크기",
+    "clear_save": "지금 삭제",
+    "are_you_sure": "정말인가요?",
+    "cannot_be_reversed": "이 작업은 되돌릴 수 없습니다.",
+    "yes": "예",
+    "no": "아니오",
+    "saveData": {
+      "title": "저장 데이터",
+      "clearChapterTitle": "챕터 진행도",
+      "clearChapterExplanation": "모든 챕터의 골드, 유닛, 업그레이드, 던전 진행도, 완료 배지를 지웁니다. 챕터 해금, 누적 통계, 설정, 아티팩트는 남습니다.",
+      "clearChapterButton": "챕터 진행도 지우기",
+      "clearFullTitle": "전체 저장 데이터",
+      "clearFullExplanation": "챕터 초기화가 지우는 것 전부에 더해 아티팩트, 챕터 해금, 누적 통계까지 지웁니다. 음향·그래픽·언어 설정은 남습니다.",
+      "clearFullButton": "전체 저장 데이터 지우기",
+      "clearFullWarning": "되돌릴 수 없습니다. 아티팩트, 챕터 해금, 누적 통계를 잃게 됩니다."
+    }
+  },
+  "tooltip": {
+    "inspiration": "영감",
+    "inspirationDescription": "발동하면 모든 영웅의 능력이 일정 배수만큼 증가합니다.",
+    "maxInspiration": "최대 배수",
+    "maxInspirationMultiplier": "최대 배수",
+    "statisticsDescription": "전투 진행 상황과 성능에 대한 상세 통계입니다.",
+    "hudStopBird": "새 멈추기",
+    "hudLifetimeStats": "누적 통계",
+    "hudHideWindows": "창 숨기기",
+    "events": {
+      "roar": "기절의 포효",
+      "fire": "화염 브레스",
+      "claw": "발톱 공격",
+      "dialog": "특별 사건",
+      "pope_visit": "특별한 손님",
+      "dungeon_keys": "어두운 비밀",
+      "missing_king": "왕은 어디에?",
+      "catapult": "공학 시제품",
+      "engineer": "반가운 도움",
+      "invasion_start": "침공이 다가온다",
+      "invasion_end": "아군의 소식",
+      "apprenticeships_unlock": "견습 제도 해금",
+      "trading": "떠돌이 상인",
+      "dummy_toy_reveal": "예상 밖의 물건"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "사건",
+      "stats": "통계",
+      "engineering": "공학",
+      "resources": "자원"
+    },
+    "tabs": {
+      "events": "사건",
+      "stats": "통계",
+      "engineering": "공학",
+      "resources": "자원"
+    },
+    "tabsAriaLabel": "정보 탭"
+  },
+  "game": {
+    "dummy": "거대 허수아비",
+    "infiniteBird": "가라앉지 않는 새",
+    "king": "왕",
+    "smallDragon": "투토리에스, 움트는 자",
+    "bigDragon": "포르타르, 생명을 주고 거두는 자"
+  },
+  "dungeon": {
+    "found": "획득",
+    "giveUp": "포기",
+    "tooltipDescription": "던전 탐험을 떠납니다 (Lv. {{level}})",
+    "cooldownMessage": "던전 재사용 대기 중입니다. {{seconds}}초 후 다시 입장할 수 있습니다.",
+    "cooldownShort": "{{seconds}}초",
+    "levelLabel": "레벨",
+    "levelShort": "Lv.{{level}}",
+    "keysOwned": "보유 열쇠",
+    "giveUpTooltip": "던전에서 나갑니다 (넉넉한 전리품이 있으면 일부는 유지됩니다)",
+    "moveHint": "WASD 또는 방향키로 이동",
+    "attackHint": "몬스터를 클릭해 공격",
+    "chestCountsTooltip": "상자 {{total}}개 중 {{opened}}개 열었습니다",
+    "exitDirection": "출구"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "탐험 성공",
+      "titleFailed": "탐험 실패",
+      "titleStuckRescue": "무사히 탈출",
+      "lootSummarySubtitle": "전리품 요약",
+      "body_one": "골드 {{gold}}와(과) 열쇠 {{grayKeys}}개를 얻었습니다",
+      "body_other": "골드 {{gold}}와(과) 열쇠 {{grayKeys}}개를 얻었습니다",
+      "artifactFound": "{{artifactName}}을(를) 찾았습니다."
+    },
+    "fireBreathCasualties": {
+      "title": "화염 브레스 피해",
+      "body": "{{list}}을(를) 잃었습니다",
+      "none": "피해 없음"
+    },
+    "fireBreathBlocked": {
+      "title": "화염 브레스를 막았다!",
+      "body": "연막탄이 부대를 구했습니다."
+    },
+    "toastLabel": "게임 알림"
+  },
+  "levels": {
+    "title": "챕터",
+    "locked": "잠김",
+    "active": "진행 중",
+    "completed": "완료",
+    "continue": "이어하기",
+    "start": "시작",
+    "restart": "다시 시작",
+    "restart_progress_warning": "지금 다시 시작할까요? 이 챕터의 저장되지 않은 진행이 사라집니다.",
+    "names": {
+      "mainGame": "거대한 드래곤",
+      "newGamePlus": "자원 관리",
+      "dummy": "마법 장난감",
+      "infinite": "진정한 무한",
+      "kingBattle": "왕의 최후"
+    }
+  },
+  "artifacts": {
+    "title": "아티팩트",
+    "subtitle": "희귀 아티팩트는 던전의 특별한 상자에서 이따금 나옵니다. 챕터가 바뀌어도 남습니다.",
+    "notYetFound": "(아직 찾지 못함)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "불사조 호루라기",
+        "description": "특별한 새가 새로운 재화를 물어 옵니다."
+      },
+      "emberforgedShield": {
+        "title": "잉걸불 방패",
+        "description": "전사가 드래곤의 불길에 면역이 됩니다."
+      },
+      "moonwellFlask": {
+        "title": "달샘 물병",
+        "description": "마법사의 마나 소모가 절반이 됩니다."
+      },
+      "windstepAnklet": {
+        "title": "바람걸음 발찌",
+        "description": "엘프가 기절하지 않습니다."
+      },
+      "fangSatchel": {
+        "title": "송곳니 주머니",
+        "description": "회차가 진행되는 동안 도적이 30분마다 용의 이빨 1개를 만들어 냅니다."
+      },
+      "slumberBerries": {
+        "title": "잠의 열매",
+        "description": "독 공격이 드래곤의 포효와 화염을 10초 늦춥니다."
+      },
+      "echoingLute": {
+        "title": "메아리 류트",
+        "description": "음유시인이 영감 보너스를 두 배로 만듭니다."
+      },
+      "blessingCenser": {
+        "title": "축복의 향로",
+        "description": "성직자가 항상 두 배의 유닛을 모읍니다."
+      },
+      "victoryTusk": {
+        "title": "승리의 엄니",
+        "description": "레벨을 깨면 용의 이빨 보상이 두 배가 됩니다."
+      },
+      "cartographersLedger": {
+        "title": "지도공의 장부",
+        "description": "던전 상자의 연 개수와 전체 개수를 보여 줍니다."
+      },
+      "ironSkeletonKey": {
+        "title": "무쇠 만능열쇠",
+        "description": "던전을 20층까지 열어 줍니다."
+      },
+      "everflameLantern": {
+        "title": "꺼지지 않는 등불",
+        "description": "횃불이 절대 꺼지지 않습니다."
+      },
+      "midasCoin": {
+        "title": "미다스의 동전",
+        "description": "던전의 골드 보상이 두 배가 됩니다."
+      },
+      "harvestIdol": {
+        "title": "수확의 우상",
+        "description": "자원 생산이 25% 늘어납니다."
+      },
+      "titanGauntlet": {
+        "title": "타이탄의 건틀릿",
+        "description": "클릭 피해량 10배."
+      },
+      "wayfindersCompass": {
+        "title": "길잡이의 나침반",
+        "description": "던전 출구의 방향을 보여 줍니다."
+      },
+      "loadedDice": {
+        "title": "속임수 주사위",
+        "description": "클릭이 항상 치명타가 됩니다."
+      }
+    }
+  }
+}

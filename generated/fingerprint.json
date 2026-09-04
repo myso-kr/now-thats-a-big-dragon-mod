@@ -1,0 +1,37 @@
+{
+  "supported": [
+    {
+      "gameVersion": "1.0.5",
+      "steamAppId": "3834590",
+      "steamBuildId": "25092954",
+      "assetsSha256": "7e0d649838ca35ba35bca80431e1ff07fd6e4e3abf8a50c5cd995e1c3baaa638",
+      "bundleJs": "assets/index-C5vCJZoP.js",
+      "bundleJsSha256": "053818866284e66698d861115b34968de0454db0328dbb95a159c1fe3efb4639",
+      "bundleCss": "assets/style-CCeH8nWv.css",
+      "dialogsEn": 32,
+      "verifiedAt": "2026-09-04"
+    },
+    {
+      "gameVersion": "1.0.5b",
+      "steamAppId": "3834590",
+      "steamBuildId": "25111589",
+      "assetsSha256": "ab507cd9878919b8e40832fff41c8782649b507c303e74a559f9fe40a0cd62e1",
+      "bundleJs": "assets/index-om7GP7rM.js",
+      "bundleJsSha256": "b5769d814f0132969c97b5dac909e6497a4f981c0f72e470504ddb30c34cd046",
+      "bundleCss": "assets/style-CCeH8nWv.css",
+      "dialogsEn": 32,
+      "verifiedAt": "2026-09-04"
+    },
+    {
+      "gameVersion": "1.1.0",
+      "steamAppId": "3834590",
+      "steamBuildId": "25124954",
+      "assetsSha256": "7231eb2bb0fb1a0e79e6d60610dc05d9f2533158fa5545605f9f3af6ec74db93",
+      "bundleJs": "assets/index-DQTD9fhz.js",
+      "bundleJsSha256": "2b42c67c8455eadcd32cfd46247ddad44cd6f70165f8a50d6906245118a1dbc5",
+      "bundleCss": "assets/style-B5r2lGsX.css",
+      "dialogsEn": 32,
+      "verifiedAt": "2026-09-04"
+    }
+  ]
+}

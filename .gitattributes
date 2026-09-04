@@ -1,0 +1,19 @@
+# Line endings are not cosmetic here.
+#
+# A .ink file with CRLF unsettles the game's Ink compilation, and CI fails on one — so
+# they are checked out with LF on every platform, not just committed with it. The same
+# goes for the woff2 and PNG assets, which must never be touched at all: a font whose
+# bytes changed is a font whose sha256 no longer matches THIRD-PARTY.md.
+* text=auto eol=lf
+
+*.ink     text eol=lf
+*.json    text eol=lf
+*.rs      text eol=lf
+*.js      text eol=lf
+*.py      text eol=lf
+*.md      text eol=lf
+*.yml     text eol=lf
+
+*.woff2   binary
+*.png     binary
+*.ico     binary

@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "アップグレード",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "次のレベル",
+    "currentLevel": "現在",
+    "newGamePlusOnly": "「資源管理」チャプター限定",
+    "max": "最大",
+    "lockedMessage": "{{parentSkill}}をさらに強化すると解放されます",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "鉄の指",
+        "description": "クリック攻撃のダメージ +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "羽の指",
+        "description": "毎秒のクリック回数 +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "目覚めの一撃",
+        "description": "クリックのたびに気絶時間が{{bonus}}秒縮む",
+        "prefix": "-",
+        "suffix": "秒"
+      },
+      "electricalFinger": {
+        "title": "電気の指",
+        "description": "クリックごとに{{bonus}}%の確率で落雷が起きる。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "完璧なクリック",
+        "description": "クリックがクリティカルになる確率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "会心の一撃",
+        "description": "クリティカルクリックのダメージが +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "黄金の爆発",
+        "description": "鳥をクリックしたときの報酬が {{bonus}}倍",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "天性の指導者",
+        "description": "クリック攻撃で鼓舞ゲージが +{{bonus}}/クリック たまる",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "金のカーソル",
+        "description": "クリック攻撃で得られる金貨が {{bonus}}倍",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "満杯の宝箱",
+        "description": "ダンジョンの宝箱が空である確率を {{bonus}}% 下げる",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "腱鞘炎の妙薬",
+        "description": "マウスボタンを押しっぱなしにすると連続で攻撃できる。"
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "ショートソード",
+        "description": "{{type}}のダメージ倍率 +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "ロングソード",
+        "description": "戦士のダメージ倍率がさらに +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "両手剣",
+        "description": "戦士のダメージ倍率がもう一段 +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "戦の雄叫び",
+        "description": "鼓舞ゲージが攻撃ごとに +{{bonus}} たまりやすくなる",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "鬨の声",
+        "description": "鼓舞が最大倍率に達すると、次のティックで自動的に発動する"
+      },
+      "barbarian": {
+        "title": "バーバリアン",
+        "description": "基礎ダメージが +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "厚い鎧",
+        "description": "受ける物理ダメージを {{bonus}}% 減らす",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "耐火の鎧",
+        "description": "火炎ブレスによる死者を {{bonus}}% 減らす",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "重い岩",
+        "description": "カタパルトのダメージがレベルごとに {{bonus}}% 上がる",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "銀の刃",
+        "description": "攻撃で得る金貨に {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "金の刃",
+        "description": "攻撃で得る金貨にさらに {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "忠実な傭兵",
+        "description": "自分で買った{{typePlural}}のダメージがレベルごとに +{{bonus}}倍",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "忠実な従者",
+        "description": "{{type}}以上のティアの登用費用が {{bonus}}% 下がる",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "連携",
+        "description": "{{type}}を買うたびに{{typePlural}}が追加で加わる",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "ダンジョンの精度",
+        "description": "ダンジョン内でクリティカルが出る確率が {{bonus}}% 上がる",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "迷宮砕き",
+        "description": "ダンジョン内のクリティカルダメージ倍率が {{bonus}} 上がる",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "マジックボルト",
+        "description": "{{type}}のダメージ倍率 +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "マナの剣",
+        "description": "魔道士1人につき戦士1人の剣にマナを宿す。マナが90を超えている間、ダメージ倍率が +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "魔法のマウス",
+        "description": "クリックごとにマナゲージが +{{bonus}} たまる",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "マナ回復",
+        "description": "魔道士のマナゲージを回復する"
+      },
+      "manaPool": {
+        "title": "マナの泉",
+        "description": "最大マナが {{bonus}}% 増える",
+        "suffix": " マナ"
+      },
+      "manaBoost": {
+        "title": "マナブースト",
+        "description": "マナが{{current}}を超えている間、魔道士のダメージが2倍になる",
+        "suffix": " マナ"
+      },
+      "weatherForecast": {
+        "title": "天気予報",
+        "description": "落雷の確率が {{bonus}}% 上がる",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "落雷",
+        "description": "アップグレード1つにつき、{{type}}のダメージの +{{bonus}}倍 の追加落雷が起きる",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "銀の杖",
+        "description": "攻撃で得る金貨に {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "金の杖",
+        "description": "攻撃で得る金貨にさらに {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "魔法の炎",
+        "description": "松明の持続時間が +{{bonus}}秒 延びる",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "大魔道士",
+        "description": "基礎ダメージが +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "狩人の目",
+        "description": "毎ティック、射程内の鳥1羽に命中する確率が +{{bonus}}% 上がる",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "鋭い狙い",
+        "description": "射撃がクリティカルになる確率 +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "リーフカッター",
+        "description": "クリティカル射撃のダメージが +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "狩猟の季節",
+        "description": "鳥の群れをすぐに呼び寄せる",
+        "suffix": "羽"
+      },
+      "elvenEyes": {
+        "title": "エルフの目",
+        "description": "松明が消えても、あと +{{bonus}}秒 暗闇で見える",
+        "prefix": "+",
+        "suffix": "秒"
+      },
+      "multipleShot": {
+        "title": "多重射撃",
+        "description": "レベルごとに矢を1本多く放つ",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "銀の矢",
+        "description": "攻撃で得る金貨に {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "金の矢",
+        "description": "攻撃で得る金貨にさらに {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "氷の矢",
+        "description": "ドラゴンの火炎攻撃を {{bonus}}秒 遅らせる",
+        "prefix": "-",
+        "suffix": "秒"
+      },
+      "animalInstinct": {
+        "title": "野性の勘",
+        "description": "カタパルトの弾を岩から猫へ、猫から虎へと変え、そのたびにダメージが10倍になる。",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "避雷針",
+        "description": "魔道士の落雷が敵に当たると、{{bonus}}%の確率でもう一度落雷を呼ぶ。",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "再生の矢",
+        "description": "エルフの攻撃で使う木材が減る"
+      },
+      "lightfoot": {
+        "title": "軽い足取り",
+        "description": "ダンジョン内の移動と旋回の速さが {{bonus}}% 上がる",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "素早い手",
+        "description": "金貨を生み出すまでの時間が {{bonus}}秒 縮む"
+      },
+      "sharpDagger": {
+        "title": "暗殺者の刃",
+        "description": "盗賊も攻撃するようになる。ダメージは{{current}}"
+      },
+      "poisonDagger": {
+        "title": "毒の短剣",
+        "description": "ドラゴンに毒を盛る確率が +{{bonus}}% 上がる",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "ブラックマンバ",
+        "description": "毒のダメージ倍率が盗賊のダメージの +{{bonus}}倍",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "残る猛毒",
+        "description": "毒の持続時間が +{{bonus}}秒 延びる",
+        "suffix": "秒"
+      },
+      "smokeBomb": {
+        "title": "煙玉",
+        "description": "ドラゴンに罠を仕掛ける。次の攻撃時に{{current}}%の確率で発動し、攻撃を止める。",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "爆ぜる猫",
+        "description": "カタパルトの弾が着弾時に爆発し、ダメージが2倍になる。",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "スリ",
+        "description": "{{type}}が生み出す金貨に {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "ピッキング",
+        "description": "探索開始時に開いているダンジョンの扉が {{bonus}}枚 増える。"
+      },
+      "midasTouch": {
+        "title": "ミダスの手",
+        "description": "{{type}}が生み出す金貨にさらに {{bonus}}倍の倍率を加える",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "詰まった宝箱",
+        "description": "ダンジョンの宝箱から得る金貨が {{bonus}}% 増える",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "音叉",
+        "description": "鼓舞のたまる量が +{{bonus}} 増える",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "リュートの独奏",
+        "description": "鼓舞の最大倍率が +{{bonus}}倍 上がる",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "うるさいギタリスト",
+        "description": "鼓舞の効果時間 +{{bonus}}秒",
+        "suffix": "秒"
+      },
+      "piercedEardrums": {
+        "title": "破れた鼓膜",
+        "description": "ドラゴンの咆哮のタイマーが {{bonus}}% 遅くなる",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "再演",
+        "description": "鼓舞が切れたとき、{{bonus}}%の確率で再開する",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "音の障壁",
+        "description": "ドラゴンの火炎ブレスのタイマーが {{bonus}}% 遅くなる",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "カコフォニクス",
+        "description": "購入すると自軍のユニットが気絶する"
+      },
+      "churchChoir": {
+        "title": "教会の聖歌隊",
+        "description": "鼓舞が発動するたびに神学校を1つ登用する"
+      },
+      "encore": {
+        "title": "アンコール",
+        "description": "鼓舞がたまるまでの待ち時間が {{bonus}}秒 縮む",
+        "suffix": "秒"
+      },
+      "lockerRoomSpeech": {
+        "title": "ロッカールームの激励",
+        "description": "ゲームを閉じている間も、通常の{{current}}%の速さで鼓舞がたまる",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "王国に秩序を",
+        "description": "ゲームを閉じている間、あなたの音楽で職人が時間外にも働き、通常の{{current}}%の速さで資源を生む",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "長調の鍵",
+        "description": "ダンジョンの鍵を買う。（ひどい音楽の駄洒落です。）"
+      },
+      "vulnerableFrequencies": {
+        "title": "弱点の周波数",
+        "description": "ダンジョンの敵が被弾後に無敵でいる時間を {{bonus}}ミリ秒 縮める",
+        "prefix": "-",
+        "suffix": "ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "英雄人事部",
+        "description": "登用した英雄が倍になる確率が +{{bonus}}% 上がる",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "祝福のオーラ",
+        "description": "火炎ブレスによる死者を -{{bonus}}% 減らす",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "祝福された鳥",
+        "description": "鳥が{{current}}%の確率で祝福された姿で現れ、金貨が2倍になる",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "力の移譲",
+        "description": "登用のたびに、聖職者1人につき魔道士のマナが0.5回復する"
+      },
+      "generousLoot": {
+        "title": "気前のよい戦利品",
+        "description": "探索に失敗しても、戦利品の{{current}}%は手元に残る。",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "神聖なる光",
+        "description": "消えた松明に再び火が灯る確率が {{bonus}}% 上がる",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "戦士の登用",
+        "description": "戦士を戦いに登用できるようになる"
+      },
+      "recruitElves": {
+        "title": "エルフの登用",
+        "description": "エルフを戦いに登用できるようになる"
+      },
+      "recruitWizards": {
+        "title": "魔道士の登用",
+        "description": "魔道士を戦いに登用できるようになる"
+      },
+      "recruitBards": {
+        "title": "吟遊詩人の登用",
+        "description": "吟遊詩人を戦いに登用できるようになる"
+      },
+      "recruitThieves": {
+        "title": "盗賊の登用",
+        "description": "盗賊を戦いに登用できるようになる"
+      },
+      "recruitClerics": {
+        "title": "聖職者の登用",
+        "description": "聖職者を戦いに登用できるようになる"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "ウィッシュリストに追加！"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "戦闘時間",
+      "dgps": "毎秒ダメージと金貨",
+      "resourceBalance": "資源収支"
+    },
+    "lifetime": {
+      "title": "通算記録",
+      "totalPlaytime": "総プレイ時間",
+      "totalGoldEarned": "獲得金貨の総額",
+      "totalGoldSpent": "使った金貨の総額",
+      "totalBirdsKilled": "撃ち落とした鳥",
+      "totalClicks": "クリック数",
+      "totalHeroesRecruited": "登用した英雄",
+      "heroesPurchased": "購入",
+      "heroesRecruited": "登用",
+      "tier1": "ティア1 登用（購入）",
+      "tier2": "ティア2 登用（購入）",
+      "tier3": "ティア3 登用（購入）",
+      "totalDamageDealt": "与えたダメージの総量",
+      "totalUnitsDeadByFireBreath": "火炎ブレスによる損失"
+    },
+    "battleDuration": "経過: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "そもそも勝てるのか？",
+    "infiniteEstimatedVictory": "勝利は本当に不可能です！",
+    "estimatedVictory": "(0)[<strong class='text-danger'>あなたこそ我らの英雄！</strong>]; (0-1000000000)[勝利まで <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>クリックまたはZキーでドラゴンを攻撃！</strong>]",
+    "perSec": "/秒",
+    "generationSection": "生産",
+    "critSection": "特殊",
+    "dps": "部隊ダメージ: <strong>{{dps}}/秒</strong>",
+    "gps": "部隊の金貨: <strong>{{gps}}/秒</strong>",
+    "dpc": "クリックダメージ: <strong>{{dpc}}/クリック</strong>",
+    "gpc": "クリックの金貨: <strong>{{gpc}}/クリック</strong>",
+    "catapultDamage": "ダメージ: <strong>{{damage}}/発</strong>",
+    "catapultTimeToShoot": "発射まで: <strong>{{time}} 秒</strong>",
+    "seconds_one": "秒",
+    "seconds_other": "秒",
+    "minutes_one": "分",
+    "minutes_other": "分",
+    "hours_one": "時間",
+    "hours_other": "時間",
+    "days_one": "日",
+    "days_other": "日",
+    "months_one": "か月",
+    "months_other": "か月",
+    "years_one": "年",
+    "years_other": "年",
+    "undo": {
+      "disabledLine": "10秒以内にクリックすると、誤って買ったユニットを取り消して返金されます。",
+      "enabledAction": "クリックすると{{generator}} {{count}}体の購入を取り消します。",
+      "enabledRefund": "{{refund}}が返金されます。",
+      "enabledTimer": "残り{{seconds}}秒。",
+      "refundGold": "{{amount}} 金貨"
+    }
+  },
+  "generators": {
+    "generators": "部隊",
+    "buy": "{{amount}}体 購入",
+    "warrior_one": "戦士",
+    "warrior_other": "戦士",
+    "wizard_one": "魔道士",
+    "wizard_other": "魔道士",
+    "elf_one": "エルフ",
+    "elf_other": "エルフ",
+    "garrison_one": "駐屯地",
+    "garrison_other": "駐屯地",
+    "academy_one": "魔法学院",
+    "academy_other": "魔法学院",
+    "academy_short_one": "学院",
+    "academy_short_other": "学院",
+    "outpost_one": "弓兵の前哨地",
+    "outpost_other": "弓兵の前哨地",
+    "outpost_short_one": "前哨地",
+    "outpost_short_other": "前哨地",
+    "council_one": "軍事評議会",
+    "council_other": "軍事評議会",
+    "nexus_one": "大魔道士のネクサス",
+    "nexus_other": "大魔道士のネクサス",
+    "forest_one": "古の森",
+    "forest_other": "古の森",
+    "thief_one": "盗賊",
+    "thief_other": "盗賊",
+    "bard_one": "吟遊詩人",
+    "bard_other": "吟遊詩人",
+    "cleric_one": "聖職者",
+    "cleric_other": "聖職者",
+    "guild_one": "盗賊ギルド",
+    "guild_other": "盗賊ギルド",
+    "guild_short_one": "ギルド",
+    "guild_short_other": "ギルド",
+    "troupe_one": "芸人一座",
+    "troupe_other": "芸人一座",
+    "troupe_short_one": "一座",
+    "troupe_short_other": "一座",
+    "seminary_one": "聖なる神学校",
+    "seminary_other": "聖なる神学校",
+    "seminary_short_one": "神学校",
+    "seminary_short_other": "神学校",
+    "congress_one": "影の議会",
+    "congress_other": "影の議会",
+    "theater_one": "大劇場",
+    "theater_other": "大劇場",
+    "college_one": "枢機卿団",
+    "college_other": "枢機卿団",
+    "catapult_one": "カタパルト",
+    "catapult_other": "カタパルト",
+    "builder_one": "建築士",
+    "builder_other": "建築士",
+    "engineer_one": "技師",
+    "engineer_other": "技師",
+    "farmer_one": "農夫",
+    "farmer_other": "農夫",
+    "lumberjack_one": "木こり",
+    "lumberjack_other": "木こり",
+    "miner_one": "鉱夫",
+    "miner_other": "鉱夫",
+    "apprenticeships_one": "徒弟制",
+    "apprenticeships_other": "徒弟制",
+    "tradespeople_one": "職人",
+    "tradespeople_other": "職人",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}}秒"
+    },
+    "ngPlusProductionToggle": "生産を切り替え",
+    "tabs": {
+      "troops": "部隊",
+      "support": "支援"
+    },
+    "fireUnitsButton": {
+      "tooltip": "ユニットを解雇して資源の消費を抑えつつ、生産をいくらか残します。"
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "マナ",
+    "manaDescription": "魔道士の攻撃を支える魔力です。",
+    "emptyManaDescription": "「マナ回復」を購入すると攻撃を続けられます。",
+    "inspiration": "鼓舞",
+    "inspirationDescription": "発動すると、すべての英雄の力が一定倍率で上がります。",
+    "unitDescription": {
+      "warrior": "打たれ強い近接の戦い手。",
+      "wizard": "中距離から魔法で攻めるが、体は脆い。",
+      "elf": "ドラゴンの間合いの外から、多彩に射かける。",
+      "garrison": "戦士を登用する要塞。",
+      "outpost": "エルフを登用する辺境の拠点。",
+      "academy": "魔道士を戦えるよう鍛える学び舎。",
+      "council": "駐屯地を設ける軍事組織。",
+      "nexus": "学院を設ける秘術の組織。",
+      "forest": "前哨地を設ける聖なる森。",
+      "thief": "狡猾。ドラゴンに毒を盛り、金貨を奪う。",
+      "bard": "部隊を鼓舞し、より激しく戦わせる。",
+      "cleric": "守りを固め、新たな英雄を戦いに招く。",
+      "guild": "盗賊を集める隠れた組織網。",
+      "troupe": "吟遊詩人を集める旅の一座。",
+      "seminary": "聖職者を育てる聖なる施設。",
+      "congress": "盗賊ギルドを設ける影の組織。",
+      "theater": "芸人一座を設ける大いなる施設。",
+      "college": "神学校を設ける宗教組織。",
+      "catapult": "ドラゴンに大ダメージを与える攻城兵器。",
+      "builder": "レベル2の建物を建てる。",
+      "engineer": "レベル3の組織を興す。",
+      "farmer": "王国のために食料を育てる。",
+      "lumberjack": "建築用の木材を伐り出す。",
+      "miner": "山から鉱石を掘り出す。",
+      "apprenticeships": "職人を育てる。"
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} ダメージ/{{rate}}秒",
+      "wizard": "{{generatorGeneration}} ダメージ/{{rate}}秒",
+      "elf": "{{generatorGeneration}} ダメージ/{{rate}}秒",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "thief": "+{{generatorGeneration}} 金貨/{{rate}}秒",
+      "bard": "+{{generatorGeneration}} 鼓舞/{{rate}}秒",
+      "cleric": "+{{generatorGeneration}} 英雄/{{rate}}秒",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}}秒",
+      "catapult": "{{generatorGeneration}} ダメージ/{{rate}}秒",
+      "builder": "+{{generatorGeneration}} 建物/{{rate}}秒",
+      "engineer": "+{{generatorGeneration}} 組織/{{rate}}秒",
+      "farmer": "+{{generatorGeneration}} 食料/{{rate}}秒",
+      "lumberjack": "+{{generatorGeneration}} 木材/{{rate}}秒",
+      "miner": "+{{generatorGeneration}} 鉱石/{{rate}}秒",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}}秒"
+    },
+    "tabsAriaLabel": "部隊タブ"
+  },
+  "settings": {
+    "settings": "設定",
+    "buy_max": "最大購入",
+    "audio": "音楽/効果音",
+    "game": "ゲーム",
+    "graphics": "グラフィック",
+    "offline_progress": "オフライン進行",
+    "wishlist_now": "ウィッシュリストに追加"
+  },
+  "menus": {
+    "settings": "設定",
+    "tabs": {
+      "game": "ゲーム",
+      "graphics": "グラフィック",
+      "audio": "音声",
+      "levels": "チャプター",
+      "saveData": "セーブデータ",
+      "credits": "クレジット"
+    },
+    "credits": {
+      "title": "クレジット",
+      "developedBy": "開発",
+      "developedWith": "使用技術",
+      "bigThanksTo": "スペシャルサンクス",
+      "theRestOfTheDiscordServer": "Discordサーバーのみなさん",
+      "andYou": "そしてあなたに！"
+    },
+    "music": "音楽",
+    "sfx": "効果音",
+    "audioSettings": "音声設定",
+    "gameSettings": "ゲーム設定",
+    "graphicsSettings": "グラフィック設定",
+    "language": "言語",
+    "languages": {
+      "en": "英語",
+      "fr": "フランス語",
+      "de": "ドイツ語",
+      "pt": "ポルトガル語",
+      "tr": "トルコ語"
+    },
+    "shakeIntensity": "揺れの強さ",
+    "largerTextSize": "文字を大きく",
+    "crtFilter": "CRTフィルター",
+    "chromaticAberrationSlider": "色収差",
+    "chromaticAberration": "色収差",
+    "swordSwooshSounds": "剣とクリティカルの音",
+    "catSounds": "猫の鳴き声",
+    "fullscreen": "フルスクリーン",
+    "resume": "ゲームに戻る",
+    "close": "閉じる",
+    "quitGame": "ゲームを終了",
+    "joinDiscord": "Discordに参加",
+    "clear_save_label": "進行状況を消しますか？",
+    "zoom_adjustment": "UIの拡大率",
+    "clear_save": "今すぐ消す",
+    "are_you_sure": "本当によろしいですか？",
+    "cannot_be_reversed": "この操作は取り消せません。",
+    "yes": "はい",
+    "no": "いいえ",
+    "saveData": {
+      "title": "セーブデータ",
+      "clearChapterTitle": "チャプターの進行状況",
+      "clearChapterExplanation": "すべてのチャプターの金貨・ユニット・アップグレード・ダンジョン進行・クリア記章を消します。チャプターの解放、通算記録、設定、アーティファクトは残ります。",
+      "clearChapterButton": "チャプターの進行状況を消す",
+      "clearFullTitle": "セーブデータ全体",
+      "clearFullExplanation": "チャプターのリセットで消えるものに加え、アーティファクト・チャプターの解放・通算記録も消します。音声・グラフィック・言語の設定は残ります。",
+      "clearFullButton": "セーブデータ全体を消す",
+      "clearFullWarning": "取り消せません。アーティファクト、チャプターの解放、通算記録を失います。"
+    }
+  },
+  "tooltip": {
+    "inspiration": "鼓舞",
+    "inspirationDescription": "発動すると、すべての英雄の力が一定倍率で上がります。",
+    "maxInspiration": "最大倍率",
+    "maxInspirationMultiplier": "最大倍率",
+    "statisticsDescription": "戦いの進み具合と成果の詳しい統計。",
+    "hudStopBird": "鳥を止める",
+    "hudLifetimeStats": "通算記録",
+    "hudHideWindows": "ウィンドウを隠す",
+    "events": {
+      "roar": "気絶させる咆哮",
+      "fire": "火炎ブレス",
+      "claw": "爪の一撃",
+      "dialog": "特別イベント",
+      "pope_visit": "特別な来客",
+      "dungeon_keys": "暗い秘密",
+      "missing_king": "王はどこに？",
+      "catapult": "工学の試作品",
+      "engineer": "ありがたい助け",
+      "invasion_start": "侵攻が迫る",
+      "invasion_end": "部隊からの報せ",
+      "apprenticeships_unlock": "徒弟制が解放",
+      "trading": "旅の商人",
+      "dummy_toy_reveal": "思っていたのと違う"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "イベント",
+      "stats": "統計",
+      "engineering": "工学",
+      "resources": "資源"
+    },
+    "tabs": {
+      "events": "イベント",
+      "stats": "統計",
+      "engineering": "工学",
+      "resources": "資源"
+    },
+    "tabsAriaLabel": "情報タブ"
+  },
+  "game": {
+    "dummy": "大きな訓練人形",
+    "infiniteBird": "沈まぬ鳥",
+    "king": "王",
+    "smallDragon": "トゥスオリエス、芽吹く者",
+    "bigDragon": "フォルスアール、生を与え終わらせる者"
+  },
+  "dungeon": {
+    "found": "発見",
+    "giveUp": "あきらめる",
+    "tooltipDescription": "ダンジョン探索に出る（Lv.{{level}}）",
+    "cooldownMessage": "ダンジョンはクールダウン中です。あと{{seconds}}秒待つと再入場できます。",
+    "cooldownShort": "{{seconds}}秒",
+    "levelLabel": "レベル",
+    "levelShort": "Lv.{{level}}",
+    "keysOwned": "所持している鍵",
+    "giveUpTooltip": "ダンジョンから出る（「気前のよい戦利品」があれば一部は残ります）",
+    "moveHint": "WASDか矢印キーで移動",
+    "attackHint": "モンスターをクリックで攻撃",
+    "chestCountsTooltip": "宝箱 {{total}} 個中 {{opened}} 個を開封",
+    "exitDirection": "出口"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "探索成功",
+      "titleFailed": "探索失敗",
+      "titleStuckRescue": "安全に脱出",
+      "lootSummarySubtitle": "戦利品のまとめ",
+      "body_one": "金貨{{gold}}と鍵{{grayKeys}}個を獲得",
+      "body_other": "金貨{{gold}}と鍵{{grayKeys}}個を獲得",
+      "artifactFound": "{{artifactName}}を発見しました。"
+    },
+    "fireBreathCasualties": {
+      "title": "火炎ブレスの犠牲",
+      "body": "{{list}}を失いました",
+      "none": "犠牲なし"
+    },
+    "fireBreathBlocked": {
+      "title": "火炎ブレスを防いだ！",
+      "body": "煙玉が部隊を救いました。"
+    },
+    "toastLabel": "ゲーム通知"
+  },
+  "levels": {
+    "title": "チャプター",
+    "locked": "ロック中",
+    "active": "プレイ中",
+    "completed": "クリア済み",
+    "continue": "つづきから",
+    "start": "はじめる",
+    "restart": "やり直す",
+    "restart_progress_warning": "今やり直しますか？ このチャプターの未保存の進行は失われます。",
+    "names": {
+      "mainGame": "大きなドラゴン",
+      "newGamePlus": "資源管理",
+      "dummy": "魔法のおもちゃ",
+      "infinite": "本当に終わらない",
+      "kingBattle": "王の最後の抵抗"
+    }
+  },
+  "artifacts": {
+    "title": "アーティファクト",
+    "subtitle": "希少なアーティファクトは、ダンジョンの特別な宝箱からまれに見つかります。チャプターをまたいで残ります。",
+    "notYetFound": "（未発見）",
+    "details": {
+      "phoenixWhistle": {
+        "title": "不死鳥の笛",
+        "description": "特別な鳥が新しい通貨を運んできます。"
+      },
+      "emberforgedShield": {
+        "title": "熾火鍛えの盾",
+        "description": "戦士がドラゴンの炎を受けなくなります。"
+      },
+      "moonwellFlask": {
+        "title": "月の泉の水筒",
+        "description": "魔道士のマナ消費が半分になります。"
+      },
+      "windstepAnklet": {
+        "title": "風歩みの足環",
+        "description": "エルフが気絶しなくなります。"
+      },
+      "fangSatchel": {
+        "title": "牙の雑嚢",
+        "description": "周回が続いている間、盗賊が30分ごとに竜の牙を1つ生み出します。"
+      },
+      "slumberBerries": {
+        "title": "眠りの実",
+        "description": "毒攻撃がドラゴンの咆哮と火炎を10秒遅らせます。"
+      },
+      "echoingLute": {
+        "title": "こだまのリュート",
+        "description": "吟遊詩人が鼓舞の効果を2倍にします。"
+      },
+      "blessingCenser": {
+        "title": "祝福の香炉",
+        "description": "聖職者が常に2倍のユニットを登用します。"
+      },
+      "victoryTusk": {
+        "title": "勝利の牙",
+        "description": "レベルを突破すると竜の牙の報酬が2倍になります。"
+      },
+      "cartographersLedger": {
+        "title": "地図職人の帳面",
+        "description": "ダンジョンの宝箱の開封数と総数を表示します。"
+      },
+      "ironSkeletonKey": {
+        "title": "鉄の万能鍵",
+        "description": "ダンジョンを20階まで解放します。"
+      },
+      "everflameLantern": {
+        "title": "不滅の灯",
+        "description": "松明が決して消えません。"
+      },
+      "midasCoin": {
+        "title": "ミダスの硬貨",
+        "description": "ダンジョンの金貨報酬が2倍になります。"
+      },
+      "harvestIdol": {
+        "title": "豊穣の偶像",
+        "description": "資源の生産が25%増えます。"
+      },
+      "titanGauntlet": {
+        "title": "巨人の篭手",
+        "description": "クリックダメージ10倍。"
+      },
+      "wayfindersCompass": {
+        "title": "道導きの羅針盤",
+        "description": "ダンジョンの出口の方向を示します。"
+      },
+      "loadedDice": {
+        "title": "細工したサイコロ",
+        "description": "クリックが必ずクリティカルになります。"
+      }
+    }
+  }
+}

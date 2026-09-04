@@ -1,0 +1,16 @@
+# The Python side of the toolchain. Node covers the patcher, its tests and every
+# check that runs in CI; Python is only used where a real font or image library is
+# needed, so nothing here is required to build or run the mod.
+#
+#     python -m pip install -r tools/requirements.txt
+#
+# extend-font.py    - reads the game's own woff2 and writes the extended one
+# make-game-coverage.py - records which code points the game's fonts already have
+fonttools[woff]==4.55.3
+
+# make-flags.py rasterises the settings-screen flags to the pixel grid.
+Pillow==11.1.0
+
+# Traditional Chinese is converted from the Simplified text rather than translated
+# again; s2twp does the Taiwanese phrase substitutions, not merely the characters.
+OpenCC==1.1.9

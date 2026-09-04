@@ -1,0 +1,56 @@
+name: Translation report (wrong, awkward, or clipped)
+description: A translation is incorrect, reads badly, or does not fit on screen
+title: "[translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know the JSON key. **A screenshot is enough.**
+
+        To fix it yourself, edit `translations/<lang>/strings.py` (UI) or
+        `translations/<lang>/dialogs.py` (dialogue) and open a PR — everything under
+        `locale/` is generated from those.
+
+  - type: input
+    id: language
+    attributes:
+      label: Which language
+      placeholder: "ko, zh-Hans, ru, es, ..."
+    validations: { required: true }
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Where is it
+      options:
+        - "UI (buttons, menus, upgrade names, tooltips)"
+        - "Dialogue (a character speaking)"
+        - "Numbers and time units"
+        - "Garbled, empty boxes, or clipped text (a font problem)"
+    validations: { required: true }
+
+  - type: input
+    id: where
+    attributes:
+      label: Which screen
+      placeholder: "Settings -> Chapters tab / the wizard branch of the upgrade tree"
+    validations: { required: true }
+
+  - type: input
+    id: current
+    attributes:
+      label: What it says now
+    validations: { required: true }
+
+  - type: input
+    id: suggestion
+    attributes:
+      label: What it should say
+
+  - type: textarea
+    id: shot
+    attributes:
+      label: Screenshot
+      description: Required for anything clipped or garbled.
+    validations: { required: true }

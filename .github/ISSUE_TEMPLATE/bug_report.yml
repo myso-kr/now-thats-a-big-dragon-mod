@@ -1,0 +1,42 @@
+name: Bug report
+description: Something misbehaves, and it does not look like a game update caused it
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: If the game updated just now, please use the "A game update broke the patch" template instead.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what actually happened, as two separate things.
+    validations: { required: true }
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run bigdragon.exe
+        2. Press F8 to open the widget
+        3. Enter 1e9 for gold and apply
+        4. About half a second later the value goes back to what it was
+    validations: { required: true }
+
+  - type: dropdown
+    id: how
+    attributes:
+      label: How you ran it
+      options:
+        - "bigdragon.exe (the release binary)"
+        - "node launcher.js"
+        - "--attach (started from Steam first)"
+    validations: { required: true }
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: "`npm run doctor` output"
+      render: text
+    validations: { required: true }

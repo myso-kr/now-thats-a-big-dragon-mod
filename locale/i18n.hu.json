@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Fejlesztések",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Következő szint",
+    "currentLevel": "Jelenlegi",
+    "newGamePlusOnly": "Csak az \"Erőforrás-gazdálkodás\" fejezetben érhető el",
+    "max": "Max.",
+    "lockedMessage": "Fejleszd tovább a(z) {{parentSkill}} elemet a feloldáshoz",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Vasujj",
+        "description": "Kattintás sebzése +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Könnyű ujj",
+        "description": "Kattintás másodpercenként +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Ébresztő",
+        "description": "Minden kattintás {{bonus}} mp-cel rövidíti a kábulatot",
+        "prefix": "-",
+        "suffix": " mp"
+      },
+      "electricalFinger": {
+        "title": "Elektromos ujj",
+        "description": "Minden kattintás {{bonus}}% eséllyel villámot hív.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Tökéletes kattintás",
+        "description": "Kritikus kattintás esélye +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kritikus csapás",
+        "description": "A kritikus kattintás sebzése +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Arany robbanás",
+        "description": "A madarakra kattintás jutalma {{bonus}}x",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Született vezető",
+        "description": "A kattintás +{{bonus}}/katt tölti az Ihlet sávot",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Pénzes kurzor",
+        "description": "A kattintásból szerzett arany {{bonus}}x",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Teli ládák",
+        "description": "{{bonus}}%-kal csökkenti az üres kazamataláda esélyét",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Csuklógyógyír",
+        "description": "Az egérgomb nyomva tartása folyamatosan támadja a sárkányt."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Rövid kard",
+        "description": "{{type}} sebzésszorzója +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Hosszú kard",
+        "description": "További szorzó a harcos sebzésére +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Kétkezes kard",
+        "description": "Még egy szorzó a harcos sebzésére +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Harci kiáltás",
+        "description": "Segít tölteni az Ihlet sávot: +{{bonus}} támadásonként",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Csatakiáltás",
+        "description": "A következő ütemben automatikusan indítja az Ihletet, ha eléri a maximumot"
+      },
+      "barbarian": {
+        "title": "Barbár",
+        "description": "Az alapsebzés +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Vastag páncél",
+        "description": "{{bonus}}%-kal csökkenti a kapott fizikai sebzést",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Tűzálló páncél",
+        "description": "{{bonus}}%-kal csökkenti a tűzlehelet okozta halálokat",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Nehéz kövek",
+        "description": "A katapult sebzése szintenként {{bonus}}%-kal nő",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Ezüstpenge",
+        "description": "{{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Aranypenge",
+        "description": "Újabb {{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Hűséges zsoldosok",
+        "description": "Az általad vett {{typePlural}} szintenként +{{bonus}}x sebzést okoz",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Hűséges szolgák",
+        "description": "{{type}} és a fölötte lévő szintek toborzási költsége {{bonus}}%-kal csökken",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Csapatmunka",
+        "description": "Minden megvett {{type}} után további {{typePlural}} csatlakozik",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Kazamata-pontosság",
+        "description": "{{bonus}}%-kal növeli a kritikus sebzés esélyét a kazamatákban",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Labirintuszúzó",
+        "description": "{{bonus}}-val növeli a kritikus sebzés bónuszát a kazamatában",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Mágikus lövedék",
+        "description": "{{type}} sebzésszorzója +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Manakard",
+        "description": "Minden mágus egy harcos kardját tölti fel manával. A sebzésszorzó +{{bonus}}x, amíg a mana 90 fölött van",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Varázsegér",
+        "description": "Kattintásonként +{{bonus}}-val tölti a manasávot",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Mana feltöltése",
+        "description": "Feltölti a mágusok manasávját"
+      },
+      "manaPool": {
+        "title": "Manatározó",
+        "description": "{{bonus}}%-kal növeli a maximális manát",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Manalöket",
+        "description": "A mágus sebzése kétszeres, amíg a mana {{current}} fölött van",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Időjárás-jelentés",
+        "description": "{{bonus}}%-kal növeli a villámcsapás esélyét",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Villámcsapás",
+        "description": "További villám, amely minden megvett fejlesztésért +{{bonus}}x {{type}} sebzést okoz",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Ezüstbot",
+        "description": "{{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Aranybot",
+        "description": "Újabb {{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Mágikus tűz",
+        "description": "+{{bonus}} mp-cel hosszabbítja a fáklya égését",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Főmágus",
+        "description": "Az alapsebzés +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Vadászszem",
+        "description": "Ütemenként +{{bonus}}%-kal nő az esély 1 madár eltalálására",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Éles célzás",
+        "description": "Kritikus lövés esélye +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Levélvágó",
+        "description": "A kritikus lövés sebzése +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Vadászidény",
+        "description": "Azonnal madárrajt hív elő",
+        "suffix": " madár"
+      },
+      "elvenEyes": {
+        "title": "Elf szem",
+        "description": "Ha a fáklya kialszik, még +{{bonus}} mp-ig látsz a sötétben",
+        "prefix": "+",
+        "suffix": " mp"
+      },
+      "multipleShot": {
+        "title": "Többes lövés",
+        "description": "Szintenként egy további nyilat lő ki",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Ezüstnyíl",
+        "description": "{{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Aranynyíl",
+        "description": "Újabb {{bonus}}x szorzót ad a támadásonkénti aranyhoz",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Jégnyíl",
+        "description": "{{bonus}} mp-cel lassítja a sárkány tűztámadását",
+        "prefix": "-",
+        "suffix": " mp"
+      },
+      "animalInstinct": {
+        "title": "Állati ösztön",
+        "description": "A katapult lövedékét kőről macskára, macskáról tigrisre fejleszti, mindannyiszor tízszeres sebzéssel.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Villámhárító",
+        "description": "{{bonus}}% eséllyel újabb villámot vonz, amikor a mágus villáma célba talál.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Újrahasznosított nyilak",
+        "description": "Az elfek támadása kevesebb fát használ"
+      },
+      "lightfoot": {
+        "title": "Könnyű láb",
+        "description": "{{bonus}}%-kal növeli a mozgás és fordulás sebességét a kazamatákban",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Fürge kéz",
+        "description": "{{bonus}} mp-cel rövidíti az aranytermelés idejét"
+      },
+      "sharpDagger": {
+        "title": "Orgyilkos pengéje",
+        "description": "A tolvaj is támad, {{current}} sebzéssel"
+      },
+      "poisonDagger": {
+        "title": "Mérgezett tőr",
+        "description": "+{{bonus}}%-kal növeli a sárkány megmérgezésének esélyét",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Fekete mamba",
+        "description": "A méregsebzés szorzója +{{bonus}}x a tolvaj sebzéséből",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Tartós méreg",
+        "description": "+{{bonus}} mp-cel hosszabbítja a méreg hatását",
+        "suffix": " mp"
+      },
+      "smokeBomb": {
+        "title": "Füstbomba",
+        "description": "Csapdát állít a sárkánynak, amely {{current}}% eséllyel elsül a következő támadásnál és megállítja.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Robbanó macskák",
+        "description": "A katapult lövedéke becsapódáskor felrobban, kétszeres sebzéssel.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Zsebtolvaj",
+        "description": "{{bonus}}x szorzót ad a(z) {{type}} aranytermeléséhez",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Álkulcs",
+        "description": "Minden barangolás elején {{bonus}}-val több kazamataajtó áll nyitva."
+      },
+      "midasTouch": {
+        "title": "Midász érintése",
+        "description": "Újabb {{bonus}}x szorzót ad a(z) {{type}} aranytermeléséhez",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Tömött ládák",
+        "description": "{{bonus}}%-kal növeli a kazamataládák aranyát",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Hangvilla",
+        "description": "+{{bonus}}-val növeli az ihlet gyűjtését",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Lantszóló",
+        "description": "+{{bonus}}x-szel növeli a maximális ihletszorzót",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Idegesítő gitáros",
+        "description": "Az Ihlet bónusz időtartama +{{bonus}} mp",
+        "suffix": " mp"
+      },
+      "piercedEardrums": {
+        "title": "Átszakadt dobhártya",
+        "description": "A sárkány üvöltésének időzítője {{bonus}}%-kal lassul",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Ismétlés",
+        "description": "{{bonus}}% eséllyel újraindítja az Ihletet, amikor kifut",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Hanggát",
+        "description": "A sárkány tűzleheletének időzítője {{bonus}}%-kal lassul",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Hangzavarix",
+        "description": "Vásárláskor elkábítja az egységeidet"
+      },
+      "churchChoir": {
+        "title": "Templomi kórus",
+        "description": "Minden Ihlet-aktiválásnál 1 szemináriumot toboroz"
+      },
+      "encore": {
+        "title": "Ráadás",
+        "description": "{{bonus}} mp-cel rövidíti az Ihlet újratöltését",
+        "suffix": " mp"
+      },
+      "lockerRoomSpeech": {
+        "title": "Öltözői beszéd",
+        "description": "Zárt játék mellett is termel Ihletet, {{current}}%-os ütemben",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Rend a királyságban",
+        "description": "Zárt játék mellett a zenéd túlórára bírja a kézműveseket, akik a szokásos {{current}}%-án termelnek erőforrást",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Dúr hangnem",
+        "description": "Végy egy kazamatakulcsot. (Igen, a zenei szójáték szörnyű.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Sebezhető frekvenciák",
+        "description": "{{bonus}} ms-mal rövidíti a kazamata-ellenfelek sérthetetlenségét minden találat után",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Hősügyi osztály",
+        "description": "A toborzott hősök megkettőzésének esélye +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Áldott aura",
+        "description": "-{{bonus}}%-kal csökkenti a tűzlehelet okozta halálokat",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Áldott madár",
+        "description": "A madarak {{current}}% eséllyel áldottan jelennek meg, és dupla aranyat adnak",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Erőátvitel",
+        "description": "Toborzáskor a mágusok manája papoként 0,5-tel töltődik"
+      },
+      "generousLoot": {
+        "title": "Bőkezű zsákmány",
+        "description": "Ha egy barangolás kudarcot vall, a zsákmány {{current}}%-a megmarad.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Isteni fény",
+        "description": "{{bonus}}%-kal növeli a kialudt fáklya újragyújtásának esélyét",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Harcosok toborzása",
+        "description": "Lehetővé teszi harcosok toborzását"
+      },
+      "recruitElves": {
+        "title": "Elfek toborzása",
+        "description": "Lehetővé teszi elfek toborzását"
+      },
+      "recruitWizards": {
+        "title": "Mágusok toborzása",
+        "description": "Lehetővé teszi mágusok toborzását"
+      },
+      "recruitBards": {
+        "title": "Bárdok toborzása",
+        "description": "Lehetővé teszi bárdok toborzását"
+      },
+      "recruitThieves": {
+        "title": "Tolvajok toborzása",
+        "description": "Lehetővé teszi tolvajok toborzását"
+      },
+      "recruitClerics": {
+        "title": "Papok toborzása",
+        "description": "Lehetővé teszi papok toborzását"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Tedd a kívánságlistára!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Harci idő",
+      "dgps": "Sebzés és arany másodpercenként",
+      "resourceBalance": "Erőforrás-mérleg"
+    },
+    "lifetime": {
+      "title": "Összesített statisztika",
+      "totalPlaytime": "Összes játékidő",
+      "totalGoldEarned": "Szerzett arany",
+      "totalGoldSpent": "Elköltött arany",
+      "totalBirdsKilled": "Lelőtt madarak",
+      "totalClicks": "Kattintások",
+      "totalHeroesRecruited": "Toborzott hősök",
+      "heroesPurchased": "Vásárolt",
+      "heroesRecruited": "Toborzott",
+      "tier1": "1. szint toborzott (vásárolt)",
+      "tier2": "2. szint toborzott (vásárolt)",
+      "tier3": "3. szint toborzott (vásárolt)",
+      "totalDamageDealt": "Okozott sebzés",
+      "totalUnitsDeadByFireBreath": "Tűzlehelet miatti veszteség"
+    },
+    "battleDuration": "Eltelt: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Egyáltalán lehetséges a győzelem?",
+    "infiniteEstimatedVictory": "A győzelem tényleg lehetetlen!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Te vagy a hősünk!</strong>]; (0-1000000000)[Győzelem <strong>{{count}} {{timePrefix}}</strong> múlva];(1000000001-inf)[<strong class='text-danger'>Kattints vagy nyomd meg a Z-t a sárkány támadásához!</strong>]",
+    "perSec": "/mp",
+    "generationSection": "Termelés",
+    "critSection": "Különleges",
+    "dps": "Egységek sebzése: <strong>{{dps}}/mp</strong>",
+    "gps": "Egységek aranya: <strong>{{gps}}/mp</strong>",
+    "dpc": "Sebzés kattintásonként: <strong>{{dpc}}/katt</strong>",
+    "gpc": "Arany kattintásonként: <strong>{{gpc}}/katt</strong>",
+    "catapultDamage": "Sebzés: <strong>{{damage}}/lövés</strong>",
+    "catapultTimeToShoot": "Lövésig: <strong>{{time}} mp</strong>",
+    "seconds_one": "másodperc",
+    "seconds_other": "másodperc",
+    "minutes_one": "perc",
+    "minutes_other": "perc",
+    "hours_one": "óra",
+    "hours_other": "óra",
+    "days_one": "nap",
+    "days_other": "nap",
+    "months_one": "hónap",
+    "months_other": "hónap",
+    "years_one": "év",
+    "years_other": "év",
+    "undo": {
+      "disabledLine": "Kattints 10 mp-en belül a véletlen vásárlás visszavonásához és az arany visszakapásához.",
+      "enabledAction": "Kattints a vásárlás visszavonásához: {{count}} {{generator}}.",
+      "enabledRefund": "Visszakapsz: {{refund}}.",
+      "enabledTimer": "{{seconds}} mp maradt.",
+      "refundGold": "{{amount}} arany"
+    }
+  },
+  "generators": {
+    "generators": "Egységek",
+    "buy": "vásárlás: {{amount}}",
+    "warrior_one": "Harcos",
+    "warrior_other": "Harcos",
+    "wizard_one": "Mágus",
+    "wizard_other": "Mágus",
+    "elf_one": "Elf",
+    "elf_other": "Elf",
+    "garrison_one": "Helyőrség",
+    "garrison_other": "Helyőrség",
+    "academy_one": "Mágiaakadémia",
+    "academy_other": "Mágiaakadémia",
+    "academy_short_one": "Akadémia",
+    "academy_short_other": "Akadémia",
+    "outpost_one": "Íjászőrhely",
+    "outpost_other": "Íjászőrhely",
+    "outpost_short_one": "Őrhely",
+    "outpost_short_other": "Őrhely",
+    "council_one": "Haditanács",
+    "council_other": "Haditanács",
+    "nexus_one": "Főmágus nexusa",
+    "nexus_other": "Főmágus nexusa",
+    "forest_one": "Ősi erdő",
+    "forest_other": "Ősi erdő",
+    "thief_one": "Tolvaj",
+    "thief_other": "Tolvaj",
+    "bard_one": "Bárd",
+    "bard_other": "Bárd",
+    "cleric_one": "Pap",
+    "cleric_other": "Pap",
+    "guild_one": "Tolvajcéh",
+    "guild_other": "Tolvajcéh",
+    "guild_short_one": "Céh",
+    "guild_short_other": "Céh",
+    "troupe_one": "Művésztársulat",
+    "troupe_other": "Művésztársulat",
+    "troupe_short_one": "Társulat",
+    "troupe_short_other": "Társulat",
+    "seminary_one": "Szent szeminárium",
+    "seminary_other": "Szent szeminárium",
+    "seminary_short_one": "Szeminárium",
+    "seminary_short_other": "Szeminárium",
+    "congress_one": "Árnyékkongresszus",
+    "congress_other": "Árnyékkongresszus",
+    "theater_one": "Nagy színház",
+    "theater_other": "Nagy színház",
+    "college_one": "Bíborosi kollégium",
+    "college_other": "Bíborosi kollégium",
+    "catapult_one": "Katapult",
+    "catapult_other": "Katapult",
+    "builder_one": "Építő",
+    "builder_other": "Építő",
+    "engineer_one": "Mérnök",
+    "engineer_other": "Mérnök",
+    "farmer_one": "Földműves",
+    "farmer_other": "Földműves",
+    "lumberjack_one": "Favágó",
+    "lumberjack_other": "Favágó",
+    "miner_one": "Bányász",
+    "miner_other": "Bányász",
+    "apprenticeships_one": "Inasképzés",
+    "apprenticeships_other": "Inasképzés",
+    "tradespeople_one": "Kézműves",
+    "tradespeople_other": "Kézműves",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} mp"
+    },
+    "ngPlusProductionToggle": "Termelés ki-be",
+    "tabs": {
+      "troops": "Egységek",
+      "support": "Támogatás"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Bocsáss el egységeket, hogy kevesebb erőforrást fogyasszanak, de valamennyit még termeljenek."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Mágikus energia, amely a mágusok támadásait táplálja.",
+    "emptyManaDescription": "Vedd meg a \"Mana feltöltése\" elemet a további támadáshoz.",
+    "inspiration": "Ihlet",
+    "inspirationDescription": "Aktiváláskor minden hős ereje egy adott szorzóval nő.",
+    "unitDescription": {
+      "warrior": "Szívós közelharci küzdők.",
+      "wizard": "Közepes távolról támadnak mágiával, de törékenyek.",
+      "elf": "Sokoldalú lövészek, a sárkány hatótávján kívül.",
+      "garrison": "Megerősített bázis, amely harcosokat toboroz.",
+      "outpost": "Távoli bázis, amely elfeket toboroz.",
+      "academy": "Iskola, amely harcra képzi a mágusokat.",
+      "council": "Katonai szervezet, amely helyőrségeket alapít.",
+      "nexus": "Titkos szervezet, amely akadémiákat alapít.",
+      "forest": "Szent liget, amely őrhelyeket alapít.",
+      "thief": "Alattomosak: megmérgezik a sárkányt és aranyat lopnak tőle.",
+      "bard": "Fel tudják tüzelni az egységeket a keményebb harcra.",
+      "cleric": "Védelmet adnak és új hősöket toboroznak a harcba.",
+      "guild": "Rejtett hálózat, amely tolvajokat toboroz.",
+      "troupe": "Vándortársulat, amely bárdokat toboroz.",
+      "seminary": "Szent intézmény, amely papokat képez.",
+      "congress": "Árnyékszervezet, amely tolvajcéheket alapít.",
+      "theater": "Nagyszabású intézmény, amely művésztársulatokat alapít.",
+      "college": "Vallási szervezet, amely szemináriumokat alapít.",
+      "catapult": "Ostromgép, amely nagy sebzést okoz a sárkánynak.",
+      "builder": "2. szintű épületeket emel.",
+      "engineer": "3. szintű szervezeteket hoz létre.",
+      "farmer": "Élelmet termel a királyságnak.",
+      "lumberjack": "Fát vág az építkezéshez.",
+      "miner": "Ércet bányász a hegyekben.",
+      "apprenticeships": "Kézműveseket képez."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} sebzés/{{rate}} mp",
+      "wizard": "{{generatorGeneration}} sebzés/{{rate}} mp",
+      "elf": "{{generatorGeneration}} sebzés/{{rate}} mp",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "thief": "+{{generatorGeneration}} arany/{{rate}} mp",
+      "bard": "+{{generatorGeneration}} ihlet/{{rate}} mp",
+      "cleric": "+{{generatorGeneration}} hős/{{rate}} mp",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} mp",
+      "catapult": "{{generatorGeneration}} sebzés/{{rate}} mp",
+      "builder": "+{{generatorGeneration}} épület/{{rate}} mp",
+      "engineer": "+{{generatorGeneration}} szervezet/{{rate}} mp",
+      "farmer": "+{{generatorGeneration}} élelem/{{rate}} mp",
+      "lumberjack": "+{{generatorGeneration}} fa/{{rate}} mp",
+      "miner": "+{{generatorGeneration}} érc/{{rate}} mp",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} mp"
+    },
+    "tabsAriaLabel": "egységek fülei"
+  },
+  "settings": {
+    "settings": "Beállítások",
+    "buy_max": "Max. vásárlás",
+    "audio": "Zene/Hangok",
+    "game": "Játék",
+    "graphics": "Grafika",
+    "offline_progress": "Offline haladás",
+    "wishlist_now": "Kívánságlistára"
+  },
+  "menus": {
+    "settings": "Beállítások",
+    "tabs": {
+      "game": "Játék",
+      "graphics": "Grafika",
+      "audio": "Hang",
+      "levels": "Fejezetek",
+      "saveData": "Mentés",
+      "credits": "Közreműködők"
+    },
+    "credits": {
+      "title": "Közreműködők",
+      "developedBy": "Fejlesztette",
+      "developedWith": "Készült ezzel",
+      "bigThanksTo": "Külön köszönet",
+      "theRestOfTheDiscordServer": "a Discord szerver többi tagjának",
+      "andYou": "és neked!"
+    },
+    "music": "Zene",
+    "sfx": "Hangok",
+    "audioSettings": "Hangbeállítások",
+    "gameSettings": "Játékbeállítások",
+    "graphicsSettings": "Grafikai beállítások",
+    "language": "Nyelv",
+    "languages": {
+      "en": "Angol",
+      "fr": "Francia",
+      "de": "Német",
+      "pt": "Portugál",
+      "tr": "Török"
+    },
+    "shakeIntensity": "Rázkódás erőssége",
+    "largerTextSize": "Nagyobb szöveg",
+    "crtFilter": "CRT-szűrő",
+    "chromaticAberrationSlider": "Színi eltérés",
+    "chromaticAberration": "Színi eltérés",
+    "swordSwooshSounds": "Kard- és kritikushangok",
+    "catSounds": "Macskahangok",
+    "fullscreen": "Teljes képernyő",
+    "resume": "Vissza a játékhoz",
+    "close": "Bezárás",
+    "quitGame": "Kilépés a játékból",
+    "joinDiscord": "Csatlakozz a Discordhoz",
+    "clear_save_label": "Törlöd a haladásodat?",
+    "zoom_adjustment": "Felület nagyítása",
+    "clear_save": "Törlés most",
+    "are_you_sure": "Biztos vagy benne?",
+    "cannot_be_reversed": "Ez a művelet nem vonható vissza.",
+    "yes": "Igen",
+    "no": "Nem",
+    "saveData": {
+      "title": "Mentés",
+      "clearChapterTitle": "Fejezetek haladása",
+      "clearChapterExplanation": "Törli minden fejezet aranyát, egységeit, fejlesztéseit, kazamata-haladását és teljesítésjelvényeit. A feloldott fejezetek, az összesített statisztika, a beállítások és az ereklyék megmaradnak.",
+      "clearChapterButton": "Fejezetek haladásának törlése",
+      "clearFullTitle": "Teljes játékmentés",
+      "clearFullExplanation": "Mindent töröl, amit a fejezet-visszaállítás, azon felül az ereklyéket, a feloldott fejezeteket és az összesített statisztikát. A hang-, grafikai és nyelvi beállítások megmaradnak.",
+      "clearFullButton": "Teljes játékmentés törlése",
+      "clearFullWarning": "Ez nem vonható vissza. Elveszted az ereklyéket, a feloldott fejezeteket és az összesített statisztikát."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Ihlet",
+    "inspirationDescription": "Aktiváláskor minden hős ereje egy adott szorzóval nő.",
+    "maxInspiration": "Max. szorzó",
+    "maxInspirationMultiplier": "Max. szorzó",
+    "statisticsDescription": "Részletes statisztika a harci haladásodról és eredményeidről.",
+    "hudStopBird": "Madár megállítása",
+    "hudLifetimeStats": "Összesített statisztika",
+    "hudHideWindows": "Ablakok elrejtése",
+    "events": {
+      "roar": "Kábító üvöltés",
+      "fire": "Tűzlehelet",
+      "claw": "Karmcsapás",
+      "dialog": "Különleges esemény",
+      "pope_visit": "Különleges látogató",
+      "dungeon_keys": "Sötét titok",
+      "missing_king": "Hol a király?",
+      "catapult": "Mérnöki prototípus",
+      "engineer": "Jókor jött segítség",
+      "invasion_start": "Invázió közeleg",
+      "invasion_end": "Hírek az egységeinktől",
+      "apprenticeships_unlock": "Az inasképzés elérhető",
+      "trading": "Vándorkereskedő",
+      "dummy_toy_reveal": "Nem erre számítottam"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Események",
+      "stats": "Statisztika",
+      "engineering": "Mérnökség",
+      "resources": "Erőforrások"
+    },
+    "tabs": {
+      "events": "Esem.",
+      "stats": "Stat.",
+      "engineering": "Mérn.",
+      "resources": "Erőf."
+    },
+    "tabsAriaLabel": "információs fülek"
+  },
+  "game": {
+    "dummy": "Nagy bábu",
+    "infiniteBird": "Az elsüllyeszthetetlen madár",
+    "king": "A király",
+    "smallDragon": "Tuth'orieth, a Sarjadó",
+    "bigDragon": "Forth'aarh, az Életadó és Végetvető"
+  },
+  "dungeon": {
+    "found": "Megtalálva",
+    "giveUp": "Feladás",
+    "tooltipDescription": "Indulj kazamatába ({{level}}. szint)",
+    "cooldownMessage": "A kazamata pihen. Várj {{seconds}} mp-et az újbóli belépéshez.",
+    "cooldownShort": "{{seconds}} mp",
+    "levelLabel": "Szint",
+    "levelShort": "{{level}}. szint",
+    "keysOwned": "Meglévő kulcsok",
+    "giveUpTooltip": "Kilépés a kazamatából (a zsákmány egy része megmarad, ha van Bőkezű zsákmányod)",
+    "moveHint": "WASD vagy nyilak a mozgáshoz",
+    "attackHint": "Kattints a szörnyre a támadáshoz",
+    "chestCountsTooltip": "{{total}} ládából {{opened}} kinyitva",
+    "exitDirection": "KIJÁRAT"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Sikeres barangolás",
+      "titleFailed": "Sikertelen barangolás",
+      "titleStuckRescue": "Biztonságos kijutás",
+      "lootSummarySubtitle": "Zsákmány összesítése",
+      "body_one": "{{gold}} arany és {{grayKeys}} kulcs szerezve",
+      "body_other": "{{gold}} arany és {{grayKeys}} kulcs szerezve",
+      "artifactFound": "Megtalálva: {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Tűzlehelet okozta veszteségek",
+      "body": "Elveszett: {{list}}",
+      "none": "Nincs veszteség"
+    },
+    "fireBreathBlocked": {
+      "title": "Tűzlehelet elhárítva!",
+      "body": "Egy füstbomba megmentette az egységeidet."
+    },
+    "toastLabel": "Játékértesítés"
+  },
+  "levels": {
+    "title": "Fejezetek",
+    "locked": "Zárolva",
+    "active": "Most játszod",
+    "completed": "Teljesítve",
+    "continue": "Folytatás",
+    "start": "Kezdés",
+    "restart": "Újrakezdés",
+    "restart_progress_warning": "Újrakezded? Elveszted a fejezet nem mentett haladását.",
+    "names": {
+      "mainGame": "Egy nagy sárkány",
+      "newGamePlus": "Erőforrás-gazdálkodás",
+      "dummy": "A varázsjáték",
+      "infinite": "Tényleg végtelen",
+      "kingBattle": "A király utolsó csatája"
+    }
+  },
+  "artifacts": {
+    "title": "Ereklyék",
+    "subtitle": "Ritka ereklyék néha előkerülnek a kazamaták különleges ládáiból. Fejezeteken át megmaradnak.",
+    "notYetFound": "(még nincs meg)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Főnixsíp",
+        "description": "Egy különleges madár új fizetőeszközt hoz."
+      },
+      "emberforgedShield": {
+        "title": "Parázsban kovácsolt pajzs",
+        "description": "A harcosok immunisak a sárkány tüzére."
+      },
+      "moonwellFlask": {
+        "title": "Holdkút flaskája",
+        "description": "A mágusok fele annyi manát fogyasztanak."
+      },
+      "windstepAnklet": {
+        "title": "Széllépés bokapánt",
+        "description": "Az elfeket nem kábítja el semmi."
+      },
+      "fangSatchel": {
+        "title": "Agyartarisznya",
+        "description": "Amíg a menet tart, a tolvajok 30 percenként 1 sárkányfogat termelnek."
+      },
+      "slumberBerries": {
+        "title": "Álombogyók",
+        "description": "A méreg 10 másodperccel késlelteti a sárkány üvöltését és tüzét."
+      },
+      "echoingLute": {
+        "title": "Visszhangzó lant",
+        "description": "A bárd megkétszerezi az Ihlet bónuszát."
+      },
+      "blessingCenser": {
+        "title": "Áldás füstölője",
+        "description": "A pap mindig kétszer annyi egységet toboroz."
+      },
+      "victoryTusk": {
+        "title": "Győzelem agyara",
+        "description": "Egy szint teljesítése megkétszerezi a sárkányfog-jutalmat."
+      },
+      "cartographersLedger": {
+        "title": "Térképész naplója",
+        "description": "Megmutatja, hány kazamataláda van nyitva és összesen hány van."
+      },
+      "ironSkeletonKey": {
+        "title": "Vas álkulcs",
+        "description": "A 20. szintig feloldja a kazamatát."
+      },
+      "everflameLantern": {
+        "title": "Öröktűz lámpása",
+        "description": "A fáklya sosem alszik ki."
+      },
+      "midasCoin": {
+        "title": "Midász érméje",
+        "description": "Kétszeres aranyjutalom a kazamatákban."
+      },
+      "harvestIdol": {
+        "title": "Aratás bálványa",
+        "description": "Az erőforrás-termelés 25%-kal nő."
+      },
+      "titanGauntlet": {
+        "title": "Titán kesztyűje",
+        "description": "Kattintás sebzése x10."
+      },
+      "wayfindersCompass": {
+        "title": "Útkereső iránytűje",
+        "description": "Megmutatja a kazamata kijáratának irányát."
+      },
+      "loadedDice": {
+        "title": "Cinkelt kocka",
+        "description": "A kattintások mindig kritikusak."
+      }
+    }
+  }
+}

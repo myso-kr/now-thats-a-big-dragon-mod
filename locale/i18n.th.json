@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "อัปเกรด",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "ระดับถัดไป",
+    "currentLevel": "ปัจจุบัน",
+    "newGamePlusOnly": "มีเฉพาะในบท \"การจัดการทรัพยากร\"",
+    "max": "สูงสุด",
+    "lockedMessage": "อัปเกรด {{parentSkill}} ต่อไปเพื่อปลดล็อกสิ่งนี้",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "นิ้วเหล็ก",
+        "description": "ความเสียหายจากการคลิก +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "นิ้วเบา",
+        "description": "จำนวนคลิกต่อวินาที +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "ปลุกให้ตื่น",
+        "description": "ทุกการคลิกลดเวลามึนงงลง {{bonus}} วินาที",
+        "prefix": "-",
+        "suffix": " วิ"
+      },
+      "electricalFinger": {
+        "title": "นิ้วไฟฟ้า",
+        "description": "ทุกการคลิกมีโอกาส {{bonus}}% ที่จะเรียกสายฟ้า",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "คลิกสมบูรณ์แบบ",
+        "description": "โอกาสคลิกคริติคอล +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "โจมตีคริติคอล",
+        "description": "เพิ่มความเสียหายคลิกคริติคอล +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "ระเบิดทองคำ",
+        "description": "เพิ่มรางวัลจากการคลิกนก {{bonus}} เท่า",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "ผู้นำโดยกำเนิด",
+        "description": "การคลิกเติมแถบแรงบันดาลใจ +{{bonus}}/คลิก",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "เคอร์เซอร์ทองคำ",
+        "description": "เพิ่มทองที่ได้จากการคลิก {{bonus}} เท่า",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "หีบเต็ม",
+        "description": "ลดโอกาสที่หีบในดันเจียนจะว่างเปล่าลง {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "ยารักษาข้อมือ",
+        "description": "กดปุ่มเมาส์ค้างไว้เพื่อโจมตีมังกรต่อเนื่อง"
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "ดาบสั้น",
+        "description": "ตัวคูณความเสียหายของ{{type}} +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "ดาบยาว",
+        "description": "ตัวคูณความเสียหายของนักรบเพิ่มอีก +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "ดาบสองมือ",
+        "description": "ตัวคูณความเสียหายของนักรบเพิ่มอีกชั้น +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "เสียงตะโกนศึก",
+        "description": "ช่วยเติมแถบแรงบันดาลใจ +{{bonus}} ต่อการโจมตี",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "เสียงร้องสงคราม",
+        "description": "เปิดใช้แรงบันดาลใจอัตโนมัติในจังหวะถัดไปเมื่อตัวคูณถึงขีดสูงสุด"
+      },
+      "barbarian": {
+        "title": "บาร์บาเรียน",
+        "description": "เพิ่มความเสียหายพื้นฐาน +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "เกราะหนา",
+        "description": "ลดความเสียหายทางกายภาพที่ได้รับลง {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "เกราะกันไฟ",
+        "description": "ลดการตายจากลมหายใจเพลิงลง {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "หินหนัก",
+        "description": "เพิ่มความเสียหายเครื่องยิงหิน {{bonus}}% ต่อระดับ",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "ใบมีดเงิน",
+        "description": "เพิ่มตัวคูณ {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "ใบมีดทอง",
+        "description": "เพิ่มตัวคูณอีก {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "ทหารรับจ้างผู้ภักดี",
+        "description": "{{typePlural}}ที่คุณซื้อสร้างความเสียหายเพิ่ม +{{bonus}} เท่าต่อระดับ",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "ผู้รับใช้ผู้ภักดี",
+        "description": "ค่าเกณฑ์{{type}}และระดับสูงกว่าลดลง {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "การทำงานเป็นทีม",
+        "description": "เกณฑ์{{typePlural}}เพิ่มทุกครั้งที่ซื้อ{{type}}",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "ความแม่นยำในดันเจียน",
+        "description": "เพิ่มโอกาสคริติคอลในดันเจียน {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "ผู้ทลายเขาวงกต",
+        "description": "เพิ่มโบนัสความเสียหายคริติคอลในดันเจียน {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "ลูกศรเวท",
+        "description": "ตัวคูณความเสียหายของ{{type}} +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "ดาบมานา",
+        "description": "นักเวทแต่ละคนอาบมานาให้ดาบของนักรบหนึ่งคน ตัวคูณความเสียหายเพิ่ม +{{bonus}} เท่าเมื่อมานาเกิน 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "เมาส์วิเศษ",
+        "description": "เติมแถบมานา +{{bonus}} ต่อคลิก",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "เติมมานา",
+        "description": "เติมแถบมานาของนักเวท"
+      },
+      "manaPool": {
+        "title": "แอ่งมานา",
+        "description": "เพิ่มมานาสูงสุด {{bonus}}%",
+        "suffix": " มานา"
+      },
+      "manaBoost": {
+        "title": "เร่งมานา",
+        "description": "ความเสียหายของนักเวทเป็นสองเท่าเมื่อมานาเกิน {{current}}",
+        "suffix": " มานา"
+      },
+      "weatherForecast": {
+        "title": "พยากรณ์อากาศ",
+        "description": "เพิ่มโอกาสเกิดสายฟ้าฟาด {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "สายฟ้าฟาด",
+        "description": "สายฟ้าเพิ่มเติมสร้างความเสียหาย +{{bonus}} เท่าของ{{type}}ต่อการอัปเกรดที่ซื้อ",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "คทาเงิน",
+        "description": "เพิ่มตัวคูณ {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "คทาทอง",
+        "description": "เพิ่มตัวคูณอีก {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "ไฟเวทมนตร์",
+        "description": "เพิ่มเวลาคบเพลิง +{{bonus}} วินาที",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "จอมเวท",
+        "description": "เพิ่มความเสียหายพื้นฐาน +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "ดวงตานักล่า",
+        "description": "เพิ่มโอกาสยิงโดนนก 1 ตัวในระยะทุกจังหวะ +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "เล็งเฉียบคม",
+        "description": "โอกาสยิงคริติคอล +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "ใบมีดตัดใบไม้",
+        "description": "เพิ่มความเสียหายยิงคริติคอล +{{bonus}} เท่า",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "ฤดูล่าสัตว์",
+        "description": "เรียกฝูงนกมาทันที",
+        "suffix": " ตัว"
+      },
+      "elvenEyes": {
+        "title": "ดวงตาเอลฟ์",
+        "description": "เมื่อคบเพลิงดับ ยังมองเห็นในความมืดได้อีก +{{bonus}} วินาที",
+        "prefix": "+",
+        "suffix": " วิ"
+      },
+      "multipleShot": {
+        "title": "ยิงหลายลูก",
+        "description": "ยิงลูกศรเพิ่มอีกหนึ่งดอกต่อระดับ",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "ลูกศรเงิน",
+        "description": "เพิ่มตัวคูณ {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "ลูกศรทอง",
+        "description": "เพิ่มตัวคูณอีก {{bonus}} เท่าให้ทองที่ได้ต่อการโจมตี",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "ลูกศรน้ำแข็ง",
+        "description": "ชะลอการโจมตีด้วยไฟของมังกร {{bonus}} วินาที",
+        "prefix": "-",
+        "suffix": " วิ"
+      },
+      "animalInstinct": {
+        "title": "สัญชาตญาณสัตว์",
+        "description": "อัปเกรดกระสุนเครื่องยิงหินจากหินเป็นแมว จากแมวเป็นเสือ เพิ่มความเสียหาย 10 เท่าในแต่ละครั้ง",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "สายล่อฟ้า",
+        "description": "มีโอกาส {{bonus}}% ดึงสายฟ้าเพิ่มเมื่อสายฟ้าของนักเวทโดนศัตรู",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "ลูกศรรีไซเคิล",
+        "description": "การโจมตีของเอลฟ์ใช้ไม้น้อยลง"
+      },
+      "lightfoot": {
+        "title": "เท้าเบา",
+        "description": "เพิ่มความเร็วในการเคลื่อนที่และหมุนตัวในดันเจียน {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "มือไว",
+        "description": "ลดเวลาในการผลิตทองลง {{bonus}} วินาที"
+      },
+      "sharpDagger": {
+        "title": "ใบมีดนักฆ่า",
+        "description": "โจรโจมตีด้วย สร้างความเสียหาย {{current}}"
+      },
+      "poisonDagger": {
+        "title": "กริชอาบยาพิษ",
+        "description": "เพิ่มโอกาสวางยาพิษมังกร +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "แบล็กแมมบา",
+        "description": "ตัวคูณความเสียหายจากพิษ +{{bonus}} เท่าของความเสียหายโจร",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "พิษตกค้าง",
+        "description": "เพิ่มระยะเวลาของพิษ +{{bonus}} วินาที",
+        "suffix": " วิ"
+      },
+      "smokeBomb": {
+        "title": "ระเบิดควัน",
+        "description": "วางกับดักให้มังกร มีโอกาส {{current}}% ทำงานในการโจมตีครั้งถัดไปและหยุดมันไว้",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "แมวระเบิด",
+        "description": "กระสุนเครื่องยิงหินระเบิดเมื่อกระทบศัตรู ทำให้ความเสียหายเป็นสองเท่า",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "นักล้วงกระเป๋า",
+        "description": "เพิ่มตัวคูณ {{bonus}} เท่าให้ทองที่{{type}}ผลิตได้",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "สะเดาะกุญแจ",
+        "description": "ตอนเริ่มการสำรวจแต่ละครั้ง ประตูดันเจียนเปิดอยู่เพิ่มอีก {{bonus}} บาน"
+      },
+      "midasTouch": {
+        "title": "สัมผัสไมดาส",
+        "description": "เพิ่มตัวคูณอีก {{bonus}} เท่าให้ทองที่{{type}}ผลิตได้",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "หีบอัดแน่น",
+        "description": "เพิ่มทองจากหีบในดันเจียน {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "ส้อมเสียง",
+        "description": "เพิ่มการสะสมแรงบันดาลใจ +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "เดี่ยวพิณ",
+        "description": "เพิ่มตัวคูณแรงบันดาลใจสูงสุด +{{bonus}} เท่า",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "มือกีตาร์น่ารำคาญ",
+        "description": "ระยะเวลาโบนัสแรงบันดาลใจ +{{bonus}} วินาที",
+        "suffix": " วิ"
+      },
+      "piercedEardrums": {
+        "title": "แก้วหูทะลุ",
+        "description": "ตัวจับเวลาเสียงคำรามของมังกรช้าลง {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "เล่นซ้ำ",
+        "description": "มีโอกาส {{bonus}}% เริ่มแรงบันดาลใจใหม่เมื่อหมดลง",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "กำแพงเสียง",
+        "description": "ตัวจับเวลาลมหายใจเพลิงของมังกรช้าลง {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "คาโคโฟนิกซ์",
+        "description": "เมื่อซื้อแล้วหน่วยของคุณจะมึนงง"
+      },
+      "churchChoir": {
+        "title": "คณะนักร้องประสานเสียง",
+        "description": "เกณฑ์สำนักสงฆ์ 1 แห่งทุกครั้งที่แรงบันดาลใจทำงาน"
+      },
+      "encore": {
+        "title": "อังกอร์",
+        "description": "ลดเวลาคูลดาวน์ของแรงบันดาลใจลง {{bonus}} วินาที",
+        "suffix": " วิ"
+      },
+      "lockerRoomSpeech": {
+        "title": "คำปลุกใจในห้องแต่งตัว",
+        "description": "สร้างแรงบันดาลใจขณะปิดเกมที่อัตรา {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "ระเบียบในอาณาจักร",
+        "description": "ขณะปิดเกม ดนตรีของคุณทำให้ช่างฝีมือทำงานนอกเวลา ผลิตทรัพยากรที่ {{current}}% ของอัตราปกติ",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "กุญแจเสียงเมเจอร์",
+        "description": "ซื้อกุญแจดันเจียน (ใช่ มุกดนตรีนี้แย่มาก)"
+      },
+      "vulnerableFrequencies": {
+        "title": "ความถี่จุดอ่อน",
+        "description": "ลดเวลาอมตะของศัตรูในดันเจียนหลังโดนโจมตีลง {{bonus}} มิลลิวินาที",
+        "prefix": "-",
+        "suffix": " มิลลิวินาที"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "ฝ่ายบุคคลวีรบุรุษ",
+        "description": "โอกาสได้วีรบุรุษเป็นสองเท่าเพิ่มขึ้น +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "ออร่าศักดิ์สิทธิ์",
+        "description": "ลดการตายจากลมหายใจเพลิง -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "นกได้รับพร",
+        "description": "นกมีโอกาส {{current}}% ปรากฏพร้อมพร ให้ทองเป็นสองเท่า",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "ถ่ายทอดพลัง",
+        "description": "เมื่อเกณฑ์ มานาของนักเวทฟื้น 0.5 ต่อนักบวชหนึ่งคนที่มี"
+      },
+      "generousLoot": {
+        "title": "ของรางวัลใจกว้าง",
+        "description": "เมื่อการสำรวจล้มเหลว คุณยังเก็บของไว้ได้ {{current}}%",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "แสงศักดิ์สิทธิ์",
+        "description": "เพิ่มโอกาสจุดคบเพลิงที่ดับแล้วให้ติดใหม่ {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "เกณฑ์นักรบ",
+        "description": "เปิดให้เกณฑ์นักรบเข้าสู่สนามรบ"
+      },
+      "recruitElves": {
+        "title": "เกณฑ์เอลฟ์",
+        "description": "เปิดให้เกณฑ์เอลฟ์เข้าสู่สนามรบ"
+      },
+      "recruitWizards": {
+        "title": "เกณฑ์นักเวท",
+        "description": "เปิดให้เกณฑ์นักเวทเข้าสู่สนามรบ"
+      },
+      "recruitBards": {
+        "title": "เกณฑ์กวี",
+        "description": "เปิดให้เกณฑ์กวีเข้าสู่สนามรบ"
+      },
+      "recruitThieves": {
+        "title": "เกณฑ์โจร",
+        "description": "เปิดให้เกณฑ์โจรเข้าสู่สนามรบ"
+      },
+      "recruitClerics": {
+        "title": "เกณฑ์นักบวช",
+        "description": "เปิดให้เกณฑ์นักบวชเข้าสู่สนามรบ"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "เพิ่มลงสิ่งที่อยากได้!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "เวลาต่อสู้",
+      "dgps": "ความเสียหายและทองต่อวินาที",
+      "resourceBalance": "ดุลทรัพยากร"
+    },
+    "lifetime": {
+      "title": "สถิติสะสม",
+      "totalPlaytime": "เวลาเล่นทั้งหมด",
+      "totalGoldEarned": "ทองที่ได้ทั้งหมด",
+      "totalGoldSpent": "ทองที่ใช้ทั้งหมด",
+      "totalBirdsKilled": "นกที่ยิงตกทั้งหมด",
+      "totalClicks": "จำนวนคลิกทั้งหมด",
+      "totalHeroesRecruited": "วีรบุรุษที่เกณฑ์ทั้งหมด",
+      "heroesPurchased": "ซื้อ",
+      "heroesRecruited": "เกณฑ์",
+      "tier1": "ระดับ 1 เกณฑ์ (ซื้อ)",
+      "tier2": "ระดับ 2 เกณฑ์ (ซื้อ)",
+      "tier3": "ระดับ 3 เกณฑ์ (ซื้อ)",
+      "totalDamageDealt": "ความเสียหายที่ทำได้ทั้งหมด",
+      "totalUnitsDeadByFireBreath": "สูญเสียจากลมหายใจเพลิง"
+    },
+    "battleDuration": "ผ่านไป: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "ชนะได้จริงหรือ?",
+    "infiniteEstimatedVictory": "ชัยชนะเป็นไปไม่ได้จริง ๆ!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>คุณคือวีรบุรุษของเรา!</strong>]; (0-1000000000)[ชนะใน <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>คลิกหรือกด Z เพื่อโจมตีมังกร!</strong>]",
+    "perSec": "/วิ",
+    "generationSection": "การผลิต",
+    "critSection": "พิเศษ",
+    "dps": "ความเสียหายของกองกำลัง: <strong>{{dps}}/วิ</strong>",
+    "gps": "ทองของกองกำลัง: <strong>{{gps}}/วิ</strong>",
+    "dpc": "ความเสียหายต่อคลิก: <strong>{{dpc}}/คลิก</strong>",
+    "gpc": "ทองต่อคลิก: <strong>{{gpc}}/คลิก</strong>",
+    "catapultDamage": "ความเสียหาย: <strong>{{damage}}/นัด</strong>",
+    "catapultTimeToShoot": "เวลาก่อนยิง: <strong>{{time}} วิ</strong>",
+    "seconds_one": "วินาที",
+    "seconds_other": "วินาที",
+    "minutes_one": "นาที",
+    "minutes_other": "นาที",
+    "hours_one": "ชั่วโมง",
+    "hours_other": "ชั่วโมง",
+    "days_one": "วัน",
+    "days_other": "วัน",
+    "months_one": "เดือน",
+    "months_other": "เดือน",
+    "years_one": "ปี",
+    "years_other": "ปี",
+    "undo": {
+      "disabledLine": "คลิกภายใน 10 วินาทีเพื่อยกเลิกการซื้อที่ผิดพลาดและรับเงินคืน",
+      "enabledAction": "คลิกเพื่อยกเลิกการซื้อ {{generator}} {{count}} หน่วย",
+      "enabledRefund": "คุณจะได้รับ {{refund}} คืน",
+      "enabledTimer": "เหลือ {{seconds}} วิ",
+      "refundGold": "{{amount}} ทอง"
+    }
+  },
+  "generators": {
+    "generators": "กองกำลัง",
+    "buy": "ซื้อ {{amount}}",
+    "warrior_one": "นักรบ",
+    "warrior_other": "นักรบ",
+    "wizard_one": "นักเวท",
+    "wizard_other": "นักเวท",
+    "elf_one": "เอลฟ์",
+    "elf_other": "เอลฟ์",
+    "garrison_one": "กองรักษาการณ์",
+    "garrison_other": "กองรักษาการณ์",
+    "academy_one": "สถาบันเวทมนตร์",
+    "academy_other": "สถาบันเวทมนตร์",
+    "academy_short_one": "สถาบัน",
+    "academy_short_other": "สถาบัน",
+    "outpost_one": "ป้อมนักธนู",
+    "outpost_other": "ป้อมนักธนู",
+    "outpost_short_one": "ป้อม",
+    "outpost_short_other": "ป้อม",
+    "council_one": "สภาการทหาร",
+    "council_other": "สภาการทหาร",
+    "nexus_one": "ศูนย์รวมจอมเวท",
+    "nexus_other": "ศูนย์รวมจอมเวท",
+    "forest_one": "ป่าดึกดำบรรพ์",
+    "forest_other": "ป่าดึกดำบรรพ์",
+    "thief_one": "โจร",
+    "thief_other": "โจร",
+    "bard_one": "กวี",
+    "bard_other": "กวี",
+    "cleric_one": "นักบวช",
+    "cleric_other": "นักบวช",
+    "guild_one": "สมาคมโจร",
+    "guild_other": "สมาคมโจร",
+    "guild_short_one": "สมาคม",
+    "guild_short_other": "สมาคม",
+    "troupe_one": "คณะศิลปิน",
+    "troupe_other": "คณะศิลปิน",
+    "troupe_short_one": "คณะ",
+    "troupe_short_other": "คณะ",
+    "seminary_one": "สำนักสงฆ์ศักดิ์สิทธิ์",
+    "seminary_other": "สำนักสงฆ์ศักดิ์สิทธิ์",
+    "seminary_short_one": "สำนักสงฆ์",
+    "seminary_short_other": "สำนักสงฆ์",
+    "congress_one": "สภาเงา",
+    "congress_other": "สภาเงา",
+    "theater_one": "มหาโรงละคร",
+    "theater_other": "มหาโรงละคร",
+    "college_one": "คณะพระคาร์ดินัล",
+    "college_other": "คณะพระคาร์ดินัล",
+    "catapult_one": "เครื่องยิงหิน",
+    "catapult_other": "เครื่องยิงหิน",
+    "builder_one": "ช่างก่อสร้าง",
+    "builder_other": "ช่างก่อสร้าง",
+    "engineer_one": "วิศวกร",
+    "engineer_other": "วิศวกร",
+    "farmer_one": "ชาวนา",
+    "farmer_other": "ชาวนา",
+    "lumberjack_one": "คนตัดไม้",
+    "lumberjack_other": "คนตัดไม้",
+    "miner_one": "คนงานเหมือง",
+    "miner_other": "คนงานเหมือง",
+    "apprenticeships_one": "การฝึกหัด",
+    "apprenticeships_other": "การฝึกหัด",
+    "tradespeople_one": "ช่างฝีมือ",
+    "tradespeople_other": "ช่างฝีมือ",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} วิ"
+    },
+    "ngPlusProductionToggle": "สลับการผลิต",
+    "tabs": {
+      "troops": "กองกำลัง",
+      "support": "สนับสนุน"
+    },
+    "fireUnitsButton": {
+      "tooltip": "ปลดหน่วยออกเพื่อลดการใช้ทรัพยากร แต่ยังคงการผลิตไว้บางส่วน"
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "มานา",
+    "manaDescription": "พลังเวทที่หล่อเลี้ยงการโจมตีของนักเวท",
+    "emptyManaDescription": "ซื้อ \"เติมมานา\" เพื่อโจมตีต่อ",
+    "inspiration": "แรงบันดาลใจ",
+    "inspirationDescription": "เมื่อเปิดใช้ พลังของวีรบุรุษทุกคนจะถูกคูณตามค่าที่กำหนด",
+    "unitDescription": {
+      "warrior": "นักสู้ระยะประชิดที่ทนทาน",
+      "wizard": "โจมตีด้วยเวทระยะกลาง แต่ร่างกายเปราะบาง",
+      "elf": "ยิงได้หลากหลาย จากนอกระยะของมังกร",
+      "garrison": "ฐานที่มั่นซึ่งเกณฑ์นักรบ",
+      "outpost": "ฐานชายแดนซึ่งเกณฑ์เอลฟ์",
+      "academy": "โรงเรียนที่ฝึกนักเวทให้พร้อมรบ",
+      "council": "องค์กรทหารที่ตั้งกองรักษาการณ์",
+      "nexus": "องค์กรเร้นลับที่ตั้งสถาบัน",
+      "forest": "ป่าศักดิ์สิทธิ์ที่ตั้งป้อม",
+      "thief": "เจ้าเล่ห์ วางยามังกรและขโมยทองจากมัน",
+      "bard": "ปลุกใจกองกำลังให้สู้หนักขึ้น",
+      "cleric": "ให้ความคุ้มครองและเกณฑ์วีรบุรุษใหม่เข้าสู่สนามรบ",
+      "guild": "เครือข่ายลับที่เกณฑ์โจร",
+      "troupe": "คณะเร่ร่อนที่เกณฑ์กวี",
+      "seminary": "สถานศักดิ์สิทธิ์ที่ฝึกนักบวช",
+      "congress": "องค์กรเงาที่ตั้งสมาคมโจร",
+      "theater": "สถานอันยิ่งใหญ่ที่ตั้งคณะศิลปิน",
+      "college": "องค์กรศาสนาที่ตั้งสำนักสงฆ์",
+      "catapult": "อาวุธล้อมเมืองที่สร้างความเสียหายสูงแก่มังกร",
+      "builder": "สร้างอาคารระดับ 2",
+      "engineer": "ก่อตั้งองค์กรระดับ 3",
+      "farmer": "ปลูกอาหารให้อาณาจักร",
+      "lumberjack": "ตัดไม้สำหรับการก่อสร้าง",
+      "miner": "ขุดแร่จากภูเขา",
+      "apprenticeships": "ฝึกช่างฝีมือ"
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} ความเสียหาย/{{rate}} วิ",
+      "wizard": "{{generatorGeneration}} ความเสียหาย/{{rate}} วิ",
+      "elf": "{{generatorGeneration}} ความเสียหาย/{{rate}} วิ",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "thief": "+{{generatorGeneration}} ทอง/{{rate}} วิ",
+      "bard": "+{{generatorGeneration}} แรงบันดาลใจ/{{rate}} วิ",
+      "cleric": "+{{generatorGeneration}} วีรบุรุษ/{{rate}} วิ",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} วิ",
+      "catapult": "{{generatorGeneration}} ความเสียหาย/{{rate}} วิ",
+      "builder": "+{{generatorGeneration}} อาคาร/{{rate}} วิ",
+      "engineer": "+{{generatorGeneration}} องค์กร/{{rate}} วิ",
+      "farmer": "+{{generatorGeneration}} อาหาร/{{rate}} วิ",
+      "lumberjack": "+{{generatorGeneration}} ไม้/{{rate}} วิ",
+      "miner": "+{{generatorGeneration}} แร่/{{rate}} วิ",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} วิ"
+    },
+    "tabsAriaLabel": "แท็บกองกำลัง"
+  },
+  "settings": {
+    "settings": "ตั้งค่า",
+    "buy_max": "ซื้อสูงสุด",
+    "audio": "เพลง/เสียง",
+    "game": "เกม",
+    "graphics": "ภาพ",
+    "offline_progress": "ความคืบหน้าออฟไลน์",
+    "wishlist_now": "เพิ่มลงสิ่งที่อยากได้"
+  },
+  "menus": {
+    "settings": "ตั้งค่า",
+    "tabs": {
+      "game": "เกม",
+      "graphics": "ภาพ",
+      "audio": "เสียง",
+      "levels": "บท",
+      "saveData": "ข้อมูลบันทึก",
+      "credits": "ผู้จัดทำ"
+    },
+    "credits": {
+      "title": "ผู้จัดทำ",
+      "developedBy": "พัฒนาโดย",
+      "developedWith": "พัฒนาด้วย",
+      "bigThanksTo": "ขอบคุณเป็นพิเศษแก่",
+      "theRestOfTheDiscordServer": "ทุกคนที่เหลือในเซิร์ฟเวอร์ Discord",
+      "andYou": "และคุณ!"
+    },
+    "music": "เพลง",
+    "sfx": "เสียงประกอบ",
+    "audioSettings": "ตั้งค่าเสียง",
+    "gameSettings": "ตั้งค่าเกม",
+    "graphicsSettings": "ตั้งค่าภาพ",
+    "language": "ภาษา",
+    "languages": {
+      "en": "อังกฤษ",
+      "fr": "ฝรั่งเศส",
+      "de": "เยอรมัน",
+      "pt": "โปรตุเกส",
+      "tr": "ตุรกี"
+    },
+    "shakeIntensity": "ความแรงการสั่น",
+    "largerTextSize": "ตัวอักษรใหญ่ขึ้น",
+    "crtFilter": "ฟิลเตอร์ CRT",
+    "chromaticAberrationSlider": "ความคลาดสี",
+    "chromaticAberration": "ความคลาดสี",
+    "swordSwooshSounds": "เสียงดาบและคริติคอล",
+    "catSounds": "เสียงแมว",
+    "fullscreen": "เต็มจอ",
+    "resume": "เล่นต่อ",
+    "close": "ปิด",
+    "quitGame": "ออกจากเกม",
+    "joinDiscord": "เข้าร่วม Discord",
+    "clear_save_label": "ล้างความคืบหน้าของคุณ?",
+    "zoom_adjustment": "ขนาดหน้าจอ UI",
+    "clear_save": "ล้างเลย",
+    "are_you_sure": "แน่ใจหรือไม่?",
+    "cannot_be_reversed": "การกระทำนี้ย้อนกลับไม่ได้",
+    "yes": "ใช่",
+    "no": "ไม่",
+    "saveData": {
+      "title": "ข้อมูลบันทึก",
+      "clearChapterTitle": "ความคืบหน้าของบท",
+      "clearChapterExplanation": "ล้างทอง หน่วย อัปเกรด ความคืบหน้าในดันเจียน และตราผ่านบทของทุกบท การปลดล็อกบท สถิติสะสม การตั้งค่า และวัตถุโบราณจะยังอยู่",
+      "clearChapterButton": "ล้างความคืบหน้าของบท",
+      "clearFullTitle": "ข้อมูลบันทึกทั้งหมด",
+      "clearFullExplanation": "ล้างทุกอย่างที่การรีเซ็ตบทล้าง และล้างวัตถุโบราณ การปลดล็อกบท และสถิติสะสมด้วย การตั้งค่าเสียง ภาพ และภาษาจะยังอยู่",
+      "clearFullButton": "ล้างข้อมูลบันทึกทั้งหมด",
+      "clearFullWarning": "ย้อนกลับไม่ได้ คุณจะเสียวัตถุโบราณ การปลดล็อกบท และสถิติสะสม"
+    }
+  },
+  "tooltip": {
+    "inspiration": "แรงบันดาลใจ",
+    "inspirationDescription": "เมื่อเปิดใช้ พลังของวีรบุรุษทุกคนจะถูกคูณตามค่าที่กำหนด",
+    "maxInspiration": "ตัวคูณสูงสุด",
+    "maxInspirationMultiplier": "ตัวคูณสูงสุด",
+    "statisticsDescription": "สถิติโดยละเอียดของความคืบหน้าและผลการต่อสู้",
+    "hudStopBird": "หยุดนก",
+    "hudLifetimeStats": "สถิติสะสม",
+    "hudHideWindows": "ซ่อนหน้าต่าง",
+    "events": {
+      "roar": "เสียงคำรามทำให้มึนงง",
+      "fire": "ลมหายใจเพลิง",
+      "claw": "ตะปบด้วยกรงเล็บ",
+      "dialog": "เหตุการณ์พิเศษ",
+      "pope_visit": "แขกคนพิเศษ",
+      "dungeon_keys": "ความลับอันมืดมิด",
+      "missing_king": "ราชาอยู่ที่ไหน?",
+      "catapult": "ต้นแบบทางวิศวกรรม",
+      "engineer": "ความช่วยเหลือที่มาถูกเวลา",
+      "invasion_start": "การรุกรานใกล้เข้ามา",
+      "invasion_end": "ข่าวจากกองกำลังของเรา",
+      "apprenticeships_unlock": "เปิดใช้การฝึกหัดแล้ว",
+      "trading": "พ่อค้าเร่",
+      "dummy_toy_reveal": "ไม่ใช่อย่างที่คิดไว้"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "เหตุการณ์",
+      "stats": "สถิติ",
+      "engineering": "วิศวกรรม",
+      "resources": "ทรัพยากร"
+    },
+    "tabs": {
+      "events": "เหตุการณ์",
+      "stats": "สถิติ",
+      "engineering": "วิศวะ",
+      "resources": "ทรัพยากร"
+    },
+    "tabsAriaLabel": "แท็บข้อมูล"
+  },
+  "game": {
+    "dummy": "หุ่นฝึกซ้อมยักษ์",
+    "infiniteBird": "นกที่ไม่มีวันตก",
+    "king": "ราชา",
+    "smallDragon": "ทูธโอเรียธ ผู้ผลิบาน",
+    "bigDragon": "ฟอร์ธอาร์ ผู้ให้และผู้จบชีวิต"
+  },
+  "dungeon": {
+    "found": "พบแล้ว",
+    "giveUp": "ยอมแพ้",
+    "tooltipDescription": "ออกผจญภัยในดันเจียน (ระดับ {{level}})",
+    "cooldownMessage": "ดันเจียนกำลังคูลดาวน์ รออีก {{seconds}} วินาทีจึงจะเข้าได้อีก",
+    "cooldownShort": "{{seconds}} วิ",
+    "levelLabel": "ระดับ",
+    "levelShort": "ระดับ {{level}}",
+    "keysOwned": "กุญแจที่มี",
+    "giveUpTooltip": "ออกจากดันเจียน (เก็บของบางส่วนไว้ได้ถ้ามี \"ของรางวัลใจกว้าง\")",
+    "moveHint": "ใช้ WASD หรือปุ่มลูกศรเพื่อเคลื่อนที่",
+    "attackHint": "คลิกที่สัตว์ประหลาดเพื่อโจมตี",
+    "chestCountsTooltip": "เปิดหีบแล้ว {{opened}} จาก {{total}} ใบ",
+    "exitDirection": "ทางออก"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "การสำรวจสำเร็จ",
+      "titleFailed": "การสำรวจล้มเหลว",
+      "titleStuckRescue": "ออกมาอย่างปลอดภัย",
+      "lootSummarySubtitle": "สรุปของที่ได้",
+      "body_one": "ได้ทอง {{gold}} และกุญแจ {{grayKeys}} ดอก",
+      "body_other": "ได้ทอง {{gold}} และกุญแจ {{grayKeys}} ดอก",
+      "artifactFound": "พบ{{artifactName}}"
+    },
+    "fireBreathCasualties": {
+      "title": "ความสูญเสียจากลมหายใจเพลิง",
+      "body": "สูญเสีย {{list}}",
+      "none": "ไม่มีความสูญเสีย"
+    },
+    "fireBreathBlocked": {
+      "title": "สกัดลมหายใจเพลิงได้!",
+      "body": "ระเบิดควันช่วยกองกำลังของคุณไว้"
+    },
+    "toastLabel": "การแจ้งเตือนในเกม"
+  },
+  "levels": {
+    "title": "บท",
+    "locked": "ล็อกอยู่",
+    "active": "กำลังเล่น",
+    "completed": "จบแล้ว",
+    "continue": "เล่นต่อ",
+    "start": "เริ่ม",
+    "restart": "เริ่มใหม่",
+    "restart_progress_warning": "เริ่มใหม่ตอนนี้? ความคืบหน้าที่ยังไม่บันทึกในบทนี้จะหายไป",
+    "names": {
+      "mainGame": "มังกรตัวใหญ่",
+      "newGamePlus": "การจัดการทรัพยากร",
+      "dummy": "ของเล่นวิเศษ",
+      "infinite": "ไม่มีวันจบจริง ๆ",
+      "kingBattle": "การยืนหยัดครั้งสุดท้ายของราชา"
+    }
+  },
+  "artifacts": {
+    "title": "วัตถุโบราณ",
+    "subtitle": "วัตถุโบราณหายากบางครั้งพบได้ในหีบพิเศษของดันเจียน และจะอยู่ข้ามบท",
+    "notYetFound": "(ยังไม่พบ)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "นกหวีดฟีนิกซ์",
+        "description": "นกพิเศษนำสกุลเงินใหม่มาให้"
+      },
+      "emberforgedShield": {
+        "title": "โล่หลอมจากถ่านไฟ",
+        "description": "นักรบไม่ได้รับผลจากไฟมังกร"
+      },
+      "moonwellFlask": {
+        "title": "ขวดน้ำบ่อจันทรา",
+        "description": "นักเวทใช้มานาเพียงครึ่งเดียว"
+      },
+      "windstepAnklet": {
+        "title": "กำไลย่างลม",
+        "description": "เอลฟ์ไม่ถูกทำให้มึนงง"
+      },
+      "fangSatchel": {
+        "title": "ถุงเขี้ยว",
+        "description": "ระหว่างที่รอบยังดำเนินอยู่ โจรจะผลิตเขี้ยวมังกร 1 ชิ้นทุก 30 นาที"
+      },
+      "slumberBerries": {
+        "title": "ผลไม้แห่งนิทรา",
+        "description": "การโจมตีด้วยพิษหน่วงเสียงคำรามและไฟของมังกรไป 10 วินาที"
+      },
+      "echoingLute": {
+        "title": "พิณสะท้อนเสียง",
+        "description": "กวีทำให้โบนัสแรงบันดาลใจเป็นสองเท่า"
+      },
+      "blessingCenser": {
+        "title": "กระถางธูปแห่งพร",
+        "description": "นักบวชเกณฑ์หน่วยได้เป็นสองเท่าเสมอ"
+      },
+      "victoryTusk": {
+        "title": "งาแห่งชัยชนะ",
+        "description": "ผ่านด่านแล้วได้เขี้ยวมังกรเป็นสองเท่า"
+      },
+      "cartographersLedger": {
+        "title": "สมุดของนักทำแผนที่",
+        "description": "แสดงจำนวนหีบในดันเจียนที่เปิดแล้วและทั้งหมด"
+      },
+      "ironSkeletonKey": {
+        "title": "กุญแจผีเหล็ก",
+        "description": "ปลดล็อกดันเจียนถึงระดับ 20"
+      },
+      "everflameLantern": {
+        "title": "โคมไฟนิรันดร์",
+        "description": "คบเพลิงไม่มีวันดับ"
+      },
+      "midasCoin": {
+        "title": "เหรียญไมดาส",
+        "description": "ได้ทองในดันเจียนเป็นสองเท่า"
+      },
+      "harvestIdol": {
+        "title": "รูปเคารพแห่งการเก็บเกี่ยว",
+        "description": "การผลิตทรัพยากรเพิ่มขึ้น 25%"
+      },
+      "titanGauntlet": {
+        "title": "ถุงมือไททัน",
+        "description": "ความเสียหายจากการคลิก 10 เท่า"
+      },
+      "wayfindersCompass": {
+        "title": "เข็มทิศนักนำทาง",
+        "description": "แสดงทิศทางของทางออกดันเจียน"
+      },
+      "loadedDice": {
+        "title": "ลูกเต๋าถ่วง",
+        "description": "คลิกได้คริติคอลเสมอ"
+      }
+    }
+  }
+}
