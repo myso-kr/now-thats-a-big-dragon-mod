@@ -419,3 +419,105 @@ test('progress resets the stall clock', () => {
     for (let i = 0; i < 12; i += 1) { clock += 100; d.step(); }
     assert.strictEqual(left.length, 0, 'it was getting somewhere, so it stayed');
 });
+
+// ── Monsters ─────────────────────────────────────────────────────
+// Reported from the other side of the screen: it walks up to a monster and does
+// nothing. It was doing nothing because monsters were never implemented - the driver
+// knew about chests and the door and no third thing.
+
+/** Put a monster on a cell: the sprite that must be clicked, and the box that blocks. */
+function withFoe(scene, r, c, { inBattle = true } = {}) {
+    const x = 2 + c * CELL;
+    const z = 2 + r * CELL;
+    scene.meshes.push({ name: `enemy_skeleton_${Date.now()}`, position: { x, z, y: 1 },
+        isVisible: inBattle });
+    scene.meshes.push({ name: `enemy_collision_7_${Date.now()}`, position: { x, z, y: 1 },
+        isVisible: false });
+    return scene;
+}
+
+test('a monster fills its cell, the way a shut chest does', () => {
+    const m = D.readMaze(withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2));
+    assert.strictEqual(m.open(1, 2), false, 'its box is what stops you');
+    assert.strictEqual(m.enemies.length, 1);
+    assert.deepStrictEqual(m.enemies[0].cell, [1, 2]);
+});
+
+test('a monster in the way comes before the chest and the door', () => {
+    const m = D.readMaze(withFoe(sceneOf(['#####', '#@..X', '#.#$#']), 1, 2));
+    const goal = D.nextGoal(m);
+    assert.strictEqual(goal.kind, 'fight');
+    assert.strictEqual(goal.target.isEnemy, true);
+});
+
+test('a monster that has not engaged yet is not swung at', () => {
+    // The game gates its whole click handler on `inBattle`, and hides the sprite until
+    // then. Clicking early lands on nothing.
+    const m = D.readMaze(withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 3, { inBattle: false }));
+    const goal = D.nextGoal(m);
+    assert.notStrictEqual(goal && goal.kind, 'fight');
+});
+
+test('a fight is clicked, not walked into', () => {
+    const scene = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    let clock = 0;
+    const sent = [];
+    const clicked = [];
+    const d = D.create({
+        scene: () => scene,
+        tap: (code) => sent.push(code),
+        click: (t) => { clicked.push(t.isEnemy ? 'foe' : 'other'); return true; },
+        now: () => clock,
+        log: () => {},
+        graceMs: 10,
+        timeoutMs: 50,
+        stallMs: 60000,
+    });
+    d.step();
+    assert.deepStrictEqual(clicked, ['foe']);
+    assert.deepStrictEqual(sent, [], 'no key was pressed at it');
+});
+
+test('a fight counts as progress, so a long one is not mistaken for a hang', () => {
+    // The player stands still through a fight; what changes is the monster. Counting
+    // only the player's square would walk out of a level it was winning.
+    const scene = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    let clock = 0;
+    const left = [];
+    const d = D.create({
+        scene: () => scene,
+        tap: () => {},
+        click: () => true,
+        leave: () => left.push(clock),
+        now: () => clock,
+        log: () => {},
+        graceMs: 10,
+        timeoutMs: 50,
+        stallMs: 400,
+    });
+    for (let i = 0; i < 6; i += 1) { clock += 100; d.step(); }
+    assert.strictEqual(left.length, 1, 'nothing changed at all, so it does leave');
+
+    // Now let the monster die partway through: that is a change, and it stays.
+    const scene2 = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    let t2 = 0;
+    const left2 = [];
+    let swings = 0;
+    const d2 = D.create({
+        scene: () => scene2,
+        tap: () => {},
+        click: () => {
+            swings += 1;
+            if (swings === 3) scene2.meshes = scene2.meshes.filter((x) => !/^enemy_/.test(x.name));
+            return true;
+        },
+        leave: () => left2.push(t2),
+        now: () => t2,
+        log: () => {},
+        graceMs: 10,
+        timeoutMs: 50,
+        stallMs: 400,
+    });
+    for (let i = 0; i < 5; i += 1) { t2 += 100; d2.step(); }
+    assert.strictEqual(left2.length, 0, 'the monster died, so the clock reset');
+});

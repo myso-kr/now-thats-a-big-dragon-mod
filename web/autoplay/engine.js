@@ -186,7 +186,12 @@
         const py = canvas.height * fy;
         const p = scene.pick(px, py);
         if (!p || !p.hit || !p.pickedMesh) continue;
-        if (!/^(chest|exitDoor)/.test(p.pickedMesh.name)) continue;
+        // The enemy sprite, never its collision box: the game checks that the pick
+        // landed on the sprite itself, so a click on the box is a click on nothing.
+        const hit = p.pickedMesh.name;
+        const wanted = /^(chest_|exitDoor_)/.test(hit)
+          || (/^enemy_/.test(hit) && !/^enemy_(collision|debug|mat)_/.test(hit));
+        if (!wanted) continue;
         const o = {
           clientX: rect.left + px * (rect.width / canvas.width),
           clientY: rect.top + py * (rect.height / canvas.height),

@@ -34,6 +34,11 @@
     chest: /^chest_\d+_\d+$/,
     chestBox: /^chestCollision_\d+_\d+$/,
     exitBox: /^exitDoorCollision_\d+_\d+$/,
+    // `enemy_<kind>_<when>` is the sprite, and only the sprite counts as a hit; the
+    // box beside it (`enemy_collision_...`) is what blocks the way, and a click that
+    // lands on it does nothing at all.
+    enemy: /^enemy_(?!collision_|debug_|mat_)/,
+    enemyBox: /^enemy_collision_/,
     exit: /^exitDoor_\d+_\d+$/,
   };
 
@@ -52,6 +57,8 @@
     const laid = new Set();
     const solid = new Set();
     const chests = [];
+    const foes = [];
+    const foeBoxes = [];
     const shut = new Map();
     let exit = null;
     let exitShut = true;
@@ -62,6 +69,8 @@
       const z = round(m.position.z);
       if (NAME.floor.test(n)) { floors.push([x, z]); laid.add(`${x},${z}`); }
       else if (NAME.wall.test(n)) solid.add(`${x},${z}`);
+      else if (NAME.enemy.test(n)) foes.push({ world: [x, z], mesh: m });
+      else if (NAME.enemyBox.test(n)) foeBoxes.push([x, z]);
       else if (NAME.chest.test(n)) chests.push([x, z]);
       // A chest's collision box stops you entering its square, and the game turns that
       // off the moment it is opened - so it is both the obstacle and the "already had
@@ -157,6 +166,22 @@
       return { cell, world: exit.at, shut: exitShut, isExit: true };
     })() : null;
 
+    // A monster in a corridor is a wall you can remove. Its box is what stops you, so
+    // the box is what blocks the cell - and the sprite, which is what has to be
+    // clicked, is a separate mesh sitting on the same square.
+    const enemies = foes.map((f) => ({
+      cell: cellOf(f.world[0], f.world[1]).map(Math.round),
+      world: f.world,
+      // The game hides the sprite until the fight starts, and only then will a click
+      // register: `inBattle` gates the whole handler.
+      inBattle: f.mesh.isVisible !== false,
+      isEnemy: true,
+    }));
+    for (const [x, z] of foeBoxes) {
+      const [r, c] = cellOf(x, z).map(Math.round);
+      if (blocked[r]) blocked[r][c] = true;
+    }
+
     const cam = scene.activeCamera;
     const player = cellOf(cam.position.x, cam.position.z).map(Math.round);
 
@@ -170,6 +195,7 @@
       facing: cam.rotation ? cam.rotation.y : 0,
       at: [round(cam.position.x), round(cam.position.z)],
       chests: chestList,
+      enemies,
       exit: door,
       open: (r, c) => r >= 0 && c >= 0 && r < rows && c < cols && !blocked[r][c],
     };
@@ -246,6 +272,18 @@
    */
   function nextGoal(maze, abandoned) {
     const skip = abandoned || new Set();
+
+    // A monster comes before everything. It is not loot to weigh against the way out:
+    // its collision box fills the corridor, so until it is down there may be no route
+    // to weigh at all. The game starts the fight when you get near, and only then does
+    // a click register - `inBattle` gates its whole handler - so one that has not
+    // engaged yet is walked towards rather than swung at.
+    for (const foe of maze.enemies || []) {
+      const key = `foe:${foe.cell[0]},${foe.cell[1]}`;
+      if (skip.has(key) || !foe.inBattle) continue;
+      return { kind: 'fight', cell: maze.player, target: foe, path: [] };
+    }
+
     let best = null;
     for (const ch of maze.chests) {
       if (!ch.shut || skip.has(`${ch.cell[0]},${ch.cell[1]}`)) continue;
@@ -368,6 +406,15 @@
   const OPEN_ATTEMPTS = 8;
 
   /**
+   * How many swings one monster is worth.
+   *
+   * Far more than a chest: a monster has several hearts and goes briefly untouchable
+   * after each hit, so a good fight is a long run of clicks that mostly land on
+   * nothing. Giving up at eight would abandon a fight that was going fine.
+   */
+  const FIGHT_ATTEMPTS = 120;
+
+  /**
    * Drives the dungeon, one action per call.
    *
    * The controls turned out to be discrete, which is what makes this a state machine
@@ -451,7 +498,11 @@
       gaveUp = false;
     }
 
-    const nameOf = (target) => (target.isExit ? 'exit' : `${target.cell[0]},${target.cell[1]}`);
+    const nameOf = (target) => {
+      if (target.isExit) return 'exit';
+      if (target.isEnemy) return `foe:${target.cell[0]},${target.cell[1]}`;
+      return `${target.cell[0]},${target.cell[1]}`;
+    };
 
     /** Walk out, and say why. Once only - the button takes a moment to answer. */
     function giveUp(why) {
@@ -481,7 +532,13 @@
       // door having opened. Everything else is effort, and effort that never turns into
       // one of these is the shape of every way this used to stall.
       const shut = maze.chests.filter((c) => c.shut).length;
-      const mark = `${maze.player[0]},${maze.player[1]}|${shut}|${maze.exit && maze.exit.shut}`;
+      // A fight counts as getting somewhere even though the player does not move: what
+      // changes is the monster, and it leaves the scene when it dies. Without this a
+      // long fight looks exactly like a hang and the driver walks out of a level it
+      // was winning.
+      const foes = (maze.enemies || []).length;
+      const mark = `${maze.player[0]},${maze.player[1]}|${shut}|${foes}`
+        + `|${maze.exit && maze.exit.shut}`;
       if (mark !== progressMark) {
         progressMark = mark;
         progressAt = t;
@@ -545,19 +602,23 @@
       // it. Walking onto a chest is not a thing that can happen - its collision box
       // fills the square - so arriving is never what opens one, and the first driver
       // walked the whole route and came back with nothing.
-      if ((goal.kind === 'chest' || goal.kind === 'exit') && !goal.path.length) {
+      if ((goal.kind === 'chest' || goal.kind === 'exit' || goal.kind === 'fight')
+        && !goal.path.length) {
         const target = goal.target;
         const key = nameOf(target);
         const spent = (tries.get(key) || 0) + 1;
         tries.set(key, spent);
-        if (spent > OPEN_ATTEMPTS) {
+        if (spent > (goal.kind === 'fight' ? FIGHT_ATTEMPTS : OPEN_ATTEMPTS)) {
           // It would not open however we stood. The cell is fine; the thing on it is
           // what we are giving up on, so the door stays reachable through it.
           abandoned.add(key);
           log('DGN', `giving up on ${key} after ${OPEN_ATTEMPTS} tries`, 'warn');
           return true;
         }
-        if (canOpen(maze, target)) {
+        // A monster has no reach rule of its own: the game checks that the click
+        // picked its sprite, nothing else. So the click is simply tried, and turning
+        // is what happens when it finds nothing under the pointer.
+        if (goal.kind === 'fight' || canOpen(maze, target)) {
           // A click that found nothing under it will not start working if repeated.
           if (click(target)) {
             actions += 1;

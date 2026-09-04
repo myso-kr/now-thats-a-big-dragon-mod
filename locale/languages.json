@@ -600,9 +600,21 @@
         "Segoe UI",
         "sans-serif"
       ],
-      "fonts": [],
+      "fonts": [
+        {
+          "replaces": "high_birth",
+          "family": "bd_bg_heading",
+          "file": "Galmuri9.woff2",
+          "url": "fonts/bd-bg-heading.woff2",
+          "pxPerEm": 10,
+          "basePxPerEm": 9,
+          "ascentOverride": 122.222,
+          "descentOverride": 55.556
+        }
+      ],
       "steamShare": 0.04,
-      "note": "Galmuri has no glyphs for this script; the system font draws it."
+      "note": "Galmuri has no glyphs for this script; the system font draws it.",
+      "status": "draft"
     },
     "ar": {
       "name": "العربية",
