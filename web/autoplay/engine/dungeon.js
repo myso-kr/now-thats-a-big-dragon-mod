@@ -32,6 +32,7 @@
     floor: /^f\d+_\d+$/,
     wall: /^w\d+_\d+$/,
     chest: /^chest_\d+_\d+$/,
+    chestBox: /^chestCollision_\d+_\d+$/,
     exit: /^exitDoor_\d+_\d+$/,
   };
 
@@ -50,6 +51,7 @@
     const laid = new Set();
     const solid = new Set();
     const chests = [];
+    const shut = new Map();
     let exit = null;
 
     for (const m of scene.meshes) {
@@ -59,6 +61,10 @@
       if (NAME.floor.test(n)) { floors.push([x, z]); laid.add(`${x},${z}`); }
       else if (NAME.wall.test(n)) solid.add(`${x},${z}`);
       else if (NAME.chest.test(n)) chests.push([x, z]);
+      // A chest's collision box stops you entering its square, and the game turns that
+      // off the moment it is opened - so it is both the obstacle and the "already had
+      // this one" flag, with nothing of ours to keep in step with the level.
+      else if (NAME.chestBox.test(n)) shut.set(`${x},${z}`, m.checkCollisions !== false);
       else if (NAME.exit.test(n)) exit = [x, z];
     }
     if (!floors.length) return null;
@@ -67,10 +73,14 @@
     // first floor square - the finer grid is offset from the one being walked.
     const x0 = Math.min(...floors.map((p) => p[0])) + SQUARE / 2;
     const z0 = Math.min(...floors.map((p) => p[1])) + SQUARE / 2;
-    const xMax = Math.max(...floors.map((p) => p[0]));
-    const zMax = Math.max(...floors.map((p) => p[1]));
-    const cols = Math.round((xMax + SQUARE / 2 - x0) / CELL) + 1;
-    const rows = Math.round((zMax + SQUARE / 2 - z0) / CELL) + 1;
+    // The outermost floor is the *far* square of the last cell, half a cell past its
+    // centre - so it is stepped back before counting, or the grid comes out a row and a
+    // column too large. The empty edge that made looked open until a cell with no floor
+    // was also called blocked, which hid this rather than fixing it.
+    const xMax = Math.max(...floors.map((p) => p[0])) - SQUARE / 2;
+    const zMax = Math.max(...floors.map((p) => p[1])) - SQUARE / 2;
+    const cols = Math.round((xMax - x0) / CELL) + 1;
+    const rows = Math.round((zMax - z0) / CELL) + 1;
 
     const cellOf = (x, z) => [(z - z0) / CELL, (x - x0) / CELL];
     const worldOf = (r, c) => [x0 + c * CELL, z0 + r * CELL];
@@ -102,6 +112,18 @@
       blocked.push(row);
     }
 
+    const chestList = chests.map(([x, z]) => ({
+      cell: cellOf(x, z).map(Math.round),
+      world: [x, z],
+      shut: shut.get(`${x},${z}`) !== false,
+    }));
+    // A shut chest fills its cell: you stand next to one and open it, you do not walk
+    // over it. Pathing to the chest's own square is what made the driver report the
+    // cell walled and then refuse to plan through it at all.
+    for (const ch of chestList) {
+      if (ch.shut && blocked[ch.cell[0]]) blocked[ch.cell[0]][ch.cell[1]] = true;
+    }
+
     const cam = scene.activeCamera;
     const player = cellOf(cam.position.x, cam.position.z).map(Math.round);
 
@@ -114,7 +136,7 @@
       player,
       facing: cam.rotation ? cam.rotation.y : 0,
       at: [round(cam.position.x), round(cam.position.z)],
-      chests: chests.map(([x, z]) => cellOf(x, z).map(Math.round)),
+      chests: chestList,
       // The door sits on a wall face, so its cell rounds to the square it opens from.
       exit: exit ? cellOf(exit[0], exit[1]).map(Math.round) : null,
       open: (r, c) => r >= 0 && c >= 0 && r < rows && c < cols && !blocked[r][c],
@@ -190,31 +212,63 @@
    * one is re-planned from where we actually are - which is what makes the route
    * through several of them short rather than a series of straight lines to each.
    */
-  function nextGoal(maze, opened) {
-    const seen = opened || new Set();
+  function nextGoal(maze) {
     let best = null;
-    for (const cell of maze.chests) {
-      if (seen.has(`${cell[0]},${cell[1]}`)) continue;
-      const path = findPath(maze, maze.player, cell);
-      if (!path) continue;
-      if (!best || path.length < best.path.length) best = { kind: 'chest', cell, path };
+    for (const ch of maze.chests) {
+      if (!ch.shut) continue;
+      // Stand beside it, not on it. Any of the four neighbours will do; the nearest one
+      // is the one worth walking to.
+      for (const [dr, dc] of STEPS) {
+        const stand = [ch.cell[0] + dr, ch.cell[1] + dc];
+        if (!maze.open(stand[0], stand[1])) continue;
+        const path = findPath(maze, maze.player, stand);
+        if (!path) continue;
+        if (!best || path.length < best.path.length) {
+          best = { kind: 'chest', cell: stand, target: ch, path };
+        }
+      }
     }
     if (best) return best;
     if (!maze.exit) return null;
     const path = findPath(maze, maze.player, maze.exit);
-    return path ? { kind: 'exit', cell: maze.exit, path } : null;
+    return path ? { kind: 'exit', cell: maze.exit, target: null, path } : null;
   }
 
   /**
-   * Which key to hold to get from where we are towards a neighbouring cell.
+   * Is the chest close enough and square enough on to open?
+   *
+   * The game's own rule, read off its click handler: within five world units, and
+   * within sixty degrees of where the camera looks (`dot(forward, toChest) > 0.5`).
+   * A cell is four units, so standing in the next cell along is inside the range with
+   * nothing to spare - which is why facing has to be right rather than roughly right.
+   */
+  function canOpen(maze, chest) {
+    const dx = chest.world[0] - maze.at[0];
+    const dz = chest.world[1] - maze.at[1];
+    const d2 = dx * dx + dz * dz;
+    if (d2 > OPEN_RANGE * OPEN_RANGE) return false;
+    if (d2 < 1e-6) return true;
+    const len = Math.sqrt(d2);
+    // The camera looks along (sin ry, cos ry), the same convention keyFor uses.
+    const fx = Math.sin(maze.facing);
+    const fz = Math.cos(maze.facing);
+    return (fx * dx + fz * dz) / len > OPEN_DOT;
+  }
+
+  /** How far and how square-on the game lets you open a chest. */
+  const OPEN_RANGE = 5;
+  const OPEN_DOT = 0.5;
+
+  /**
+   * Which key to tap to get from where we are towards a neighbouring cell.
    *
    * The controls are a dungeon crawler's, not a shooter's: W and S walk forward and
    * back along the way the camera looks, and A and D *turn* rather than strafe. This
    * was measured, and the first version had it wrong - it treated all four as compass
    * directions, sent S to go north, and the player stood still while the torch burned.
    *
-   * Turning costs time the torch is paying for, so a cell behind us is walked to
-   * backwards rather than turned towards: S covers it in one move where a turn would
+   * Turning costs a settle the torch is paying for, so a cell behind us is walked to
+   * backwards rather than turned towards: S covers it in one action where a turn would
    * take two.
    *
    *   returns { key, kind }  kind is 'move' when it closes distance, 'turn' when it
@@ -246,7 +300,161 @@
     return x;
   }
 
-  const api = { readMaze, findPath, nextGoal, keyFor, SQUARE, CELL, STEPS };
+  /** A tap settles in about this long: one cell walked, or one quarter turned. */
+  const SETTLE_MS = 700;
+
+  /** Give up on a level after this many actions rather than burn the torch in a loop. */
+  const ACTION_BUDGET = 400;
+
+  /**
+   * Drives the dungeon, one action per call.
+   *
+   * The controls turned out to be discrete, which is what makes this a state machine
+   * rather than a control loop: a *tap* of W or S walks exactly one cell, and a tap of
+   * A or D turns exactly a quarter, both settling in about 600ms. Holding a key is not
+   * a longer version of the same thing - it starts a free spin that ends wherever the
+   * animation happens to be, which is what the first attempt did.
+   *
+   * A tap that moves nothing is a wall. That is the only collision signal there is, and
+   * it is worth having: the grid is read from meshes and can be wrong at the edges.
+   *
+   * @param deps
+   *   scene   () => the live Babylon scene, or null
+   *   tap     (code) => void, pressing and releasing that key
+   *   click   ([x, z]) => void, a pointer press on that world position
+   *   now     () => ms
+   *   log     (tag, text, level?) => void
+   *
+   * `tap` rather than a raw event sender because the press has to last: a keydown and
+   * a keyup in the same turn of the event loop is not a keypress as far as the game is
+   * concerned, and the first driver sent exactly that - every move reported no movement
+   * and the maze filled up with walls that were not there. How long to hold it is the
+   * caller's business, not this file's, which is also what keeps the timer out of here.
+   */
+  function create(deps) {
+    const { scene, log } = deps;
+    const tap = deps.tap;
+    // Opening a chest is a click on it, not a key: the game picks whatever mesh is
+    // under the pointer and opens the one it finds. Which point on the canvas that is
+    // needs the engine's own picking, so it belongs to the caller - and it is not the
+    // middle of the view. The camera sits above the chest and looks level, so the
+    // chest lands below centre and a click at the middle sails over it.
+    const click = deps.click || (() => {});
+    const now = deps.now || Date.now;
+    const settleMs = deps.settleMs || SETTLE_MS;
+
+    let busyUntil = 0;
+    let pending = null;        // { key, from: [x, z], cell: [r, c] }
+    // Cells a tap proved solid. The maze is rebuilt from the scene on every step, so
+    // marking one on that object lasts exactly one tick and the driver walks into the
+    // same wall for as long as the torch holds out.
+    let walled = new Set();
+    let actions = 0;
+    let lastScene = null;
+
+    /**
+     * Everything about the level resets when the scene does.
+     *
+     * The scene object itself is the identity. Reading `window.__bd_dungeon` here
+     * instead would have been the one place this file reached out of its own
+     * dependencies - and it broke the tests the moment they ran without a browser,
+     * which is exactly what that rule is for.
+     */
+    function freshen(sc) {
+      if (lastScene === sc) return;
+      lastScene = sc;
+      walled = new Set();
+      actions = 0;
+      pending = null;
+      busyUntil = 0;
+    }
+
+    /**
+     * One action, or nothing while the last one is still settling.
+     * Returns false when there is no dungeon to drive.
+     */
+    function step() {
+      const sc = scene();
+      const maze = readMaze(sc);
+      if (!maze) { pending = null; return false; }
+      freshen(sc);
+      for (const at of walled) {
+        const [r, c] = at.split(',').map(Number);
+        if (maze.blocked[r]) maze.blocked[r][c] = true;
+      }
+
+      const t = now();
+      if (t < busyUntil) return true;
+
+      // Did the action that just settled do what it was for?
+      if (pending) {
+        const done = pending;
+        pending = null;
+        if (done.kind === 'move') {
+          const moved = done.from[0] !== maze.at[0] || done.from[1] !== maze.at[1];
+          if (!moved) {
+            // A wall the grid did not know about. Remembered, not merely marked on this
+            // tick's maze, so the next plan routes around it.
+            const at = `${done.cell[0]},${done.cell[1]}`;
+            if (!walled.has(at)) {
+              walled.add(at);
+              log('DGN', `(${at}) is walled after all`, 'warn');
+            }
+            if (maze.blocked[done.cell[0]]) maze.blocked[done.cell[0]][done.cell[1]] = true;
+            return true;
+          }
+        }
+      }
+
+      if (actions >= ACTION_BUDGET) return true;
+
+      const goal = nextGoal(maze);
+      if (!goal) return true;
+
+      // Standing beside the chest already: face it, then open it. Walking onto it is
+      // not a thing that can happen - its collision box fills the square - so arriving
+      // is never what opens one, and the first driver walked the whole route and came
+      // back with nothing.
+      if (goal.kind === 'chest' && !goal.path.length) {
+        const ch = goal.target;
+        if (canOpen(maze, ch)) {
+          // Nothing is recorded as opened here. The chest itself says so - the game
+          // swaps its material and drops its collisions - and an earlier version that
+          // ticked the box on its own account walked the whole level reporting chests
+          // it had never opened.
+          click(ch);
+          actions += 1;
+          busyUntil = t + settleMs;
+          return true;
+        }
+        // Not square enough on yet. Turn towards it a quarter at a time.
+        const act = keyFor(maze.facing, ch.cell[0] - maze.player[0], ch.cell[1] - maze.player[1]);
+        pending = { kind: 'turn', key: act.key, from: maze.at.slice(), cell: ch.cell };
+        tap(act.key);
+        actions += 1;
+        busyUntil = t + settleMs;
+        return true;
+      }
+
+      if (!goal.path.length) return true;
+      const next = goal.path[0];
+      const act = keyFor(maze.facing, next[0] - maze.player[0], next[1] - maze.player[1]);
+      pending = { kind: act.kind, key: act.key, from: maze.at.slice(), cell: next };
+      tap(act.key);
+      actions += 1;
+      busyUntil = t + settleMs;
+      return true;
+    }
+
+    return {
+      step,
+      /** For the panel and the tests: what it thinks it is doing. */
+      report: () => ({ actions, walled: [...walled], pending }),
+    };
+  }
+
+  const api = { create, readMaze, findPath, nextGoal, keyFor, canOpen,
+    SQUARE, CELL, STEPS, SETTLE_MS, OPEN_RANGE, OPEN_DOT };
 
   // The game runs Electron with node_integration, so `module` exists in the renderer
   // too, and the usual "module exists, therefore Node" check is wrong here.
