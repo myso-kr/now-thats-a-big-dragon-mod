@@ -187,8 +187,8 @@ test('with no anchors, the epilogue changes nothing', () => {
 
 const FONTS = [{
   replaces: 'everyday_standard',
-  family: 'bd_body',
-  url: 'fonts/bd-body.woff2',
+  family: 'bd_ko_body',
+  url: 'fonts/bd-ko-body.woff2',
   pxPerEm: 8,
   basePxPerEm: 6,
   ascentOverride: 150,
@@ -201,7 +201,7 @@ test('usages get the fallback, declarations do not', () => {
   const r = css.patch(src, FONTS, ['Malgun Gothic', 'sans-serif']);
   assert.strictEqual(r.faces, 1);
   assert.strictEqual(r.hits, 1, 'the declaration is left alone');
-  assert.ok(r.code.includes('everyday_standard, bd_body'));
+  assert.ok(r.code.includes('everyday_standard, bd_ko_body'));
 });
 
 test('size-adjust is the grid ratio', () => {

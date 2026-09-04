@@ -82,9 +82,16 @@ function loadFlag(url, offered) {
   return { name, data: fs.readFileSync(p) };
 }
 
-/** Answer the font requests planted in the CSS with the real files. */
-function loadFont(url, L) {
-  for (const f of (L ? L.fonts : [])) {
+/**
+ * Answer the font requests planted in the CSS with the real files.
+ *
+ * `offered` is every language in the settings list, not just the one being applied.
+ * The stylesheet now declares a face for each of them so the player can switch without
+ * reloading, and a font we do not answer is a language that renders in empty boxes -
+ * the same shape as the flags, which were served for the selected language alone.
+ */
+function loadFont(url, offered) {
+  for (const f of offered) {
     if (!url.includes(f.url)) continue;
     const p = path.join(FONT_DIR, f.file);
     if (!fs.existsSync(p)) {
@@ -280,6 +287,24 @@ function concatModules(entryPath, label) {
   return parts.join('\n');
 }
 
+/** Every language the settings screen offers, as the CSS patcher wants them. */
+function cssLanguages() {
+  const out = [];
+  for (const code of cfg.availableLanguages()) {
+    try {
+      const L = cfg.language(code);
+      if (!fs.existsSync(L.i18nPath)) continue;
+      out.push({ lang: code, fonts: L.fonts, fallback: L.fallback });
+    } catch (_) { /* a language with no catalogue entry is simply not offered */ }
+  }
+  return out;
+}
+
+/** Every font file any offered language asks for. */
+function offeredFonts() {
+  return cssLanguages().flatMap((L) => L.fonts);
+}
+
 /** The option labels of the language in play, keyed by dialogue file. */
 function dialogChoiceTable(L) {
   const dir = L && L.dialogsDir;
@@ -374,7 +399,7 @@ async function main() {
         return;
       }
 
-      const font = loadFont(url, L);
+      const font = loadFont(url, offeredFonts());
       if (font) {
         await cdp.send('Fetch.fulfillRequest', {
           requestId: p.requestId,
@@ -456,7 +481,7 @@ async function main() {
             warn('no store factory found. The resource cheats will not work.');
           }
         } else {
-          const out = patchCss(body, L ? L.fonts : [], L ? L.fallback : []);
+          const out = patchCss(body, cssLanguages());
           patched = out.code;
           log(`fonts: ${out.faces} @font-face, ${out.hits} stacks`);
         }

@@ -40,9 +40,9 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "FusionPixel8-zh_hans.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_zh_Hans_body",
+          "file": "bd-zh-Hans-body.woff2",
+          "url": "fonts/bd-zh-Hans-body.woff2",
           "pxPerEm": 8,
           "basePxPerEm": 6,
           "ascentOverride": 150,
@@ -50,9 +50,9 @@
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "FusionPixel10-zh_hans.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_zh_Hans_heading",
+          "file": "bd-zh-Hans-heading.woff2",
+          "url": "fonts/bd-zh-Hans-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -76,9 +76,9 @@
       "fonts": [
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_ru_heading",
+          "file": "bd-ru-heading.woff2",
+          "url": "fonts/bd-ru-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -121,9 +121,9 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "FusionPixel8-ja.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_ja_body",
+          "file": "bd-ja-body.woff2",
+          "url": "fonts/bd-ja-body.woff2",
           "pxPerEm": 8,
           "basePxPerEm": 6,
           "ascentOverride": 150,
@@ -131,9 +131,9 @@
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "FusionPixel10-ja.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_ja_heading",
+          "file": "bd-ja-heading.woff2",
+          "url": "fonts/bd-ja-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -156,9 +156,9 @@
       "fonts": [
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "High_Birth-bd.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_pl_heading",
+          "file": "bd-pl-heading.woff2",
+          "url": "fonts/bd-pl-heading.woff2",
           "pxPerEm": 9,
           "basePxPerEm": 9
         }
@@ -181,9 +181,9 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_ko_body",
+          "file": "bd-ko-body.woff2",
+          "url": "fonts/bd-ko-body.woff2",
           "pxPerEm": 8,
           "basePxPerEm": 6,
           "ascentOverride": 150,
@@ -191,9 +191,9 @@
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_ko_heading",
+          "file": "bd-ko-heading.woff2",
+          "url": "fonts/bd-ko-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -220,9 +220,9 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "FusionPixel8-zh_hant.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_zh_Hant_body",
+          "file": "bd-zh-Hant-body.woff2",
+          "url": "fonts/bd-zh-Hant-body.woff2",
           "pxPerEm": 8,
           "basePxPerEm": 6,
           "ascentOverride": 150,
@@ -230,9 +230,9 @@
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "FusionPixel10-zh_hant.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_zh_Hant_heading",
+          "file": "bd-zh-Hant-heading.woff2",
+          "url": "fonts/bd-zh-Hant-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -299,9 +299,9 @@
       "fonts": [
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_uk_heading",
+          "file": "bd-uk-heading.woff2",
+          "url": "fonts/bd-uk-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,
@@ -342,17 +342,17 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Everyday_Standard-bd.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_cs_body",
+          "file": "bd-cs-body.woff2",
+          "url": "fonts/bd-cs-body.woff2",
           "pxPerEm": 6,
           "basePxPerEm": 6
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "High_Birth-bd.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_cs_heading",
+          "file": "bd-cs-heading.woff2",
+          "url": "fonts/bd-cs-heading.woff2",
           "pxPerEm": 9,
           "basePxPerEm": 9
         }
@@ -375,17 +375,17 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Everyday_Standard-bd.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_hu_body",
+          "file": "bd-hu-body.woff2",
+          "url": "fonts/bd-hu-body.woff2",
           "pxPerEm": 6,
           "basePxPerEm": 6
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "High_Birth-bd.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_hu_heading",
+          "file": "bd-hu-heading.woff2",
+          "url": "fonts/bd-hu-heading.woff2",
           "pxPerEm": 9,
           "basePxPerEm": 9
         }
@@ -408,9 +408,9 @@
       "fonts": [
         {
           "replaces": "everyday_standard",
-          "family": "bd_body",
-          "file": "Galmuri7.woff2",
-          "url": "fonts/bd-body.woff2",
+          "family": "bd_vi_body",
+          "file": "bd-vi-body.woff2",
+          "url": "fonts/bd-vi-body.woff2",
           "pxPerEm": 8,
           "basePxPerEm": 6,
           "ascentOverride": 150,
@@ -418,9 +418,9 @@
         },
         {
           "replaces": "high_birth",
-          "family": "bd_heading",
-          "file": "Galmuri9.woff2",
-          "url": "fonts/bd-heading.woff2",
+          "family": "bd_vi_heading",
+          "file": "bd-vi-heading.woff2",
+          "url": "fonts/bd-vi-heading.woff2",
           "pxPerEm": 10,
           "basePxPerEm": 9,
           "ascentOverride": 122.222,

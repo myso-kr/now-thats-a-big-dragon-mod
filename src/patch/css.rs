@@ -44,6 +44,8 @@ use crate::language::Font;
 pub struct Report {
     pub faces: usize,
     pub stacks: usize,
+    /// One per language whose font the page can switch to.
+    pub rules: usize,
 }
 
 /// A percentage the way the Node reference writes it: four decimals at most, with
@@ -98,41 +100,107 @@ const BASE_FAMILIES: [&str; 2] = ["everyday_standard", "high_birth"];
 /// minimum width, so `flex-wrap` alone would still refuse to shrink.
 const LANGUAGE_ROW: &str = ".language-container{align-items:flex-start}.language-flags{flex-wrap:wrap;min-width:0;flex:1 1 auto;row-gap:8px}";
 
-pub fn patch(src: &str, fonts: &[Font], fallback: &[String]) -> (String, Report) {
-    let mut out = String::with_capacity(src.len() + 512);
+/// One language as the stylesheet needs it.
+pub struct CssLang<'a> {
+    pub lang: &'a str,
+    pub fonts: &'a [Font],
+    pub fallback: &'a [String],
+}
+
+/// Slot every bundled language's font in, and let the page pick by its own `lang`.
+///
+/// Every language offered, not only the one being applied. The settings screen lists
+/// them all and the game switches without reloading, so a stylesheet naming one font
+/// keeps that font after the player switches: Korean to Simplified Chinese used to keep
+/// Galmuri, which has none of the simplified characters, and drew 269 empty boxes.
+///
+/// The game funnels every family through `--font-primary` and `--font-heading`, and it
+/// already sets `document.documentElement.lang` and updates it on `languageChanged`.
+/// One `html[lang="xx"]` rule per language redefines those two, and the switch takes
+/// effect the moment the player makes it.
+///
+/// Mirrors `patch/css.js`; `tests/bundle.rs` compares the two byte for byte.
+pub fn patch_all(src: &str, langs: &[CssLang]) -> (String, Report) {
     let mut rep = Report::default();
+    let mut faces = String::new();
+    let mut rules = String::new();
+
+    for l in langs {
+        let sys: Vec<String> = l.fallback.iter().map(|f| quote_family(f)).collect();
+        let sys = sys.join(", ");
+        let mut mine: Vec<&Font> = Vec::new();
+        for f in l.fonts {
+            faces.push_str(&face(f));
+            rep.faces += 1;
+            mine.push(f);
+        }
+        if mine.is_empty() && sys.is_empty() {
+            continue;
+        }
+        let stack = |base: &str| {
+            let mut parts = vec![base.to_owned()];
+            if let Some(f) = mine.iter().find(|f| f.replaces == base) {
+                parts.push(f.family.clone());
+            }
+            if !sys.is_empty() {
+                parts.push(sys.clone());
+            }
+            parts.join(", ")
+        };
+        rules.push_str(&format!(
+            "html[lang={:?}]{{--font-primary:{};--font-heading:{}}}",
+            l.lang,
+            stack(BASE_FAMILIES[0]),
+            stack(BASE_FAMILIES[1])
+        ));
+        rep.rules += 1;
+    }
+
+    // Two places keep the bare name: inside an `@font-face`, where it *is* the font
+    // being defined, and inside a `--font-primary:` declaration, which the rules above
+    // override and which would otherwise refer to itself. Everything else that names a
+    // family directly becomes the variable, so the per-language rules govern all of it.
+    // With no language rule to govern them, funnelling the direct declarations through
+    // the variables would change the stylesheet for no gain - and patching with nothing
+    // to add has to leave it byte for byte as it was.
+    let body_out = if rep.rules == 0 {
+        src.to_owned()
+    } else {
+        rewrite_named(src, &mut rep)
+    };
 
     // @charset has to stay on the first line, so insert after it.
-    let insert_at = if src.starts_with("@charset") {
-        src.find(';').map(|i| i + 1).unwrap_or(0)
+    let insert_at = if body_out.starts_with("@charset") {
+        body_out.find(';').map(|i| i + 1).unwrap_or(0)
     } else {
         0
     };
-    out.push_str(&src[..insert_at]);
-    for f in fonts {
-        out.push_str(&face(f));
-        rep.faces += 1;
-    }
-    // Only when a language is actually being applied. With nothing to add, patching
-    // must leave the stylesheet byte for byte as it was.
-    if !fonts.is_empty() || !fallback.is_empty() {
-        out.push_str(LANGUAGE_ROW);
-    }
+    let row = if rep.faces > 0 || rep.rules > 0 {
+        LANGUAGE_ROW
+    } else {
+        ""
+    };
+    let mut out = String::with_capacity(body_out.len() + faces.len() + rules.len() + 64);
+    out.push_str(&body_out[..insert_at]);
+    out.push_str(&faces);
+    out.push_str(row);
+    out.push_str(&body_out[insert_at..]);
+    // The language rules go last: the game declares `--font-primary` on a selector of
+    // its own, and `html[lang="xx"]` only outranks it when it is more specific, which
+    // is not something to bet the whole font switch on. Last one wins on a tie.
+    out.push_str(&rules);
+    (out, rep)
+}
 
-    // Append our font behind the original wherever the original is used, so Latin
-    // glyphs still come from the game's font and only the rest falls through to ours.
-    // The @font-face declarations themselves are left alone.
-    let body = &src[insert_at..];
-    let mut cursor = 0usize;
-    let mut patched = String::with_capacity(body.len() + 256);
-
-    // Collect the @font-face block ranges up front so declarations can be skipped.
+/// Turn a family named directly into the variable it belongs to.
+fn rewrite_named(src: &str, rep: &mut Report) -> String {
+    // The @font-face blocks are collected up front so their own names can be skipped.
     let mut skip: Vec<(usize, usize)> = Vec::new();
     let mut from = 0;
-    while let Some(rel) = body[from..].find("@font-face") {
+    while let Some(rel) = src[from..].find("@font-face") {
         let at = from + rel;
-        if let Some(brace) = body[at..].find('{') {
-            if let Some(end) = crate::patch::scan::balanced(body, at + brace) {
+        if let Some(brace) = src[at..].find('{') {
+            if let Some(end) = crate::patch::scan::balanced(src, at + brace) {
                 skip.push((at, end));
                 from = end;
                 continue;
@@ -142,70 +210,73 @@ pub fn patch(src: &str, fonts: &[Font], fallback: &[String]) -> (String, Report)
     }
     let in_skip = |i: usize| skip.iter().any(|&(a, b)| i >= a && i < b);
 
-    let bytes = body.as_bytes();
+    let bytes = src.as_bytes();
+    let mut out = String::with_capacity(src.len() + 128);
+    let mut cursor = 0usize;
     let mut i = 0usize;
-    while i < body.len() {
-        // The name may be bare or quoted: `font-family:everyday_standard` and
-        // `--font-primary:"everyday_standard"` both occur. A quote has to stay
-        // wrapped around the original name alone — quoting the whole stack turns it
-        // into one nonexistent family name and nothing applies at all.
+    while i < src.len() {
         let quote = match bytes.get(i) {
             Some(&q @ (b'"' | b'\'')) => Some(q),
             _ => None,
         };
         let name_at = if quote.is_some() { i + 1 } else { i };
-        // Both base families are recognised, not only the ones we have a font for: a
-        // language may replace one slot and leave the other to the game's own font,
-        // and that slot still wants the system stack behind it.
         let hit = BASE_FAMILIES.iter().find(|name| {
-            if in_skip(i) || !body[name_at..].starts_with(**name) {
+            if in_skip(i) || !src[name_at..].starts_with(**name) {
                 return false;
             }
             let after = bytes.get(name_at + name.len());
             match quote {
-                // A quoted name has to be closed by the same quote, or this is some
-                // longer string that merely begins with the font name.
                 Some(q) => after == Some(&q),
-                // A bare name has to end here too — `everyday_standard_extra` is a
-                // different token, not this font.
                 None => !matches!(after, Some(c) if c.is_ascii_alphanumeric() || *c == b'_' || *c == b'-'),
             }
         });
-        match hit {
-            Some(name) => {
-                let ours = fonts.iter().find(|f| f.replaces == **name);
-                // Nothing to add means nothing to rewrite: counting this as a hit
-                // would report work that did not happen.
-                if ours.is_none() && fallback.is_empty() {
-                    i += 1;
-                    continue;
-                }
-                let end = name_at + name.len() + usize::from(quote.is_some());
-                patched.push_str(&body[cursor..i]);
-                patched.push_str(&body[i..end]); // the original, quotes and all
-                for extra in ours
-                    .map(|f| f.family.as_str())
-                    .into_iter()
-                    .chain(fallback.iter().map(String::as_str))
-                {
-                    patched.push_str(", ");
-                    patched.push_str(&quote_family(extra));
-                }
-                i = end;
-                cursor = i;
-                rep.stacks += 1;
-            }
-            None => i += 1,
+        let Some(name) = hit else {
+            i += 1;
+            continue;
+        };
+        let end = name_at + name.len() + usize::from(quote.is_some());
+
+        // A declaration of the variable itself is left alone; the rules override it.
+        //
+        // Skipping past the whole thing, not one byte. Node's regex consumes the
+        // quotes with the name, so it never looks inside again; stepping one byte on
+        // lands on the letter after the opening quote, matches the bare name there,
+        // and rewrites the inside of a string Node left alone.
+        let before = src[..i].trim_end();
+        if before.ends_with("--font-primary:")
+            || before.ends_with("--font-heading:")
+            || before.ends_with("--font-primary: \"")
+            || before.ends_with("--font-heading: \"")
+        {
+            i = end;
+            continue;
         }
+        out.push_str(&src[cursor..i]);
+        out.push_str(if *name == BASE_FAMILIES[0] {
+            "var(--font-primary)"
+        } else {
+            "var(--font-heading)"
+        });
+        i = end;
+        cursor = i;
+        rep.stacks += 1;
     }
-    patched.push_str(&body[cursor..]);
-    out.push_str(&patched);
-    (out, rep)
+    out.push_str(&src[cursor..]);
+    out
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// One language, the shape the tests were written against.
+    fn one<'a>(fonts: &'a [Font], fallback: &'a [String]) -> Vec<CssLang<'a>> {
+        vec![CssLang {
+            lang: "ko",
+            fonts,
+            fallback,
+        }]
+    }
 
     /// The Korean fonts, as the shipped catalogue defines them.
     fn ko_fonts() -> Vec<Font> {
@@ -221,17 +292,34 @@ mod tests {
 
     /// Patch with the Korean font set, which is what every case here is about.
     fn patch_ko(src: &str) -> (String, Report) {
-        patch(src, &ko_fonts(), &fallback())
+        patch_all(src, &one(&ko_fonts(), &fallback()))
     }
 
     #[test]
-    fn rewrites_usages_but_not_declarations() {
-        let css = "@font-face{font-family:everyday_standard;src:url(a.woff2)}\
-                   .t{font-family:everyday_standard}";
+    fn a_usage_becomes_the_variable_and_a_declaration_is_left_alone() {
+        // The stack lives in the per-language rule now. A usage that named the family
+        // directly is routed through the variable so that rule governs it too; the
+        // @font-face name *is* the font, and the variable's own declaration would
+        // otherwise refer to itself.
+        let css = "@font-face{font-family:everyday_standard;src:url(a.woff2)}                   :root{--font-primary: \"everyday_standard\"}                   .t{font-family:everyday_standard}";
         let (out, rep) = patch_ko(css);
         assert_eq!(rep.faces, 2, "two Korean faces are added");
-        assert_eq!(rep.stacks, 1, "one usage, and not the declaration");
-        assert!(out.contains("everyday_standard, bd_body, 'Malgun Gothic', sans-serif"));
+        assert_eq!(
+            rep.stacks, 1,
+            "the usage, and neither the face nor the declaration"
+        );
+        assert!(
+            out.contains(".t{font-family:var(--font-primary)}"),
+            "got: {out}"
+        );
+        assert!(
+            out.contains("@font-face{font-family:everyday_standard;"),
+            "got: {out}"
+        );
+        assert!(
+            out.contains("--font-primary: \"everyday_standard\""),
+            "got: {out}"
+        );
     }
 
     #[test]
@@ -241,28 +329,47 @@ mod tests {
         let (out, _) = patch_ko(".t{font-family:everyday_standard}");
         let decl = &out[out.find(".t{font-family:").unwrap()..];
         assert!(
-            decl.find("everyday_standard").unwrap() < decl.find("bd_body").unwrap(),
+            decl.find("everyday_standard").unwrap() < decl.find("bd_ko_body").unwrap(),
             "the original has to precede ours"
         );
     }
 
     #[test]
-    fn a_quoted_name_keeps_its_quotes_around_the_name_alone() {
-        // Wrapping the whole stack in one pair of quotes makes it a single family
-        // name that does not exist, so no font applies at all. That was a real bug.
-        let (out, rep) = patch_ko(".t{--font-primary:\"everyday_standard\"}");
-        assert_eq!(rep.stacks, 1);
+    fn the_stack_is_never_wrapped_in_one_pair_of_quotes() {
+        // Wrapping the whole stack in one pair makes it a single family name that does
+        // not exist, so no font applies at all. That was a real bug; it used to be
+        // possible at the usage sites and now it is only possible in the language rule,
+        // which is where it is guarded.
+        let (out, _) = patch_ko(".t{--font-primary:\"everyday_standard\"}");
+        let rule = &out[out.find("html[lang=").expect("a language rule")..];
         assert!(
-            out.contains("\"everyday_standard\", bd_body,"),
-            "got: {}",
-            &out[out.find("--font-primary").unwrap()..]
+            rule.starts_with("html[lang=\"ko\"]{--font-primary:everyday_standard, bd_ko_body,"),
+            "got: {rule}"
+        );
+        assert!(
+            !rule.contains("\"everyday_standard, "),
+            "the stack was quoted whole"
+        );
+    }
+
+    #[test]
+    fn a_quoted_declaration_of_the_variable_is_left_alone() {
+        // It is the thing the language rules override, and rewriting it to
+        // `var(--font-primary)` would make it refer to itself.
+        let (out, _) = patch_ko(".t{--font-primary:\"everyday_standard\"}");
+        assert!(
+            out.contains(".t{--font-primary:\"everyday_standard\"}"),
+            "got: {out}"
         );
     }
 
     #[test]
     fn single_quotes_work_the_same_way() {
         let (out, _) = patch_ko(".t{font-family:'high_birth'}");
-        assert!(out.contains("'high_birth', bd_heading,"), "got: {out}");
+        assert!(
+            out.contains("--font-heading:high_birth, bd_ko_heading,"),
+            "got: {out}"
+        );
     }
 
     #[test]
@@ -287,7 +394,7 @@ mod tests {
     #[test]
     fn the_font_url_climbs_out_of_the_assets_directory() {
         let (out, _) = patch_ko(".t{}");
-        assert!(out.contains("url(../fonts/bd-body.woff2)"), "got: {out}");
+        assert!(out.contains("url(../fonts/bd-ko-body.woff2)"), "got: {out}");
     }
 
     #[test]
@@ -317,23 +424,23 @@ mod tests {
 
     #[test]
     fn a_slot_with_no_font_of_ours_still_gets_the_system_stack() {
-        // Russian is the case: the game's own Everyday_Standard draws Cyrillic, so
-        // only the heading slot is replaced. The body slot must still fall through to
-        // the system font rather than being left alone.
+        // Russian is the case: the game's own Everyday_Standard draws Cyrillic, so only
+        // the heading slot is replaced. The body slot must still fall through to the
+        // system font rather than being left with the game's font alone.
         let heading = crate::assets::catalogue().unwrap().languages["ru"]
             .fonts
             .clone();
         let sys = vec!["Segoe UI".to_string(), "sans-serif".to_string()];
         let css = ".a{font-family:everyday_standard}.b{font-family:high_birth}";
-        let (out, rep) = patch(css, &heading, &sys);
+        let (out, rep) = patch_all(css, &one(&heading, &sys));
         assert_eq!(rep.faces, 1, "one @font-face, for the heading");
-        assert_eq!(rep.stacks, 2, "both slots are rewritten");
+        assert_eq!(rep.rules, 1, "one language rule");
         assert!(
-            out.contains("font-family:everyday_standard, 'Segoe UI', sans-serif}"),
+            out.contains("--font-primary:everyday_standard, 'Segoe UI', sans-serif"),
             "got: {out}"
         );
         assert!(
-            out.contains("font-family:high_birth, bd_heading, 'Segoe UI', sans-serif}"),
+            out.contains("--font-heading:high_birth, bd_ru_heading, 'Segoe UI', sans-serif"),
             "got: {out}"
         );
     }
@@ -356,7 +463,7 @@ mod tests {
     #[test]
     fn with_nothing_to_add_the_stylesheet_is_left_alone() {
         let css = ".a{font-family:everyday_standard}";
-        let (out, rep) = patch(css, &[], &[]);
+        let (out, rep) = patch_all(css, &one(&[], &[]));
         assert_eq!(out, css);
         assert_eq!(rep.stacks, 0, "a no-op must not report work");
     }

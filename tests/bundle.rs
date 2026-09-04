@@ -277,10 +277,26 @@ fn the_rust_css_matches_the_node_css_byte_for_byte() {
     };
     let src = std::fs::read_to_string(&src).expect("the original stylesheet");
     let want = std::fs::read_to_string(&want).expect("the Node stylesheet");
-    let plan = korean_plan();
-    let (got, rep) = bigdragon::patch::css::patch(&src, plan.fonts(), plan.fallback());
+    let cat = bigdragon::assets::catalogue().expect("locale/languages.json");
+    // Catalogue order, the same order Node's `availableLanguages()` walks, so the two
+    // stylesheets come out byte for byte identical rather than merely equivalent.
+    let codes = bigdragon::assets::available();
+    let defs: Vec<_> = codes
+        .iter()
+        .filter_map(|code| cat.languages.get(code).map(|d| (code.clone(), d.clone())))
+        .collect();
+    let langs: Vec<bigdragon::patch::css::CssLang> = defs
+        .iter()
+        .map(|(code, d)| bigdragon::patch::css::CssLang {
+            lang: code,
+            fonts: &d.fonts,
+            fallback: &d.fallback,
+        })
+        .collect();
+    let (got, rep) = bigdragon::patch::css::patch_all(&src, &langs);
 
-    assert!(rep.stacks > 0, "no font stack was rewritten at all");
+    // Every offered language gets a rule, or switching in game keeps the wrong font.
+    assert!(rep.rules > 1, "only {} language rules", rep.rules);
     if got == want {
         return;
     }

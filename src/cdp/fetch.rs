@@ -154,7 +154,29 @@ fn handle(
     }
     if url.contains("/assets/style-") && url.contains(".css") && plan.lang().is_some() {
         let src = response_body(s, id)?;
-        let (css, rep) = crate::patch::css::patch(&src, plan.fonts(), plan.fallback());
+        // Every language the settings screen offers, not just the one applied: the
+        // stylesheet declares a face for each so a switch in game picks the right font.
+        // Catalogue order, the same order Node's `availableLanguages()` walks, so the two
+        // stylesheets come out byte for byte identical rather than merely equivalent.
+        let codes = crate::assets::available();
+        let cat = crate::assets::catalogue().ok();
+        let carried: Vec<_> = codes
+            .iter()
+            .filter_map(|code| {
+                cat.as_ref()
+                    .and_then(|c| c.languages.get(code))
+                    .map(|d| (code.clone(), d.clone()))
+            })
+            .collect();
+        let langs: Vec<crate::patch::css::CssLang> = carried
+            .iter()
+            .map(|(code, d)| crate::patch::css::CssLang {
+                lang: code,
+                fonts: &d.fonts,
+                fallback: &d.fallback,
+            })
+            .collect();
+        let (css, rep) = crate::patch::css::patch_all(&src, &langs);
         // A language may bundle no font at all — Spanish and Thai do, because the
         // game's own font already draws Spanish and no pixel font draws Thai. Then
         // zero @font-face rules is the correct outcome, and what still has to happen

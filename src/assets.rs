@@ -195,9 +195,13 @@ mod tests {
     fn a_font_is_matched_by_the_url_we_planted() {
         let cat = catalogue().unwrap();
         let ko = &cat.languages["ko"];
-        assert!(font_for("gemshell://x/fonts/bd-body.woff2", &ko.fonts).is_some());
+        // From the catalogue, not written out here: each language has its own URL now,
+        // and a test that hardcodes one is a test that fails the day that changes for a
+        // reason it was never about.
+        let url = &ko.fonts[0].url;
+        assert!(font_for(&format!("gemshell://x/{url}"), &ko.fonts).is_some());
         assert!(font_for("gemshell://x/fonts/other.woff2", &ko.fonts).is_none());
-        assert!(font_for("gemshell://x/fonts/bd-body.woff2", &[]).is_none());
+        assert!(font_for(&format!("gemshell://x/{url}"), &[]).is_none());
     }
 
     #[test]

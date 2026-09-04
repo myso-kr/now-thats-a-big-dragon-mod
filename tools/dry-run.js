@@ -60,8 +60,14 @@ console.log(`dungeon scene: ${out.dungeon.scene || 'not found - autoplay cannot 
 console.log(`upgrade tree: ${out.tree.nodes ? out.tree.nodes + ' nodes in ' + out.tree.branches + ' branches' : 'not found'}`);
 console.log(`size: ${src.length.toLocaleString()} -> ${out.code.length.toLocaleString()} bytes`);
 
-const cssOut = patchCss(Buffer.from(css.data).toString('utf8'), L.fonts, L.fallback);
-console.log(`CSS fonts: ${cssOut.faces} @font-face, ${cssOut.hits} font stacks`);
+// Every language the settings screen will offer, not only the one selected: the
+// stylesheet declares a face for each so switching in game picks the right font.
+const cssLangs = cfg.availableLanguages().map((code) => {
+  const one = cfg.language(code);
+  return { lang: code, fonts: one.fonts, fallback: one.fallback };
+});
+const cssOut = patchCss(Buffer.from(css.data).toString('utf8'), cssLangs);
+console.log(`CSS fonts: ${cssOut.faces} @font-face, ${cssOut.rules} language rules, ${cssOut.hits} stacks rewritten`);
 
 // Only a bare argument is the output directory; flags are not paths. Treating
 // `--lang=xx` as one wrote the result somewhere nobody would look, while the report
