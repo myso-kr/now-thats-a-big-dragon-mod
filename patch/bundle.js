@@ -99,6 +99,10 @@ function patchBundle(src, koTables, lang, extras) {
   const stores = bridge.injectStoreBridge(code);
   code = stores.code;
 
+  // The dungeon's Babylon scene, which is otherwise reachable from nowhere.
+  const dungeon = bridge.injectDungeonBridge(code);
+  code = dungeon.code;
+
   // Three things the injected scripts read off `window`, put in front of the bundle
   // rather than into the prelude: the tree is read from this very source, so it cannot
   // be known before the bundle arrives, and the names come from the tables merged
@@ -122,6 +126,7 @@ function patchBundle(src, koTables, lang, extras) {
     stores: { wrapped: stores.wrapped, found: stores.found },
     dispatch: { id: dispatch.id },
     statsBridge: { id: stats.id },
+    dungeon: { scene: dungeon.scene },
   };
 }
 
@@ -150,5 +155,6 @@ module.exports = {
   injectStoreBridge: bridge.injectStoreBridge,
   injectDispatchBridge: bridge.injectDispatchBridge,
   injectStatsBridge: bridge.injectStatsBridge,
+  injectDungeonBridge: bridge.injectDungeonBridge,
   extractTree: tree.extractTree,
 };

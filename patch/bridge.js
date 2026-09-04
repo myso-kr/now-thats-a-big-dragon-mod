@@ -139,8 +139,72 @@ function injectStoreBridge(src) {
   return { code: b.code, wrapped: a.wrapped, found: b.found };
 }
 
+// ── The dungeon bridge ───────────────────────────────────────────────
+// The dungeon is a Babylon.js scene drawn to a canvas, not a grid of DOM tiles - so
+// there is nothing for autoplay to read the way it reads a dialogue. Its walls,
+// chests, enemies and exit exist only as meshes in that scene, and the scene itself
+// is a `const` inside a React effect: no ref holds it, so no fiber walk reaches it.
+//
+// So it is handed over at the one place it is knowable. The effect builds an engine
+// over the canvas, makes a scene on it, and immediately sets a clear colour:
+//
+//   const Kt=I.current, Wr=new Ye(Kt,!0), Ci=new _t(Wr); Ci.clearColor=new ke(0,0,0,1);
+//
+// That whole shape - `new X(canvas,!0)`, then a scene over it, then `.clearColor=` on
+// the scene - occurs exactly once in the eight megabytes, while `.clearColor=` alone
+// occurs seventeen times. Matching the shape rather than the name is what keeps it
+// from binding to a Babylon internal.
+const DUNGEON_PATTERN =
+  /([A-Za-z0-9_$]+)=new [A-Za-z0-9_$]+\([A-Za-z0-9_$]+,!0\),([A-Za-z0-9_$]+)=new [A-Za-z0-9_$]+\(\1\);\2\.clearColor=/;
+
+/**
+ * Expose the dungeon's Babylon scene as `window.__bd_dungeon`.
+ *
+ * The scene is replaced on every descent, so the handle is refreshed rather than kept:
+ * a stale scene still answers, and autoplay would be reading the maze it just left.
+ */
+function injectDungeonBridge(src) {
+  const m = src.match(DUNGEON_PATTERN);
+  if (!m) return { code: src, engine: null, scene: null };
+  const [engine, scene] = [m[1], m[2]];
+  // After the whole clear-colour statement, not inside its expression: the value being
+  // assigned is a constructor call, and splicing into it only produced an unbalanced
+  // paren and a bundle that would not parse.
+  const at = endOfStatement(src, m.index + m[0].length);
+  if (at < 0) return { code: src, engine: null, scene: null };
+  const set = `window.__bd_dungeon={scene:${scene},engine:${engine},at:Date.now()};`;
+  return { code: src.slice(0, at) + set + src.slice(at), engine, scene };
+}
+
+/**
+ * Just past the `;` that ends the statement starting at `from`.
+ *
+ * Only depth zero counts - `new ke(0,0,0,1)` has none of its own, but a future
+ * expression with a function literal in it would, and a `;` inside a string is not the
+ * end of anything.
+ */
+function endOfStatement(src, from) {
+  let depth = 0;
+  let quote = null;
+  for (let i = from; i < src.length; i += 1) {
+    const c = src[i];
+    if (quote) {
+      if (c === '\\') i += 1;
+      else if (c === quote) quote = null;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === '`') { quote = c; continue; }
+    if (c === '(' || c === '[' || c === '{') depth += 1;
+    else if (c === ')' || c === ']' || c === '}') depth -= 1;
+    else if (c === ';' && depth === 0) return i + 1;
+    if (depth < 0) return -1;
+  }
+  return -1;
+}
+
 module.exports = {
   injectStatsBridge,
+  injectDungeonBridge,
   injectDispatchBridge,
   injectStoreBridge,
   wrapStoreFactory,
