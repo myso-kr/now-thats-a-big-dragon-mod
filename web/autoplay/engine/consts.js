@@ -34,8 +34,12 @@
   // show_upgrade / unlock_upgrade are what the game's own UI emits right after a
   // purchase. The reducer does not do it for us, so we have to send them or the
   // tree never opens.
+  // `open_dungeon_crawler` is what the game's own key button dispatches, and going
+  // through it is the point: the reducer spends the key and starts the cooldown, so
+  // autoplay pays for a descent exactly as a player does. Opening the crawler store
+  // directly would let it farm for free.
   const ALLOWED = new Set(['buy_generator', 'buy_upgrade', 'activate_inspiration',
-    'change_level', 'show_upgrade', 'unlock_upgrade']);
+    'change_level', 'show_upgrade', 'unlock_upgrade', 'open_dungeon_crawler']);
   const BLOCKED = new Set(['clear_save', 'restart_level', 'reset_state', 'cheats', 'unlock_all']);
 
   // Never bought. Fixed price of 1 gold with a limit of 200, so any score model puts

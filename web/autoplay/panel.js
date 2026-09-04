@@ -107,6 +107,7 @@
     { key: 'buy', nm: 'Buying', ds: 'units, upgrades, resources' },
     { key: 'combat', nm: 'Combat', ds: 'clicking, mana, inspiration' },
     { key: 'dialog', nm: 'Dialogue', ds: 'advancing, choices' },
+    { key: 'dungeon', nm: 'Dungeon', ds: 'spends a key per descent' },
   ];
 
   let panel = null;

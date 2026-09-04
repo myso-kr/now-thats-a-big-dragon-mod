@@ -27,6 +27,8 @@
   // ── Configuration and state ──────────────────────────────────────
   const cfg = {
     buy: true, combat: true, dialog: true,
+    // Off by default: a descent spends a key, and that is the player's to give.
+    dungeon: false,
     // What to do once the boss is down.
     //   off      stop (the default, for when progress must not be undone)
     //   repeat   run the same chapter again (or repeatChapter, when set)
@@ -143,6 +145,93 @@
     cfg, log, hold, resourceFlow: resource.resourceFlow, RESOURCES: C.RESOURCES, doc: document,
   });
   const handleDialog = (snap) => (dialogs ? dialogs.handleDialog(snap) : false);
+
+  // ── The dungeon ──────────────────────────────────────────────────
+  // Its maze is a Babylon scene the bundle patch hands over, not DOM the way a dialogue
+  // is; engine/dungeon.js reads it and says which key to press next.
+  const dungeonMod = mod('dungeon');
+  const dungeonCanvas = () => document.querySelector('canvas[class*=mazeCanvas]');
+
+  /** Press a key at the canvas, held long enough to register as a press. */
+  function dungeonTap(code) {
+    const canvas = dungeonCanvas();
+    if (!canvas) return;
+    const codes = { KeyW: 87, KeyA: 65, KeyS: 83, KeyD: 68 };
+    const send = (type) => canvas.dispatchEvent(new KeyboardEvent(type, {
+      key: code.slice(3).toLowerCase(), code, keyCode: codes[code], which: codes[code],
+      bubbles: true, cancelable: true,
+    }));
+    send('keydown');
+    // A keydown and a keyup in the same turn of the event loop is not a press: the
+    // game saw nothing, every move reported no movement, and the maze filled up with
+    // walls that were not there.
+    setTimeout(() => send('keyup'), 40);
+  }
+
+  /**
+   * Click a chest or the door.
+   *
+   * Not the middle of the view: the camera sits above them and looks level, so they
+   * land below centre and a click at the middle sails over. The engine's own picking
+   * says where its ray actually lands, and that is the point pressed.
+   */
+  function dungeonClick() {
+    const scene = window.__bd_dungeon && window.__bd_dungeon.scene;
+    const canvas = scene && scene.getEngine && scene.getEngine().getRenderingCanvas();
+    if (!scene || !canvas) return false;
+    const rect = canvas.getBoundingClientRect();
+    for (let fy = 0.45; fy <= 0.92; fy += 0.03) {
+      for (let fx = 0.34; fx <= 0.67; fx += 0.03) {
+        const px = canvas.width * fx;
+        const py = canvas.height * fy;
+        const p = scene.pick(px, py);
+        if (!p || !p.hit || !p.pickedMesh) continue;
+        if (!/^(chest|exitDoor)/.test(p.pickedMesh.name)) continue;
+        const o = {
+          clientX: rect.left + px * (rect.width / canvas.width),
+          clientY: rect.top + py * (rect.height / canvas.height),
+          button: 0, buttons: 1, bubbles: true, cancelable: true,
+          pointerId: 1, pointerType: 'mouse', isPrimary: true, view: window,
+        };
+        canvas.dispatchEvent(new PointerEvent('pointerdown', o));
+        canvas.dispatchEvent(new PointerEvent('pointerup', Object.assign({}, o, { buttons: 0 })));
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const dungeon = dungeonMod && dungeonMod.create({
+    scene: () => (window.__bd_dungeon || {}).scene,
+    tap: dungeonTap,
+    click: dungeonClick,
+    log,
+  });
+
+  /** The crawler's own store: how many keys are left, and whether the door is cold. */
+  const dungeonState = () => {
+    const s = slotStore ? slotStore('dungeon-crawler') : null;
+    return s && s.getState ? s.getState() : null;
+  };
+
+  /**
+   * Run the dungeon, or step into one when it is paid for.
+   * True when it took the cycle.
+   */
+  function handleDungeon() {
+    if (!cfg.dungeon || !dungeon) return false;
+    if (dungeon.step()) return true;              // already inside
+
+    const d = dungeonState();
+    // The game's own condition on its key button, and going through its action is what
+    // spends the key and starts the cooldown. Descending any other way is farming free.
+    if (!d || d.currentLevel === 0 || d.keys <= 0 || d.remainingCooldown > 0) return false;
+    if (dispatch('open_dungeon_crawler')) {
+      log('DGN', `entering the dungeon (${d.keys - 1} keys left)`);
+      return true;
+    }
+    return false;
+  }
 
   // ── Auto click ───────────────────────────────────────────────────
   // Clicking the dragon is playing, not editing state, so autoplay owns it. It goes
@@ -308,6 +397,18 @@
     // unattended run for good.
     if (S.phase === 'HOLD') { S.stopReason = ''; }
     S.phase = 'RUNNING';
+
+    // Inside the dungeon nothing else applies: the main screen is not even drawn.
+    if (handleDungeon()) return;
+
+    // The click loop follows the switch, rather than only the state it was in when
+    // autoplay started. It used to be started once by start() and never looked at
+    // again, so turning Combat on from the panel mid-run flipped the flag and left the
+    // clicker stopped - autoplay looked like it was running and earned nothing, which
+    // on a fresh save means it earns nothing at all, because clicking is the only
+    // income there is until the first unit is affordable.
+    if (cfg.combat && !click.dragon) startClick();
+    else if (!cfg.combat && click.dragon) stopClick();
 
     if (cfg.combat) {
       // Inspiration is free and expires unused, so fire it the moment it is ready.
