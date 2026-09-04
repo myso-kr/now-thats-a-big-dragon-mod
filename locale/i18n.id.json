@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Peningkatan",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Tingkat berikutnya",
+    "currentLevel": "Saat ini",
+    "newGamePlusOnly": "Hanya di bab \"Pengelolaan Sumber Daya\"",
+    "max": "Maks",
+    "lockedMessage": "Tingkatkan {{parentSkill}} lagi untuk membuka yang ini",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Jari Besi",
+        "description": "+{{bonus}} kerusakan per klik",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Jari Bulu",
+        "description": "+{{bonus}} klik per detik"
+      },
+      "wakeupCall": {
+        "title": "Panggilan Bangun",
+        "description": "Setiap klik memperpendek pingsan {{bonus}} detik",
+        "prefix": "-",
+        "suffix": " dtk"
+      },
+      "electricalFinger": {
+        "title": "Jari Listrik",
+        "description": "Setiap klik berpeluang {{bonus}}% memanggil petir.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Klik Sempurna",
+        "description": "+{{bonus}}% peluang klik kritis",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Serangan Kritis",
+        "description": "+{{bonus}}x kerusakan pada klik kritis",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Ledakan Emas",
+        "description": "{{bonus}}x imbalan saat mengeklik burung",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Pemimpin Sejati",
+        "description": "Klik mengisi bilah inspirasi +{{bonus}}/klik",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Kursor Emas",
+        "description": "{{bonus}}x emas per klik",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Peti Penuh",
+        "description": "Peluat peti kosong di ruang bawah tanah berkurang {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Obat Pergelangan",
+        "description": "Tahan tombol tetikus untuk menyerang naga tanpa henti."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Pedang Pendek",
+        "description": "+{{bonus}}x pengali kerusakan untuk {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Pedang Panjang",
+        "description": "Tambahan +{{bonus}}x pengali kerusakan untuk prajurit",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Pedang Dua Tangan",
+        "description": "Sekali lagi +{{bonus}}x pengali kerusakan untuk prajurit",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Teriakan Perang",
+        "description": "Mengisi bilah inspirasi +{{bonus}} tiap pukulan",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Pekik Perang",
+        "description": "Menyalakan inspirasi sendiri pada ketukan berikutnya saat pengali sudah tertinggi"
+      },
+      "barbarian": {
+        "title": "Barbar",
+        "description": "+{{bonus}} kerusakan dasar",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Baju Zirah Tebal",
+        "description": "Kerusakan fisik berkurang {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Zirah Api",
+        "description": "Pasukan yang mati karena semburan api berkurang {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Batu Berat",
+        "description": "+{{bonus}}% kerusakan katapel tiap tingkat",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Bilah Perak",
+        "description": "+{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Bilah Emas",
+        "description": "Tambahan +{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Tentara Bayaran Setia",
+        "description": "{{typePlural}} yang kamu beli memberi +{{bonus}}x kerusakan tiap tingkat",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Pelayan Setia",
+        "description": "Biaya merekrut {{type}} dan yang di atasnya turun {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Kerja Sama",
+        "description": "Merekrut {{typePlural}} tambahan untuk setiap {{type}} yang kamu beli",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Ketepatan di Kedalaman",
+        "description": "+{{bonus}}% peluang serangan kritis di ruang bawah tanah",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Penghancur Labirin",
+        "description": "+{{bonus}} kerusakan kritis di ruang bawah tanah",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Panah Sihir",
+        "description": "+{{bonus}}x pengali kerusakan untuk {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Pedang Mana",
+        "description": "Tiap penyihir mengisi pedang seorang prajurit dengan mana. +{{bonus}}x pengali kerusakan selama mana di atas 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Tetikus Sihir",
+        "description": "Mengisi bilah mana +{{bonus}} tiap klik",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Aliran Mana",
+        "description": "Mengisi bilah mana para penyihir"
+      },
+      "manaPool": {
+        "title": "Kolam Mana",
+        "description": "Mana tertinggi naik {{bonus}}%",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Dorongan Mana",
+        "description": "Kerusakan penyihir berlipat dua selama mana di atas {{current}}",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Ramalan Cuaca",
+        "description": "+{{bonus}}% peluang petir menyambar",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Sambaran Petir",
+        "description": "Menambah satu petir sebesar +{{bonus}}x kerusakan {{type}} untuk tiap peningkatan yang dibeli",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Tongkat Perak",
+        "description": "+{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Tongkat Emas",
+        "description": "Tambahan +{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Api Sihir",
+        "description": "Obor menyala +{{bonus}} detik lebih lama",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Arkimagus",
+        "description": "+{{bonus}} kerusakan dasar",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Mata Pemburu",
+        "description": "+{{bonus}}% peluang mengenai burung dalam jangkauan tiap ketukan",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Bidikan Tajam",
+        "description": "+{{bonus}}% peluang tembakan kritis",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Pemotong Daun",
+        "description": "+{{bonus}}x kerusakan pada tembakan kritis",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Musim Berburu",
+        "description": "Segera memanggil sekawanan burung",
+        "suffix": " burung"
+      },
+      "elvenEyes": {
+        "title": "Mata Elf",
+        "description": "Kamu tetap melihat dalam gelap +{{bonus}} detik setelah obor padam",
+        "prefix": "+",
+        "suffix": " dtk"
+      },
+      "multipleShot": {
+        "title": "Tembakan Ganda",
+        "description": "Melepas satu panah tambahan tiap tingkat",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Panah Perak",
+        "description": "+{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Panah Emas",
+        "description": "Tambahan +{{bonus}}x pengali emas tiap pukulan",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Panah Es",
+        "description": "Memperlambat api naga {{bonus}} detik",
+        "prefix": "-",
+        "suffix": " dtk"
+      },
+      "animalInstinct": {
+        "title": "Naluri Hewan",
+        "description": "Katapel melontarkan kucing menggantikan batu, lalu harimau menggantikan kucing, tiap kali sepuluh kali lipat kerusakannya.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Penangkal Petir",
+        "description": "Berpeluang {{bonus}}% menarik satu petir lagi saat petir penyihir mengenai musuh.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Panah Daur Ulang",
+        "description": "Serangan elf memakai kayu lebih sedikit"
+      },
+      "lightfoot": {
+        "title": "Kaki Ringan",
+        "description": "+{{bonus}}% lebih cepat berjalan dan berbelok di ruang bawah tanah",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Tangan Cepat",
+        "description": "Memperpendek waktu menghasilkan emas {{bonus}} detik"
+      },
+      "sharpDagger": {
+        "title": "Bilah Pembunuh",
+        "description": "Pencuri ikut menyerang, dengan kerusakan {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Belati Beracun",
+        "description": "+{{bonus}}% peluang meracuni naga",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Mamba Hitam",
+        "description": "+{{bonus}}x kerusakan racun dari kerusakan pencuri",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Racun yang Bertahan",
+        "description": "Racun bertahan +{{bonus}} detik lebih lama",
+        "suffix": " dtk"
+      },
+      "smokeBomb": {
+        "title": "Bom Asap",
+        "description": "Memasang jebakan untuk naga dengan peluang {{current}}% meledak pada pukulan berikutnya dan menahannya.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Bom Kucing",
+        "description": "Peluru katapel meledak saat mengenai, kerusakan dua kali lipat.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Pencopet",
+        "description": "+{{bonus}}x pengali emas yang dihasilkan {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Kawat Pembuka",
+        "description": "Tiap penjelajahan dimulai dengan {{bonus}} pintu sudah terbuka."
+      },
+      "midasTouch": {
+        "title": "Sentuhan Midas",
+        "description": "Tambahan +{{bonus}}x pengali emas yang dihasilkan {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Peti Sesak",
+        "description": "+{{bonus}}% emas dari peti di ruang bawah tanah",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Garpu Tala",
+        "description": "+{{bonus}} inspirasi terkumpul",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Solo Kecapi",
+        "description": "+{{bonus}}x pengali inspirasi tertinggi",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Gitaris Menyebalkan",
+        "description": "Inspirasi bertahan +{{bonus}} detik lebih lama",
+        "suffix": " dtk"
+      },
+      "piercedEardrums": {
+        "title": "Gendang Telinga Pecah",
+        "description": "Penghitung raungan naga melambat {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Ulangan",
+        "description": "Berpeluang {{bonus}}% inspirasi mulai lagi begitu habis",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Penghalang Suara",
+        "description": "Penghitung api naga melambat {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofoniks",
+        "description": "Membuat pasukanmu sendiri pingsan begitu dibeli"
+      },
+      "churchChoir": {
+        "title": "Paduan Suara Gereja",
+        "description": "Merekrut 1 seminari tiap kali inspirasi menyala"
+      },
+      "encore": {
+        "title": "Encore",
+        "description": "Memperpendek jeda inspirasi {{bonus}} detik",
+        "suffix": " dtk"
+      },
+      "lockerRoomSpeech": {
+        "title": "Pidato Ruang Ganti",
+        "description": "Menghasilkan inspirasi saat permainan ditutup, pada {{current}}% dari lajunya",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Ketertiban di Kerajaan",
+        "description": "Saat permainan ditutup, musikmu membuat pengrajin lembur dan menghasilkan sumber daya pada {{current}}% dari laju biasa",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Nada Mayor",
+        "description": "Membeli satu kunci ruang bawah tanah. (Ya, permainan katanya memang payah.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Frekuensi Rapuh",
+        "description": "Musuh di ruang bawah tanah kebal {{bonus}} milidetik lebih singkat setelah tiap pukulan",
+        "prefix": "-",
+        "suffix": " md"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Bagian Kepegawaian Pahlawan",
+        "description": "+{{bonus}}% peluang merekrut pahlawan dua kali lipat",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Aura Berkah",
+        "description": "Pasukan yang mati karena semburan api berkurang {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Burung Terberkati",
+        "description": "Berpeluang {{current}}% seekor burung muncul terberkati dan memberi emas dua kali lipat",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Pemindahan Tenaga",
+        "description": "Tiap kali merekrut, mana penyihir terisi 0,5 untuk setiap rohaniwan yang kamu punya"
+      },
+      "generousLoot": {
+        "title": "Jarahan Melimpah",
+        "description": "Saat penjelajahan gagal, kamu tetap membawa {{current}}% jarahan.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Cahaya Ilahi",
+        "description": "+{{bonus}}% peluang menyalakan kembali obor yang padam",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Rekrut Prajurit",
+        "description": "Membuatmu bisa merekrut prajurit ke medan perang"
+      },
+      "recruitElves": {
+        "title": "Rekrut Elf",
+        "description": "Membuatmu bisa merekrut elf ke medan perang"
+      },
+      "recruitWizards": {
+        "title": "Rekrut Penyihir",
+        "description": "Membuatmu bisa merekrut penyihir ke medan perang"
+      },
+      "recruitBards": {
+        "title": "Rekrut Pujangga",
+        "description": "Membuatmu bisa merekrut pujangga ke medan perang"
+      },
+      "recruitThieves": {
+        "title": "Rekrut Pencuri",
+        "description": "Membuatmu bisa merekrut pencuri ke medan perang"
+      },
+      "recruitClerics": {
+        "title": "Rekrut Rohaniwan",
+        "description": "Membuatmu bisa merekrut rohaniwan ke medan perang"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Tambahkan ke daftar keinginan!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Waktu bertempur",
+      "dgps": "Kerusakan dan emas per detik",
+      "resourceBalance": "Neraca sumber daya"
+    },
+    "lifetime": {
+      "title": "Statistik total",
+      "totalPlaytime": "Total waktu bermain",
+      "totalGoldEarned": "Total emas didapat",
+      "totalGoldSpent": "Total emas dipakai",
+      "totalBirdsKilled": "Total burung dijatuhkan",
+      "totalClicks": "Total klik",
+      "totalHeroesRecruited": "Total pahlawan direkrut",
+      "heroesPurchased": "Dibeli",
+      "heroesRecruited": "Direkrut",
+      "tier1": "Tingkat 1 direkrut (dibeli)",
+      "tier2": "Tingkat 2 direkrut (dibeli)",
+      "tier3": "Tingkat 3 direkrut (dibeli)",
+      "totalDamageDealt": "Total kerusakan diberikan",
+      "totalUnitsDeadByFireBreath": "Hilang karena semburan api"
+    },
+    "battleDuration": "Berjalan: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Apa ini bisa dimenangkan?",
+    "infiniteEstimatedVictory": "Menang sungguhan itu mustahil!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Kamu pahlawan kami!</strong>]; (0-1000000000)[Menang dalam <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Klik atau tekan Z untuk menyerang naganya!</strong>]",
+    "perSec": "/dtk",
+    "generationSection": "Produksi",
+    "critSection": "Khusus",
+    "dps": "Kerusakan pasukan: <strong>{{dps}}/dtk</strong>",
+    "gps": "Emas pasukan: <strong>{{gps}}/dtk</strong>",
+    "dpc": "Kerusakan per klik: <strong>{{dpc}}/klik</strong>",
+    "gpc": "Emas per klik: <strong>{{gpc}}/klik</strong>",
+    "catapultDamage": "Kerusakan: <strong>{{damage}}/tembakan</strong>",
+    "catapultTimeToShoot": "Menuju tembakan berikutnya: <strong>{{time}} dtk</strong>",
+    "seconds_one": "detik",
+    "seconds_other": "detik",
+    "minutes_one": "menit",
+    "minutes_other": "menit",
+    "hours_one": "jam",
+    "hours_other": "jam",
+    "days_one": "hari",
+    "days_other": "hari",
+    "months_one": "bulan",
+    "months_other": "bulan",
+    "years_one": "tahun",
+    "years_other": "tahun",
+    "undo": {
+      "disabledLine": "Klik dalam 10 detik untuk membatalkan pembelian yang salah dan mendapatkan emasmu kembali.",
+      "enabledAction": "Klik untuk membatalkan pembelian {{count}} {{generator}}.",
+      "enabledRefund": "Kamu akan menerima {{refund}}.",
+      "enabledTimer": "Sisa {{seconds}} detik.",
+      "refundGold": "{{amount}} emas"
+    }
+  },
+  "generators": {
+    "generators": "Pasukan",
+    "buy": "beli {{amount}}",
+    "warrior_one": "Prajurit",
+    "warrior_other": "Prajurit",
+    "wizard_one": "Penyihir",
+    "wizard_other": "Penyihir",
+    "elf_one": "Elf",
+    "elf_other": "Elf",
+    "garrison_one": "Garnisun",
+    "garrison_other": "Garnisun",
+    "academy_one": "Akademi Sihir",
+    "academy_other": "Akademi Sihir",
+    "academy_short_one": "Akademi",
+    "academy_short_other": "Akademi",
+    "outpost_one": "Pos Pemanah",
+    "outpost_other": "Pos Pemanah",
+    "outpost_short_one": "Pos",
+    "outpost_short_other": "Pos",
+    "council_one": "Dewan Perang",
+    "council_other": "Dewan Perang",
+    "nexus_one": "Pusat Arkimagus",
+    "nexus_other": "Pusat Arkimagus",
+    "forest_one": "Hutan Purba",
+    "forest_other": "Hutan Purba",
+    "thief_one": "Pencuri",
+    "thief_other": "Pencuri",
+    "bard_one": "Pujangga",
+    "bard_other": "Pujangga",
+    "cleric_one": "Rohaniwan",
+    "cleric_other": "Rohaniwan",
+    "guild_one": "Serikat Pencuri",
+    "guild_other": "Serikat Pencuri",
+    "guild_short_one": "Serikat",
+    "guild_short_other": "Serikat",
+    "troupe_one": "Rombongan Penghibur",
+    "troupe_other": "Rombongan Penghibur",
+    "troupe_short_one": "Rombongan",
+    "troupe_short_other": "Rombongan",
+    "seminary_one": "Seminari Suci",
+    "seminary_other": "Seminari Suci",
+    "seminary_short_one": "Seminari",
+    "seminary_short_other": "Seminari",
+    "congress_one": "Sidang Bayangan",
+    "congress_other": "Sidang Bayangan",
+    "theater_one": "Teater Besar",
+    "theater_other": "Teater Besar",
+    "college_one": "Kolese Kardinal",
+    "college_other": "Kolese Kardinal",
+    "catapult_one": "Katapel",
+    "catapult_other": "Katapel",
+    "builder_one": "Tukang Bangunan",
+    "builder_other": "Tukang Bangunan",
+    "engineer_one": "Insinyur",
+    "engineer_other": "Insinyur",
+    "farmer_one": "Petani",
+    "farmer_other": "Petani",
+    "lumberjack_one": "Penebang Kayu",
+    "lumberjack_other": "Penebang Kayu",
+    "miner_one": "Penambang",
+    "miner_other": "Penambang",
+    "apprenticeships_one": "Magang",
+    "apprenticeships_other": "Magang",
+    "tradespeople_one": "Pengrajin",
+    "tradespeople_other": "Pengrajin",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} dtk"
+    },
+    "ngPlusProductionToggle": "Nyalakan atau matikan produksi",
+    "tabs": {
+      "troops": "Pasukan",
+      "support": "Pendukung"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Berhentikan pasukan agar sumber daya lebih hemat tetapi sebagian produksi tetap jalan."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Tenaga sihir di balik serangan para penyihir.",
+    "emptyManaDescription": "Beli \"Aliran Mana\" untuk menyerang lagi.",
+    "inspiration": "Inspirasi",
+    "inspirationDescription": "Saat aktif, kekuatan semua pahlawan dilipatgandakan.",
+    "unitDescription": {
+      "warrior": "Petarung jarak dekat yang tangguh.",
+      "wizard": "Menyerang dari jarak sedang, tetapi rapuh.",
+      "elf": "Memanah lincah dari jauh, di luar jangkauan naga.",
+      "garrison": "Markas berbenteng yang merekrut prajurit.",
+      "outpost": "Markas terpencil yang merekrut elf.",
+      "academy": "Sekolah yang melatih penyihir untuk bertempur.",
+      "council": "Organisasi militer yang mendirikan garnisun.",
+      "nexus": "Organisasi mistis yang mendirikan akademi.",
+      "forest": "Hutan suci yang mendirikan pos.",
+      "thief": "Licik: meracuni naga dan mencuri emasnya.",
+      "bard": "Bisa mengobarkan semangat pasukanmu.",
+      "cleric": "Melindungi dan merekrut pahlawan baru ke medan perang.",
+      "guild": "Jaringan bawah tanah yang merekrut pencuri.",
+      "troupe": "Rombongan keliling yang merekrut pujangga.",
+      "seminary": "Lembaga suci yang mendidik rohaniwan.",
+      "congress": "Organisasi dalam bayangan yang mendirikan serikat pencuri.",
+      "theater": "Lembaga megah yang mendirikan rombongan penghibur.",
+      "college": "Organisasi keagamaan yang mendirikan seminari.",
+      "catapult": "Senjata pengepung yang melukai naga dengan hebat.",
+      "builder": "Membangun bangunan tingkat dua.",
+      "engineer": "Mendirikan organisasi tingkat tiga.",
+      "farmer": "Menanam pangan untuk kerajaan.",
+      "lumberjack": "Menebang kayu untuk membangun.",
+      "miner": "Menambang bijih di pegunungan.",
+      "apprenticeships": "Melatih pengrajin."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} kerusakan/{{rate}} dtk",
+      "wizard": "{{generatorGeneration}} kerusakan/{{rate}} dtk",
+      "elf": "{{generatorGeneration}} kerusakan/{{rate}} dtk",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "thief": "+{{generatorGeneration}} emas/{{rate}} dtk",
+      "bard": "+{{generatorGeneration}} inspirasi/{{rate}} dtk",
+      "cleric": "+{{generatorGeneration}} pahlawan/{{rate}} dtk",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} dtk",
+      "catapult": "{{generatorGeneration}} kerusakan/{{rate}} dtk",
+      "builder": "+{{generatorGeneration}} bangunan/{{rate}} dtk",
+      "engineer": "+{{generatorGeneration}} organisasi/{{rate}} dtk",
+      "farmer": "+{{generatorGeneration}} pangan/{{rate}} dtk",
+      "lumberjack": "+{{generatorGeneration}} kayu/{{rate}} dtk",
+      "miner": "+{{generatorGeneration}} bijih/{{rate}} dtk",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} dtk"
+    },
+    "tabsAriaLabel": "tab pasukan"
+  },
+  "settings": {
+    "settings": "Pengaturan",
+    "buy_max": "Beli maks",
+    "audio": "Musik dan suara",
+    "game": "Permainan",
+    "graphics": "Grafik",
+    "offline_progress": "Kemajuan saat offline",
+    "wishlist_now": "Tambahkan ke daftar keinginan"
+  },
+  "menus": {
+    "settings": "Pengaturan",
+    "tabs": {
+      "game": "Permainan",
+      "graphics": "Grafik",
+      "audio": "Suara",
+      "levels": "Bab",
+      "saveData": "Data simpanan",
+      "credits": "Kredit"
+    },
+    "credits": {
+      "title": "Kredit",
+      "developedBy": "Dikembangkan oleh",
+      "developedWith": "Dikembangkan dengan",
+      "bigThanksTo": "Terima kasih besar kepada",
+      "theRestOfTheDiscordServer": "semua orang lain di server Discord",
+      "andYou": "dan kamu!"
+    },
+    "music": "Musik",
+    "sfx": "Efek suara",
+    "audioSettings": "Pengaturan suara",
+    "gameSettings": "Pengaturan permainan",
+    "graphicsSettings": "Pengaturan grafik",
+    "language": "Bahasa",
+    "languages": {
+      "en": "Inggris",
+      "fr": "Prancis",
+      "de": "Jerman",
+      "pt": "Portugis",
+      "tr": "Turki"
+    },
+    "shakeIntensity": "Getaran",
+    "largerTextSize": "Teks lebih besar",
+    "crtFilter": "Filter CRT",
+    "chromaticAberrationSlider": "Aberasi warna",
+    "chromaticAberration": "Aberasi warna",
+    "swordSwooshSounds": "Suara pedang dan kritis",
+    "catSounds": "Suara kucing",
+    "fullscreen": "Layar penuh",
+    "resume": "Lanjut bermain",
+    "close": "Tutup",
+    "quitGame": "Keluar dari permainan",
+    "joinDiscord": "Gabung Discord",
+    "clear_save_label": "Hapus kemajuanmu?",
+    "zoom_adjustment": "Perbesaran antarmuka",
+    "clear_save": "Hapus sekarang",
+    "are_you_sure": "Kamu yakin?",
+    "cannot_be_reversed": "Ini tidak bisa dibatalkan.",
+    "yes": "Ya",
+    "no": "Tidak",
+    "saveData": {
+      "title": "Data simpanan",
+      "clearChapterTitle": "Kemajuan tiap bab",
+      "clearChapterExplanation": "Menghapus emas, pasukan, peningkatan, kemajuan di ruang bawah tanah, dan tanda selesai untuk setiap bab. Bab yang sudah terbuka, statistik total, pengaturan, dan artefak tetap tersimpan.",
+      "clearChapterButton": "Hapus kemajuan tiap bab",
+      "clearFullTitle": "Seluruh data simpanan",
+      "clearFullExplanation": "Menghapus semua yang dihapus oleh penyetelan ulang bab, ditambah artefak, bab yang sudah terbuka, dan statistik total. Pengaturan suara, grafik, dan bahasa tetap tersimpan.",
+      "clearFullButton": "Hapus seluruh data simpanan",
+      "clearFullWarning": "Ini tidak bisa dibatalkan. Kamu akan kehilangan artefak, bab yang sudah terbuka, dan statistik total."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspirasi",
+    "inspirationDescription": "Saat aktif, kekuatan semua pahlawan dilipatgandakan.",
+    "maxInspiration": "Pengali tertinggi",
+    "maxInspirationMultiplier": "Pengali tertinggi",
+    "statisticsDescription": "Angka rinci tentang kemajuanmu dan jalannya pertempuran.",
+    "hudStopBird": "Hentikan burung",
+    "hudLifetimeStats": "Statistik total",
+    "hudHideWindows": "Sembunyikan jendela",
+    "events": {
+      "roar": "Raungan yang membuat pingsan",
+      "fire": "Semburan api",
+      "claw": "Sabetan cakar",
+      "dialog": "Kejadian khusus",
+      "pope_visit": "Tamu istimewa",
+      "dungeon_keys": "Rahasia yang kelam",
+      "missing_king": "Di mana rajanya?",
+      "catapult": "Purwarupa teknik",
+      "engineer": "Bantuan yang tepat waktu",
+      "invasion_start": "Serbuan sedang mendekat",
+      "invasion_end": "Kabar dari pasukan",
+      "apprenticeships_unlock": "Magang terbuka",
+      "trading": "Pedagang keliling",
+      "dummy_toy_reveal": "Ternyata bukan yang kukira"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Kejadian",
+      "stats": "Statistik",
+      "engineering": "Teknik",
+      "resources": "Sumber daya"
+    },
+    "tabs": {
+      "events": "Kejadian",
+      "stats": "Statistik",
+      "engineering": "Teknik",
+      "resources": "Sumber daya"
+    },
+    "tabsAriaLabel": "tab informasi"
+  },
+  "game": {
+    "dummy": "Boneka Kayu Raksasa",
+    "infiniteBird": "Burung yang tak bisa dijatuhkan",
+    "king": "Raja",
+    "smallDragon": "Tuth'orieth, Sang Tunas",
+    "bigDragon": "Forth'aarh, Pemberi dan Pengakhir Hidup"
+  },
+  "dungeon": {
+    "found": "Ditemukan",
+    "giveUp": "Menyerah",
+    "tooltipDescription": "Jelajahi ruang bawah tanah (tingkat {{level}})",
+    "cooldownMessage": "Ruang bawah tanah sedang beristirahat. Tunggu {{seconds}} detik untuk masuk lagi.",
+    "cooldownShort": "{{seconds}} dtk",
+    "levelLabel": "Tingkat",
+    "levelShort": "Tingkat {{level}}",
+    "keysOwned": "Kunci dimiliki",
+    "giveUpTooltip": "Tinggalkan ruang bawah tanah (sebagian jarahan tetap kamu bawa dengan Jarahan Melimpah)",
+    "moveHint": "WASD atau tombol panah untuk berjalan",
+    "attackHint": "Klik monster untuk menyerang",
+    "chestCountsTooltip": "{{opened}} dari {{total}} peti terbuka",
+    "exitDirection": "KELUAR"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Penjelajahan berhasil",
+      "titleFailed": "Penjelajahan gagal",
+      "titleStuckRescue": "Berhasil keluar dengan selamat",
+      "lootSummarySubtitle": "Ringkasan jarahan",
+      "body_one": "Mendapat {{gold}} emas dan {{grayKeys}} kunci",
+      "body_other": "Mendapat {{gold}} emas dan {{grayKeys}} kunci",
+      "artifactFound": "Menemukan {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Korban semburan api",
+      "body": "Kehilangan {{list}}",
+      "none": "Tidak ada korban"
+    },
+    "fireBreathBlocked": {
+      "title": "Semburan api berhasil dihentikan!",
+      "body": "Sebuah bom asap menyelamatkan pasukanmu."
+    },
+    "toastLabel": "Pemberitahuan permainan"
+  },
+  "levels": {
+    "title": "Bab",
+    "locked": "Terkunci",
+    "active": "Sedang berjalan",
+    "completed": "Selesai",
+    "continue": "Lanjut",
+    "start": "Mulai",
+    "restart": "Main ulang",
+    "restart_progress_warning": "Main ulang sekarang? Kemajuan yang belum tersimpan di bab ini akan hilang.",
+    "names": {
+      "mainGame": "Seekor Naga Besar",
+      "newGamePlus": "Pengelolaan Sumber Daya",
+      "dummy": "Mainan Bersihir",
+      "infinite": "Benar-benar Tak Berujung",
+      "kingBattle": "Pertempuran Terakhir Sang Raja"
+    }
+  },
+  "artifacts": {
+    "title": "Artefak",
+    "subtitle": "Artefak langka kadang muncul di peti khusus dalam ruang bawah tanah. Artefak tetap ada dari bab ke bab.",
+    "notYetFound": "(belum ditemukan)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Peluit Feniks",
+        "description": "Seekor burung istimewa membawa mata uang baru."
+      },
+      "emberforgedShield": {
+        "title": "Perisai Tempaan Bara",
+        "description": "Prajurit kebal terhadap api naga."
+      },
+      "moonwellFlask": {
+        "title": "Botol Sumur Bulan",
+        "description": "Penyihir hanya memakai separuh mana."
+      },
+      "windstepAnklet": {
+        "title": "Gelang Kaki Langkah Angin",
+        "description": "Elf tidak bisa dibuat pingsan."
+      },
+      "fangSatchel": {
+        "title": "Tas Taring",
+        "description": "Selama ronde berjalan, pencuri menghasilkan 1 taring naga tiap 30 menit."
+      },
+      "slumberBerries": {
+        "title": "Buah Lelap",
+        "description": "Racun memperlambat raungan dan api naga selama 10 detik."
+      },
+      "echoingLute": {
+        "title": "Kecapi Bergema",
+        "description": "Pujangga memberi inspirasi dua kali lipat."
+      },
+      "blessingCenser": {
+        "title": "Pedupaan Berkah",
+        "description": "Rohaniwan selalu merekrut dua kali lipat."
+      },
+      "victoryTusk": {
+        "title": "Gading Kemenangan",
+        "description": "Menyelesaikan satu tingkat memberi taring naga dua kali lipat."
+      },
+      "cartographersLedger": {
+        "title": "Buku Sang Pembuat Peta",
+        "description": "Menunjukkan berapa peti di ruang bawah tanah yang sudah dibuka."
+      },
+      "ironSkeletonKey": {
+        "title": "Kunci Induk Besi",
+        "description": "Membuka ruang bawah tanah sampai tingkat 20."
+      },
+      "everflameLantern": {
+        "title": "Lentera Api Abadi",
+        "description": "Obor tidak pernah padam."
+      },
+      "midasCoin": {
+        "title": "Koin Midas",
+        "description": "Emas di ruang bawah tanah menjadi dua kali lipat."
+      },
+      "harvestIdol": {
+        "title": "Arca Panen",
+        "description": "Produksi sumber daya naik 25%."
+      },
+      "titanGauntlet": {
+        "title": "Sarung Tangan Titan",
+        "description": "Kerusakan per klik sepuluh kali lipat."
+      },
+      "wayfindersCompass": {
+        "title": "Kompas Penunjuk Jalan",
+        "description": "Menunjuk ke arah pintu keluar."
+      },
+      "loadedDice": {
+        "title": "Dadu Curang",
+        "description": "Setiap klik menjadi kritis."
+      }
+    }
+  }
+}
