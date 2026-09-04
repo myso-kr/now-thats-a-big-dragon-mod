@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Parannukset",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Seuraava taso",
+    "currentLevel": "Nykyinen",
+    "newGamePlusOnly": "Vain luvussa \"Resurssien hallinta\"",
+    "max": "Maks",
+    "lockedMessage": "Paranna {{parentSkill}} lisää avataksesi tämän",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Rautasormi",
+        "description": "+{{bonus}} vahinkoa napsautusta kohti",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Höyhensormi",
+        "description": "+{{bonus}} napsautusta sekunnissa"
+      },
+      "wakeupCall": {
+        "title": "Herätys",
+        "description": "Jokainen napsautus lyhentää lamaannusta {{bonus}} sekuntia",
+        "prefix": "-",
+        "suffix": " s"
+      },
+      "electricalFinger": {
+        "title": "Sähkösormi",
+        "description": "Jokaisella napsautuksella on {{bonus}} %:n mahdollisuus kutsua salama.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Täydellinen napsautus",
+        "description": "+{{bonus}} % mahdollisuus kriittiseen napsautukseen",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kriittinen isku",
+        "description": "+{{bonus}}x vahinko kriittisestä napsautuksesta",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Kultainen räjähdys",
+        "description": "{{bonus}}x palkinto lintuja napsauttaessa",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Syntynyt johtaja",
+        "description": "Napsautukset täyttävät innoituspalkkia +{{bonus}}/napsautus",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Kultaosoitin",
+        "description": "{{bonus}}x kulta napsautusta kohti",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Täydet arkut",
+        "description": "{{bonus}} % pienempi mahdollisuus, että luolaston arkku on tyhjä",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Ranteen hoito",
+        "description": "Pidä hiiren nappi pohjassa hyökätäksesi lohikäärmeeseen tauotta."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Lyhytmiekka",
+        "description": "+{{bonus}}x vahinkokerroin: {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Pitkämiekka",
+        "description": "Vielä +{{bonus}}x vahinkokerroin sotureille",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Kaksikätinen miekka",
+        "description": "Jälleen +{{bonus}}x vahinkokerroin sotureille",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Taisteluhuuto",
+        "description": "Täyttää innoituspalkkia +{{bonus}} iskua kohti",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Sotahuuto",
+        "description": "Käynnistää innoituksen itsestään seuraavalla tikillä, kun kerroin on suurimmillaan"
+      },
+      "barbarian": {
+        "title": "Barbaari",
+        "description": "+{{bonus}} perusvahinko",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Paksu haarniska",
+        "description": "{{bonus}} % vähemmän fyysistä vahinkoa",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Tulihaarniska",
+        "description": "{{bonus}} % vähemmän joukkoja kuolee tulenhenkäykseen",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Raskaat kivet",
+        "description": "+{{bonus}} % katapultin vahinkoa tasoa kohti",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Hopeaterä",
+        "description": "+{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Kultaterä",
+        "description": "Vielä +{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Uskolliset palkkasoturit",
+        "description": "Ostamasi {{typePlural}} tekevät +{{bonus}}x vahinkoa tasoa kohti",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Uskolliset palvelijat",
+        "description": "{{type}} ja sitä ylemmät ovat {{bonus}} % halvempia värvätä",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Yhteistyö",
+        "description": "Värvää ylimääräisiä {{typePlural}} jokaista ostamaasi {{type}} kohti",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Tarkkuus syvyyksissä",
+        "description": "+{{bonus}} % mahdollisuus kriittiseen osumaan luolastossa",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Labyrintin murskaaja",
+        "description": "+{{bonus}} kriittistä vahinkoa luolastossa",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Taikaohjus",
+        "description": "+{{bonus}}x vahinkokerroin: {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Manamiekka",
+        "description": "Jokainen velho lataa soturin miekan manalla. +{{bonus}}x vahinkokerroin, kun mana on yli 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Taikahiiri",
+        "description": "Täyttää manapalkkia +{{bonus}} napsautusta kohti",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Manavirta",
+        "description": "Täyttää velhojen manapalkin"
+      },
+      "manaPool": {
+        "title": "Manalähde",
+        "description": "+{{bonus}} % suurin mana",
+        "suffix": " manaa"
+      },
+      "manaBoost": {
+        "title": "Manapurske",
+        "description": "Velhojen vahinko kaksinkertaistuu, kun mana on yli {{current}}",
+        "suffix": " manaa"
+      },
+      "weatherForecast": {
+        "title": "Sääennuste",
+        "description": "+{{bonus}} % mahdollisuus salamaniskuun",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Salamanisku",
+        "description": "Lisää salaman, joka tekee +{{bonus}}x vahingon lähteestä {{type}} jokaista ostettua parannusta kohti",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Hopeasauva",
+        "description": "+{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Kultasauva",
+        "description": "Vielä +{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Taikatuli",
+        "description": "Soihtu palaa +{{bonus}} sekuntia pidempään",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Arkkimaagi",
+        "description": "+{{bonus}} perusvahinko",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Metsästäjän silmä",
+        "description": "+{{bonus}} % mahdollisuus osua kantaman sisällä olevaan lintuun tikkiä kohti",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Tarkka tähtäys",
+        "description": "+{{bonus}} % mahdollisuus kriittiseen laukaukseen",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Lehdenleikkaaja",
+        "description": "+{{bonus}}x vahinko kriittisestä laukauksesta",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Metsästyskausi",
+        "description": "Kutsuu heti lintuparven",
+        "suffix": " lintua"
+      },
+      "elvenEyes": {
+        "title": "Haltiansilmät",
+        "description": "Näet pimeässä vielä +{{bonus}} sekuntia soihdun sammuttua",
+        "prefix": "+",
+        "suffix": " s"
+      },
+      "multipleShot": {
+        "title": "Useampi nuoli",
+        "description": "Ampuu yhden nuolen lisää tasoa kohti",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Hopeanuoli",
+        "description": "+{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Kultanuoli",
+        "description": "Vielä +{{bonus}}x kerroin kultaan iskua kohti",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Jäänuoli",
+        "description": "Hidastaa lohikäärmeen tulta {{bonus}} sekuntia",
+        "prefix": "-",
+        "suffix": " s"
+      },
+      "animalInstinct": {
+        "title": "Eläimen vaisto",
+        "description": "Katapultti ampuu kissoja kivien sijaan ja tiikereitä kissojen sijaan, joka kerta kymmenkertaisella vahingolla.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Ukkosenjohdatin",
+        "description": "{{bonus}} % mahdollisuus vetää vielä yksi salama, kun velhojen salama osuu.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Kierrätetyt nuolet",
+        "description": "Haltioiden hyökkäys kuluttaa vähemmän puuta"
+      },
+      "lightfoot": {
+        "title": "Kevytjalka",
+        "description": "+{{bonus}} % nopeampi liikkua ja kääntyä luolastossa",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Nopeat kädet",
+        "description": "Lyhentää kullan tuottamiseen kuluvaa aikaa {{bonus}} sekuntia"
+      },
+      "sharpDagger": {
+        "title": "Salamurhaajan terä",
+        "description": "Varkaat hyökkäävät myös, vahingolla {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Myrkytetty tikari",
+        "description": "+{{bonus}} % mahdollisuus myrkyttää lohikäärme",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Musta mamba",
+        "description": "+{{bonus}}x myrkkyvahinko varkaiden vahingosta",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Viipyvä myrkky",
+        "description": "Myrkky kestää +{{bonus}} sekuntia pidempään",
+        "suffix": " s"
+      },
+      "smokeBomb": {
+        "title": "Savupommi",
+        "description": "Virittää ansan lohikäärmeelle {{current}} %:n mahdollisuudella lauketa seuraavalla iskulla ja torjua se.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Kissapommi",
+        "description": "Katapultin ammus räjähtää osuessaan, kaksinkertainen vahinko.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Taskuvaras",
+        "description": "+{{bonus}}x kerroin kultaan jonka {{type}} tuottaa",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Tiirikka",
+        "description": "Jokainen retki alkaa {{bonus}} ovea jo auki."
+      },
+      "midasTouch": {
+        "title": "Midaan kosketus",
+        "description": "Vielä +{{bonus}}x kerroin kultaan jonka {{type}} tuottaa",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Täyteen ahdetut arkut",
+        "description": "+{{bonus}} % kultaa luolaston arkuista",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Ääniraudan",
+        "description": "+{{bonus}} innoitusta kertyy",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Luuttusoolo",
+        "description": "+{{bonus}}x suurin innoituskerroin",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Sietämätön kitaristi",
+        "description": "Innoitus kestää +{{bonus}} sekuntia pidempään",
+        "suffix": " s"
+      },
+      "piercedEardrums": {
+        "title": "Puhjenneet tärykalvot",
+        "description": "Lohikäärmeen karjaisulaskuri hidastuu {{bonus}} %",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Ylimääräinen",
+        "description": "{{bonus}} % mahdollisuus, että innoitus alkaa alusta sen loppuessa",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Ääniaalto",
+        "description": "Lohikäärmeen tulilaskuri hidastuu {{bonus}} %",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofoniks",
+        "description": "Lamauttaa omat joukkosi, kun hänet ostaa"
+      },
+      "churchChoir": {
+        "title": "Kirkkokuoro",
+        "description": "Värvää 1 seminaarin joka kerta kun innoitus laukeaa"
+      },
+      "encore": {
+        "title": "Encore",
+        "description": "Lyhentää innoituksen taukoa {{bonus}} sekuntia",
+        "suffix": " s"
+      },
+      "lockerRoomSpeech": {
+        "title": "Puhe pukuhuoneessa",
+        "description": "Tuottaa innoitusta pelin ollessa suljettuna, {{current}} %:n tahdilla",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Järjestys kuningaskunnassa",
+        "description": "Pelin ollessa suljettuna musiikkisi saa käsityöläiset tekemään ylitöitä ja tuottamaan resursseja {{current}} %:n tahdilla tavallisesta",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Duurisävellaji",
+        "description": "Ostaa yhden luolaston avaimen. (Kyllä, sanaleikki on kehno.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Haavoittuvat taajuudet",
+        "description": "Luolaston viholliset ovat kuolemattomia {{bonus}} millisekuntia lyhemmän ajan jokaisen iskun jälkeen",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Sankarien henkilöstöosasto",
+        "description": "+{{bonus}} % mahdollisuus värvätä kaksinkertainen määrä",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Siunattu aura",
+        "description": "{{bonus}} % vähemmän joukkoja kuolee tulenhenkäykseen",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Siunattu lintu",
+        "description": "{{current}} % mahdollisuus, että lintu ilmestyy siunattuna ja antaa kaksinkertaisen kullan",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Voimansiirto",
+        "description": "Jokaisella värväyksellä velhojen mana täyttyy 0,5 jokaista pappia kohti"
+      },
+      "generousLoot": {
+        "title": "Antelias saalis",
+        "description": "Kun retki epäonnistuu, saat silti pitää {{current}} % saaliista.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Jumalallinen valo",
+        "description": "+{{bonus}} % mahdollisuus sytyttää sammunut soihtu uudelleen",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Värvää sotureita",
+        "description": "Antaa värvätä sotureita taisteluun"
+      },
+      "recruitElves": {
+        "title": "Värvää haltioita",
+        "description": "Antaa värvätä haltioita taisteluun"
+      },
+      "recruitWizards": {
+        "title": "Värvää velhoja",
+        "description": "Antaa värvätä velhoja taisteluun"
+      },
+      "recruitBards": {
+        "title": "Värvää bardeja",
+        "description": "Antaa värvätä bardeja taisteluun"
+      },
+      "recruitThieves": {
+        "title": "Värvää varkaita",
+        "description": "Antaa värvätä varkaita taisteluun"
+      },
+      "recruitClerics": {
+        "title": "Värvää pappeja",
+        "description": "Antaa värvätä pappeja taisteluun"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Lisää toivelistalle!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Taisteluaika",
+      "dgps": "Vahinko ja kulta sekunnissa",
+      "resourceBalance": "Resurssitase"
+    },
+    "lifetime": {
+      "title": "Kokonaistilastot",
+      "totalPlaytime": "Peliaika yhteensä",
+      "totalGoldEarned": "Kultaa ansaittu yhteensä",
+      "totalGoldSpent": "Kultaa käytetty yhteensä",
+      "totalBirdsKilled": "Lintuja pudotettu yhteensä",
+      "totalClicks": "Napsautuksia yhteensä",
+      "totalHeroesRecruited": "Sankareita värvätty yhteensä",
+      "heroesPurchased": "Ostettu",
+      "heroesRecruited": "Värvätty",
+      "tier1": "Taso 1 värvätty (ostettu)",
+      "tier2": "Taso 2 värvätty (ostettu)",
+      "tier3": "Taso 3 värvätty (ostettu)",
+      "totalDamageDealt": "Vahinkoa tehty yhteensä",
+      "totalUnitsDeadByFireBreath": "Menetetty tulenhenkäykselle"
+    },
+    "battleDuration": "Kulunut: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Voiko tämän edes voittaa?",
+    "infiniteEstimatedVictory": "Todellinen voitto on mahdoton!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Olet sankarimme!</strong>]; (0-1000000000)[Voitto <strong>{{count}} {{timePrefix}}</strong> kuluttua];(1000000001-inf)[<strong class='text-danger'>Napsauta tai paina Z hyökätäksesi lohikäärmeen kimppuun!</strong>]",
+    "perSec": "/s",
+    "generationSection": "Tuotanto",
+    "critSection": "Erikoista",
+    "dps": "Joukkojen vahinko: <strong>{{dps}}/s</strong>",
+    "gps": "Joukkojen kulta: <strong>{{gps}}/s</strong>",
+    "dpc": "Vahinko napsautusta kohti: <strong>{{dpc}}/napsautus</strong>",
+    "gpc": "Kulta napsautusta kohti: <strong>{{gpc}}/napsautus</strong>",
+    "catapultDamage": "Vahinko: <strong>{{damage}}/laukaus</strong>",
+    "catapultTimeToShoot": "Seuraavaan laukaukseen: <strong>{{time}} s</strong>",
+    "seconds_one": "sekunti",
+    "seconds_other": "sekuntia",
+    "minutes_one": "minuutti",
+    "minutes_other": "minuuttia",
+    "hours_one": "tunti",
+    "hours_other": "tuntia",
+    "days_one": "päivä",
+    "days_other": "päivää",
+    "months_one": "kuukausi",
+    "months_other": "kuukautta",
+    "years_one": "vuosi",
+    "years_other": "vuotta",
+    "undo": {
+      "disabledLine": "Napsauta 10 sekunnin kuluessa peruaksesi väärän oston ja saadaksesi kullat takaisin.",
+      "enabledAction": "Napsauta peruaksesi oston: {{count}} {{generator}}.",
+      "enabledRefund": "Saat takaisin {{refund}}.",
+      "enabledTimer": "{{seconds}} sekuntia jäljellä.",
+      "refundGold": "{{amount}} kultaa"
+    }
+  },
+  "generators": {
+    "generators": "Joukot",
+    "buy": "osta {{amount}}",
+    "warrior_one": "Soturi",
+    "warrior_other": "Soturia",
+    "wizard_one": "Velho",
+    "wizard_other": "Velhoa",
+    "elf_one": "Haltia",
+    "elf_other": "Haltiaa",
+    "garrison_one": "Varuskunta",
+    "garrison_other": "Varuskuntaa",
+    "academy_one": "Taikaopisto",
+    "academy_other": "Taikaopistoa",
+    "academy_short_one": "Opisto",
+    "academy_short_other": "Opistoa",
+    "outpost_one": "Jousimiesten etuvartio",
+    "outpost_other": "Jousimiesten etuvartiota",
+    "outpost_short_one": "Etuvartio",
+    "outpost_short_other": "Etuvartiota",
+    "council_one": "Sotaneuvosto",
+    "council_other": "Sotaneuvostoa",
+    "nexus_one": "Arkkimaagien keskus",
+    "nexus_other": "Arkkimaagien keskusta",
+    "forest_one": "Ikimetsä",
+    "forest_other": "Ikimetsää",
+    "thief_one": "Varas",
+    "thief_other": "Varasta",
+    "bard_one": "Bardi",
+    "bard_other": "Bardia",
+    "cleric_one": "Pappi",
+    "cleric_other": "Pappia",
+    "guild_one": "Varkaiden kilta",
+    "guild_other": "Varkaiden kiltaa",
+    "guild_short_one": "Kilta",
+    "guild_short_other": "Kiltaa",
+    "troupe_one": "Kiertue",
+    "troupe_other": "Kiertuetta",
+    "troupe_short_one": "Seurue",
+    "troupe_short_other": "Seuruetta",
+    "seminary_one": "Pyhä seminaari",
+    "seminary_other": "Pyhää seminaaria",
+    "seminary_short_one": "Seminaari",
+    "seminary_short_other": "Seminaaria",
+    "congress_one": "Varjokokous",
+    "congress_other": "Varjokokousta",
+    "theater_one": "Suuri teatteri",
+    "theater_other": "Suurta teatteria",
+    "college_one": "Kardinaalikollegio",
+    "college_other": "Kardinaalikollegiota",
+    "catapult_one": "Katapultti",
+    "catapult_other": "Katapulttia",
+    "builder_one": "Rakentaja",
+    "builder_other": "Rakentajaa",
+    "engineer_one": "Insinööri",
+    "engineer_other": "Insinööriä",
+    "farmer_one": "Maanviljelijä",
+    "farmer_other": "Maanviljelijää",
+    "lumberjack_one": "Metsuri",
+    "lumberjack_other": "Metsuria",
+    "miner_one": "Kaivosmies",
+    "miner_other": "Kaivosmiestä",
+    "apprenticeships_one": "Oppisopimus",
+    "apprenticeships_other": "Oppisopimusta",
+    "tradespeople_one": "Käsityöläinen",
+    "tradespeople_other": "Käsityöläistä",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} s"
+    },
+    "ngPlusProductionToggle": "Kytke tuotanto päälle tai pois",
+    "tabs": {
+      "troops": "Joukot",
+      "support": "Tuki"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Erota joukkoja kuluttaaksesi vähemmän resursseja ja säilyttääksesi silti osan tuotannosta."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Taikavoima velhojen hyökkäysten takana.",
+    "emptyManaDescription": "Osta \"Manavirta\" hyökätäksesi uudelleen.",
+    "inspiration": "Innoitus",
+    "inspirationDescription": "Kun se on käynnissä, kaikkien sankarien voima moninkertaistuu.",
+    "unitDescription": {
+      "warrior": "Sitkeitä lähitaistelijoita.",
+      "wizard": "Iskee keskimatkalta, mutta kestää vähän.",
+      "elf": "Ampuu ketterästi kaukaa, lohikäärmeen ulottumattomissa.",
+      "garrison": "Linnoitettu tukikohta, joka värvää sotureita.",
+      "outpost": "Syrjäinen tukikohta, joka värvää haltioita.",
+      "academy": "Koulu, joka kouluttaa velhoja taisteluun.",
+      "council": "Sotilasjärjestö, joka perustaa varuskuntia.",
+      "nexus": "Salaperäinen järjestö, joka perustaa opistoja.",
+      "forest": "Pyhä metsä, joka perustaa etuvartioita.",
+      "thief": "Ovela: myrkyttää lohikäärmeen ja varastaa sen kullat.",
+      "bard": "Voi innoittaa joukkosi taistelemaan kovemmin.",
+      "cleric": "Suojelee ja värvää uusia sankareita taisteluun.",
+      "guild": "Maanalainen verkosto, joka värvää varkaita.",
+      "troupe": "Kiertävä seurue, joka värvää bardeja.",
+      "seminary": "Pyhä laitos, joka kouluttaa pappeja.",
+      "congress": "Varjoissa toimiva järjestö, joka perustaa varkaiden kiltoja.",
+      "theater": "Mahtava laitos, joka perustaa kiertueita.",
+      "college": "Uskonnollinen järjestö, joka perustaa seminaareja.",
+      "catapult": "Piiritysase, joka tekee suurta vahinkoa lohikäärmeeseen.",
+      "builder": "Rakentaa toisen tason rakennuksia.",
+      "engineer": "Perustaa kolmannen tason järjestöjä.",
+      "farmer": "Viljelee ruokaa kuningaskunnalle.",
+      "lumberjack": "Kaataa puuta rakentamiseen.",
+      "miner": "Louhii malmia vuorilta.",
+      "apprenticeships": "Kouluttaa käsityöläisiä."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} vahinkoa/{{rate}} s",
+      "wizard": "{{generatorGeneration}} vahinkoa/{{rate}} s",
+      "elf": "{{generatorGeneration}} vahinkoa/{{rate}} s",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "thief": "+{{generatorGeneration}} kultaa/{{rate}} s",
+      "bard": "+{{generatorGeneration}} innoitusta/{{rate}} s",
+      "cleric": "+{{generatorGeneration}} sankaria/{{rate}} s",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} s",
+      "catapult": "{{generatorGeneration}} vahinkoa/{{rate}} s",
+      "builder": "+{{generatorGeneration}} rakennusta/{{rate}} s",
+      "engineer": "+{{generatorGeneration}} järjestöä/{{rate}} s",
+      "farmer": "+{{generatorGeneration}} ruokaa/{{rate}} s",
+      "lumberjack": "+{{generatorGeneration}} puuta/{{rate}} s",
+      "miner": "+{{generatorGeneration}} malmia/{{rate}} s",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} s"
+    },
+    "tabsAriaLabel": "joukkovälilehdet"
+  },
+  "settings": {
+    "settings": "Asetukset",
+    "buy_max": "Osta maks",
+    "audio": "Musiikki ja äänet",
+    "game": "Peli",
+    "graphics": "Grafiikka",
+    "offline_progress": "Edistyminen offline-tilassa",
+    "wishlist_now": "Lisää toivelistalle"
+  },
+  "menus": {
+    "settings": "Asetukset",
+    "tabs": {
+      "game": "Peli",
+      "graphics": "Grafiikka",
+      "audio": "Äänet",
+      "levels": "Luvut",
+      "saveData": "Tallennustiedot",
+      "credits": "Tekijät"
+    },
+    "credits": {
+      "title": "Tekijät",
+      "developedBy": "Kehittänyt",
+      "developedWith": "Kehitetty käyttäen",
+      "bigThanksTo": "Suuret kiitokset",
+      "theRestOfTheDiscordServer": "kaikille muille Discord-palvelimella",
+      "andYou": "ja sinulle!"
+    },
+    "music": "Musiikki",
+    "sfx": "Äänitehosteet",
+    "audioSettings": "Ääniasetukset",
+    "gameSettings": "Peliasetukset",
+    "graphicsSettings": "Grafiikka-asetukset",
+    "language": "Kieli",
+    "languages": {
+      "en": "Englanti",
+      "fr": "Ranska",
+      "de": "Saksa",
+      "pt": "Portugali",
+      "tr": "Turkki"
+    },
+    "shakeIntensity": "Tärinä",
+    "largerTextSize": "Suurempi teksti",
+    "crtFilter": "CRT-suodatin",
+    "chromaticAberrationSlider": "Väripoikkeama",
+    "chromaticAberration": "Väripoikkeama",
+    "swordSwooshSounds": "Miekan ja kriittisten äänet",
+    "catSounds": "Kissan äänet",
+    "fullscreen": "Koko näyttö",
+    "resume": "Jatka pelaamista",
+    "close": "Sulje",
+    "quitGame": "Lopeta peli",
+    "joinDiscord": "Liity Discordiin",
+    "clear_save_label": "Poistetaanko edistymisesi?",
+    "zoom_adjustment": "Käyttöliittymän zoomaus",
+    "clear_save": "Poista nyt",
+    "are_you_sure": "Oletko varma?",
+    "cannot_be_reversed": "Tätä ei voi perua.",
+    "yes": "Kyllä",
+    "no": "Ei",
+    "saveData": {
+      "title": "Tallennustiedot",
+      "clearChapterTitle": "Lukujen edistyminen",
+      "clearChapterExplanation": "Poistaa kullan, joukot, parannukset, luolaston edistymisen ja suoritusmerkit jokaisesta luvusta. Avatut luvut, kokonaistilastot, asetukset ja esineet säilyvät.",
+      "clearChapterButton": "Poista lukujen edistyminen",
+      "clearFullTitle": "Kaikki tallennustiedot",
+      "clearFullExplanation": "Poistaa kaiken sen mitä lukujen nollaus poistaa, sekä lisäksi esineet, avatut luvut ja kokonaistilastot. Ääni-, grafiikka- ja kieliasetukset säilyvät.",
+      "clearFullButton": "Poista kaikki tallennustiedot",
+      "clearFullWarning": "Tätä ei voi perua. Menetät esineet, avatut luvut ja kokonaistilastot."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Innoitus",
+    "inspirationDescription": "Kun se on käynnissä, kaikkien sankarien voima moninkertaistuu.",
+    "maxInspiration": "Suurin kerroin",
+    "maxInspirationMultiplier": "Suurin kerroin",
+    "statisticsDescription": "Tarkat luvut edistymisestäsi ja taistelusta.",
+    "hudStopBird": "Pysäytä lintu",
+    "hudLifetimeStats": "Kokonaistilastot",
+    "hudHideWindows": "Piilota ikkunat",
+    "events": {
+      "roar": "Lamauttava karjaisu",
+      "fire": "Tulenhenkäys",
+      "claw": "Kynsi-isku",
+      "dialog": "Erityinen tapahtuma",
+      "pope_visit": "Erityinen vieras",
+      "dungeon_keys": "Synkkä salaisuus",
+      "missing_king": "Missä kuningas on?",
+      "catapult": "Tekninen prototyyppi",
+      "engineer": "Apua oikeaan aikaan",
+      "invasion_start": "Hyökkäys on tulossa",
+      "invasion_end": "Viesti joukoilta",
+      "apprenticeships_unlock": "Oppisopimukset avattu",
+      "trading": "Kiertävä kauppias",
+      "dummy_toy_reveal": "Ei sitä mitä luulin"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Tapahtumat",
+      "stats": "Tilastot",
+      "engineering": "Tekniikka",
+      "resources": "Resurssit"
+    },
+    "tabs": {
+      "events": "Tapahtumat",
+      "stats": "Tilastot",
+      "engineering": "Tekniikka",
+      "resources": "Resurssit"
+    },
+    "tabsAriaLabel": "tietovälilehdet"
+  },
+  "game": {
+    "dummy": "Suuri puunukke",
+    "infiniteBird": "Lintu jota ei saa alas",
+    "king": "Kuningas",
+    "smallDragon": "Tuth'orieth, Verso",
+    "bigDragon": "Forth'aarh, Elämän antaja ja päättäjä"
+  },
+  "dungeon": {
+    "found": "Löydetty",
+    "giveUp": "Luovuta",
+    "tooltipDescription": "Tutki luolastoa (taso {{level}})",
+    "cooldownMessage": "Luolasto lepää. Odota {{seconds}} sekuntia päästäksesi takaisin.",
+    "cooldownShort": "{{seconds}} s",
+    "levelLabel": "Taso",
+    "levelShort": "Taso {{level}}",
+    "keysOwned": "Avaimia",
+    "giveUpTooltip": "Poistu luolastosta (osa saaliista jää Antelias saalis -parannuksella)",
+    "moveHint": "WASD tai nuolinäppäimet liikkumiseen",
+    "attackHint": "Napsauta hirviöitä hyökätäksesi",
+    "chestCountsTooltip": "{{opened}} / {{total}} arkkua avattu",
+    "exitDirection": "ULOSKÄYNTI"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Onnistunut retki",
+      "titleFailed": "Epäonnistunut retki",
+      "titleStuckRescue": "Päästiin turvallisesti ulos",
+      "lootSummarySubtitle": "Yhteenveto saaliista",
+      "body_one": "Saatiin {{gold}} kultaa ja {{grayKeys}} avain",
+      "body_other": "Saatiin {{gold}} kultaa ja {{grayKeys}} avainta",
+      "artifactFound": "Löytyi {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Tappiot tulenhenkäyksestä",
+      "body": "Menetettiin {{list}}",
+      "none": "Ei tappioita"
+    },
+    "fireBreathBlocked": {
+      "title": "Tulenhenkäys torjuttiin!",
+      "body": "Savupommi pelasti joukkosi."
+    },
+    "toastLabel": "Pelin ilmoitus"
+  },
+  "levels": {
+    "title": "Luvut",
+    "locked": "Lukittu",
+    "active": "Käynnissä",
+    "completed": "Suoritettu",
+    "continue": "Jatka",
+    "start": "Aloita",
+    "restart": "Pelaa uudelleen",
+    "restart_progress_warning": "Aloitetaanko uudelleen nyt? Menetät tallentamattoman edistymisen tässä luvussa.",
+    "names": {
+      "mainGame": "Yksi suuri lohikäärme",
+      "newGamePlus": "Resurssien hallinta",
+      "dummy": "Taikalelu",
+      "infinite": "Todella loputon",
+      "kingBattle": "Kuninkaan viimeinen taistelu"
+    }
+  },
+  "artifacts": {
+    "title": "Esineet",
+    "subtitle": "Harvinaisia esineitä löytyy toisinaan luolaston erikoisarkuista. Ne säilyvät luvusta toiseen.",
+    "notYetFound": "(ei vielä löydetty)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Feeniksin pilli",
+        "description": "Erityinen lintu tuo mukanaan uuden rahan."
+      },
+      "emberforgedShield": {
+        "title": "Hiillostakottu kilpi",
+        "description": "Soturit kestävät lohikäärmeen tulen."
+      },
+      "moonwellFlask": {
+        "title": "Kuunlähteen pullo",
+        "description": "Velhot kuluttavat vain puolet manasta."
+      },
+      "windstepAnklet": {
+        "title": "Tuulenaskeleen nilkkarengas",
+        "description": "Haltiat eivät lamaannu."
+      },
+      "fangSatchel": {
+        "title": "Hammaslaukku",
+        "description": "Kierroksen ajan varkaat tuottavat lohikäärmeenhampaan puolessa tunnissa."
+      },
+      "slumberBerries": {
+        "title": "Uinumarjat",
+        "description": "Myrkky hidastaa lohikäärmeen karjaisua ja tulta 10 sekuntia."
+      },
+      "echoingLute": {
+        "title": "Kaikuva luuttu",
+        "description": "Bardit antavat kaksinkertaisen innoituksen."
+      },
+      "blessingCenser": {
+        "title": "Siunauksen suitsutusastia",
+        "description": "Papit värväävät aina kaksinkertaisen määrän."
+      },
+      "victoryTusk": {
+        "title": "Voitonsyöksyhammas",
+        "description": "Suoritettu taso antaa kaksinkertaiset lohikäärmeenhampaat."
+      },
+      "cartographersLedger": {
+        "title": "Kartantekijän kirja",
+        "description": "Näyttää kuinka moni luolaston arkku on avattu."
+      },
+      "ironSkeletonKey": {
+        "title": "Rautainen tiirikka",
+        "description": "Avaa luolaston tasolle 20 asti."
+      },
+      "everflameLantern": {
+        "title": "Ikiliekin lyhty",
+        "description": "Soihtu ei sammu koskaan."
+      },
+      "midasCoin": {
+        "title": "Midaan kolikko",
+        "description": "Kaksinkertainen kulta luolastossa."
+      },
+      "harvestIdol": {
+        "title": "Sadonjumalan patsas",
+        "description": "Resurssien tuotanto kasvaa 25 %."
+      },
+      "titanGauntlet": {
+        "title": "Titaanin rautahanska",
+        "description": "Kymmenkertainen vahinko napsautusta kohti."
+      },
+      "wayfindersCompass": {
+        "title": "Tienetsijän kompassi",
+        "description": "Osoittaa luolaston uloskäyntiin."
+      },
+      "loadedDice": {
+        "title": "Painotetut nopat",
+        "description": "Jokainen napsautus on kriittinen."
+      }
+    }
+  }
+}
