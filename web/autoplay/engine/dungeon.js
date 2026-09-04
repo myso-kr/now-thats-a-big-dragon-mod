@@ -336,8 +336,18 @@
     return x;
   }
 
-  /** A tap settles in about this long: one cell walked, or one quarter turned. */
-  const SETTLE_MS = 700;
+  /**
+   * How long an action is given before it is called stuck.
+   *
+   * Not how long to wait: waiting a fixed time for something that takes a variable
+   * time leaves dead air after every single action, and a level is a hundred of them.
+   * The camera coming to rest is what ends an action - this is only the point at which
+   * one that never started is given up on.
+   */
+  const ACTION_TIMEOUT_MS = 1200;
+
+  /** How long a tap gets to start moving anything before it counts as a wall. */
+  const START_GRACE_MS = 260;
 
   /** Give up on a level after this many actions rather than burn the torch in a loop. */
   const ACTION_BUDGET = 400;
@@ -377,9 +387,10 @@
     // chest lands below centre and a click at the middle sails over it.
     const click = deps.click || (() => {});
     const now = deps.now || Date.now;
-    const settleMs = deps.settleMs || SETTLE_MS;
+    const timeoutMs = deps.timeoutMs || ACTION_TIMEOUT_MS;
+    const graceMs = deps.graceMs || START_GRACE_MS;
 
-    let busyUntil = 0;
+    let startedAt = 0;
     let pending = null;        // { key, from: [x, z], cell: [r, c] }
     // Cells a tap proved solid. The maze is rebuilt from the scene on every step, so
     // marking one on that object lasts exactly one tick and the driver walks into the
@@ -402,7 +413,7 @@
       walled = new Set();
       actions = 0;
       pending = null;
-      busyUntil = 0;
+      startedAt = 0;
     }
 
     /**
@@ -420,9 +431,31 @@
       }
 
       const t = now();
-      if (t < busyUntil) return true;
 
-      // Did the action that just settled do what it was for?
+      // Is the last action still playing out?
+      //
+      // An action ends when the camera stops, not when a timer says so. Both a step and
+      // a turn animate, for about six tenths of a second, but waiting a fixed time for
+      // them means dead air after every one - and a level is a hundred actions. So the
+      // camera is watched instead: while it is still changing the action is running,
+      // and the moment it holds still the next one goes out.
+      if (pending) {
+        const here = `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}`;
+        if (here !== pending.seen) {
+          pending.seen = here;
+          pending.moving = true;
+          return true;                      // still going
+        }
+        // Held still. If it never moved at all, give the tap a moment to take effect
+        // before concluding there is a wall in the way.
+        if (!pending.moving && t - startedAt < graceMs) return true;
+        if (pending.moving && t - startedAt < timeoutMs && !pending.settled) {
+          // One more look: the animation can pause on a frame boundary.
+          pending.settled = true;
+          return true;
+        }
+      }
+
       if (pending) {
         const done = pending;
         pending = null;
@@ -460,29 +493,43 @@
           // it had never opened.
           click(ch);
           actions += 1;
-          busyUntil = t + settleMs;
+          // A click changes no camera state, so there is nothing to watch settle; the
+          // chest itself reports the result on the next look.
+          startedAt = t;
           return true;
         }
-        // Not square enough on yet. Turn towards it a quarter at a time.
+        // Not square enough on yet, so turn towards it a quarter at a time.
         //
         // From the world offset, not the difference of cells: the door rounds onto the
         // square you use it from, so that difference is (0,0) and there is nothing to
         // turn towards. `keyFor` reads (dRow, dCol) as (z, x), which is what these are.
         const act = keyFor(maze.facing, ch.world[1] - maze.at[1], ch.world[0] - maze.at[0]);
-        pending = { kind: 'turn', key: act.key, from: maze.at.slice(), cell: ch.cell };
-        tap(act.key);
+
+        // `keyFor` answers "how do I get there", and for something straight ahead or
+        // straight behind the answer is to walk. Here we do not want to walk, we want
+        // to look at it - and taking `KeyS` for a turn is how the player came to step
+        // backwards away from a chest directly opposite and then fail to click it.
+        // Facing away is fixed by turning, either way round; facing it already and
+        // still out of reach means stepping closer.
+        const key = act.kind === 'move'
+          ? (act.key === 'KeyW' ? 'KeyW' : 'KeyD')
+          : act.key;
+        pending = { kind: key === 'KeyW' ? 'move' : 'turn', key, from: maze.at.slice(),
+          cell: ch.cell, seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}` };
+        tap(key);
         actions += 1;
-        busyUntil = t + settleMs;
+        startedAt = t;
         return true;
       }
 
       if (!goal.path.length) return true;
       const next = goal.path[0];
       const act = keyFor(maze.facing, next[0] - maze.player[0], next[1] - maze.player[1]);
-      pending = { kind: act.kind, key: act.key, from: maze.at.slice(), cell: next };
+      pending = { kind: act.kind, key: act.key, from: maze.at.slice(), cell: next,
+        seen: `${maze.at[0]},${maze.at[1]},${maze.facing.toFixed(3)}` };
       tap(act.key);
       actions += 1;
-      busyUntil = t + settleMs;
+      startedAt = t;
       return true;
     }
 
@@ -494,7 +541,7 @@
   }
 
   const api = { create, readMaze, findPath, nextGoal, keyFor, canOpen,
-    SQUARE, CELL, STEPS, SETTLE_MS, OPEN_RANGE, OPEN_DOT };
+    SQUARE, CELL, STEPS, ACTION_TIMEOUT_MS, OPEN_RANGE, OPEN_DOT };
 
   // The game runs Electron with node_integration, so `module` exists in the renderer
   // too, and the usual "module exists, therefore Node" check is wrong here.

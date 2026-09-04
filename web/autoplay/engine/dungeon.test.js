@@ -235,19 +235,69 @@ function driver(picture, opts = {}) {
     tap: (code) => sent.push(code),
     now: () => clock,
     log: () => {},
-    settleMs: 100,
+    graceMs: 100,
+    timeoutMs: 300,
   });
   return { d, sent, scene, tick: (ms = 100) => { clock += ms; return d.step(); } };
 }
 
-test('one action per tap, and nothing while the last is settling', () => {
+test('one action per tap, and nothing until it has settled', () => {
+  // The fake camera never moves, so every action here is one that did nothing: it gets
+  // the grace period and no more, which is what stops a wall costing a full timeout.
   const r = driver(SIMPLE);
   r.tick(0);
   assert.strictEqual(r.sent.length, 1, 'one key');
   r.tick(10);
-  assert.strictEqual(r.sent.length, 1, 'still settling, so still one');
+  assert.strictEqual(r.sent.length, 1, 'inside the grace period, so still one');
   r.tick(200);
-  assert.strictEqual(r.sent.length, 2);
+  assert.strictEqual(r.sent.length, 2, 'grace is over, so the next one goes out');
+});
+
+test('an action ends when the camera stops, not when a timer runs out', () => {
+  // The point of the whole thing: a step that settles early must not be followed by
+  // dead air, because a level is a hundred of them.
+  const scene = sceneOf(['#####', '#@..X', '#####'], { facing: Math.PI / 2 });
+  let clock = 0;
+  const sent = [];
+  const d = D.create({
+    scene: () => scene,
+    tap: (code) => {
+      sent.push(code);
+      // The game moves the camera a cell; here that happens at once.
+      scene.activeCamera.position.x += code === 'KeyW' ? CELL : 0;
+    },
+    now: () => clock,
+    log: () => {},
+    graceMs: 100,
+    timeoutMs: 5000,
+  });
+  d.step();                       // taps, camera jumps
+  clock += 10; d.step();          // sees it moved
+  clock += 10; d.step();          // sees it hold still - one more look
+  clock += 10; d.step();          // settled, so the next action goes out
+  assert.strictEqual(sent.length, 2, `settled in 30ms, not 5000: sent ${sent.join(',')}`);
+});
+
+test('a chest directly behind is turned towards, never backed away from', () => {
+  // `keyFor` answers "how do I get there", and for something straight behind the answer
+  // is to walk backwards. Taking that as a turn is how the player stepped away from a
+  // chest right opposite and then could not click it - seen on screen, not here.
+  const scene = sceneOf(['####', '#$@#', '####'], { facing: Math.PI / 2 });  // chest west, looking east
+  let clock = 0;
+  const sent = [];
+  const d = D.create({
+    scene: () => scene,
+    tap: (code) => sent.push(code),
+    click: () => sent.push('CLICK'),
+    now: () => clock,
+    log: () => {},
+    graceMs: 50,
+    timeoutMs: 200,
+  });
+  d.step();
+  assert.ok(sent.length, 'it did something');
+  assert.notStrictEqual(sent[0], 'KeyS', 'walking away from the chest is never the move');
+  assert.ok(['KeyA', 'KeyD'].includes(sent[0]), `expected a turn, got ${sent[0]}`);
 });
 
 test('with no live scene it drives nothing and says so', () => {
@@ -267,7 +317,8 @@ test('a move that changed nothing marks the cell walled, and it sticks', () => {
     tap: () => {},
     now: () => clock,
     log: (tag, text, level) => warned.push(level),
-    settleMs: 100,
+    graceMs: 100,
+    timeoutMs: 300,
   });
   d.step();
   clock += 200;
