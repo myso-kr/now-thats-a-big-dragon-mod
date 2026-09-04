@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Oppgraderinger",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Neste nivå",
+    "currentLevel": "Nåværende",
+    "newGamePlusOnly": "Bare i kapittelet \"Ressursstyring\"",
+    "max": "Maks",
+    "lockedMessage": "Oppgrader {{parentSkill}} mer for å låse opp denne",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Jernfinger",
+        "description": "+{{bonus}} skade per klikk",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Fjærfinger",
+        "description": "+{{bonus}} klikk per sekund"
+      },
+      "wakeupCall": {
+        "title": "Vekking",
+        "description": "Hvert klikk forkorter lammelsen med {{bonus}} sekunder",
+        "prefix": "-",
+        "suffix": " sek"
+      },
+      "electricalFinger": {
+        "title": "Elektrisk finger",
+        "description": "Hvert klikk har {{bonus}} % sjanse til å kalle på lynet.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Perfekt klikk",
+        "description": "+{{bonus}} % sjanse for kritisk klikk",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Kritisk slag",
+        "description": "+{{bonus}}x skade ved kritisk klikk",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Gyllen eksplosjon",
+        "description": "{{bonus}}x belønning når du klikker på fugler",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Født leder",
+        "description": "Klikk fyller inspirasjonsmåleren med +{{bonus}}/klikk",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Gullmarkør",
+        "description": "{{bonus}}x gull per klikk",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Fulle kister",
+        "description": "{{bonus}} % mindre sjanse for at en kiste i fangehullet er tom",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Håndleddskur",
+        "description": "Hold museknappen nede for å angripe dragen uten opphold."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Kortsverd",
+        "description": "+{{bonus}}x skademultiplikator for {{type}}",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Langsverd",
+        "description": "Enda +{{bonus}}x skademultiplikator for krigere",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Tohåndssverd",
+        "description": "Nok en +{{bonus}}x skademultiplikator for krigere",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Kamprop",
+        "description": "Fyller inspirasjonsmåleren med +{{bonus}} per slag",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Krigsrop",
+        "description": "Setter i gang inspirasjonen av seg selv ved neste tikk, når multiplikatoren er på det høyeste"
+      },
+      "barbarian": {
+        "title": "Barbar",
+        "description": "+{{bonus}} grunnskade",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Tykk rustning",
+        "description": "{{bonus}} % mindre fysisk skade",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Ildrustning",
+        "description": "{{bonus}} % færre tropper dør av ildpusten",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Tunge steiner",
+        "description": "+{{bonus}} % katapultskade per nivå",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Sølvklinge",
+        "description": "+{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Gyllen klinge",
+        "description": "Enda +{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Trofaste leiesoldater",
+        "description": "{{typePlural}} du kjøper gjør +{{bonus}}x skade per nivå",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Trofaste tjenere",
+        "description": "{{bonus}} % billigere å verve {{type}} og alt over",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Samarbeid",
+        "description": "Verver ekstra {{typePlural}} for hver {{type}} du kjøper",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Presisjon i dypet",
+        "description": "+{{bonus}} % sjanse for kritisk treff i fangehullet",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Labyrintknuseren",
+        "description": "+{{bonus}} kritisk skade i fangehullet",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Magisk prosjektil",
+        "description": "+{{bonus}}x skademultiplikator for {{type}}",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Manasverd",
+        "description": "Hver trollmann fyller sverdet til en kriger med mana. +{{bonus}}x skademultiplikator når manaen er over 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Magisk mus",
+        "description": "Fyller manamåleren med +{{bonus}} per klikk",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Manastrøm",
+        "description": "Fyller manamåleren til trollmennene"
+      },
+      "manaPool": {
+        "title": "Manakilde",
+        "description": "+{{bonus}} % høyeste mana",
+        "suffix": " mana"
+      },
+      "manaBoost": {
+        "title": "Manastøt",
+        "description": "Trollmennenes skade dobles når manaen er over {{current}}",
+        "suffix": " mana"
+      },
+      "weatherForecast": {
+        "title": "Værmelding",
+        "description": "+{{bonus}} % sjanse for lynnedslag",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Lynnedslag",
+        "description": "Legger til et lyn som gjør +{{bonus}}x skade av {{type}} for hver kjøpt oppgradering",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Sølvstav",
+        "description": "+{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Gyllen stav",
+        "description": "Enda +{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Magisk ild",
+        "description": "Fakkelen brenner +{{bonus}} sekunder lenger",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Erkemagiker",
+        "description": "+{{bonus}} grunnskade",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Jegerens øye",
+        "description": "+{{bonus}} % sjanse for å treffe en fugl innen rekkevidde hvert tikk",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Skarpt sikte",
+        "description": "+{{bonus}} % sjanse for kritisk skudd",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Bladskjæreren",
+        "description": "+{{bonus}}x skade ved kritisk skudd",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Jaktsesong",
+        "description": "Kaller straks fram en flokk fugler",
+        "suffix": " fugler"
+      },
+      "elvenEyes": {
+        "title": "Alveøyne",
+        "description": "Du ser i mørket +{{bonus}} sekunder etter at fakkelen slukner",
+        "prefix": "+",
+        "suffix": " sek"
+      },
+      "multipleShot": {
+        "title": "Flere piler",
+        "description": "Skyter en pil til per nivå",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Sølvpil",
+        "description": "+{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Gyllen pil",
+        "description": "Enda +{{bonus}}x multiplikator på gull per slag",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Ispil",
+        "description": "Forsinker dragens ild med {{bonus}} sekunder",
+        "prefix": "-",
+        "suffix": " sek"
+      },
+      "animalInstinct": {
+        "title": "Dyreinstinkt",
+        "description": "Katapulten skyter katter i stedet for steiner, og tigre i stedet for katter, ti ganger skaden hver gang.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Lynavleder",
+        "description": "{{bonus}} % sjanse for å trekke til seg enda et lyn når trollmennenes lyn treffer.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Gjenbrukte piler",
+        "description": "Alvenes angrep koster mindre tømmer"
+      },
+      "lightfoot": {
+        "title": "Lett på foten",
+        "description": "+{{bonus}} % raskere å gå og snu i fangehullet",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Raske hender",
+        "description": "Forkorter tiden det tar å lage gull med {{bonus}} sekunder"
+      },
+      "sharpDagger": {
+        "title": "Leiemorderklinge",
+        "description": "Tyver angriper også, med {{current}} i skade"
+      },
+      "poisonDagger": {
+        "title": "Forgiftet dolk",
+        "description": "+{{bonus}} % sjanse for å forgifte dragen",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Svart mamba",
+        "description": "+{{bonus}}x giftskade av tyvenes skade",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Dvelende gift",
+        "description": "Giften varer +{{bonus}} sekunder lenger",
+        "suffix": " sek"
+      },
+      "smokeBomb": {
+        "title": "Røykbombe",
+        "description": "Setter en felle for dragen med {{current}} % sjanse for å utløses ved neste slag og stoppe det.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Kattebombe",
+        "description": "Katapultens ladning eksploderer ved treff, dobbel skade.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Lommetyv",
+        "description": "+{{bonus}}x multiplikator på gullet {{type}} lager",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Dirk",
+        "description": "Hver tur begynner med {{bonus}} dører allerede åpne."
+      },
+      "midasTouch": {
+        "title": "Midas' berøring",
+        "description": "Enda +{{bonus}}x multiplikator på gullet {{type}} lager",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Stappfulle kister",
+        "description": "+{{bonus}} % gull fra fangehullets kister",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Stemmegaffel",
+        "description": "+{{bonus}} inspirasjon samles",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Luttsolo",
+        "description": "+{{bonus}}x høyeste inspirasjonsmultiplikator",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Utålelig gitarist",
+        "description": "Inspirasjonen varer +{{bonus}} sekunder",
+        "suffix": " sek"
+      },
+      "piercedEardrums": {
+        "title": "Sprengte trommehinner",
+        "description": "Dragens brøltelleren går {{bonus}} % saktere",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Ekstranummer",
+        "description": "{{bonus}} % sjanse for at inspirasjonen begynner på nytt når den tar slutt",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Lydbarriere",
+        "description": "Dragens ildteller går {{bonus}} % saktere",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Kakofoniks",
+        "description": "Lammer dine egne tropper når du kjøper ham"
+      },
+      "churchChoir": {
+        "title": "Kirkekor",
+        "description": "Verver 1 seminar hver gang inspirasjonen slår til"
+      },
+      "encore": {
+        "title": "Dakapo",
+        "description": "Forkorter inspirasjonens hvile med {{bonus}} sekunder",
+        "suffix": " sek"
+      },
+      "lockerRoomSpeech": {
+        "title": "Tale i garderoben",
+        "description": "Lager inspirasjon mens spillet er lukket, i {{current}} % av takten",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Orden i kongeriket",
+        "description": "Mens spillet er lukket, får musikken din håndverkerne til å jobbe overtid og lage ressurser i {{current}} % av vanlig takt",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Durtoneart",
+        "description": "Kjøper en nøkkel til fangehullet. (Ja, ordspillet er elendig.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Sårbare frekvenser",
+        "description": "Fiender i fangehullet er udødelige {{bonus}} millisekunder kortere etter hvert slag",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Heltepersonalet",
+        "description": "+{{bonus}} % sjanse for å verve dobbelt så mange helter",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Velsignet aura",
+        "description": "{{bonus}} % færre tropper dør av ildpusten",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Velsignet fugl",
+        "description": "{{current}} % sjanse for at en fugl kommer velsignet og gir dobbelt gull",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Kraftoverføring",
+        "description": "Ved hver verving fylles trollmennenes mana med 0,5 for hver prest du har"
+      },
+      "generousLoot": {
+        "title": "Rundhåndet bytte",
+        "description": "Når en tur mislykkes, beholder du likevel {{current}} % av byttet.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Guddommelig lys",
+        "description": "+{{bonus}} % sjanse for å tenne en slukket fakkel igjen",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Verv krigere",
+        "description": "Lar deg verve krigere til kampen"
+      },
+      "recruitElves": {
+        "title": "Verv alver",
+        "description": "Lar deg verve alver til kampen"
+      },
+      "recruitWizards": {
+        "title": "Verv trollmenn",
+        "description": "Lar deg verve trollmenn til kampen"
+      },
+      "recruitBards": {
+        "title": "Verv barder",
+        "description": "Lar deg verve barder til kampen"
+      },
+      "recruitThieves": {
+        "title": "Verv tyver",
+        "description": "Lar deg verve tyver til kampen"
+      },
+      "recruitClerics": {
+        "title": "Verv prester",
+        "description": "Lar deg verve prester til kampen"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Legg den på ønskelisten!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Kamptid",
+      "dgps": "Skade og gull per sekund",
+      "resourceBalance": "Ressursbalanse"
+    },
+    "lifetime": {
+      "title": "Samlet statistikk",
+      "totalPlaytime": "Samlet spilletid",
+      "totalGoldEarned": "Gull tjent totalt",
+      "totalGoldSpent": "Gull brukt totalt",
+      "totalBirdsKilled": "Fugler skutt ned totalt",
+      "totalClicks": "Klikk totalt",
+      "totalHeroesRecruited": "Helter vervet totalt",
+      "heroesPurchased": "Kjøpt",
+      "heroesRecruited": "Vervet",
+      "tier1": "Trinn 1 vervet (kjøpt)",
+      "tier2": "Trinn 2 vervet (kjøpt)",
+      "tier3": "Trinn 3 vervet (kjøpt)",
+      "totalDamageDealt": "Skade påført totalt",
+      "totalUnitsDeadByFireBreath": "Mistet til ildpust"
+    },
+    "battleDuration": "Gått: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Går dette i det hele tatt an å vinne?",
+    "infiniteEstimatedVictory": "Ekte seier er umulig!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Du er helten vår!</strong>]; (0-1000000000)[Seier om <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Klikk eller trykk Z for å angripe dragen!</strong>]",
+    "perSec": "/sek",
+    "generationSection": "Produksjon",
+    "critSection": "Spesielt",
+    "dps": "Troppenes skade: <strong>{{dps}}/sek</strong>",
+    "gps": "Troppenes gull: <strong>{{gps}}/sek</strong>",
+    "dpc": "Skade per klikk: <strong>{{dpc}}/klikk</strong>",
+    "gpc": "Gull per klikk: <strong>{{gpc}}/klikk</strong>",
+    "catapultDamage": "Skade: <strong>{{damage}}/skudd</strong>",
+    "catapultTimeToShoot": "Til neste skudd: <strong>{{time}} sek</strong>",
+    "seconds_one": "sekund",
+    "seconds_other": "sekunder",
+    "minutes_one": "minutt",
+    "minutes_other": "minutter",
+    "hours_one": "time",
+    "hours_other": "timer",
+    "days_one": "dag",
+    "days_other": "dager",
+    "months_one": "måned",
+    "months_other": "måneder",
+    "years_one": "år",
+    "years_other": "år",
+    "undo": {
+      "disabledLine": "Klikk innen 10 sekunder for å angre et feilkjøp og få gullet tilbake.",
+      "enabledAction": "Klikk for å angre kjøpet av {{count}} {{generator}}.",
+      "enabledRefund": "Du får {{refund}} tilbake.",
+      "enabledTimer": "{{seconds}} sekunder igjen.",
+      "refundGold": "{{amount}} gull"
+    }
+  },
+  "generators": {
+    "generators": "Tropper",
+    "buy": "kjøp {{amount}}",
+    "warrior_one": "Kriger",
+    "warrior_other": "Krigere",
+    "wizard_one": "Trollmann",
+    "wizard_other": "Trollmenn",
+    "elf_one": "Alv",
+    "elf_other": "Alver",
+    "garrison_one": "Garnison",
+    "garrison_other": "Garnisoner",
+    "academy_one": "Magiakademi",
+    "academy_other": "Magiakademier",
+    "academy_short_one": "Akademi",
+    "academy_short_other": "Akademier",
+    "outpost_one": "Bueskytterpost",
+    "outpost_other": "Bueskytterposter",
+    "outpost_short_one": "Forpost",
+    "outpost_short_other": "Forposter",
+    "council_one": "Krigsråd",
+    "council_other": "Krigsråd",
+    "nexus_one": "Erkemagienes knutepunkt",
+    "nexus_other": "Erkemagienes knutepunkter",
+    "forest_one": "Eldgammel skog",
+    "forest_other": "Eldgamle skoger",
+    "thief_one": "Tyv",
+    "thief_other": "Tyver",
+    "bard_one": "Bard",
+    "bard_other": "Barder",
+    "cleric_one": "Prest",
+    "cleric_other": "Prester",
+    "guild_one": "Tyvelaug",
+    "guild_other": "Tyvelaug",
+    "guild_short_one": "Laug",
+    "guild_short_other": "Laug",
+    "troupe_one": "Gjøglertropp",
+    "troupe_other": "Gjøglertropper",
+    "troupe_short_one": "Tropp",
+    "troupe_short_other": "Tropper",
+    "seminary_one": "Hellig seminar",
+    "seminary_other": "Hellige seminarer",
+    "seminary_short_one": "Seminar",
+    "seminary_short_other": "Seminarer",
+    "congress_one": "Skyggekonvent",
+    "congress_other": "Skyggekonventer",
+    "theater_one": "Stort teater",
+    "theater_other": "Store teatre",
+    "college_one": "Kardinalkollegium",
+    "college_other": "Kardinalkollegier",
+    "catapult_one": "Katapult",
+    "catapult_other": "Katapulter",
+    "builder_one": "Bygger",
+    "builder_other": "Byggere",
+    "engineer_one": "Ingeniør",
+    "engineer_other": "Ingeniører",
+    "farmer_one": "Bonde",
+    "farmer_other": "Bønder",
+    "lumberjack_one": "Tømmerhogger",
+    "lumberjack_other": "Tømmerhoggere",
+    "miner_one": "Gruvearbeider",
+    "miner_other": "Gruvearbeidere",
+    "apprenticeships_one": "Læreplass",
+    "apprenticeships_other": "Læreplasser",
+    "tradespeople_one": "Håndverker",
+    "tradespeople_other": "Håndverkere",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}} sek"
+    },
+    "ngPlusProductionToggle": "Slå produksjon på eller av",
+    "tabs": {
+      "troops": "Tropper",
+      "support": "Støtte"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Si opp tropper for å bruke færre ressurser og likevel beholde noe av produksjonen."
+    },
+    "ownedUnits": "{{unit}}: {{amount}}",
+    "mana": "Mana",
+    "manaDescription": "Den magiske kraften bak trollmennenes angrep.",
+    "emptyManaDescription": "Kjøp \"Manastrøm\" for å angripe igjen.",
+    "inspiration": "Inspirasjon",
+    "inspirationDescription": "Når den er i gang, mangedobles styrken til alle heltene.",
+    "unitDescription": {
+      "warrior": "Seige nærkampsfightere.",
+      "wizard": "Slår til på mellomavstand, men tåler lite.",
+      "elf": "Skyter smidig på lang avstand, utenfor dragens rekkevidde.",
+      "garrison": "Befestet base som verver krigere.",
+      "outpost": "Avsidesliggende base som verver alver.",
+      "academy": "Skole som utdanner trollmenn til kamp.",
+      "council": "Militær organisasjon som oppretter garnisoner.",
+      "nexus": "Mystisk organisasjon som oppretter akademier.",
+      "forest": "Hellig skog som oppretter forposter.",
+      "thief": "Slu: forgifter dragen og stjeler gullet dens.",
+      "bard": "Kan inspirere troppene dine til å slåss hardere.",
+      "cleric": "Beskytter og verver nye helter til kampen.",
+      "guild": "Undergrunnsnettverk som verver tyver.",
+      "troupe": "Omreisende selskap som verver barder.",
+      "seminary": "Hellig institusjon som utdanner prester.",
+      "congress": "Organisasjon i skyggene som oppretter tyvelaug.",
+      "theater": "Mektig institusjon som oppretter gjøglertropper.",
+      "college": "Religiøs organisasjon som oppretter seminarer.",
+      "catapult": "Beleiringsvåpen som gjør stor skade på dragen.",
+      "builder": "Bygger bygninger på andre nivå.",
+      "engineer": "Oppretter organisasjoner på høyere nivåer.",
+      "farmer": "Dyrker mat til kongeriket.",
+      "lumberjack": "Feller tømmer til byggingen.",
+      "miner": "Bryter malm i fjellene.",
+      "apprenticeships": "Lærer opp håndverkere."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} skade/{{rate}} sek",
+      "wizard": "{{generatorGeneration}} skade/{{rate}} sek",
+      "elf": "{{generatorGeneration}} skade/{{rate}} sek",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "thief": "+{{generatorGeneration}} gull/{{rate}} sek",
+      "bard": "+{{generatorGeneration}} inspirasjon/{{rate}} sek",
+      "cleric": "+{{generatorGeneration}} helter/{{rate}} sek",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}} sek",
+      "catapult": "{{generatorGeneration}} skade/{{rate}} sek",
+      "builder": "+{{generatorGeneration}} bygninger/{{rate}} sek",
+      "engineer": "+{{generatorGeneration}} organisasjoner/{{rate}} sek",
+      "farmer": "+{{generatorGeneration}} mat/{{rate}} sek",
+      "lumberjack": "+{{generatorGeneration}} tømmer/{{rate}} sek",
+      "miner": "+{{generatorGeneration}} malm/{{rate}} sek",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}} sek"
+    },
+    "tabsAriaLabel": "troppefaner"
+  },
+  "settings": {
+    "settings": "Innstillinger",
+    "buy_max": "Kjøp maks",
+    "audio": "Musikk og lyd",
+    "game": "Spill",
+    "graphics": "Grafikk",
+    "offline_progress": "Framgang offline",
+    "wishlist_now": "Legg på ønskelisten"
+  },
+  "menus": {
+    "settings": "Innstillinger",
+    "tabs": {
+      "game": "Spill",
+      "graphics": "Grafikk",
+      "audio": "Lyd",
+      "levels": "Kapitler",
+      "saveData": "Lagrede data",
+      "credits": "Medvirkende"
+    },
+    "credits": {
+      "title": "Medvirkende",
+      "developedBy": "Utviklet av",
+      "developedWith": "Utviklet med",
+      "bigThanksTo": "Stor takk til",
+      "theRestOfTheDiscordServer": "alle andre på Discord-serveren",
+      "andYou": "og deg!"
+    },
+    "music": "Musikk",
+    "sfx": "Lydeffekter",
+    "audioSettings": "Lydinnstillinger",
+    "gameSettings": "Spillinnstillinger",
+    "graphicsSettings": "Grafikkinnstillinger",
+    "language": "Språk",
+    "languages": {
+      "en": "Engelsk",
+      "fr": "Fransk",
+      "de": "Tysk",
+      "pt": "Portugisisk",
+      "tr": "Tyrkisk"
+    },
+    "shakeIntensity": "Risting",
+    "largerTextSize": "Større tekst",
+    "crtFilter": "CRT-filter",
+    "chromaticAberrationSlider": "Fargespredning",
+    "chromaticAberration": "Fargespredning",
+    "swordSwooshSounds": "Sverd- og kritiske lyder",
+    "catSounds": "Kattelyder",
+    "fullscreen": "Fullskjerm",
+    "resume": "Spill videre",
+    "close": "Lukk",
+    "quitGame": "Avslutt spillet",
+    "joinDiscord": "Bli med på Discord",
+    "clear_save_label": "Slette framgangen din?",
+    "zoom_adjustment": "Zoom på grensesnittet",
+    "clear_save": "Slett nå",
+    "are_you_sure": "Er du sikker?",
+    "cannot_be_reversed": "Dette kan ikke angres.",
+    "yes": "Ja",
+    "no": "Nei",
+    "saveData": {
+      "title": "Lagrede data",
+      "clearChapterTitle": "Framgangen i kapitlene",
+      "clearChapterExplanation": "Sletter gull, tropper, oppgraderinger, framgang i fangehullet og fullført-merker for hvert kapittel. Opplåste kapitler, samlet statistikk, innstillinger og artefakter beholdes.",
+      "clearChapterButton": "Slett framgangen i kapitlene",
+      "clearFullTitle": "Alle lagrede data",
+      "clearFullExplanation": "Sletter alt kapittelnullstillingen sletter, og i tillegg artefakter, opplåste kapitler og samlet statistikk. Innstillinger for lyd, grafikk og språk beholdes.",
+      "clearFullButton": "Slett alle lagrede data",
+      "clearFullWarning": "Dette kan ikke angres. Du mister artefakter, opplåste kapitler og samlet statistikk."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Inspirasjon",
+    "inspirationDescription": "Når den er i gang, mangedobles styrken til alle heltene.",
+    "maxInspiration": "Høyeste multiplikator",
+    "maxInspirationMultiplier": "Høyeste multiplikator",
+    "statisticsDescription": "Detaljerte tall om framgangen din og kampen.",
+    "hudStopBird": "Stopp fuglen",
+    "hudLifetimeStats": "Samlet statistikk",
+    "hudHideWindows": "Skjul vinduer",
+    "events": {
+      "roar": "Lammende brøl",
+      "fire": "Ildpust",
+      "claw": "Kloslag",
+      "dialog": "Spesiell hendelse",
+      "pope_visit": "Et spesielt besøk",
+      "dungeon_keys": "En mørk hemmelighet",
+      "missing_king": "Hvor er kongen?",
+      "catapult": "En teknisk prototyp",
+      "engineer": "Hjelp i rett tid",
+      "invasion_start": "En invasjon er på vei",
+      "invasion_end": "Bud fra troppene",
+      "apprenticeships_unlock": "Læreplasser låst opp",
+      "trading": "En omreisende kjøpmann",
+      "dummy_toy_reveal": "Ikke det jeg trodde"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Hendelser",
+      "stats": "Statistikk",
+      "engineering": "Teknikk",
+      "resources": "Ressurser"
+    },
+    "tabs": {
+      "events": "Hendelser",
+      "stats": "Statistikk",
+      "engineering": "Teknikk",
+      "resources": "Ressurser"
+    },
+    "tabsAriaLabel": "informasjonsfaner"
+  },
+  "game": {
+    "dummy": "Den store tredukken",
+    "infiniteBird": "Fuglen som ikke kan felles",
+    "king": "Kongen",
+    "smallDragon": "Tuth'orieth, den spirende",
+    "bigDragon": "Forth'aarh, som gir og tar liv"
+  },
+  "dungeon": {
+    "found": "Funnet",
+    "giveUp": "Gi opp",
+    "tooltipDescription": "Utforsk fangehullet (nivå {{level}})",
+    "cooldownMessage": "Fangehullet hviler. Vent {{seconds}} sekunder på å gå inn igjen.",
+    "cooldownShort": "{{seconds}} sek",
+    "levelLabel": "Nivå",
+    "levelShort": "Nivå {{level}}",
+    "keysOwned": "Nøkler",
+    "giveUpTooltip": "Forlat fangehullet (behold noe av byttet med Rundhåndet bytte)",
+    "moveHint": "WASD eller piltaster for å gå",
+    "attackHint": "Klikk på monstre for å angripe",
+    "chestCountsTooltip": "{{opened}} av {{total}} kister åpnet",
+    "exitDirection": "UTGANG"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Vellykket tur",
+      "titleFailed": "Mislykket tur",
+      "titleStuckRescue": "Kom trygt ut",
+      "lootSummarySubtitle": "Oversikt over byttet",
+      "body_one": "Fikk {{gold}} gull og {{grayKeys}} nøkkel",
+      "body_other": "Fikk {{gold}} gull og {{grayKeys}} nøkler",
+      "artifactFound": "Fant {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Tap til ildpusten",
+      "body": "Mistet {{list}}",
+      "none": "Ingen tap"
+    },
+    "fireBreathBlocked": {
+      "title": "Ildpusten ble stoppet!",
+      "body": "En røykbombe reddet troppene dine."
+    },
+    "toastLabel": "Spillmelding"
+  },
+  "levels": {
+    "title": "Kapitler",
+    "locked": "Låst",
+    "active": "Pågår",
+    "completed": "Fullført",
+    "continue": "Fortsett",
+    "start": "Start",
+    "restart": "Spill om igjen",
+    "restart_progress_warning": "Spille om igjen nå? Du mister ulagret framgang i dette kapittelet.",
+    "names": {
+      "mainGame": "En stor drage",
+      "newGamePlus": "Ressursstyring",
+      "dummy": "En magisk leke",
+      "infinite": "Virkelig uendelig",
+      "kingBattle": "Kongens siste kamp"
+    }
+  },
+  "artifacts": {
+    "title": "Artefakter",
+    "subtitle": "Sjeldne artefakter dukker av og til opp i spesielle kister i fangehullet. De følger med fra kapittel til kapittel.",
+    "notYetFound": "(ikke funnet ennå)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Føniksfløyten",
+        "description": "En spesiell fugl bringer med seg en ny mynt."
+      },
+      "emberforgedShield": {
+        "title": "Glørsmidd skjold",
+        "description": "Krigere tar ingen skade av drageild."
+      },
+      "moonwellFlask": {
+        "title": "Flaske fra månebrønnen",
+        "description": "Trollmenn bruker bare halvparten så mye mana."
+      },
+      "windstepAnklet": {
+        "title": "Vindstegets ankelring",
+        "description": "Alver blir ikke lammet."
+      },
+      "fangSatchel": {
+        "title": "Hoggtannveske",
+        "description": "Mens runden går, lager tyver en dragetann hver halvtime."
+      },
+      "slumberBerries": {
+        "title": "Slumrebær",
+        "description": "Gift forsinker dragens brøl og ild med 10 sekunder."
+      },
+      "echoingLute": {
+        "title": "Gjenlydende lutt",
+        "description": "Barder gir dobbel inspirasjon."
+      },
+      "blessingCenser": {
+        "title": "Velsignelsens røkelseskar",
+        "description": "Prester verver alltid dobbelt så mange."
+      },
+      "victoryTusk": {
+        "title": "Seierstannen",
+        "description": "Et fullført nivå gir dobbelt så mange dragetenner."
+      },
+      "cartographersLedger": {
+        "title": "Kartteknerens bok",
+        "description": "Viser hvor mange av fangehullets kister som er åpnet."
+      },
+      "ironSkeletonKey": {
+        "title": "Dirk av jern",
+        "description": "Låser opp fangehullet til nivå 20."
+      },
+      "everflameLantern": {
+        "title": "Evigflammens lykt",
+        "description": "Fakkelen slukner aldri."
+      },
+      "midasCoin": {
+        "title": "Midasmynten",
+        "description": "Dobbelt så mye gull i fangehullet."
+      },
+      "harvestIdol": {
+        "title": "Innhøstingsgudebildet",
+        "description": "Ressursproduksjonen øker med 25 %."
+      },
+      "titanGauntlet": {
+        "title": "Titanhansken",
+        "description": "Ti ganger så mye skade per klikk."
+      },
+      "wayfindersCompass": {
+        "title": "Veiviserens kompass",
+        "description": "Peker mot fangehullets utgang."
+      },
+      "loadedDice": {
+        "title": "Fusketerninger",
+        "description": "Hvert klikk blir kritisk."
+      }
+    }
+  }
+}
