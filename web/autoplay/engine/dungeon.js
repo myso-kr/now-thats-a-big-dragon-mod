@@ -33,6 +33,7 @@
     wall: /^w\d+_\d+$/,
     chest: /^chest_\d+_\d+$/,
     chestBox: /^chestCollision_\d+_\d+$/,
+    exitBox: /^exitDoorCollision_\d+_\d+$/,
     exit: /^exitDoor_\d+_\d+$/,
   };
 
@@ -53,6 +54,7 @@
     const chests = [];
     const shut = new Map();
     let exit = null;
+    let exitShut = true;
 
     for (const m of scene.meshes) {
       const n = m.name || '';
@@ -65,7 +67,8 @@
       // off the moment it is opened - so it is both the obstacle and the "already had
       // this one" flag, with nothing of ours to keep in step with the level.
       else if (NAME.chestBox.test(n)) shut.set(`${x},${z}`, m.checkCollisions !== false);
-      else if (NAME.exit.test(n)) exit = [x, z];
+      else if (NAME.exit.test(n)) exit = { at: [x, z], mesh: m };
+      else if (NAME.exitBox.test(n)) exitShut = m.checkCollisions !== false;
     }
     if (!floors.length) return null;
 
@@ -124,6 +127,36 @@
       if (ch.shut && blocked[ch.cell[0]]) blocked[ch.cell[0]][ch.cell[1]] = true;
     }
 
+    // The way out wants the golden key, and that is in a chest - so leaving early is
+    // not a trade of loot against time, it is not leaving at all.
+    //
+    // Unlike a chest, the door is not a square. It hangs on the outer wall, past the
+    // last row, so it rounds onto the very square you stand on to use it. Treating it
+    // as a chest - block that square, stand beside it - had the player pacing back and
+    // forth in front of the door forever, because "beside the door" and "where I am"
+    // were the same place. It is reached by distance and by looking at it, which is
+    // also the game's own rule for opening it.
+    const door = exit ? (() => {
+      const raw = cellOf(exit.at[0], exit.at[1]).map(Math.round);
+      // Hanging past the last row, its square can round clean outside the grid - and
+      // then there is no path to it and the driver simply stops, chests all opened and
+      // the way out three steps away. The square to stand on is the nearest open one.
+      let cell = raw;
+      if (!(raw[0] >= 0 && raw[1] >= 0 && raw[0] < rows && raw[1] < cols
+        && !blocked[raw[0]][raw[1]])) {
+        let bestD = Infinity;
+        for (let r = 0; r < rows; r += 1) {
+          for (let c = 0; c < cols; c += 1) {
+            if (blocked[r][c]) continue;
+            const [wx, wz] = worldOf(r, c);
+            const d = (wx - exit.at[0]) ** 2 + (wz - exit.at[1]) ** 2;
+            if (d < bestD) { bestD = d; cell = [r, c]; }
+          }
+        }
+      }
+      return { cell, world: exit.at, shut: exitShut, isExit: true };
+    })() : null;
+
     const cam = scene.activeCamera;
     const player = cellOf(cam.position.x, cam.position.z).map(Math.round);
 
@@ -137,8 +170,7 @@
       facing: cam.rotation ? cam.rotation.y : 0,
       at: [round(cam.position.x), round(cam.position.z)],
       chests: chestList,
-      // The door sits on a wall face, so its cell rounds to the square it opens from.
-      exit: exit ? cellOf(exit[0], exit[1]).map(Math.round) : null,
+      exit: door,
       open: (r, c) => r >= 0 && c >= 0 && r < rows && c < cols && !blocked[r][c],
     };
   }
@@ -229,9 +261,13 @@
       }
     }
     if (best) return best;
-    if (!maze.exit) return null;
-    const path = findPath(maze, maze.player, maze.exit);
-    return path ? { kind: 'exit', cell: maze.exit, target: null, path } : null;
+
+    // Every chest taken; now the door - walked *to*, not stood beside.
+    const door = maze.exit;
+    if (!door) return null;
+    const path = findPath(maze, maze.player, door.cell);
+    if (!path) return null;
+    return { kind: door.shut ? 'exit' : 'leave', cell: door.cell, target: door, path };
   }
 
   /**
@@ -415,7 +451,7 @@
       // not a thing that can happen - its collision box fills the square - so arriving
       // is never what opens one, and the first driver walked the whole route and came
       // back with nothing.
-      if (goal.kind === 'chest' && !goal.path.length) {
+      if ((goal.kind === 'chest' || goal.kind === 'exit') && !goal.path.length) {
         const ch = goal.target;
         if (canOpen(maze, ch)) {
           // Nothing is recorded as opened here. The chest itself says so - the game
@@ -428,7 +464,11 @@
           return true;
         }
         // Not square enough on yet. Turn towards it a quarter at a time.
-        const act = keyFor(maze.facing, ch.cell[0] - maze.player[0], ch.cell[1] - maze.player[1]);
+        //
+        // From the world offset, not the difference of cells: the door rounds onto the
+        // square you use it from, so that difference is (0,0) and there is nothing to
+        // turn towards. `keyFor` reads (dRow, dCol) as (z, x), which is what these are.
+        const act = keyFor(maze.facing, ch.world[1] - maze.at[1], ch.world[0] - maze.at[0]);
         pending = { kind: 'turn', key: act.key, from: maze.at.slice(), cell: ch.cell };
         tap(act.key);
         actions += 1;

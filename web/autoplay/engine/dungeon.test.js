@@ -46,7 +46,11 @@ function sceneOf(picture, { facing = Math.PI } = {}) {
           checkCollisions: true };
         meshes.push(box);
       }
-      if (ch === 'X') put(`exitDoor_${r}_${c}`, cx, cz);
+      if (ch === 'X') {
+        put(`exitDoor_${r}_${c}`, cx, cz);
+        meshes.push({ name: `exitDoorCollision_${r}_${c}`, position: { x: cx, z: cz, y: 1 },
+          checkCollisions: true });
+      }
       if (ch === '@') player = [cx, cz];
     });
   });
@@ -73,8 +77,10 @@ test('a disposed scene reads as no maze rather than an empty one', () => {
 test('solid squares are the ones carrying a wall', () => {
   const m = D.readMaze(sceneOf(SIMPLE));
   assert.deepStrictEqual(m.blocked[0], [true, true, true, true, true]);
+  // (2,3) holds a shut chest, which fills its square just as a wall does. The door at
+  // (1,4) does not: it hangs on the wall past the square you stand on to use it, so
+  // blocking that square would leave nowhere to stand.
   assert.deepStrictEqual(m.blocked[1], [true, false, false, false, false]);
-  // (2,3) holds a shut chest, which fills its square just as a wall does.
   assert.deepStrictEqual(m.blocked[2], [true, false, true, true, true]);
 });
 
@@ -90,7 +96,8 @@ test('the player, the chest and the way out land on the right cells', () => {
   const m = D.readMaze(sceneOf(SIMPLE));
   assert.deepStrictEqual(m.player, [1, 1]);
   assert.deepStrictEqual(m.chests.map((c) => c.cell), [[2, 3]]);
-  assert.deepStrictEqual(m.exit, [1, 4]);
+  assert.deepStrictEqual(m.exit.cell, [1, 4]);
+  assert.strictEqual(m.exit.shut, true, 'locked until the golden key turns up');
 });
 
 test('a cell with no floor under it is blocked, not open', () => {
@@ -104,7 +111,29 @@ test('a cell with no floor under it is blocked, not open', () => {
 
 test('A* takes the shortest way and returns the cells to walk', () => {
   const m = D.readMaze(sceneOf(SIMPLE));
-  assert.deepStrictEqual(D.findPath(m, [1, 1], [1, 4]), [[1, 2], [1, 3], [1, 4]]);
+  assert.deepStrictEqual(D.findPath(m, [1, 1], [1, 3]), [[1, 2], [1, 3]]);
+});
+
+test('the door is walked to and clicked, not stood beside', () => {
+  // It rounds onto the very square you use it from. Treating it as a chest - block
+  // that square, stand beside it - had the player pacing in front of the door forever,
+  // because "beside the door" and "where I am" were the same place.
+  const scene = sceneOf(SIMPLE);
+  for (const x of scene.meshes) if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+  const goal = D.nextGoal(D.readMaze(scene));
+  assert.strictEqual(goal.kind, 'exit');
+  assert.deepStrictEqual(goal.cell, [1, 4], 'the door square itself');
+  assert.strictEqual(goal.target.shut, true);
+});
+
+test('once the door is open, walking through it is the goal', () => {
+  const scene = sceneOf(SIMPLE);
+  for (const x of scene.meshes) {
+    if (/^(chest|exitDoor)Collision/.test(x.name)) x.checkCollisions = false;
+  }
+  const goal = D.nextGoal(D.readMaze(scene));
+  assert.strictEqual(goal.kind, 'leave');
+  assert.deepStrictEqual(goal.cell, [1, 4]);
 });
 
 test('A* refuses a goal that is walled in rather than walking at it', () => {
