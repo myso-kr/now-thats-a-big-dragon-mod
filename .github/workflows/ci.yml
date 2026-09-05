@@ -22,11 +22,11 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy, rustfmt
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@v2.9.2
 
       - run: cargo fmt --check
       - run: cargo clippy --all-targets -- -D warnings
@@ -36,8 +36,8 @@ jobs:
     name: Injected scripts (JS)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: '22' }
 
       # Code under web/ runs inside the game's renderer. A syntax error there leaves
@@ -79,14 +79,14 @@ jobs:
     name: Translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: '22' }
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with: { python-version: '3.12' }
       # Only for the Node-versus-Rust comparison at the end of this job.
       - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@v2.9.2
         with: { key: locale }
 
       # Everything under locale/ is generated from the tables under translations/. A
@@ -96,9 +96,13 @@ jobs:
       - name: Source reproduces what ships
         run: python tools/build-translation.py --all --check
 
-      # Without the game installed the source text cannot be compared. Structure can.
-      - name: Dialogue structure
-        run: node tools/check-dialogs.js || echo "::warning::skipped - no game installation"
+      # This one compares each translated .ink against the game's own English original,
+      # and the originals are inside the game. A runner has no game, so it skips - every
+      # time, which is the problem with saying it as a warning: a warning that fires on
+      # every run is one nobody reads, and it was drowning the ones that mean something.
+      # It is a notice now, and the drift check that CAN run without the game runs above.
+      - name: Dialogue structure (needs the game; skipped here)
+        run: node tools/check-dialogs.js || echo "::notice::dialogue structure not checked - no game installation on the runner"
 
       # The site's twenty-two pages are generated from the same catalogue the launcher
       # matches on, so a language cannot appear on the site without shipping - and a

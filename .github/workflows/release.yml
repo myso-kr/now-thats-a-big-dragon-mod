@@ -34,7 +34,7 @@ jobs:
             ext: ''
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -42,7 +42,7 @@ jobs:
           targets: ${{ matrix.target }}
 
       - name: Cache
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@v2.9.2
         with:
           key: ${{ matrix.target }}
 
@@ -102,7 +102,7 @@ jobs:
           sha256sum "bigdragon-${{ matrix.target }}.zip" > "bigdragon-${{ matrix.target }}.zip.sha256"
           cat "bigdragon-${{ matrix.target }}.zip.sha256"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: bigdragon-${{ matrix.target }}
           path: |
@@ -115,9 +115,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: artifacts
           merge-multiple: true
@@ -161,7 +161,7 @@ jobs:
           cat notes.md
 
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name || github.event.inputs.tag }}
           name: ${{ github.ref_name || github.event.inputs.tag }}
