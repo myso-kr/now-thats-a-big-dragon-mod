@@ -6,6 +6,29 @@ versions" rather than in the version number, because the game and the mod move
 independently — a game update that leaves the anchors intact gives the mod no reason
 to change, and policy keeps changing while the game stands still.
 
+## [0.5.1] - 2026-09-05
+
+### Supported game versions
+
+Unchanged from 0.5.0: 1.1.0 (25124954), 1.0.5b (25111589), 1.0.5 (25092954).
+
+### Fixed
+- **The launcher called a working font patch a failure.** Running the released
+  binary is what found it: every other self-check passed while this one printed
+  `FAIL fonts - 23/2 faces, 0 stacks`, and the patch it was checking was correct
+  all along - in the running game `--font-primary` resolved to
+  `everyday_standard, bd_ko_body, 'Malgun Gothic', sans-serif`. Two things had
+  been left behind by the move from one language to twenty-two. The wanted count
+  was the *active* language's fonts while the faces counted are every carried
+  language's, so it compared 2 against 23 - a comparison that could not come out
+  true again after the day it was written. And `stacks` was a pass condition, but
+  it counts the game's own rules that name a font family directly and have to be
+  pointed at the variable instead; a stylesheet that already routes everything
+  through `--font-primary` leaves nothing to redirect, so zero is the right
+  answer there rather than a fault. Nothing about the patch changed - only what
+  the launcher says about it, which now reads
+  `ok fonts - 23/23 faces, 22/22 language rules, 0 direct references redirected`
+
 ## [0.5.0] - 2026-09-05
 
 ### Supported game versions

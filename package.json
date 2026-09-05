@@ -1,6 +1,6 @@
 {
   "name": "big-dragon-mod",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Korean patch, cheat widget, and full autoplay for Now THAT'S a Big Dragon! — injected over CDP, no game files modified",
   "scripts": {
     "start": "node launcher.js",
