@@ -189,7 +189,16 @@
         // The enemy sprite, never its collision box: the game checks that the pick
         // landed on the sprite itself, so a click on the box is a click on nothing.
         const hit = p.pickedMesh.name;
-        const wanted = /^(chest_|exitDoor_)/.test(hit)
+        // A locked door was not on this list, so the scan found one under the pointer,
+        // called it "not what we wanted" and reported nothing to click - and the driver,
+        // being told the click had missed, turned to look again, and again. That is the
+        // spin in front of a door it had walked all the way to. The game takes a click
+        // on the door's own mesh *or* its collision box, and the same for a chest.
+        const wanted = /^(chest_|exitDoor_|door_)/.test(hit)
+          || /^(chestCollision_|exitDoorCollision_|doorCollision_)/.test(hit)
+          // The people down there hand over a torch, and take a click on the sprite or
+          // the box exactly as a chest does.
+          || /^character_(?!mat_)/.test(hit) || /^characterCollision_/.test(hit)
           || (/^enemy_/.test(hit) && !/^enemy_(collision|debug|mat)_/.test(hit));
         if (!wanted) continue;
         const o = {
@@ -222,6 +231,21 @@
 
   const dungeon = dungeonMod && dungeonMod.create({
     scene: () => (window.__bd_dungeon || {}).scene,
+    // The crawl's own HUD: golden key held, gold, grey keys - in that order, each a
+    // number in a `foundItem`. Read rather than tracked, because what the driver can
+    // work out for itself is only what it saw, and it cannot see inside a chest.
+    keys: () => {
+      try {
+        const found = document.querySelectorAll('[class*="foundItem"]');
+        if (found.length < 3) return null;
+        const n = (el) => {
+          const v = parseInt((el.textContent || '').replace(/[^0-9]/g, ''), 10);
+          return Number.isFinite(v) ? v : null;
+        };
+        const grey = n(found[2]);
+        return grey === null ? null : { grey, golden: n(found[0]) > 0 };
+      } catch (_) { return null; }
+    },
     tap: dungeonTap,
     click: dungeonClick,
     leave: dungeonLeave,
@@ -238,9 +262,40 @@
    * Run the dungeon, or step into one when it is paid for.
    * True when it took the cycle.
    */
+  /**
+   * The dungeon's own beat. Nothing else runs from here.
+   *
+   * Except while a dialogue is up. Talking to the people down there is the point of
+   * going near them - each hands over a torch - but the game stops the crawl dead while
+   * one is on screen, and the driver, seeing its moves refuse, concluded there was
+   * nowhere left to go and walked out of the dungeon it had just opened. The dialogue
+   * is somebody else's job: `handleDialog` closes it on the next cycle.
+   */
+  function dungeonTick() {
+    if (!S.running || !cfg.dungeon || !dungeon) { inDungeon = false; return; }
+    // Only while there is still a dungeon to stand still in. A run that ends with
+    // something on screen would otherwise never get the tick where the driver looks,
+    // finds the scene gone, and writes down what the run did - so every such run came
+    // back with no verdict at all.
+    const scene = (window.__bd_dungeon || {}).scene;
+    const live = !!(scene && scene.meshes && scene.meshes.length);
+    if (live && document.querySelector('[data-testid=dialog-wrapper]')) {
+      try { dungeon.hold(); } catch (_) { /* an older driver has no hold */ }
+      return;
+    }
+    try {
+      inDungeon = dungeon.step();
+    } catch (e) {
+      inDungeon = false;
+      log('DGN', `the driver threw: ${e && e.message}`, 'warn');
+    }
+  }
+
   function handleDungeon() {
     if (!cfg.dungeon || !dungeon) return false;
-    if (dungeon.step()) return true;              // already inside
+    // Stepping it here as well would send two actions per settle and put the driver
+    // permanently one action behind what it can see.
+    if (inDungeon) return true;                   // already inside
 
     const d = dungeonState();
     // The game's own condition on its key button, and going through its action is what
@@ -330,15 +385,27 @@
     }
   }
 
-  // ── The three clocks ─────────────────────────────────────────────
+  // ── The clocks ───────────────────────────────────────────────────
   // The executor runs on game ticks (so it follows game speed), the planner on a 1 Hz
   // wall clock (so planning cost stays fixed regardless of speed), and the supervisor
   // every 750 ms. Tying the planner to ticks would scale planning cost with game
   // speed and saturate the renderer.
+  //
+  // The dungeon gets its own, faster one. A move or a turn animates for about six
+  // tenths of a second and the driver sends the next action the moment the camera
+  // holds still - but it can only notice that when something calls it, and on the
+  // supervisor's 750 ms that meant up to three quarters of a second of standing about
+  // after every single action. Over the hundred-odd actions a level takes, that is
+  // most of the time spent in there. Polling faster does not make the game animate
+  // faster; it stops us missing the end of the animation.
+  const DUNGEON_TICK_MS = 120;
   const clocks = {
     offTick: null, offStory: null, offBuy: null, offUp: null,
-    planner: null, supervisor: null, heartbeat: null,
+    planner: null, supervisor: null, heartbeat: null, dungeon: null,
   };
+  // Set by the fast clock, read by the supervisor: while this is true the dungeon is
+  // being driven and the rest of the cycle stands aside.
+  let inDungeon = false;
   const watch = { lastProgress: 0, progressAt: 0 };
   const DEADMAN_MS = 6 * 60 * 60 * 1000;
   // A resource drought this long is taken as one we cannot get out of alone.
@@ -356,7 +423,8 @@
       if (typeof clocks[k] === 'function') { try { clocks[k](); } catch (_) { /* ignore */ } }
       clocks[k] = null;
     }
-    for (const k of ['planner', 'supervisor', 'heartbeat']) {
+    inDungeon = false;
+    for (const k of ['planner', 'supervisor', 'heartbeat', 'dungeon']) {
       if (clocks[k]) clearInterval(clocks[k]);
       clocks[k] = null;
     }
@@ -555,6 +623,7 @@
     try { clocks.offBuy = game.bus().on('buy_generator', () => { S.confirmed++; }); } catch (_) { /* ignore */ }
     try { clocks.offUp = game.bus().on('purchased_upgrade', () => { S.confirmed++; }); } catch (_) { /* ignore */ }
     clocks.planner = setInterval(replan, 1000);
+    clocks.dungeon = setInterval(dungeonTick, DUNGEON_TICK_MS);
     clocks.supervisor = setInterval(supervise, 750);
     clocks.heartbeat = setInterval(() => { window.__bd_auto_beat = Date.now(); }, 1000);
     if (cfg.combat) startClick();

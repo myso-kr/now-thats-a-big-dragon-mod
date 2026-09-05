@@ -58,7 +58,10 @@ def subset(src, dst, chars):
     from fontTools import subset as fts
     from fontTools.ttLib import TTFont
 
-    font = TTFont(src)
+    # Without this fontTools stamps head.modified with the clock, and every run of
+    # this script rewrites all twenty-odd fonts whether or not a character changed -
+    # which buries a real change in a diff of files that only got a new timestamp.
+    font = TTFont(src, recalcTimestamp=False)
     opts = fts.Options()
     # The layout tables can go; what must not is anything the @font-face metric
     # overrides are computed against, which lives in hhea and OS/2.

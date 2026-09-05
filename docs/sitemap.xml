@@ -1,0 +1,42 @@
+---
+layout: null
+sitemap: false
+---
+{%- assign root = site.url | append: site.baseurl -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Written by the layout, not by a plugin, because a plugin's sitemap does not carry
+  hreflang. Google reads language alternates from either the page head or the sitemap,
+  and having both is the belt-and-braces arrangement for a set this size: twenty-three
+  URLs, each naming all twenty-three, so every return link is reciprocal by construction.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>{{ root }}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ root }}/" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ root }}/" />
+    {%- for l in site.data.languages %}
+    <xhtml:link rel="alternate" hreflang="{{ l.code }}" href="{{ root }}/{{ l.code }}/" />
+    {%- endfor %}
+  </url>
+  {%- for lang in site.data.languages %}
+  <url>
+    <loc>{{ root }}/{{ lang.code }}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ root }}/" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ root }}/" />
+    {%- for l in site.data.languages %}
+    <xhtml:link rel="alternate" hreflang="{{ l.code }}" href="{{ root }}/{{ l.code }}/" />
+    {%- endfor %}
+  </url>
+  {%- endfor %}
+  <url>
+    <loc>{{ root }}/DESIGN</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

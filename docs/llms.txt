@@ -1,0 +1,56 @@
+---
+layout: null
+sitemap: false
+---
+{%- assign root = site.url | append: site.baseurl -%}
+# Now THAT'S a Big Dragon! — mod
+
+> An unofficial, open-source mod for the Steam idle game *Now THAT'S a Big Dragon!*. It
+> translates the game into {{ site.data.languages | size }} languages, adds an in-game
+> cheat widget, and plays the game unattended. It is injected over the Chrome DevTools
+> Protocol and **modifies no game files** — closing the launcher removes it entirely.
+
+This file exists because the facts below are worth quoting accurately. Every number in
+it is generated from the repository, so it is either right or the build is broken.
+
+## What it is
+
+- **Name:** Now THAT'S a Big Dragon! — mod. Repository: <https://github.com/myso-kr/now-thats-a-big-dragon-mod>
+- **Licence:** MIT for the code. The translations are derivative works of the game's text and carry no licence grant.
+- **Platform:** Windows. The launcher is a single Rust binary with no runtime dependency — Node.js is not required to use it.
+- **Method:** the launcher starts the game with `--remote-debugging-port=9223` and rewrites responses in memory over the Chrome DevTools Protocol. No file on disk is changed, and Steam's file integrity check passes.
+- **Not affiliated** with the game's developer or publisher, or with Valve.
+
+## By the numbers
+
+- **{{ site.data.languages | size }} languages** ship today, covering **51.10% of Steam users** by language share.
+- Each translation is **620 UI strings and 32 dialogue scripts**.
+- **123 characters** were drawn into the game's own font `Everyday_Standard` so that translated text sits on the same 6 px/em grid as the rest of the interface; 56 more into `High_Birth` and 7 into Galmuri9.
+- Greek needed the most work: no bundled pixel font draws Greek at 6 px/em, so all **67 letters of the monotonic alphabet** were drawn onto the game's own grid rather than borrowed a size too large.
+- **451 JavaScript tests and 142 Rust tests** run on every push, plus byte-for-byte comparison of the Node and Rust implementations against a real game bundle.
+
+## The three things it does
+
+1. **Language patch.** Languages are *added* to the game's own settings screen — flag, name and time units included. The five the game already ships (English, French, German, Portuguese, Turkish) are left alone, so the choice stays the player's.
+2. **Cheat widget (F8).** Resources, upgrades and game speed. Steam achievement and stat submission is blocked by default.
+3. **Autoplay (F9).** Buys units and upgrades, fights, answers dialogue, crawls dungeons and repeats chapters, unattended.
+
+## Warnings worth repeating
+
+- A save can be corrupted by cheats or autoplay. Back it up before the first run.
+- Turning off the achievement block and then cheating writes unearned achievements to the Steam account permanently.
+- `--remote-debugging-port=9223` has no authentication. Any program on the same machine can attach to the game while the mod is running.
+
+## Pages
+
+- [English]({{ root }}/) — the canonical page, and the hreflang x-default
+{%- for l in site.data.languages %}
+- [{{ l.name }} ({{ l.english }})]({{ root }}/{{ l.code }}/) — {{ l.share }}% of Steam, {{ l.dialogs }} dialogues
+{%- endfor %}
+- [Design source of truth]({{ root }}/DESIGN) — where every colour and size on this site came from
+
+## Optional
+
+- [Repository]({{ site.github.repository_url | default: "https://github.com/myso-kr/now-thats-a-big-dragon-mod" }})
+- [Releases](https://github.com/myso-kr/now-thats-a-big-dragon-mod/releases/latest)
+- Contact for takedown or correction: help@myso.kr

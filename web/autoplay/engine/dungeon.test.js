@@ -46,6 +46,27 @@ function sceneOf(picture, { facing = Math.PI } = {}) {
           checkCollisions: true };
         meshes.push(box);
       }
+      if (ch === 'M') {
+        // Mookie, or one of the rescue characters: a collision box on a tile, and no
+        // way to move it. The sprite is not what blocks - the box is.
+        put(`character_mookie_${r}${c}`, cx, cz);
+        put(`characterCollision_mookie_${r}${c}`, cx, cz);
+      }
+      if (ch === 'Z') {
+        // A monster that has not engaged: its sprite is hidden, and the game will not
+        // register a click on it until you come near and it wakes. Its box blocks the
+        // way in the meantime.
+        put(`enemy_spider_${r}${c}`, cx, cz);
+        meshes[meshes.length - 1].isVisible = false;
+        put(`enemy_collision_spider_${r}${c}`, cx, cz);
+      }
+      if (ch === 'D') {
+        // A locked door: a ground tile plus a collision box, exactly as the game builds
+        // one. Its box carries the open/shut signal the same way a chest's does.
+        put(`door_${r}_${c}`, cx, cz);
+        meshes.push({ name: `doorCollision_${r}_${c}`, position: { x: cx, z: cz, y: 1 },
+          checkCollisions: true });
+      }
       if (ch === 'X') {
         put(`exitDoor_${r}_${c}`, cx, cz);
         meshes.push({ name: `exitDoorCollision_${r}_${c}`, position: { x: cx, z: cz, y: 1 },
@@ -165,13 +186,487 @@ test('every chest is taken before the way out, because the key is in one', () =>
   assert.strictEqual(D.nextGoal(D.readMaze(scene)).kind, 'exit');
 });
 
-test('the nearest chest is taken first, not the first one found', () => {
-  // The standing cells have to differ, not the chests: beside is what gets walked to,
-  // so two chests either side at the same remove is a tie, not a nearest.
-  const m = D.readMaze(sceneOf(['########', '#$..@.$#', '########']));
+test('a route to a chest does not step on the way out', () => {
+  // The game's own door fires on entry - `t === tileCol && i === tileRow` and it calls
+  // onEnterTile, no click, no facing. So the corridor here is a trap: the shortest way
+  // from the player to the chest runs straight over the door, and taking it ends the
+  // floor with the chest still shut. That is the run this reproduces: golden key out of
+  // the first chest, and out through the second chest's front door.
+  const PIC = ['#####', '#@X$#', '#...#', '#####'];
+  const scene = sceneOf(PIC);
+  // Open, which is the only state in which standing on it does anything: the game's
+  // door opens on a click and only with the golden key, and `update` fires onEnterTile
+  // solely `if (this.isOpen)`.
+  for (const x of scene.meshes) if (x.name.startsWith('exitDoorCollision')) x.checkCollisions = false;
+  const m = D.readMaze(scene);
+  assert.strictEqual(m.exit.shut, false, 'the fixture should have it open');
   const goal = D.nextGoal(m);
-  assert.deepStrictEqual(goal.target.cell, [1, 6], 'one step to its side, against two');
-  assert.deepStrictEqual(goal.cell, [1, 5]);
+  assert.strictEqual(goal.kind, 'chest');
+  const door = m.exit.cell.join(',');
+  assert.ok(!goal.path.some((cell) => cell.join(',') === door),
+    `the route ${JSON.stringify(goal.path)} steps on the door at ${door}`);
+  // The way round is longer, and longer is the point.
+  assert.ok(goal.path.length > 1, 'it should have gone the long way');
+
+  // Shut, it is inert, and going round it would just be steps off the torch.
+  const shutGoal = D.nextGoal(D.readMaze(sceneOf(PIC)));
+  assert.strictEqual(shutGoal.kind, 'chest');
+  assert.ok(shutGoal.path.length < goal.path.length,
+    'a shut door is not a hazard and should not be walked round');
+});
+
+test('the golden key is known, even though it does not steer the route', () => {
+  // The game hands it out on chestIndex === 0 and rolls for the rest, so it is always
+  // the first chest built, and Babylon keeps scene.meshes in creation order. The run
+  // summary says whether it was taken, which is the difference between a crawl that
+  // counted and one that did not.
+  const m = D.readMaze(sceneOf(ALCOVES));
+  assert.strictEqual(m.chests.filter((c) => c.golden).length, 1);
+  assert.deepStrictEqual(m.chests.find((c) => c.golden).cell, m.chests[0].cell);
+});
+
+test('a chest reachable only over the way out is still worth going for', () => {
+  // One chest lost to an early exit beats every chest lost to standing still, so when
+  // there is no way round, the driver takes the door route rather than giving up.
+  const m = D.readMaze(sceneOf([
+    '####',
+    '#@X$',
+    '####',
+  ]));
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'chest', 'it should still go');
+  assert.ok(goal.path.length, 'and it has to walk to get there');
+});
+
+/** What "take the nearest each time" actually does, re-asked from where you land. */
+function nearestFirst(m) {
+  const left = m.chests.filter((c) => c.shut).slice();
+  const out = [];
+  let from = m.player;
+  while (left.length) {
+    let bi = -1;
+    let bp = null;
+    for (let i = 0; i < left.length; i += 1) {
+      for (const [dr, dc] of D.STEPS) {
+        const stand = [left[i].cell[0] + dr, left[i].cell[1] + dc];
+        if (!m.open(stand[0], stand[1])) continue;
+        const path = D.findPath(m, from, stand);
+        if (path && (!bp || path.length < bp.length)) { bp = path; bi = i; }
+      }
+    }
+    if (bi < 0) break;
+    out.push({ kind: 'chest', cell: left[bi].cell });
+    left.splice(bi, 1);
+    from = bp.length ? bp[bp.length - 1] : from;
+  }
+  return out;
+}
+
+/** Walk an order and total what it costs, so a plan can be weighed against another. */
+function costOf(m, order) {
+  let from = m.player;
+  let total = 0;
+  for (const stop of order) {
+    let best = null;
+    for (const [dr, dc] of D.STEPS) {
+      const stand = [stop.cell[0] + dr, stop.cell[1] + dc];
+      if (!m.open(stand[0], stand[1])) continue;
+      const path = D.findPath(m, from, stand);
+      if (path && (!best || path.length < best.length)) best = path;
+    }
+    if (!best) return Infinity;
+    total += best.length;
+    from = best.length ? best[best.length - 1] : from;
+  }
+  return total;
+}
+
+// Chests sit in alcoves off the corridor, which is where the game puts them. A shut
+// chest blocks its own square, so one standing in a corridor walls the maze in half and
+// the far side is unreachable until it is opened - which it cannot be, from the far
+// side. That is a picture the game never draws, and it is not what these are testing.
+const ALCOVES = [
+  '#######',
+  '#@....#',
+  '#.#.#.#',
+  '#$#$#$#',
+  '#######',
+];
+
+// A maze that branches, which is what the game builds once a level is past its first
+// few. Nearest-first commits to the near chest and pays for it on the way back out.
+const BRANCHED = [
+  '##########',
+  '#@.......#',
+  '#.#.####.#',
+  '#.$.#..$.#',
+  '#.###.##.#',
+  '#....$...#',
+  '##########',
+];
+
+test('planning the order beats taking the nearest, and measurably', () => {
+  const m = D.readMaze(sceneOf(BRANCHED));
+  const planned = costOf(m, D.order(m, m.chests.filter((c) => c.shut)));
+  const naive = costOf(m, nearestFirst(m));
+  assert.ok(planned < naive, `planned ${planned}, nearest-first ${naive} - no gain`);
+  // 17 against 23 when this was written. Asserting the exact numbers would break on any
+  // harmless change to the fixture; asserting a real margin is the point.
+  assert.ok(naive - planned >= 4, `only ${naive - planned} steps saved`);
+});
+
+test('the route visits every chest that can be reached, once each', () => {
+  const m = D.readMaze(sceneOf(ALCOVES));
+  const plan = D.order(m, m.chests.filter((c) => c.shut));
+  const cells = plan.map((p) => p.cell.join(','));
+  assert.strictEqual(new Set(cells).size, cells.length, 'no chest twice');
+  const reachable = m.chests
+    .filter((c) => c.shut && costOf(m, [{ kind: 'chest', cell: c.cell }]) < Infinity)
+    .map((c) => c.cell.join(','));
+  assert.ok(reachable.length >= 3, 'the fixture should have chests to visit');
+  assert.deepStrictEqual(cells.slice().sort(), reachable.slice().sort());
+});
+
+test('the planned order is never worse than taking the nearest each time', () => {
+  // Which is the whole reason for planning it. Nearest-first is a guess made from
+  // wherever you are standing; on a maze the chest one step away can be down a dead
+  // end that costs twenty to leave again.
+  const mazes = [
+    ALCOVES,
+    ['#########', '#@......#', '#.#.#.#.#', '#$#$#$#$#', '#########'],
+    ['#########', '#..@....#', '#.#####.#', '#$.....$#', '#########'],
+    ['#########', '#@......#', '#.#####.#', '#.$...$.#', '#.#####.#', '#......$#', '#########'],
+    BRANCHED,
+  ];
+  for (const pic of mazes) {
+    const m = D.readMaze(sceneOf(pic));
+    const planned = costOf(m, D.order(m, m.chests.filter((c) => c.shut)));
+    const naive = nearestFirst(m);
+    assert.ok(planned <= costOf(m, naive),
+      `planned ${planned} steps against nearest-first ${costOf(m, naive)} on ${pic.join('/')}`);
+  }
+});
+
+test('the route leaves out chests already opened or given up on', () => {
+  const scene = sceneOf(ALCOVES);
+  for (const x of scene.meshes) if (x.name === 'chestCollision_3_1') x.checkCollisions = false;
+  const m = D.readMaze(scene);
+  const plan = D.order(m, m.chests.filter((c) => c.shut && c.cell.join(',') !== '3,3'));
+  const cells = plan.map((p) => p.cell.join(','));
+  assert.ok(!cells.includes('3,1'), 'an opened chest is not a stop');
+  assert.ok(!cells.includes('3,3'), 'nor is one we gave up on');
+  assert.deepStrictEqual(cells, ['3,5'], 'and the rest are still on the list');
+});
+
+test('the order is fixed for the floor, not re-guessed from where you stand', () => {
+  // The old planner answered "which is nearest from here" every tick, so walking
+  // between two chests could swap them and the route would restart. The order is now
+  // computed over the floor once, so asking again from anywhere on it gives the same
+  // answer for what is still shut.
+  const m = D.readMaze(sceneOf(ALCOVES));
+  const shut = m.chests.filter((c) => c.shut);
+  const a = D.order(m, shut).map((c) => c.cell.join(','));
+  const b = D.order(m, shut).map((c) => c.cell.join(','));
+  assert.deepStrictEqual(a, b);
+});
+
+test('a run says what it did when it ends', () => {
+  // The driver used to log only its failures, so a level that left two of three chests
+  // behind read exactly like a level that had only one - which is how the early exit
+  // went unnoticed. Every run now ends with a line saying what it actually took.
+  const scene = sceneOf(['#####', '#@.$X', '#####']);
+  const said = [];
+  let live = scene;
+  const d = D.create({
+    scene: () => live,
+    tap: () => {},
+    click: () => true,
+    now: () => 0,
+    log: (tag, text, level) => said.push({ tag, text, level }),
+  });
+  d.step();
+  live = null;                       // the way out of every dungeon: the scene goes
+  assert.strictEqual(d.step(), false);
+  const line = said.find((e) => e.text.startsWith('run over:'));
+  assert.ok(line, `no summary in ${JSON.stringify(said)}`);
+  assert.match(line.text, /0\/1 chests/);
+  assert.strictEqual(line.level, 'warn', 'a chest left behind is worth a warning');
+});
+
+test('standing beside a chest, it turns rather than walking into it', () => {
+  // A chest fills its own square, so a step forward from beside it cannot move - and
+  // the driver reads a step that moved nothing as a wall it did not know about, and
+  // writes that square off for the rest of the run. It was doing that to the very
+  // chests and doors it had come to open: `(8,1) is walled after all` on a door.
+  const scene = sceneOf(['#####', '#@$.#', '#####'], { facing: Math.PI / 2 });
+  const sent = [];
+  const d = D.create({
+    scene: () => scene, tap: (k) => sent.push(k), click: () => false,
+    now: () => 0, log: () => {},
+  });
+  for (let i = 0; i < 6; i += 1) d.step();
+  assert.ok(sent.length, 'it should have done something');
+  assert.ok(!sent.includes('KeyW'), `it walked into the chest: ${sent.join(',')}`);
+});
+
+test('a floor sealed behind a door it has no key for is left at once', () => {
+  // The game places doors on random corridor squares and checks nothing. In a perfect
+  // maze every corridor square is a bridge, so a door beside the entrance seals the
+  // floor - and the grey keys that would open it are in the chests behind it. Nobody
+  // can finish that floor. What can be done is to see it and go, rather than spend the
+  // torch proving it: eight clicks at the door, then eight more at a way out that only
+  // opens to a golden key we could not have.
+  const m = D.readMaze(sceneOf([
+    '#####',
+    '#@D$#',
+    '#####',
+    'X####',
+  ]));
+  assert.ok(m.chests.every((c) => c.shut), 'nothing opened yet');
+  assert.ok(m.exit.shut, 'and the way out is shut');
+
+  // With a key, the door is worth a try.
+  assert.strictEqual(D.nextGoal(m, new Set(), { grey: 1 }).kind, 'door');
+  // Without one, the door is still tried - but once it has been given up on there is
+  // nothing else, and in particular not the way out.
+  const after = D.nextGoal(m, new Set(['1,2']), { grey: 0 });
+  assert.strictEqual(after, null, 'no golden key is possible, so the exit is not a goal');
+
+  // And it is the *golden* chest that decides it. A floor can hand over an ordinary
+  // chest and still be sealed away from the one with the key.
+  const two = sceneOf(['######', '#@$D$#', '######', 'X#####']);
+  for (const x of two.meshes) if (x.name === 'chestCollision_1_4') x.checkCollisions = false;
+  const m2 = D.readMaze(two);
+  assert.ok(m2.chests.some((c) => !c.shut), 'one of them is open');
+  assert.ok(m2.chests.find((c) => c.golden).shut, 'but not the one with the key');
+  assert.strictEqual(D.nextGoal(m2, new Set(['1,2', '1,3']), { grey: 0 }), null);
+});
+
+test('a character is a wall to walk round and a person to talk to', () => {
+  // The game's own table gives mookie on level 4 and the worker on 8 and 10, and each
+  // hands over a torch - which on a floor with a burning clock is more floor. He is not
+  // an obstacle to clear, though: he says himself he cannot leave his tile.
+  const m = D.readMaze(sceneOf(['#####', '#@M$#', '#####']));
+  assert.strictEqual(m.open(1, 2), false, 'his tile is not walkable');
+  assert.strictEqual((m.enemies || []).length, 0, 'and he is not a monster to fight');
+  assert.strictEqual(m.npcs.length, 1);
+  assert.deepStrictEqual(m.npcs[0].cell, [1, 2]);
+
+  // And he comes first: the torch is worth most at the start.
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'talk');
+  assert.deepStrictEqual(goal.cell, [1, 1], 'stood beside him');
+
+  // Once talked to, he is just scenery - and the chest behind him is still walled off.
+  const after = D.nextGoal(m, new Set(['1,2']));
+  assert.notStrictEqual(after && after.kind, 'talk');
+});
+
+test('the rescue characters outside the walls are not visited', () => {
+  // They stand beyond the maze with no collision box at all, and there is nothing to
+  // say to them - they are the developer, waiting for someone who clipped through.
+  const scene = sceneOf(['#####', '#@.$#', '#####']);
+  scene.meshes.push({ name: 'character_dungeon_rescue_LEFT_1', position: { x: -6, z: 18, y: 1.5 } });
+  const m = D.readMaze(scene);
+  assert.deepStrictEqual(m.npcs, [], 'no box in the maze, so not one of ours');
+});
+
+test('a sleeping monster is walked up to, not treated as a wall', () => {
+  // This is the run the user kept seeing: one chest opened and home early. A spider
+  // asleep in the corridor cut the floor in two, and because `inBattle` gates the
+  // game's click handler the driver had nothing to do about it - so it planned around
+  // it, found nothing, and went to the way out with three chests still shut.
+  const m = D.readMaze(sceneOf(['#####', '#@Z$#', '#####']));
+  assert.strictEqual(m.enemies.length, 1);
+  assert.strictEqual(m.enemies[0].inBattle, false, 'asleep');
+  assert.strictEqual(m.open(1, 2), false, 'and blocking the way while it sleeps');
+
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'engage', 'so it is what we go and do something about');
+  assert.deepStrictEqual(goal.target.cell, [1, 2]);
+  assert.deepStrictEqual(goal.cell, [1, 1], 'walked up to, from beside');
+});
+
+test('an opened way out is stepped through, not stood in front of', () => {
+  // onEnterTile fires from the door's own update when the player's tile matches its
+  // own, and the square the route ends on is not quite that tile. A run that opened
+  // every chest, walked to the door and opened it then stood there until the torch
+  // went out - one step short of finishing.
+  const scene = sceneOf(['#####', '#@..X', '#####'], { facing: Math.PI / 2 });
+  for (const x of scene.meshes) {
+    if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+    if (x.name.startsWith('exitDoorCollision')) x.checkCollisions = false;
+  }
+  const m = D.readMaze(scene);
+  assert.strictEqual(m.exit.shut, false, 'the fixture has it open');
+  const sent = [];
+  const d = D.create({
+    scene: () => scene, tap: (k) => sent.push(k),
+    click: () => { throw new Error('an open door is walked through, not clicked'); },
+    now: () => 0, log: () => {},
+  });
+  for (let i = 0; i < 6; i += 1) d.step();
+  assert.ok(sent.includes('KeyW'), `it has to walk: ${sent.join(',')}`);
+});
+
+test('a sleeping monster is turned towards, because that is what wakes it', () => {
+  // The enemy's own update starts the battle on `isPlayerFacingEnemy(1.05)`, and its
+  // click handler is gated on `inBattle` - so there is nothing to click until it has
+  // woken, and nothing wakes it but being looked at. Standing beside one and waiting
+  // was two hundred ticks of nothing and a stalled run.
+  const scene = sceneOf(['#####', '#@Z$#', '#####'], { facing: 0 });
+  const sent = [];
+  const d = D.create({
+    scene: () => scene, tap: (k) => sent.push(k),
+    click: () => { throw new Error('a sleeping monster must not be clicked at'); },
+    now: () => 0, log: () => {},
+  });
+  d.step();
+  assert.ok(sent.length, 'it has to do something rather than wait');
+  assert.ok(['KeyA', 'KeyD'].includes(sent[0]), `turned to face it, got ${sent[0]}`);
+});
+
+test('a monster that has woken is fought before anything else', () => {
+  const scene = sceneOf(['#####', '#@Z$#', '#####']);
+  for (const x of scene.meshes) if (/^enemy_spider/.test(x.name)) x.isVisible = true;
+  const m = D.readMaze(scene);
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'fight');
+  assert.strictEqual(goal.path.length, 0, 'it is on us; the click is the whole action');
+});
+
+test('with no key in hand a door waits, but it is not written off', () => {
+  // The count orders the work - the chests on this side are where the keys come from,
+  // so they come first. It does not forbid the door: the game spends a grey key if
+  // there is one and otherwise falls through to a second resource. A floor whose every
+  // way on was a door came back "0 of 4 chests" when this was a prohibition.
+  const reachable = D.readMaze(sceneOf([
+    '######',
+    '#@$#D#',
+    '####$#',
+  ]));
+  const first = D.nextGoal(reachable, new Set(), { grey: 0 });
+  assert.strictEqual(first.kind, 'chest', 'the chest on this side comes first');
+
+  const onlyDoor = D.readMaze(sceneOf(['#####', '#@D$#', '#####']));
+  for (const keys of [{ grey: 1 }, { grey: 0 }, null]) {
+    const g = D.nextGoal(onlyDoor, new Set(), keys);
+    assert.strictEqual(g && g.kind, 'door',
+      `with nothing else on the floor it should try the door (keys ${JSON.stringify(keys)})`);
+  }
+});
+
+test('doors in sequence are opened one after the other, not written off', () => {
+  // The start opens onto a door, and that door onto another. Asking "would opening
+  // *this* door reach a chest" answers no for both, because each is only reachable
+  // through the one before it - and a floor built that way came back with every chest
+  // unopened. The question has to be asked of the floor with all of them open.
+  const m = D.readMaze(sceneOf([
+    '#######',
+    '#@#####',
+    '#D#####',
+    '#.#####',
+    '#D#####',
+    '#$#####',
+  ]));
+  assert.strictEqual(m.doors.length, 2);
+  const goal = D.nextGoal(m, new Set(), { grey: 1 });
+  assert.strictEqual(goal.kind, 'door');
+  assert.deepStrictEqual(goal.target.cell, [2, 1], 'the near one first');
+
+  // With the near one open, the far one is next.
+  const scene = sceneOf(['#######', '#@#####', '#D#####', '#.#####', '#D#####', '#$#####']);
+  for (const x of scene.meshes) if (x.name === 'doorCollision_2_1') x.checkCollisions = false;
+  const next = D.nextGoal(D.readMaze(scene), new Set(), { grey: 1 });
+  assert.strictEqual(next.kind, 'door');
+  assert.deepStrictEqual(next.target.cell, [4, 1]);
+});
+
+test('a locked door is read as a door, not as bare floor', () => {
+  // It was in none of the name patterns, so it read as floor: the driver planned
+  // through it, walked into it, saw nothing move and wrote the cell down as a wall for
+  // the rest of the run. Everything behind it was then unreachable and left there.
+  const m = D.readMaze(sceneOf(['#####', '#@D$#', '#####']));
+  assert.strictEqual(m.doors.length, 1);
+  assert.deepStrictEqual(m.doors[0].cell, [1, 2]);
+  assert.strictEqual(m.doors[0].shut, true);
+  assert.strictEqual(m.open(1, 2), false, 'a shut door blocks its cell');
+});
+
+test('an opened door is floor again', () => {
+  const scene = sceneOf(['#####', '#@D$#', '#####']);
+  for (const x of scene.meshes) if (x.name.startsWith('doorCollision')) x.checkCollisions = false;
+  const m = D.readMaze(scene);
+  assert.strictEqual(m.doors[0].shut, false);
+  assert.strictEqual(m.open(1, 2), true);
+  // And with the way through open, the chest behind it is the goal again.
+  assert.strictEqual(D.nextGoal(m).kind, 'chest');
+});
+
+test('a door in the way of a chest is opened, and from beside it', () => {
+  const m = D.readMaze(sceneOf(['#####', '#@D$#', '#####']));
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'door', 'the chest is behind it, so the key is worth it');
+  assert.deepStrictEqual(goal.target.cell, [1, 2]);
+  assert.deepStrictEqual(goal.cell, [1, 1], 'stood beside it, never on it');
+});
+
+test('a door with nothing behind it is left alone', () => {
+  // Grey keys are finite. A door is road, not loot: opened for what is past it and
+  // never for its own sake.
+  const m = D.readMaze(sceneOf([
+    '#####',
+    '#@.D#',
+    '#$###',
+    '#####',
+  ]));
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'chest', 'the reachable chest comes first');
+
+  const done = sceneOf(['#####', '#@.D#', '#$###', '#####']);
+  for (const x of done.meshes) if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+  const after = D.nextGoal(D.readMaze(done));
+  // Nothing behind the door and no way out drawn, so there is simply nothing to do -
+  // what matters is that it did not spend a key on the door.
+  assert.notStrictEqual(after && after.kind, 'door');
+});
+
+test('the door opened is the first one on the way, not the nearest one anywhere', () => {
+  //  @ . D . $      the chest is behind the first door
+  //  . # # # #
+  //  D              a second door, closer as the crow flies, leading nowhere
+  const m = D.readMaze(sceneOf([
+    '#######',
+    '#@.D.$#',
+    '#.#####',
+    '#D#####',
+    '#######',
+  ]));
+  const goal = D.nextGoal(m);
+  assert.strictEqual(goal.kind, 'door');
+  assert.deepStrictEqual(goal.target.cell, [1, 3], 'the one between us and the chest');
+});
+
+test('a door is given up on when it will not open, and the run goes on', () => {
+  // With no grey key left the game's onTryOpen returns false and the door stays shut.
+  // The driver has to stop asking and take what else there is.
+  const m = D.readMaze(sceneOf(['######', '#@D$.X', '######']));
+  const first = D.nextGoal(m);
+  assert.strictEqual(first.kind, 'door');
+  const gaveUp = new Set([`${first.target.cell[0]},${first.target.cell[1]}`]);
+  const then = D.nextGoal(m, gaveUp);
+  assert.notStrictEqual(then && then.kind, 'door', 'it should not come back to it');
+});
+
+test('the order is the one that walks least, and nothing is lifted out of it', () => {
+  // Shortest first, by real path length. Pulling the golden-key chest to the front was
+  // tried and taken back out - the route opens every chest anyway, so the key comes
+  // either way, and forcing it first only lengthens the walk.
+  const m = D.readMaze(sceneOf(['########', '#$..@.$#', '########']));
+  const plan = D.order(m, m.chests.filter((c) => c.shut));
+  assert.strictEqual(plan.length, 2);
+  assert.deepStrictEqual(plan[0].cell, [1, 6], 'the near one, two steps off');
+  assert.deepStrictEqual(plan[1].cell, [1, 1]);
 });
 
 test('a chest is opened from beside it, at the range the game allows', () => {
@@ -256,7 +751,10 @@ test('one action per tap, and nothing until it has settled', () => {
 test('an action ends when the camera stops, not when a timer runs out', () => {
   // The point of the whole thing: a step that settles early must not be followed by
   // dead air, because a level is a hundred of them.
-  const scene = sceneOf(['#####', '#@..X', '#####'], { facing: Math.PI / 2 });
+  const scene = sceneOf(['#####', '#@..X', '#####', '#$###'], { facing: Math.PI / 2 });
+  for (const x of scene.meshes) {
+    if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+  }
   let clock = 0;
   const sent = [];
   const d = D.create({
@@ -305,12 +803,20 @@ test('with no live scene it drives nothing and says so', () => {
   assert.strictEqual(d.step(), false);
 });
 
-test('a move that changed nothing marks the cell walled, and it sticks', () => {
+test('a move that changed nothing twice marks the cell walled, and it sticks', () => {
   // The only collision signal there is: the grid comes from meshes and can be wrong.
   // Facing east down a corridor, so the very first action is a move rather than a turn,
   // and the fake camera never moves because nothing here moves it.
+  //
+  // Twice, not once. The game drops input while it is busy - the entry animation above
+  // all - and calling the first failure a wall ended runs on the spot: the first move
+  // out of the start would fail, its one square would be written off, and the floor was
+  // over before it began.
   const warned = [];
-  const scene = sceneOf(['####', '#@.X', '####'], { facing: Math.PI / 2 });
+  const scene = sceneOf(['####', '#@.X', '####', '#$##'], { facing: Math.PI / 2 });
+  for (const x of scene.meshes) {
+    if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+  }
   let clock = 0;
   const d = D.create({
     scene: () => scene,
@@ -323,7 +829,13 @@ test('a move that changed nothing marks the cell walled, and it sticks', () => {
   d.step();
   clock += 200;
   d.step();
-  assert.ok(warned.includes('warn'), 'and it is said out loud');
+  assert.deepStrictEqual(d.report().walled, [], 'one refusal is only a retry');
+
+  clock += 200;
+  d.step();
+  clock += 200;
+  d.step();
+  assert.ok(warned.includes('warn'), 'and the second is said out loud');
   assert.deepStrictEqual(d.report().walled, ['1,2']);
 
   // It has to survive the maze being rebuilt from the scene, which happens every step.
@@ -437,7 +949,7 @@ function withFoe(scene, r, c, { inBattle = true } = {}) {
 }
 
 test('a monster fills its cell, the way a shut chest does', () => {
-    const m = D.readMaze(withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2));
+    const m = D.readMaze(withFoe(sceneOf(['#####', '#@..X', '#####', '#$###']), 1, 2));
     assert.strictEqual(m.open(1, 2), false, 'its box is what stops you');
     assert.strictEqual(m.enemies.length, 1);
     assert.deepStrictEqual(m.enemies[0].cell, [1, 2]);
@@ -459,7 +971,10 @@ test('a monster that has not engaged yet is not swung at', () => {
 });
 
 test('a fight is clicked, not walked into', () => {
-    const scene = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    const scene = withFoe(sceneOf(['#####', '#@..X', '#####', '#$###']), 1, 2);
+    for (const x of scene.meshes) {
+      if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+    }
     let clock = 0;
     const sent = [];
     const clicked = [];
@@ -481,7 +996,10 @@ test('a fight is clicked, not walked into', () => {
 test('a fight counts as progress, so a long one is not mistaken for a hang', () => {
     // The player stands still through a fight; what changes is the monster. Counting
     // only the player's square would walk out of a level it was winning.
-    const scene = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    const scene = withFoe(sceneOf(['#####', '#@..X', '#####', '#$###']), 1, 2);
+    for (const x of scene.meshes) {
+      if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+    }
     let clock = 0;
     const left = [];
     const d = D.create({
@@ -499,7 +1017,10 @@ test('a fight counts as progress, so a long one is not mistaken for a hang', () 
     assert.strictEqual(left.length, 1, 'nothing changed at all, so it does leave');
 
     // Now let the monster die partway through: that is a change, and it stays.
-    const scene2 = withFoe(sceneOf(['#####', '#@..X', '#####']), 1, 2);
+    const scene2 = withFoe(sceneOf(['#####', '#@..X', '#####', '#$###']), 1, 2);
+    for (const x of scene2.meshes) {
+      if (x.name.startsWith('chestCollision')) x.checkCollisions = false;
+    }
     let t2 = 0;
     const left2 = [];
     let swings = 0;

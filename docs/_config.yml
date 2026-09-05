@@ -1,29 +1,30 @@
 # GitHub Pages (Settings → Pages → Source: main /docs)
-title: "Now THAT'S a Big Dragon! — Korean patch, cheats, and autoplay"
+title: "Now THAT'S a Big Dragon! — 22-language patch, cheats, and autoplay"
 description: >-
   Unofficial mod for the Steam idle game Now THAT'S a Big Dragon!.
-  Korean translation (한글패치), an in-game cheat widget, and a fully autonomous
+  Translations into 22 languages, an in-game cheat widget, and a fully autonomous
   autoplay — injected over the Chrome DevTools Protocol. No game files are modified.
 url: "https://myso-kr.github.io"
 baseurl: "/now-thats-a-big-dragon-mod"
 lang: en
 
-theme: jekyll-theme-cayman
+# No remote theme: docs/_layouts/default.html and docs/assets/css/torchlit.css are
+# this site's own, and docs/DESIGN.md says where every value in them came from.
 
-plugins:
-  - jekyll-seo-tag      # og: / twitter: / canonical / JSON-LD
-  - jekyll-sitemap      # sitemap.xml
+# No plugins.
+#
+# jekyll-seo-tag only emits where a page calls {% seo %}, and the layout writes its own
+# canonical, og: and JSON-LD - two of them would be two answers to the same question.
+#
+# jekyll-sitemap is gone for the same reason: docs/sitemap.xml is written by hand because
+# a generated sitemap carries no hreflang annotations, and this site is twenty-three
+# pages of the same thing in different languages, which is the case hreflang exists for.
 
-# 검색엔진이 이 이름들로 찾아온다. 게임 정식 명칭을 그대로 둔다.
 author: myso-kr
-twitter:
-  card: summary_large_image
 
-defaults:
-  - scope: { path: "" }
-    values: { lang: en }
-  - scope: { path: "ko" }
-    values: { lang: ko }
+# Each page carries its own `lang` and `code`, written by tools/build-site.py, so there
+# is nothing to default here - a page that did not declare its language would be a page
+# whose hreflang cluster is wrong.
 
 exclude:
   - Gemfile

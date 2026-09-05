@@ -1,0 +1,201 @@
+<!doctype html>
+{%- comment -%}
+  Everything this page says comes from _data/i18n.yml, keyed by the page's language and
+  falling back to English. A page is localised, not an English page with a translated
+  headline on it - which is the same shape the game's own i18n has, and the reason a
+  reader who lands here from a Greek search stays in Greek.
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
+{%- assign en = site.data.i18n.en -%}
+{%- assign root = site.url | append: site.baseurl -%}
+{%- if page.code == "en" -%}
+  {%- assign here = root | append: "/" -%}
+{%- else -%}
+  {%- assign here = root | append: "/" | append: page.code | append: "/" -%}
+{%- endif -%}
+<html lang="{{ page.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+
+{%- comment -%}
+  hreflang, written from one list so the set cannot go asymmetric: a self-referencing
+  tag (leaving it out is the commonest fault there is), one for every sibling, an
+  x-default at the English root, and a canonical matching the URL the cluster names -
+  a set pointing at non-canonical URLs is ignored outright.
+{%- endcomment -%}
+<link rel="canonical" href="{{ here }}">
+<link rel="alternate" hreflang="x-default" href="{{ root }}/">
+<link rel="alternate" hreflang="en" href="{{ root }}/">
+{%- for l in site.data.languages %}
+<link rel="alternate" hreflang="{{ l.code }}" href="{{ root }}/{{ l.code }}/">
+{%- endfor %}
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Now THAT'S a Big Dragon! — mod">
+<meta property="og:locale" content="{{ page.lang | replace: '-', '_' }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ here }}">
+{%- comment -%}
+  One card for every language. The picture carries the name, the count and the licence
+  position, which are the three things that do not change between translations, so it
+  does not need twenty-three of itself. It is drawn by tools/build-og-image.py in the
+  game's own font on the game's own grid - see docs/DESIGN.md.
+{%- endcomment -%}
+<meta property="og:image" content="{{ root }}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Now THAT'S a Big Dragon! - language patch, cheats, autoplay. 22 languages, 51.10% of Steam users. No game files are modified.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ root }}/assets/og.png">
+
+{%- comment -%}
+  Two graphs. The SoftwareApplication says what the thing is; the FAQPage answers the
+  questions people actually type. Structured pages are the ones answer engines quote,
+  and the answers below are the very sentences the page shows a reader - paired in
+  _data/faq.yml - so a quoted answer and the page can never disagree.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+  "@type": "SoftwareApplication",
+  "name": "Now THAT'S a Big Dragon! — mod",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Windows",
+  "url": {{ here | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "isAccessibleForFree": true,
+  "license": "https://opensource.org/licenses/MIT",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "myso-kr", "url": "https://github.com/myso-kr" },
+  "codeRepository": "https://github.com/myso-kr/now-thats-a-big-dragon-mod",
+  "image": {{ root | append: "/assets/og.png" | jsonify }},
+  "softwareRequirements": "Now THAT'S a Big Dragon! on Steam",
+  "availableOnDevice": "Windows",
+  "inLanguage": [{% for l in site.data.languages %}{{ l.code | jsonify }},{% endfor %}"en"],
+  "dateModified": {{ site.time | date: "%Y-%m-%d" | jsonify }}
+  },
+  {
+  "@type": "HowTo",
+  "name": {{ t.how_h | default: en.how_h | jsonify }},
+  "inLanguage": {{ page.lang | jsonify }},
+  "totalTime": "PT2M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "text": {{ t.how_1 | default: en.how_1 | jsonify }} },
+    { "@type": "HowToStep", "position": 2, "text": {{ t.how_2 | default: en.how_2 | jsonify }} },
+    { "@type": "HowToStep", "position": 3, "text": {{ t.how_3 | default: en.how_3 | jsonify }} }
+  ]
+  },
+  {
+  "@type": "FAQPage",
+  "inLanguage": {{ page.lang | jsonify }},
+  "mainEntity": [
+    {%- for pair in site.data.faq %}
+    {
+      "@type": "Question",
+      "name": {{ t[pair.question] | default: en[pair.question] | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ t[pair.answer] | default: en[pair.answer] | jsonify }}
+      }
+    }{%- unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+  }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/torchlit.css">
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+
+<header class="masthead">
+  <p class="eyebrow">Now THAT'S a Big Dragon!</p>
+  <h1>{{ page.title }}</h1>
+  <p class="lede">{{ page.description }}</p>
+  <p class="links">
+    <a class="cta" href="https://github.com/myso-kr/now-thats-a-big-dragon-mod/releases">{{ t.download }}</a>
+    <a href="https://github.com/myso-kr/now-thats-a-big-dragon-mod">{{ t.source }}</a>
+  </p>
+</header>
+
+<main id="main">
+  <ul class="does">
+    <li>{{ t.one }}</li>
+    <li>{{ t.two }}</li>
+    <li>{{ t.three }}</li>
+  </ul>
+
+  {{ content }}
+
+  <section class="notice" aria-labelledby="notice-h">
+    <h2 id="notice-h">{{ t.notice_h }}</h2>
+    <p>{{ t.unofficial }}</p>
+    <p>{{ t.copy }}</p>
+    <p>{{ t.files }}</p>
+    <p>{{ t.save }}</p>
+    <p>{{ t.achievements }}</p>
+    <p>{{ t.port }}</p>
+    <p>{{ t.warranty }}</p>
+  </section>
+
+  <section class="how" aria-labelledby="how-h">
+    <h2 id="how-h">{{ t.how_h | default: en.how_h }}</h2>
+    <ol>
+      <li>{{ t.how_1 | default: en.how_1 }}</li>
+      <li>{{ t.how_2 | default: en.how_2 }}</li>
+      <li>{{ t.how_3 | default: en.how_3 }}</li>
+    </ol>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">{{ t.faq_h | default: en.faq_h }}</h2>
+    <dl>
+      {%- for pair in site.data.faq %}
+      <dt>{{ t[pair.question] | default: en[pair.question] }}</dt>
+      <dd>{{ t[pair.answer] | default: en[pair.answer] }}</dd>
+      {%- endfor %}
+    </dl>
+  </section>
+
+  <section aria-labelledby="langs-h">
+    <h2 id="langs-h">{{ t.langs_h }}</h2>
+    <p class="dim">{{ t.langs_note }}</p>
+    <ul class="langs">
+      <li{% if page.code == "en" %} class="on" aria-current="page"{% endif %}>
+        <a href="{{ site.baseurl }}/" lang="en" hreflang="en">
+          <span class="native">English</span>
+          <span class="meta">32 · 620</span>
+        </a>
+      </li>
+      {%- for l in site.data.languages %}
+      {%- if l.code != "en" %}
+      <li{% if page.code == l.code %} class="on" aria-current="page"{% endif %}>
+        <a href="{{ site.baseurl }}/{{ l.code }}/" lang="{{ l.code }}" hreflang="{{ l.code }}">
+          <span class="native">{{ l.name }}</span>
+          <span class="meta">{{ l.english }} · {{ l.share }}% · {{ l.dialogs }}</span>
+          <span class="tag {% if l.drawn %}ours{% else %}theirs{% endif %}">{% if l.drawn %}{{ t.drawn }}{% else %}{{ t.system }}{% endif %}</span>
+        </a>
+      </li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Everyday_Standard and High_Birth are by VEXED, CC BY 4.0, modified: glyphs were
+  added and nothing else was touched. Galmuri is by Lee Minseo, SIL OFL 1.1. Fusion
+  Pixel Font, SIL OFL 1.1. The mod itself is MIT.</p>
+  <p><a href="https://github.com/myso-kr/now-thats-a-big-dragon-mod">GitHub</a> ·
+  <a href="{{ site.baseurl }}/DESIGN">{{ t.design }}</a></p>
+</footer>
+</body>
+</html>

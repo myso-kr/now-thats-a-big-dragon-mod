@@ -48,9 +48,24 @@ jobs:
           find . -name '*.js' -not -path './node_modules/*' -not -path './target/*' \
             -print0 | xargs -0 -n1 -t node --check
 
-      # Unit tests for the injected scripts. They run without the game.
-      - name: Autoplay module tests
-        run: node --test "web/**/*.test.js" "patch/*.test.js"
+      # Unit tests. They run without the game. This is `npm test`, not a subset of it:
+      # the two globs that used to be listed here left lib/ and tools/ out, so the
+      # guards on the published font hashes and on the documents' own claims - the two
+      # things nothing else watches - were never running in CI at all.
+      - name: Unit tests
+        run: npm test 2>&1 | tee test.log
+
+      # The one number the documents publish that cannot be counted from the source: a
+      # loop can produce any number of tests at runtime. tools/docs.test.js checks every
+      # other claim; this checks that one against the runner's own summary.
+      - name: The test count the README publishes is the one that ran
+        run: |
+          set -e
+          ran=$(grep -oP '(?<= tests )\d+$' test.log | head -1)
+          said=$(grep -oP 'tests-\K\d+(?=%20JS)' README.md)
+          test "$ran" = "$said" || {
+            echo "::error file=README.md::badge says $said JS tests; $ran ran"; exit 1; }
+          echo "$ran JS tests, and the badge agrees"
 
       - name: JSON parses
         run: |
@@ -84,6 +99,12 @@ jobs:
       # Without the game installed the source text cannot be compared. Structure can.
       - name: Dialogue structure
         run: node tools/check-dialogs.js || echo "::warning::skipped - no game installation"
+
+      # The site's twenty-two pages are generated from the same catalogue the launcher
+      # matches on, so a language cannot appear on the site without shipping - and a
+      # page cannot lose the four warnings that can cost somebody something.
+      - name: The site still matches the catalogue
+        run: python tools/build-site.py --check
 
       - name: Fonts and their licences are bundled
         run: |

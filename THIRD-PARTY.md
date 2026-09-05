@@ -13,7 +13,7 @@
 
 ### Galmuri (갈무리) — Korean
 
-- Files: `locale/fonts/Galmuri7.woff2`, `Galmuri9.woff2`, `Galmuri11.woff2`
+- Files: `locale/fonts/Galmuri7.woff2`, `Galmuri9.woff2`
 - Copyright: Copyright (c) 2019-2025 Lee Minseo (quiple@quiple.dev)
 - Licence: SIL Open Font License, Version 1.1
 - Full text: `locale/fonts/OFL-Galmuri.txt`
@@ -23,7 +23,6 @@
   ```
   c372bb36f06c35b183216709beea7f0db2e70f09eebff964874c4347520a12de  Galmuri7.woff2
   bea397545086f0d2e3652563746783c679c9f38190a1aecee3c9412c9d6c5d14  Galmuri9.woff2
-  8bad9322b3340bfb5cb26cb00f4752bf4c8e7d1b526bb07205f4af458eebed31  Galmuri11.woff2
   ```
 
 These are the complete fonts, not subsets. Coverage as measured with fontTools:
@@ -32,7 +31,6 @@ These are the complete fonts, not subsets. Coverage as measured with fontTools:
 |---|---|---|---|---|
 | Galmuri7 | 20,151 | 11,172 | 187 | 6,360 |
 | Galmuri9 | 20,714 | 11,172 | 187 | 6,375 |
-| Galmuri11 | 20,968 | 11,172 | 187 | 6,477 |
 
 **Those 6,360 Han characters are the traditional forms used for Korean hanja.** Reading
 this table as evidence that one font covers Korean, Chinese and Japanese together was
@@ -42,30 +40,55 @@ used for Korean only. So the same mistake cannot pass silently again,
 `tools/check-fonts.js` compares the characters a translation actually uses against the
 font's cmap.
 
-`Galmuri11.woff2` is not used by the current defaults. It is kept as an option for
-anyone who wants to try a different size.
+Galmuri11 was bundled too, as an option for anyone who wanted a different size. It has
+been dropped: no language used it, and the launcher embeds every file in
+`locale/fonts/` into its own binary - so an unused 505 KB font was 505 KB on every
+download. `tools/build-webfonts.py` will cut a fresh one from upstream if a language
+ever wants it.
+
+### Galmuri9, extended
+
+- File: `locale/fonts/Galmuri9-bd.woff2`
+- Copyright and licence: as above — Lee Minseo, SIL Open Font License 1.1
+- Built from `Galmuri9.woff2` by `python tools/extend-font.py`
+
+  ```
+  d5f354432be4b1fbddf7ae191d53f76b9312176d4a70c4ece7212426e3ffec93  Galmuri9-bd.woff2
+  ```
+
+**Statement of changes.** Seven glyphs were *added* and nothing else: `Ά Έ Ή Ί Ό Ύ Ώ`,
+the accented Greek capitals, each composed from a base letter Galmuri already draws and
+the acute it already carries. Galmuri9 has the rest of Greek; Greek spells `Έμπνευση`
+with one of these seven, so the seven are what stood between it and a heading font.
+No existing glyph was touched. The file carries a `-bd` suffix in its name to
+distinguish it from the original, and its own name table records the change. Greek
+headings are the only thing that uses it; every other language keeps the unmodified
+`Galmuri9.woff2`.
 
 ### Everyday Standard and High Birth (the game's own fonts, extended)
 
 - Files: `locale/fonts/Everyday_Standard-bd.woff2`, `High_Birth-bd.woff2`
 - Original copyright: VEXED
 - Licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
-- Full text: <https://creativecommons.org/licenses/by/4.0/>
+- Full text: `locale/fonts/CC-BY-4.0.txt` · <https://creativecommons.org/licenses/by/4.0/>
 - Source: <https://v3x3d.itch.io/everyday-standard> · <https://v3x3d.itch.io/high-birth>
 - Original version: Everyday_Standard 1.3, High_Birth 1.0 (as bundled in the game's assets)
 
   ```
-  69f8a060cc2e563fed6df33cda8a5844feda87d1676b22ad63c103311c7ee774  Everyday_Standard-bd.woff2
-  7b8a74f1c3668a8ac44082fdd567f0ec49c9e54d2da93b81b8e026869c49dff9  High_Birth-bd.woff2
+  d1dfd23343727eaebe4745d8b288286259312342ccd5c206a03bb9b64a3526e0  Everyday_Standard-bd.woff2
+  f1743888814f20112d7caac85ac63b2fcb37275c1dd487e920d119a76214cc0d  High_Birth-bd.woff2
   ```
 
-**Statement of changes (required by CC BY 4.0).** 28 glyphs were *added* to the
-original — the ones Czech, Hungarian and Romanian need:
-`Č č Ď ď Ě ě Ň ň Ř ř Š š Ť ť Ů ů Ž ž Ő ő Ű ű Ă ă Ș ș Ț ț`.
+**Statement of changes (required by CC BY 4.0).** Glyphs were *added* to the originals
+and nothing else. High_Birth carries 56 of them, the letters Czech, Hungarian,
+Romanian, Polish, Turkish and Danish need:
+`Č č Ď ď Ě ě Ň ň Ř ř Š š Ť ť Ů ů Ž ž Ő ő Ű ű Ă ă Ș ș Ț ț Ą ą Ć ć Ę ę Ł ł Ń ń Ś ś Ź ź Ż ż Ğ ğ İ ı Ş ş Ø ø Æ æ Å å`.
+Everyday_Standard carries those 56 and 67 more — all of monotonic Greek, from `Ά` to
+`ώ` — for 123.
 No existing glyph was touched, and no table beyond metrics, spacing and names was
 changed either. The fonts carry a `-bd` suffix in their name to distinguish them from
 the originals. `python tools/extend-font.py <the game's font directory>` regenerates
-them exactly.
+them exactly, and each font's own name table records what was added to it.
 
 Most marks are taken out of the original itself — the ogonek from `ą`, the breve from
 `ğ`, the ring from `å`, the dot from `ż`. What remains after subtracting a composed
@@ -124,8 +147,8 @@ unchanged and only the file is swapped: neither the letter size nor the line hei
 
 The licence texts are bundled, the copyright notices are intact, and the fonts are not
 sold on their own. No copyright line declares a Reserved Font Name, so there is no
-naming constraint. The CSS names `bd_body` and `bd_heading` are stylesheet aliases and
-do not modify the font files themselves. The file names were changed when they were
+naming constraint. The CSS names, one pair per language (`bd_ko_body`, `bd_el_heading`, and so
+on), are stylesheet aliases and do not modify the font files themselves. The file names were changed when they were
 copied in.
 
 The distribution (the zip on GitHub Releases) carries the `OFL-*.txt` files too — the

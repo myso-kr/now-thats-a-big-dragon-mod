@@ -45,6 +45,274 @@ TARGETS = {
     "da": "ØøÆæÅå",
 }
 
+# Greek. The game's body font draws no Greek at all, and no bundled pixel font draws it
+# on this grid - Galmuri9 is 9 px/em against this font's 6, so borrowing its Greek would
+# set every Greek word half again as tall as the Latin and the digits beside it. That is
+# the exact mismatch this file exists to avoid, so Greek is drawn here instead.
+#
+# Fourteen capitals and four lowercase letters are the same picture as a Latin letter the
+# font already carries. Those are aliased to it rather than redrawn, so they cannot drift
+# apart from it and cost no outlines.
+GREEK_ALIAS = {
+    "Α": "A", "Β": "B", "Ε": "E", "Ζ": "Z", "Η": "H",
+    "Ι": "I", "Κ": "K", "Μ": "M", "Ν": "N", "Ο": "O",
+    "Ρ": "P", "Τ": "T", "Υ": "Y", "Χ": "X",
+    "ν": "v", "ο": "o", "ρ": "p", "υ": "u",
+}
+
+# The other thirty-one are drawn, as the picture they are - at six pixels the ASCII is
+# the glyph, not a sketch of it. The shapes follow Galmuri9's Greek, which is a real
+# Greek pixel font, redrawn to this font's own metrics: capitals six rows, x-height
+# five, an ascender one row more, a descender two rows below the baseline. `bottom` is
+# the row the last line sits on, so 0 is the baseline and -2 a full descender.
+GREEK_DRAWN = {
+    # Capitals.
+    "Γ": (0, """####
+                #...
+                #...
+                #...
+                #...
+                #..."""),
+    "Δ": (0, """..#..
+                .#.#.
+                .#.#.
+                #...#
+                #...#
+                #####"""),
+    "Θ": (0, """.###.
+                #...#
+                #...#
+                #####
+                #...#
+                .###."""),
+    "Λ": (0, """..#..
+                .#.#.
+                .#.#.
+                #...#
+                #...#
+                #...#"""),
+    "Ξ": (0, """####
+                ....
+                .##.
+                ....
+                ....
+                ####"""),
+    "Π": (0, """####
+                #..#
+                #..#
+                #..#
+                #..#
+                #..#"""),
+    "Σ": (0, """####
+                #...
+                .#..
+                .#..
+                #...
+                ####"""),
+    "Φ": (0, """..#..
+                .###.
+                #.#.#
+                #.#.#
+                .###.
+                ..#.."""),
+    "Ψ": (0, """#.#.#
+                #.#.#
+                #.#.#
+                .###.
+                ..#..
+                ..#.."""),
+    "Ω": (0, """.###.
+                #...#
+                #...#
+                #...#
+                .#.#.
+                ##.##"""),
+
+    # Lowercase sitting inside the x-height.
+    "α": (0, """.##.#
+                #..#.
+                #..#.
+                #..#.
+                .##.#"""),
+    "ε": (0, """.###
+                #...
+                ###.
+                #...
+                .###"""),
+    "ι": (0, """#.
+                #.
+                #.
+                #.
+                .#"""),
+    "κ": (0, """#..#
+                #.#.
+                ##..
+                #.#.
+                #..#"""),
+    "π": (0, """#####
+                .#.#.
+                .#.#.
+                .#.#.
+                .#..#"""),
+    "σ": (0, """.###
+                #..#
+                #..#
+                #..#
+                .##."""),
+    "τ": (0, """####
+                .#..
+                .#..
+                .#..
+                .##."""),
+    "ω": (0, """#...#
+                #.#.#
+                #.#.#
+                #.#.#
+                .#.#."""),
+    # The font sets `i-diaeresis` as a narrower mark over a stem moved into the middle
+    # of it, rather than the four-cell mark it gives `a-diaeresis`. Iota is as narrow
+    # as `i`, so it is drawn the same way rather than composed from a mark that was
+    # meant for a wider letter and would hang off both sides of this one.
+    "ϊ": (0, """#.#
+                ...
+                .#.
+                .#.
+                .#.
+                .#.
+                ..#"""),
+    "ΐ": (0, """..#
+                .#.
+                #.#
+                ...
+                .#.
+                .#.
+                .#.
+                .#.
+                ..#"""),
+
+    # Lowercase with an ascender.
+    "δ": (0, """.###
+                #...
+                .##.
+                #..#
+                #..#
+                .##."""),
+    "θ": (0, """.##.
+                #..#
+                ####
+                #..#
+                #..#
+                .##."""),
+    "λ": (0, """##..
+                .#..
+                .#..
+                .##.
+                #..#
+                #..#"""),
+
+    # Lowercase with a descender.
+    "γ": (-2, """#..#
+                 #..#
+                 .##.
+                 ..#.
+                 ..#.
+                 ..#.
+                 .##."""),
+    "η": (-2, """.##.
+                 #..#
+                 #..#
+                 #..#
+                 #..#
+                 ...#
+                 ...#"""),
+    "μ": (-2, """#..#
+                 #..#
+                 #..#
+                 #..#
+                 ###.
+                 #...
+                 #..."""),
+    "ς": (-2, """.###
+                 #...
+                 #...
+                 #...
+                 .##.
+                 ...#
+                 .##."""),
+    "χ": (-2, """#..#
+                 #..#
+                 .##.
+                 #..#
+                 #..#
+                 #...
+                 #..."""),
+    "ψ": (-2, """#.#.#
+                 #.#.#
+                 #.#.#
+                 #.#.#
+                 .###.
+                 ..#..
+                 ..#.."""),
+
+    # Lowercase with both an ascender and a descender.
+    "β": (-2, """.##.
+                 #..#
+                 ###.
+                 #..#
+                 #..#
+                 ###.
+                 #...
+                 #..."""),
+    "ζ": (-2, """####
+                 ..#.
+                 .#..
+                 #...
+                 #...
+                 .##.
+                 ...#
+                 .##."""),
+    "ξ": (-2, """####
+                 #...
+                 .###
+                 #...
+                 #...
+                 .##.
+                 ...#
+                 .##."""),
+    "φ": (-2, """..#..
+                 .###.
+                 #.#.#
+                 #.#.#
+                 #.#.#
+                 .###.
+                 ..#..
+                 ..#.."""),
+}
+
+# The accented Greek then follows from the marks the font already carries, exactly as
+# the Czech and Polish letters do: once the base letter above exists, each of these is
+# that base plus one combining mark. Two are not. `ΐ` and `ΰ` decompose into three - a
+# diaeresis *and* an acute. There is room to stack them, because the font's ascent is
+# nine rows and a lowercase diaeresis sits on the seventh; `ΰ` is stacked that way, and
+# `ΐ` is drawn above, because iota is too narrow for the mark the stacking would use.
+STACKED = {"ΰ": "υ"}
+
+# Monotonic Greek, which is what modern Greek is written in: the twenty-four letters in
+# both cases, the final sigma, the seven accented capitals and the nine accented
+# lowercase. No polytonic breathings, because no living text uses them.
+GREEK = "".join(sorted(
+    set(GREEK_ALIAS) | set(GREEK_DRAWN) | set(STACKED)
+    | set("ΆΈΉΊΌΎΏάέήίόύώϊϋ")
+))
+
+
+def art(picture, bottom):
+    """The cells of a drawn glyph, from its picture. Rows run top to bottom."""
+    lines = [line.strip() for line in picture.strip().splitlines()]
+    top = bottom + len(lines) - 1
+    return {(col, top - i) for i, line in enumerate(lines)
+            for col, ch in enumerate(line) if ch == "#"}
+
 # The marks the font carries nowhere are derived from ones it does, rather than drawn
 # to fixed coordinates. That keeps the weight and the height right in both fonts
 # without this file knowing that one is 6 px/em and the other 9.
@@ -149,9 +417,16 @@ COMPOSED = {
 
 
 def load(path):
+    """The font, with its own timestamp kept.
+
+    fontTools stamps `head.modified` with the current time on save, which makes every
+    build of the same input a different file - and THIRD-PARTY.md publishes these
+    fonts' hashes and says this tool regenerates them exactly. It only does if the
+    clock stays out of it.
+    """
     from fontTools.ttLib import TTFont
 
-    return TTFont(path)
+    return TTFont(path, recalcTimestamp=False)
 
 
 def cell_size(font):
@@ -175,19 +450,25 @@ def cell_size(font):
 
 
 def cells_of(font, ch, step):
-    """A glyph as a set of (column, row) pixel cells."""
+    """A glyph as a set of (column, row) pixel cells.
+
+    A pixel glyph is a rectilinear outline, so a cell is filled exactly when its centre
+    is inside that outline - a winding count of the edges crossing a ray from it. This
+    used to take each contour's bounding box instead, on the grounds that a contour of
+    a pixel font is one square. That holds for the game's own two fonts and for nothing
+    else: Galmuri merges each run of pixels into a single L-shaped contour, whose box
+    is a solid block, so `Α` came back filled and `Ά` was built on top of a black square.
+    The two agree on all 603 glyphs of the game's fonts and differ on 19,614 of
+    Galmuri9's, which is the shape of the bug exactly.
+    """
     from fontTools.pens.recordingPen import RecordingPen
 
-    cmap = font.getBestCmap()
-    gn = cmap.get(ord(ch))
+    gn = font.getBestCmap().get(ord(ch))
     if not gn:
         return None
     pen = RecordingPen()
     font.getGlyphSet()[gn].draw(pen)
-    # Each contour of a pixel font is one axis-aligned rectangle; take its box.
-    out = set()
-    cur = []
-    contours = []
+    contours, cur = [], []
     for op, args in pen.value:
         if op == "moveTo":
             if cur:
@@ -201,11 +482,22 @@ def cells_of(font, ch, step):
             cur = []
     if cur:
         contours.append(cur)
-    for c in contours:
-        xs = [x for x, _ in c]
-        ys = [y for _, y in c]
-        for col in range(round(min(xs) / step), round(max(xs) / step)):
-            for row in range(round(min(ys) / step), round(max(ys) / step)):
+    if not contours:
+        return set()
+
+    edges = [(c[i], c[(i + 1) % len(c)]) for c in contours for i in range(len(c))]
+    xs = [x for c in contours for x, _ in c]
+    ys = [y for c in contours for _, y in c]
+    out = set()
+    for col in range(round(min(xs) / step), round(max(xs) / step)):
+        for row in range(round(min(ys) / step), round(max(ys) / step)):
+            x, y = (col + 0.5) * step, (row + 0.5) * step
+            winding = 0
+            for (x0, y0), (x1, y1) in edges:
+                if y0 <= y < y1 or y1 <= y < y0:
+                    if x0 + (y - y0) / (y1 - y0) * (x1 - x0) > x:
+                        winding += 1 if y1 > y0 else -1
+            if winding:
                 out.add((col, row))
     return out
 
@@ -241,9 +533,61 @@ def harvest_marks(font, step):
     return marks
 
 
-def build(src, out_name, targets):
+# Who each font is by, and under what. The note written into the font has to say the
+# right thing for the font it is written into: two of these are VEXED's under CC BY,
+# and one is Lee Minseo's under the OFL, which are different obligations.
+CREDIT = {
+    "Everyday_Standard": ("VEXED", "CC BY 4.0"),
+    "High_Birth": ("VEXED", "CC BY 4.0"),
+    "Galmuri9": ("Lee Minseo (quiple)", "SIL Open Font License 1.1"),
+}
+
+LANGUAGE_NAMES = {
+    "cs": "Czech", "hu": "Hungarian", "ro": "Romanian", "pl": "Polish",
+    "tr": "Turkish", "da": "Danish", "el": "Greek",
+}
+
+
+def carried(font, targets):
+    """What the font now carries of ours: the count, and the languages it is for.
+
+    Read off the finished font rather than off what this run happened to add, so that
+    re-extending a font that already has some of these letters describes the file
+    instead of the run - it once wrote "0 letters added for no language" over a
+    perfectly good attribution. Only letters this build was asked for count: Galmuri9
+    came with most of Greek already, and claiming those would be taking credit for
+    someone else's work in a field that exists to give it.
+    """
+    have = set(font.getBestCmap())
+    got, n = [], 0
+    for code, letters in list(TARGETS.items()) + [("el", GREEK)]:
+        hits = sum(1 for ch in letters if ch in targets and ord(ch) in have)
+        if hits:
+            got.append(LANGUAGE_NAMES[code])
+            n += hits
+    if not got:
+        return 0, "no language"
+    return n, got[0] if len(got) == 1 else ", ".join(got[:-1]) + " and " + got[-1]
+
+
+def outline(cells, step, glyf):
+    """One square per cell, which is the whole of what a pixel glyph is."""
     from fontTools.pens.ttGlyphPen import TTGlyphPen
 
+    pen = TTGlyphPen(None)
+    for col, row in sorted(cells):
+        x, y = col * step, row * step
+        pen.moveTo((x, y))
+        pen.lineTo((x + step, y))
+        pen.lineTo((x + step, y + step))
+        pen.lineTo((x, y + step))
+        pen.closePath()
+    g = pen.glyph()
+    g.recalcBounds(glyf)
+    return g
+
+
+def build(src, out_name, targets):
     font = load(src)
     step, px_per_em = cell_size(font)
     cmap = font.getBestCmap()
@@ -252,6 +596,34 @@ def build(src, out_name, targets):
     hmtx = font["hmtx"]
 
     added, skipped, added_names = [], [], []
+
+    # Greek goes first, and its plain letters before its accented ones: `ά` is built
+    # from `α`, so `α` has to be in the cmap by the time it is asked for.
+    for ch, latin in GREEK_ALIAS.items():
+        if ch not in targets or ord(ch) in cmap or ord(latin) not in cmap:
+            continue
+        for table in font["cmap"].tables:
+            if table.isUnicode():
+                table.cmap[ord(ch)] = cmap[ord(latin)]
+        added.append(ch)
+    for ch, (bottom, picture) in GREEK_DRAWN.items():
+        if ch not in targets or ord(ch) in cmap:
+            continue
+        cells = art(picture, bottom)
+        gname = f"uni{ord(ch):04X}"
+        glyf[gname] = outline(cells, step, glyf)
+        # This font's advance is its ink plus one column, every glyph in it.
+        hmtx[gname] = ((max(c for c, _ in cells) + 2) * step, 0)
+        for table in font["cmap"].tables:
+            if table.isUnicode():
+                table.cmap[ord(ch)] = gname
+        added.append(ch)
+        added_names.append(gname)
+    if added_names:
+        font.setGlyphOrder(font.getGlyphOrder()
+                           + [g for g in added_names if g not in font.getGlyphOrder()])
+    cmap = font.getBestCmap()
+
     for ch in targets:
         if ord(ch) in cmap:
             continue
@@ -268,17 +640,7 @@ def build(src, out_name, targets):
 
         cells = set(base_cells) | set(mark_cells)
         gname = f"uni{ord(ch):04X}"
-        pen = TTGlyphPen(None)
-        for col, row in sorted(cells):
-            x, y = col * step, row * step
-            pen.moveTo((x, y))
-            pen.lineTo((x + step, y))
-            pen.lineTo((x + step, y + step))
-            pen.lineTo((x, y + step))
-            pen.closePath()
-        g = pen.glyph()
-        g.recalcBounds(glyf)
-        glyf[gname] = g
+        glyf[gname] = outline(cells, step, glyf)
 
         adv, lsb = hmtx[cmap[ord(base_ch or COMPOSED[ch][0])]]
         # A side caron, and the bar beside an `l`, need the extra column they sit in.
@@ -302,12 +664,16 @@ def build(src, out_name, targets):
             v = rec.toUnicode()
             if "-bd" not in v:
                 rec.string = v.replace(family, f"{family}-bd")
+    n, for_languages = carried(font, targets)
+    who, licence = CREDIT[family.replace("-bd", "").split()[0]]
     note = (
-        f"{family} by VEXED, CC BY 4.0. Modified for the Now THAT'S a Big Dragon! mod: "
-        f"{len(added)} letters added for Czech, Hungarian and Romanian. "
+        f"{family} by {who}, {licence}. Modified for the Now THAT'S a Big Dragon! mod: "
+        f"{n} letters added for {for_languages}. "
         "The original is unchanged; only glyphs were added."
     )
-    name_table.setName(note, 10, 3, 1, 0x409)
+    for platform, encoding, lang in {(r.platformID, r.platEncID, r.langID)
+                                     for r in name_table.names}:
+        name_table.setName(note, 10, platform, encoding, lang)
 
     dest = OUT / out_name
     font.flavor = "woff2"
@@ -315,6 +681,16 @@ def build(src, out_name, targets):
     print(f"{out_name}: {px_per_em} px/em, +{len(added)} glyphs {''.join(added)}"
           + (f"  (skipped {''.join(skipped)})" if skipped else ""))
     return dest
+
+
+def centre(cells, base_cells):
+    """Sit a mark over the middle of its letter."""
+    if not base_cells:
+        return cells
+    bw = max(c for c, _ in base_cells) + 1
+    cols = [c for c, _ in cells]
+    mw = max(cols) - min(cols) + 1
+    return [(c - min(cols) + (bw - mw + 1) // 2, r) for c, r in cells]
 
 
 def plan(ch, font, step, marks):
@@ -326,6 +702,20 @@ def plan(ch, font, step, marks):
             return base, None
         # These build the whole letter, base included, so the base is dropped after.
         return None, make(base_cells, step)
+    if ch in STACKED:
+        # `ΰ` is an upsilon under a diaeresis under an acute. Unicode decomposes it into
+        # three, which the base-plus-one-mark path below cannot express, so the two
+        # marks are stacked here: the diaeresis where it always sits, and the acute
+        # on the row above it.
+        base = STACKED[ch]
+        base_cells = cells_of(font, base, step)
+        dia = marks.get(("diaeresis", True))
+        acute = marks.get(("acuteaccent", True))
+        if not base_cells or dia is None or acute is None:
+            return base, None
+        lift = max(r for _, r in dia) + 1 - min(r for _, r in acute)
+        cells = list(dia) + [(c, r + lift) for c, r in acute]
+        return base, centre(cells, base_cells)
     d = unicodedata.normalize("NFD", ch)
     if ch in SIDE_CARON:
         base = SIDE_CARON[ch]
@@ -370,14 +760,7 @@ def plan(ch, font, step, marks):
         if ref and base_cells:
             shift = max(r for _, r in base_cells) - max(r for _, r in ref)
             cells = [(c, r + shift) for c, r in cells]
-    # Centre the mark over the base letter.
-    base_cells = cells_of(font, base, step)
-    if base_cells:
-        bw = max(c for c, _ in base_cells) + 1
-        cols = [c for c, _ in cells]
-        mw = max(cols) - min(cols) + 1
-        cells = [(c - min(cols) + (bw - mw + 1) // 2, r) for c, r in cells]
-    return base, cells
+    return base, centre(cells, cells_of(font, base, step))
 
 
 def main():
@@ -385,14 +768,26 @@ def main():
         print(__doc__.strip().splitlines()[-3], file=sys.stderr)
         return 2
     src = pathlib.Path(sys.argv[1])
-    targets = "".join(TARGETS.values())
-    for name, out in [
-        ("Everyday_Standard.ttf", "Everyday_Standard-bd.woff2"),
-        ("High_Birth.ttf", "High_Birth-bd.woff2"),
+    latin = "".join(TARGETS.values())
+    # Greek goes into the body font only. The heading font is a two-pixel display face
+    # with slanted serifs; thirty-one Greek letters forged into it would read as a
+    # different typeface next to its Latin. Greek headings take Galmuri9 instead, the
+    # same arrangement Russian, Ukrainian, Bulgarian and Korean headings already use.
+    for name, out, targets in [
+        ("Everyday_Standard.ttf", "Everyday_Standard-bd.woff2", latin + GREEK),
+        ("High_Birth.ttf", "High_Birth-bd.woff2", latin),
+        # Greek headings are set in Galmuri9, which draws Greek already - all of it
+        # except the seven accented capitals, and Greek spells `Έμπνευση` with one.
+        # Seven letters is not a reason to set the headings in something else.
+        ("Galmuri9.woff2", "Galmuri9-bd.woff2", "ΆΈΉΊΌΎΏ"),
     ]:
-        p = src / name
-        if not p.exists():
-            print(f"missing: {p}", file=sys.stderr)
+        # The game keeps its fonts inside its asset bundle, so a machine that has not
+        # extracted them can still re-extend what this tool built last time: the work
+        # is purely additive, and the shipped file is the game's font plus that.
+        p = next((c for c in (src / name, OUT / name, src / out, OUT / out)
+                  if c.exists()), None)
+        if p is None:
+            print(f"missing: {src / name}", file=sys.stderr)
             return 1
         build(p, out, targets)
     return 0

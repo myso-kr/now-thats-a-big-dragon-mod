@@ -1,12 +1,43 @@
 # Now THAT'S a Big Dragon! — mod
 
+![Language patch, cheat widget and autoplay for Now THAT'S a Big Dragon! — 22 languages, 51.10% of Steam users, no game files modified](docs/assets/og.png)
+
 Language patch, cheat widget, and full autoplay for the Steam idle game
 *Now THAT'S a Big Dragon!* — injected over the Chrome DevTools Protocol,
 **no game files modified**.
 
+[![CI](https://github.com/myso-kr/now-thats-a-big-dragon-mod/actions/workflows/ci.yml/badge.svg)](https://github.com/myso-kr/now-thats-a-big-dragon-mod/actions/workflows/ci.yml)
+[![Languages](https://img.shields.io/badge/languages-22-e89e56)](#languages)
+[![Steam reach](https://img.shields.io/badge/Steam%20reach-51.10%25-e89e56)](#languages)
+[![Tests](https://img.shields.io/badge/tests-451%20JS%20%C2%B7%20142%20Rust-4a7a47)](#quick-start)
+[![License](https://img.shields.io/badge/code-MIT-4a7a47)](LICENSE)
+
 **[Documentation](https://myso-kr.github.io/now-thats-a-big-dragon-mod/)** ·
-[한국어](docs/ko/) ·
 [Releases](https://github.com/myso-kr/now-thats-a-big-dragon-mod/releases/latest)
+
+Read it in your own language:
+[简体中文](https://myso-kr.github.io/now-thats-a-big-dragon-mod/zh-Hans/) ·
+[Русский](https://myso-kr.github.io/now-thats-a-big-dragon-mod/ru/) ·
+[Español](https://myso-kr.github.io/now-thats-a-big-dragon-mod/es/) ·
+[日本語](https://myso-kr.github.io/now-thats-a-big-dragon-mod/ja/) ·
+[Polski](https://myso-kr.github.io/now-thats-a-big-dragon-mod/pl/) ·
+[한국어](https://myso-kr.github.io/now-thats-a-big-dragon-mod/ko/) ·
+[繁體中文](https://myso-kr.github.io/now-thats-a-big-dragon-mod/zh-Hant/) ·
+[ไทย](https://myso-kr.github.io/now-thats-a-big-dragon-mod/th/) ·
+[Українська](https://myso-kr.github.io/now-thats-a-big-dragon-mod/uk/) ·
+[Italiano](https://myso-kr.github.io/now-thats-a-big-dragon-mod/it/) ·
+[Čeština](https://myso-kr.github.io/now-thats-a-big-dragon-mod/cs/) ·
+[Magyar](https://myso-kr.github.io/now-thats-a-big-dragon-mod/hu/) ·
+[Tiếng Việt](https://myso-kr.github.io/now-thats-a-big-dragon-mod/vi/) ·
+[Svenska](https://myso-kr.github.io/now-thats-a-big-dragon-mod/sv/) ·
+[Nederlands](https://myso-kr.github.io/now-thats-a-big-dragon-mod/nl/) ·
+[Dansk](https://myso-kr.github.io/now-thats-a-big-dragon-mod/da/) ·
+[Bahasa Indonesia](https://myso-kr.github.io/now-thats-a-big-dragon-mod/id/) ·
+[Suomi](https://myso-kr.github.io/now-thats-a-big-dragon-mod/fi/) ·
+[Norsk](https://myso-kr.github.io/now-thats-a-big-dragon-mod/nb/) ·
+[Română](https://myso-kr.github.io/now-thats-a-big-dragon-mod/ro/) ·
+[Ελληνικά](https://myso-kr.github.io/now-thats-a-big-dragon-mod/el/) ·
+[Español (LatAm)](https://myso-kr.github.io/now-thats-a-big-dragon-mod/es-419/)
 
 > **Unofficial fan-made mod.** Not affiliated with or endorsed by the game's developer,
 > publisher, or Valve. Requires a legitimately purchased copy of the game — this
@@ -21,7 +52,7 @@ Language patch, cheat widget, and full autoplay for the Steam idle game
 |---|---|
 | **Language patch** | Adds languages to the game's own settings screen — flag, name, time units and all. English and the game's own five are left untouched |
 | **Cheat widget** (F8) | Resources, upgrades, game speed. Achievement submission blocked by default |
-| **Autoplay** (F9) | Buys units and upgrades, fights, answers dialogue, repeats chapters — unattended |
+| **Autoplay** (F9) | Buys units and upgrades, fights, answers dialogue, crawls dungeons and repeats chapters — unattended |
 
 ## Languages
 
@@ -55,6 +86,7 @@ left to the game.
 | Suomi (Finnish) | `fi` | 620/621 (99.8%) | 32/32 | 0.14% | draft |
 | Norsk (Norwegian) | `nb` | 620/621 (99.8%) | 32/32 | 0.12% | draft |
 | Română (Romanian) | `ro` | 620/621 (99.8%) | 32/32 | 0.12% | draft |
+| Ελληνικά (Greek) | `el` | 620/621 (99.8%) | 32/32 | 0.06% | draft |
 
 *Steam share* is that language's share of Steam users, which is the order languages
 are being added in. *draft* means machine-drafted and revised against reader
@@ -69,6 +101,11 @@ extended with the letters they lack — see `tools/extend-font.py`. Bundling any
 pixel font would leave one word in two faces: at this size nothing else matches a
 6 px/em grid, so Czech `Poškození` would take its `š` from one font and its `o` from
 another.
+
+123 letters have been drawn into `Everyday_Standard` that way, 56 into `High_Birth` and
+7 into Galmuri9. Greek needed the most: no bundled pixel font draws it at 6 px/em, so
+all 67 letters of the monotonic alphabet were drawn onto the game's own grid rather
+than borrowed a size too large.
 
 `locale/languages.json` carries the full catalogue of 26 planned languages; the table
 above lists the ones actually bundled today.
@@ -89,9 +126,10 @@ From source:
 ```
 npm start             # launch the game and attach
 npm run doctor        # diagnose without launching the game
-npm test              # 328 unit tests, no game needed
+npm test              # 451 unit tests, no game needed
 npm run check-fonts   # every character a translation uses is in its font
-cargo test            # 117 unit tests, plus 7 against a real bundle
+cargo test            # 134 unit tests, plus 8 against a real bundle
+python tools/build-site.py --check   # the twenty-two site pages still match the catalogue
 ```
 
 ## Supported game versions
@@ -122,7 +160,7 @@ translations/ where each translation is written — one directory per language
 locale/       what ships: translations, fonts and flags. Generated from translations/
 tools/        things you run by hand
 generated/    produced by tools/. Not committed
-docs/         documentation (also the GitHub Pages source)
+docs/         documentation, and the GitHub Pages site — 22 languages, one page each
 ```
 
 The launcher ships as Rust; `patch/` is the same logic in Node, and the two are
@@ -153,5 +191,5 @@ naming the key that would change. It runs in CI on every push.
 ## License
 
 Code is MIT ([LICENSE](LICENSE)). The translations are derivative works of the game's
-text and carry **no license grant**. Bundled fonts are SIL OFL 1.1; flag icons are
-MIT. Details in [NOTICE](NOTICE) and [THIRD-PARTY.md](THIRD-PARTY.md).
+text and carry **no license grant**. Bundled fonts are CC BY 4.0 and SIL OFL 1.1; flag icons
+are MIT. Details in [NOTICE](NOTICE) and [THIRD-PARTY.md](THIRD-PARTY.md).

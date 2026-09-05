@@ -59,10 +59,29 @@ jobs:
           OUT="dist/bigdragon-${{ matrix.target }}"
           mkdir -p "$OUT"
           cp "$BIN" "$OUT/"
-          cp README.md LICENSE NOTICE "$OUT/" 2>/dev/null || true
-          # The OFL requires the full licence text to travel with the distribution.
+          # Not `|| true`. The binary embeds locale/fonts/*.woff2, so these fonts are
+          # redistributed inside it, and both licences make the attribution and the
+          # statement of changes conditions rather than courtesies. A zip that shipped
+          # without them would be the one failure nobody notices until it matters.
+          cp README.md LICENSE NOTICE THIRD-PARTY.md "$OUT/"
           mkdir -p "$OUT/licenses"
           cp locale/fonts/OFL-*.txt "$OUT/licenses/"
+          cp locale/fonts/CC-BY-4.0.txt "$OUT/licenses/"
+
+          REQUIRED="
+            README.md
+            LICENSE
+            NOTICE
+            THIRD-PARTY.md
+            licenses/CC-BY-4.0.txt
+            licenses/OFL-Galmuri.txt
+            licenses/OFL-FusionPixel.txt
+            licenses/OFL-ArkPixel.txt
+            licenses/OFL-BoutiqueBitmap.txt
+          "
+          for f in $REQUIRED; do
+            test -s "$OUT/$f" || { echo "::error::$f is missing from the distribution"; exit 1; }
+          done
 
           ( cd dist && zip -r "bigdragon-${{ matrix.target }}.zip" "bigdragon-${{ matrix.target }}" )
           ls -la dist/

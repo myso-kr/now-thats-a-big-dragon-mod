@@ -32,7 +32,8 @@ build. CI runs it on every push.
 2. Write `translations/<lang>/strings.py`: a `T` dict keyed by the worksheet's first
    column. Notation-only values (`+`, `%`, `//`, the empty string) are supplied by the
    driver, so leave them out.
-3. Copy `locale/dialogs/en/` into `translations/<lang>/dialogs.py` as `F`, and
+3. Copy the game's own English dialogue - `dialogs/en/*.ink` inside its bundle, which
+   `tools/check-dialogs.js` reads - into `translations/<lang>/dialogs.py` as `F`, and
    translate the prose and the bracketed choice labels only. Tags (`# speaker:`,
    `# pace:`), knots, variables, diverts and `{interpolations}` are the game's own
    and must survive unchanged — `tools/check-dialogs.js` enforces that.

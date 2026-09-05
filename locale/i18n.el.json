@@ -1,0 +1,900 @@
+{
+  "upgrades": {
+    "upgrades": "Αναβαθμίσεις",
+    "multiplier": "+{{multi}}",
+    "nextLevel": "Επόμενο επίπεδο",
+    "currentLevel": "Τρέχον",
+    "newGamePlusOnly": "Μόνο στο κεφάλαιο \"Διαχείριση πόρων\"",
+    "max": "Μέγ.",
+    "lockedMessage": "Αναβάθμισε κι άλλο το {{parentSkill}} για να το ξεκλειδώσεις",
+    "details": {
+      "// CLICK_UPGRADES": "//",
+      "ironFinger": {
+        "title": "Σιδερένιο δάχτυλο",
+        "description": "Ζημιά από επιθέσεις με κλικ +{{bonus}}",
+        "prefix": "+"
+      },
+      "featherFinger": {
+        "title": "Φτερένιο δάχτυλο",
+        "description": "Αριθμός κλικ ανά δευτερόλεπτο +{{bonus}}"
+      },
+      "wakeupCall": {
+        "title": "Αφύπνιση",
+        "description": "Κάθε κλικ μειώνει τη διάρκεια της ζάλης κατά {{bonus}} δευτ.",
+        "prefix": "-",
+        "suffix": " δευτ."
+      },
+      "electricalFinger": {
+        "title": "Ηλεκτρικό δάχτυλο",
+        "description": "Έχει {{bonus}}% πιθανότητα να ρίξει κεραυνό σε κάθε κλικ.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "perfectClick": {
+        "title": "Τέλειο κλικ",
+        "description": "Πιθανότητα για κρίσιμο κλικ +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalStrike": {
+        "title": "Κρίσιμο χτύπημα",
+        "description": "Αυξάνει τη ζημιά του κρίσιμου κλικ κατά +{{bonus}}x",
+        "prefix": "x"
+      },
+      "goldenExplosion": {
+        "title": "Χρυσή έκρηξη",
+        "description": "Αυξάνει την ανταμοιβή από τα πουλιά κατά {{bonus}}x",
+        "suffix": "x"
+      },
+      "naturalLeader": {
+        "title": "Γεννημένος ηγέτης",
+        "description": "Τα κλικ γεμίζουν τον μετρητή Έμπνευσης κατά +{{bonus}}/κλικ",
+        "prefix": "+"
+      },
+      "moneyCursor": {
+        "title": "Χρυσός δείκτης",
+        "description": "Αυξάνει το χρυσάφι από τις επιθέσεις με κλικ κατά {{bonus}}x",
+        "suffix": "x"
+      },
+      "fullChests": {
+        "title": "Γεμάτα σεντούκια",
+        "description": "Μειώνει την πιθανότητα να είναι άδεια τα σεντούκια κατά {{bonus}}%",
+        "suffix": "%"
+      },
+      "carpalCure": {
+        "title": "Θεραπεία καρπού",
+        "description": "Κρατώντας πατημένο το ποντίκι χτυπάς συνεχώς τον δράκο."
+      },
+      "//WARRIOR_UPGRADES": "//",
+      "shortSword": {
+        "title": "Κοντό σπαθί",
+        "description": "Πολλαπλασιαστής ζημιάς {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "longSword": {
+        "title": "Μακρύ σπαθί",
+        "description": "Επιπλέον πολλαπλασιαστής στη ζημιά του Πολεμιστή +{{bonus}}x",
+        "prefix": "x"
+      },
+      "twoHandedSword": {
+        "title": "Δίχειρο σπαθί",
+        "description": "Κι άλλος πολλαπλασιαστής στη ζημιά του Πολεμιστή +{{bonus}}x",
+        "prefix": "x"
+      },
+      "battleShout": {
+        "title": "Ιαχή μάχης",
+        "description": "Βοηθά να γεμίσει ο μετρητής Έμπνευσης +{{bonus}} ανά επίθεση",
+        "prefix": "+"
+      },
+      "warCry": {
+        "title": "Πολεμική κραυγή",
+        "description": "Ενεργοποιεί αυτόματα την Έμπνευση στον επόμενο κύκλο, μόλις φτάσει στον μέγιστο πολλαπλασιαστή"
+      },
+      "barbarian": {
+        "title": "Βάρβαρος",
+        "description": "Αυξάνει τη βασική ζημιά κατά +{{bonus}}",
+        "prefix": "+"
+      },
+      "thickArmor": {
+        "title": "Χοντρή πανοπλία",
+        "description": "Μειώνει τη σωματική ζημιά που δέχεσαι κατά {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "fireArmor": {
+        "title": "Πύρινη πανοπλία",
+        "description": "Μειώνει τους θανάτους από τη φλογοβολία κατά {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "heavyRocks": {
+        "title": "Βαριά βράχια",
+        "description": "Αυξάνει τη ζημιά του καταπέλτη κατά {{bonus}}% ανά επίπεδο",
+        "suffix": "%"
+      },
+      "silverBlade": {
+        "title": "Ασημένια λεπίδα",
+        "description": "Προσθέτει πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "goldenBlade": {
+        "title": "Χρυσή λεπίδα",
+        "description": "Προσθέτει κι άλλον πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "loyalMercenaries": {
+        "title": "Πιστοί μισθοφόροι",
+        "description": "Οι {{typePlural}} που αγοράζεις κάνουν +{{bonus}}x περισσότερη ζημιά ανά επίπεδο",
+        "prefix": "+",
+        "suffix": "x"
+      },
+      "loyalServants": {
+        "title": "Πιστοί υπηρέτες",
+        "description": "Το κόστος στρατολόγησης για {{type}} και ανώτερες βαθμίδες μειώνεται κατά {{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "teamWork": {
+        "title": "Ομαδική δουλειά",
+        "description": "Στρατολογείς επιπλέον {{typePlural}} για κάθε {{type}} που αγοράζεις",
+        "prefix": "+"
+      },
+      "dungeonPrecision": {
+        "title": "Ακρίβεια στο μπουντρούμι",
+        "description": "Αυξάνει την πιθανότητα κρίσιμης ζημιάς μέσα στα μπουντρούμια κατά {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "mazeCrusher": {
+        "title": "Θραύστης λαβυρίνθου",
+        "description": "Αυξάνει το μπόνους κρίσιμης ζημιάς μέσα στο μπουντρούμι κατά {{bonus}}",
+        "prefix": "+"
+      },
+      "// WIZARD_UPGRADES": "//",
+      "magicMissile": {
+        "title": "Μαγική βολή",
+        "description": "Πολλαπλασιαστής ζημιάς {{type}} +{{bonus}}x",
+        "prefix": "x"
+      },
+      "manaSword": {
+        "title": "Σπαθί μάνα",
+        "description": "Κάθε Μάγος εμποτίζει 1 σπαθί Πολεμιστή με Μάνα. Ο πολλαπλασιαστής ζημιάς αυξάνεται κατά +{{bonus}}x όταν η Μάνα είναι πάνω από 90",
+        "prefix": "x"
+      },
+      "magicMouse": {
+        "title": "Μαγικό ποντίκι",
+        "description": "Γεμίζει τη μπάρα μάνα κατά +{{bonus}} ανά κλικ",
+        "prefix": "+"
+      },
+      "manaSurge": {
+        "title": "Αναπλήρωση Μάνα",
+        "description": "Γεμίζει τον μετρητή Μάνα του Μάγου"
+      },
+      "manaPool": {
+        "title": "Δεξαμενή μάνα",
+        "description": "Αυξάνει τη μέγιστη Μάνα κατά {{bonus}}%",
+        "suffix": " μάνα"
+      },
+      "manaBoost": {
+        "title": "Ώθηση μάνα",
+        "description": "Η ζημιά του Μάγου διπλασιάζεται όταν η Μάνα είναι πάνω από {{current}}",
+        "suffix": " μάνα"
+      },
+      "weatherForecast": {
+        "title": "Πρόγνωση καιρού",
+        "description": "Αυξάνει τις πιθανότητες για κεραυνό κατά {{bonus}}%",
+        "suffix": "%"
+      },
+      "lightningStrike": {
+        "title": "Κεραυνοβόλημα",
+        "description": "Επιπλέον επίθεση με κεραυνό που προκαλεί +{{bonus}}x της ζημιάς του {{type}} ανά αναβάθμιση που έχεις αγοράσει",
+        "prefix": "x"
+      },
+      "silverStaff": {
+        "title": "Ασημένιο ραβδί",
+        "description": "Προσθέτει πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "goldenStaff": {
+        "title": "Χρυσό ραβδί",
+        "description": "Προσθέτει κι άλλον πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "magicFire": {
+        "title": "Μαγική φωτιά",
+        "description": "Αυξάνει τη διάρκεια του πυρσού κατά +{{bonus}} δευτερόλεπτα",
+        "prefix": "+"
+      },
+      "archimage": {
+        "title": "Αρχιμάγος",
+        "description": "Αυξάνει τη βασική ζημιά κατά +{{bonus}}",
+        "prefix": "+"
+      },
+      "// ELF_UPGRADES": "//",
+      "huntersEye": {
+        "title": "Μάτι κυνηγού",
+        "description": "Αυξάνει την πιθανότητα να χτυπήσεις 1 πουλί σε εμβέλεια σε κάθε κύκλο κατά +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalChance": {
+        "title": "Οξυδερκής στόχευση",
+        "description": "Πιθανότητα για κρίσιμη βολή +{{bonus}}%",
+        "suffix": "%"
+      },
+      "criticalDamage": {
+        "title": "Κόφτης φύλλων",
+        "description": "Αυξάνει τη ζημιά της κρίσιμης βολής κατά +{{bonus}}x",
+        "prefix": "x"
+      },
+      "huntingSeason": {
+        "title": "Κυνηγετική περίοδος",
+        "description": "Εμφανίζει αμέσως ένα κοπάδι πουλιά",
+        "suffix": " πουλιά"
+      },
+      "elvenEyes": {
+        "title": "Ξωτικά μάτια",
+        "description": "Όταν σβήσει ο πυρσός σου, βλέπεις ακόμη στο σκοτάδι για +{{bonus}} δευτερόλεπτα",
+        "prefix": "+",
+        "suffix": " δευτ."
+      },
+      "multipleShot": {
+        "title": "Πολλαπλές βολές",
+        "description": "Ρίχνει ένα επιπλέον βέλος ανά επίπεδο",
+        "prefix": "+"
+      },
+      "silverArrow": {
+        "title": "Ασημένιο βέλος",
+        "description": "Προσθέτει πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "goldenArrow": {
+        "title": "Χρυσό βέλος",
+        "description": "Προσθέτει κι άλλον πολλαπλασιαστή {{bonus}}x στο χρυσάφι ανά επίθεση",
+        "prefix": "x"
+      },
+      "iceArrow": {
+        "title": "Παγωμένο βέλος",
+        "description": "Επιβραδύνει την πύρινη επίθεση του δράκου κατά {{bonus}} δευτ.",
+        "prefix": "-",
+        "suffix": " δευτ."
+      },
+      "animalInstinct": {
+        "title": "Ζωώδες ένστικτο",
+        "description": "Αναβαθμίζει τα βλήματα του καταπέλτη από βράχια σε γάτες και μετά σε τίγρεις, δεκαπλασιάζοντας τη ζημιά κάθε φορά.",
+        "suffix": "k"
+      },
+      "lightningRod": {
+        "title": "Αλεξικέραυνο",
+        "description": "Έχει {{bonus}}% πιθανότητα να τραβήξει έναν επιπλέον κεραυνό όταν ο κεραυνός του Μάγου βρει τον εχθρό.",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recycledArrows": {
+        "title": "Ανακυκλωμένα βέλη",
+        "description": "Ξοδεύει λιγότερο ξύλο στις επιθέσεις των ξωτικών"
+      },
+      "lightfoot": {
+        "title": "Ελαφροπάτητος",
+        "description": "Αυξάνει την ταχύτητα κίνησης και στροφής στα μπουντρούμια κατά {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// THIEF_UPGRADES": "//",
+      "fastHands": {
+        "title": "Γρήγορα χέρια",
+        "description": "Μειώνει τον χρόνο παραγωγής χρυσού κατά {{bonus}} δευτερόλεπτα"
+      },
+      "sharpDagger": {
+        "title": "Λεπίδα δολοφόνου",
+        "description": "Ο Κλέφτης επιτίθεται κι αυτός, με ζημιά {{current}}"
+      },
+      "poisonDagger": {
+        "title": "Δηλητηριασμένο στιλέτο",
+        "description": "Αυξάνει την πιθανότητα να δηλητηριαστεί ο δράκος κατά +{{bonus}}%",
+        "suffix": "%"
+      },
+      "blackMamba": {
+        "title": "Μαύρη μάμπα",
+        "description": "Πολλαπλασιαστής ζημιάς δηλητηρίου +{{bonus}}x της ζημιάς του Κλέφτη",
+        "prefix": "x"
+      },
+      "lingeringToxin": {
+        "title": "Επίμονη τοξίνη",
+        "description": "Αυξάνει τη διάρκεια του δηλητηρίου κατά +{{bonus}} δευτερόλεπτο",
+        "suffix": " δευτ."
+      },
+      "smokeBomb": {
+        "title": "Καπνογόνο",
+        "description": "Στήνει παγίδα για τον δράκο με {{current}}% πιθανότητα να ενεργοποιηθεί στην επόμενη επίθεση, σταματώντας την.",
+        "suffix": "%"
+      },
+      "catBomb": {
+        "title": "Εκρηκτικές γάτες",
+        "description": "Τα βλήματα του καταπέλτη εκρήγνυνται με την επαφή, διπλασιάζοντας τη ζημιά τους.",
+        "prefix": "x"
+      },
+      "pickpocket": {
+        "title": "Πορτοφολάς",
+        "description": "Προσθέτει πολλαπλασιαστή {{bonus}}x στην παραγωγή χρυσού του {{type}}",
+        "prefix": "x"
+      },
+      "lockPick": {
+        "title": "Αντικλείδι",
+        "description": "{{bonus}} επιπλέον πόρτες του μπουντρουμιού είναι ανοιχτές στην αρχή κάθε εξερεύνησης."
+      },
+      "midasTouch": {
+        "title": "Άγγιγμα του Μίδα",
+        "description": "Προσθέτει κι άλλον πολλαπλασιαστή {{bonus}}x στην παραγωγή χρυσού του {{type}}",
+        "prefix": "x"
+      },
+      "stuffedChests": {
+        "title": "Παραγεμισμένα σεντούκια",
+        "description": "Αυξάνει το χρυσάφι από τα σεντούκια του μπουντρουμιού κατά {{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "// BARD_UPGRADES": "//",
+      "tuningFork": {
+        "title": "Διαπασών",
+        "description": "Αυξάνει την παραγωγή έμπνευσης κατά +{{bonus}}",
+        "prefix": "+"
+      },
+      "luteSolo": {
+        "title": "Σόλο λαούτου",
+        "description": "Αυξάνει τον μέγιστο πολλαπλασιαστή έμπνευσης κατά +{{bonus}}x",
+        "suffix": "x"
+      },
+      "obnoxiousGuitarist": {
+        "title": "Ενοχλητικός κιθαρίστας",
+        "description": "Διάρκεια μπόνους έμπνευσης +{{bonus}} δευτερόλεπτο",
+        "suffix": " δευτ."
+      },
+      "piercedEardrums": {
+        "title": "Τρυπημένα τύμπανα",
+        "description": "Η ταχύτητα του βρυχηθμού του δράκου μειώνεται κατά {{bonus}}%",
+        "suffix": "%"
+      },
+      "replay": {
+        "title": "Επανάληψη",
+        "description": "Έχει {{bonus}}% πιθανότητα να ξαναρχίσει η Έμπνευση όταν τελειώσει",
+        "suffix": "%"
+      },
+      "sonicBarrier": {
+        "title": "Ηχητικό φράγμα",
+        "description": "Η ταχύτητα της φλογοβολίας του δράκου μειώνεται κατά {{bonus}}%",
+        "suffix": "%"
+      },
+      "cacofonix": {
+        "title": "Κακοφωνίξ",
+        "description": "Ζαλίζει τις μονάδες σου μόλις τον αγοράσεις"
+      },
+      "churchChoir": {
+        "title": "Εκκλησιαστική χορωδία",
+        "description": "Στρατολογεί 1 Σεμινάριο κάθε φορά που ενεργοποιείται η Έμπνευση"
+      },
+      "encore": {
+        "title": "Ανκόρ",
+        "description": "Μειώνει τον χρόνο αναμονής της Έμπνευσης κατά {{bonus}} δευτερόλεπτα",
+        "suffix": " δευτ."
+      },
+      "lockerRoomSpeech": {
+        "title": "Λόγος στα αποδυτήρια",
+        "description": "Παράγει Έμπνευση όσο το παιχνίδι είναι κλειστό, με ρυθμό {{current}}%",
+        "suffix": "%"
+      },
+      "orderInTheUk": {
+        "title": "Τάξη στο βασίλειο",
+        "description": "Όσο το παιχνίδι είναι κλειστό, η μουσική σου βάζει τους τεχνίτες να δουλεύουν εκτός ωραρίου, παράγοντας πόρους στο {{current}}% του κανονικού ρυθμού",
+        "suffix": "%"
+      },
+      "majorKey": {
+        "title": "Κλειδί του Ντο",
+        "description": "Αγόρασε ένα κλειδί μπουντρουμιού. (Ναι, το λογοπαίγνιο ήταν εσκεμμένο.)"
+      },
+      "vulnerableFrequencies": {
+        "title": "Ευάλωτες συχνότητες",
+        "description": "Μειώνει την ατρωσία των εχθρών του μπουντρουμιού μετά από κάθε χτύπημα κατά {{bonus}} ms",
+        "prefix": "-",
+        "suffix": " ms"
+      },
+      "// CLERIC_UPGRADES": "//",
+      "heroResources": {
+        "title": "Ανθρώπινο δυναμικό",
+        "description": "Η πιθανότητα να διπλασιαστούν οι ήρωες που στρατολογείς αυξάνεται κατά +{{bonus}}%",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "blessedAura": {
+        "title": "Ευλογημένη αύρα",
+        "description": "Μειώνει τους θανάτους από τη φλογοβολία κατά -{{bonus}}%",
+        "prefix": "-",
+        "suffix": "%"
+      },
+      "blessedBird": {
+        "title": "Ευλογημένο πουλί",
+        "description": "Τα πουλιά έχουν {{current}}% πιθανότητα να εμφανιστούν ευλογημένα, διπλασιάζοντας το χρυσάφι που δίνουν",
+        "suffix": "%"
+      },
+      "powerTransfer": {
+        "title": "Μεταφορά δύναμης",
+        "description": "Όταν στρατολογείς, η μάνα των Μάγων αποκαθίσταται κι αυτή κατά 0,5 ανά Ιερέα που έχεις"
+      },
+      "generousLoot": {
+        "title": "Γενναιόδωρη λεία",
+        "description": "Όταν μια εξερεύνηση αποτύχει, κρατάς το {{current}}% της λείας σου.",
+        "suffix": "%"
+      },
+      "divineLight": {
+        "title": "Θείο φως",
+        "description": "Αυξάνει κατά {{bonus}}% την πιθανότητα να ξανανάψεις τον πυρσό αφού σβήσει",
+        "prefix": "+",
+        "suffix": "%"
+      },
+      "recruitWarriors": {
+        "title": "Στρατολόγηση Πολεμιστών",
+        "description": "Σου επιτρέπει να στρατολογείς Πολεμιστές στη μάχη"
+      },
+      "recruitElves": {
+        "title": "Στρατολόγηση Ξωτικών",
+        "description": "Σου επιτρέπει να στρατολογείς Ξωτικά στη μάχη"
+      },
+      "recruitWizards": {
+        "title": "Στρατολόγηση Μάγων",
+        "description": "Σου επιτρέπει να στρατολογείς Μάγους στη μάχη"
+      },
+      "recruitBards": {
+        "title": "Στρατολόγηση Βάρδων",
+        "description": "Σου επιτρέπει να στρατολογείς Βάρδους στη μάχη"
+      },
+      "recruitThieves": {
+        "title": "Στρατολόγηση Κλεφτών",
+        "description": "Σου επιτρέπει να στρατολογείς Κλέφτες στη μάχη"
+      },
+      "recruitClerics": {
+        "title": "Στρατολόγηση Ιερέων",
+        "description": "Σου επιτρέπει να στρατολογείς Ιερείς στη μάχη"
+      }
+    }
+  },
+  "common": {
+    "wishlistNow": "Βάλ' το στη λίστα επιθυμιών!"
+  },
+  "statistics": {
+    "section": {
+      "ttb": "Χρόνος μάχης",
+      "dgps": "Ζημιά & χρυσάφι ανά δευτερόλεπτο",
+      "resourceBalance": "Ισοζύγιο πόρων"
+    },
+    "lifetime": {
+      "title": "Συνολικά στατιστικά",
+      "totalPlaytime": "Συνολικός χρόνος παιχνιδιού",
+      "totalGoldEarned": "Συνολικό χρυσάφι που κέρδισες",
+      "totalGoldSpent": "Συνολικό χρυσάφι που ξόδεψες",
+      "totalBirdsKilled": "Συνολικά πουλιά που έριξες",
+      "totalClicks": "Συνολικά κλικ",
+      "totalHeroesRecruited": "Συνολικοί ήρωες που στρατολογήθηκαν",
+      "heroesPurchased": "Αγορασμένοι",
+      "heroesRecruited": "Στρατολογημένοι",
+      "tier1": "Βαθμίδα 1, στρατολογημένοι (αγορασμένοι)",
+      "tier2": "Βαθμίδα 2, στρατολογημένοι (αγορασμένοι)",
+      "tier3": "Βαθμίδα 3, στρατολογημένοι (αγορασμένοι)",
+      "totalDamageDealt": "Συνολική ζημιά που έκανες",
+      "totalUnitsDeadByFireBreath": "Μονάδες που χάθηκαν στη φλογοβολία"
+    },
+    "battleDuration": "Πέρασαν: <strong>{{time}} {{timePrefix}}</strong>",
+    "dummyEstimatedVictory": "Είναι καν δυνατή η νίκη;",
+    "infiniteEstimatedVictory": "Η νίκη είναι όντως αδύνατη!",
+    "estimatedVictory": "(0)[<strong class='text-danger'>Είσαι ο ήρωάς μας!</strong>]; (0-1000000000)[Νίκη σε <strong>{{count}} {{timePrefix}}</strong>];(1000000001-inf)[<strong class='text-danger'>Κάνε κλικ ή πάτα Z για να χτυπήσεις τον δράκο!</strong>]",
+    "perSec": "/δευτ.",
+    "generationSection": "Παραγωγή",
+    "critSection": "Ειδικά",
+    "dps": "Ζημιά μονάδων: <strong>{{dps}}/δευτ.</strong>",
+    "gps": "Χρυσάφι μονάδων: <strong>{{gps}}/δευτ.</strong>",
+    "dpc": "Ζημιά κλικ: <strong>{{dpc}}/κλικ</strong>",
+    "gpc": "Χρυσάφι κλικ: <strong>{{gpc}}/κλικ</strong>",
+    "catapultDamage": "Ζημιά: <strong>{{damage}}/βολή</strong>",
+    "catapultTimeToShoot": "Χρόνος βολής: <strong>{{time}} δευτ.</strong>",
+    "seconds_one": "δευτερόλεπτο",
+    "seconds_other": "δευτερόλεπτα",
+    "minutes_one": "λεπτό",
+    "minutes_other": "λεπτά",
+    "hours_one": "ώρα",
+    "hours_other": "ώρες",
+    "days_one": "μέρα",
+    "days_other": "μέρες",
+    "months_one": "μήνας",
+    "months_other": "μήνες",
+    "years_one": "χρόνος",
+    "years_other": "χρόνια",
+    "undo": {
+      "disabledLine": "Κάνε κλικ μέσα στα 10 δευτ. για να αναιρέσεις μονάδες που αγόρασες κατά λάθος και να πάρεις πίσω τα λεφτά σου.",
+      "enabledAction": "Κάνε κλικ για να αναιρέσεις την αγορά {{count}} {{generator}}.",
+      "enabledRefund": "Θα σου επιστραφούν {{refund}}.",
+      "enabledTimer": "Απομένουν {{seconds}} δευτ.",
+      "refundGold": "{{amount}} χρυσάφι"
+    }
+  },
+  "generators": {
+    "generators": "Στρατεύματα",
+    "buy": "αγορά {{amount}}",
+    "warrior_one": "Πολεμιστής",
+    "warrior_other": "Πολεμιστές",
+    "wizard_one": "Μάγος",
+    "wizard_other": "Μάγοι",
+    "elf_one": "Ξωτικό",
+    "elf_other": "Ξωτικά",
+    "garrison_one": "Φρουρά",
+    "garrison_other": "Φρουρές",
+    "academy_one": "Ακαδημία Μαγείας",
+    "academy_other": "Ακαδημίες Μαγείας",
+    "academy_short_one": "Ακαδημία",
+    "academy_short_other": "Ακαδημίες",
+    "outpost_one": "Φυλάκιο Τοξοτών",
+    "outpost_other": "Φυλάκια Τοξοτών",
+    "outpost_short_one": "Φυλάκιο",
+    "outpost_short_other": "Φυλάκια",
+    "council_one": "Πολεμικό Συμβούλιο",
+    "council_other": "Πολεμικά Συμβούλια",
+    "nexus_one": "Κόμβος Αρχιμάγου",
+    "nexus_other": "Κόμβοι Αρχιμάγου",
+    "forest_one": "Αρχαίο Δάσος",
+    "forest_other": "Αρχαία Δάση",
+    "thief_one": "Κλέφτης",
+    "thief_other": "Κλέφτες",
+    "bard_one": "Βάρδος",
+    "bard_other": "Βάρδοι",
+    "cleric_one": "Ιερέας",
+    "cleric_other": "Ιερείς",
+    "guild_one": "Συντεχνία Κλεφτών",
+    "guild_other": "Συντεχνίες Κλεφτών",
+    "guild_short_one": "Συντεχνία",
+    "guild_short_other": "Συντεχνίες",
+    "troupe_one": "Θίασος Καλλιτεχνών",
+    "troupe_other": "Θίασοι Καλλιτεχνών",
+    "troupe_short_one": "Θίασος",
+    "troupe_short_other": "Θίασοι",
+    "seminary_one": "Ιερό Σεμινάριο",
+    "seminary_other": "Ιερά Σεμινάρια",
+    "seminary_short_one": "Σεμινάριο",
+    "seminary_short_other": "Σεμινάρια",
+    "congress_one": "Συνέδριο των Σκιών",
+    "congress_other": "Συνέδρια των Σκιών",
+    "theater_one": "Μεγάλο Θέατρο",
+    "theater_other": "Μεγάλα Θέατρα",
+    "college_one": "Καρδιναλικό Κολέγιο",
+    "college_other": "Καρδιναλικά Κολέγια",
+    "catapult_one": "Καταπέλτης",
+    "catapult_other": "Καταπέλτες",
+    "builder_one": "Χτίστης",
+    "builder_other": "Χτίστες",
+    "engineer_one": "Μηχανικός",
+    "engineer_other": "Μηχανικοί",
+    "farmer_one": "Αγρότης",
+    "farmer_other": "Αγρότες",
+    "lumberjack_one": "Ξυλοκόπος",
+    "lumberjack_other": "Ξυλοκόποι",
+    "miner_one": "Μεταλλωρύχος",
+    "miner_other": "Μεταλλωρύχοι",
+    "apprenticeships_one": "Μαθητεία",
+    "apprenticeships_other": "Μαθητείες",
+    "tradespeople_one": "Τεχνίτης",
+    "tradespeople_other": "Τεχνίτες",
+    "ngPlusUpkeep": {
+      "perCycle": "/{{rate}}δευτ."
+    },
+    "ngPlusProductionToggle": "Εναλλαγή παραγωγής",
+    "tabs": {
+      "troops": "Στρατεύματα",
+      "support": "Υποστήριξη"
+    },
+    "fireUnitsButton": {
+      "tooltip": "Απόλυσε μονάδες για να κόψεις την κατανάλωση πόρων κρατώντας λίγη παραγωγή."
+    },
+    "ownedUnits": "{{unit}} που έχεις: {{amount}}",
+    "mana": "Μάνα",
+    "manaDescription": "Μαγική ενέργεια που τροφοδοτεί τις επιθέσεις των Μάγων.",
+    "emptyManaDescription": "Αγόρασε [Αναπλήρωση Μάνα] για να συνεχίσεις να επιτίθεσαι.",
+    "inspiration": "Έμπνευση",
+    "inspirationDescription": "Όταν ενεργοποιηθεί, οι δυνάμεις όλων των ηρώων πολλαπλασιάζονται κατά ένα ποσό.",
+    "unitDescription": {
+      "warrior": "Ανθεκτικοί μαχητές σώμα με σώμα.",
+      "wizard": "Μαγικές επιθέσεις μεσαίας εμβέλειας, αλλά εύθραυστη κράση.",
+      "elf": "Ευέλικτοι στις επιθέσεις από απόσταση, μακριά από τον δράκο.",
+      "garrison": "Οχυρωμένη βάση που στρατολογεί πολεμιστές.",
+      "outpost": "Απομακρυσμένη βάση που στρατολογεί ξωτικά.",
+      "academy": "Σχολή που εκπαιδεύει μάγους για τη μάχη.",
+      "council": "Στρατιωτική οργάνωση που ιδρύει φρουρές.",
+      "nexus": "Απόκρυφη οργάνωση που ιδρύει ακαδημίες.",
+      "forest": "Ιερό άλσος που ιδρύει φυλάκια.",
+      "thief": "Ύπουλος, δηλητηριάζει τον δράκο και του κλέβει χρυσάφι.",
+      "bard": "Μπορεί να εμπνεύσει τα στρατεύματα να πολεμήσουν πιο σκληρά.",
+      "cleric": "Προσφέρει προστασία και στρατολογεί νέους ήρωες στη μάχη.",
+      "guild": "Κρυφό δίκτυο που στρατολογεί κλέφτες.",
+      "troupe": "Περιοδεύων θίασος που στρατολογεί βάρδους.",
+      "seminary": "Ιερό ίδρυμα που εκπαιδεύει ιερείς.",
+      "congress": "Οργάνωση των σκιών που ιδρύει συντεχνίες κλεφτών.",
+      "theater": "Μεγάλο ίδρυμα που ιδρύει θιάσους καλλιτεχνών.",
+      "college": "Θρησκευτική οργάνωση που ιδρύει σεμινάρια.",
+      "catapult": "Πολιορκητική μονάδα που κάνει μεγάλη ζημιά στον δράκο.",
+      "builder": "Χτίζει κτίρια επιπέδου 2.",
+      "engineer": "Δημιουργεί οργανώσεις επιπέδου 3.",
+      "farmer": "Καλλιεργεί τροφή για το βασίλειο.",
+      "lumberjack": "Κόβει ξύλα για την οικοδομή.",
+      "miner": "Εξορύσσει μετάλλευμα από τα βουνά.",
+      "apprenticeships": "Εκπαιδεύει τεχνίτες."
+    },
+    "generationDescription": {
+      "warrior": "{{generatorGeneration}} ζημιά/{{rate}}δευτ.",
+      "wizard": "{{generatorGeneration}} ζημιά/{{rate}}δευτ.",
+      "elf": "{{generatorGeneration}} ζημιά/{{rate}}δευτ.",
+      "garrison": "+{{generatorGeneration}} $t(warrior, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "outpost": "+{{generatorGeneration}} $t(elf, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "academy": "+{{generatorGeneration}} $t(wizard, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "council": "+{{generatorGeneration}} $t(garrison, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "nexus": "+{{generatorGeneration}} $t(academy_short, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "forest": "+{{generatorGeneration}} $t(outpost_short, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "thief": "+{{generatorGeneration}} χρυσάφι/{{rate}}δευτ.",
+      "bard": "+{{generatorGeneration}} έμπνευση/{{rate}}δευτ.",
+      "cleric": "+{{generatorGeneration}} ήρωας/{{rate}}δευτ.",
+      "guild": "+{{generatorGeneration}} $t(thief, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "troupe": "+{{generatorGeneration}} $t(bard, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "seminary": "+{{generatorGeneration}} $t(cleric, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "theater": "+{{generatorGeneration}} $t(troupe_short, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "college": "+{{generatorGeneration}} $t(seminary_short, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "congress": "+{{generatorGeneration}} $t(guild_short, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ.",
+      "catapult": "{{generatorGeneration}} ζημιά/{{rate}}δευτ.",
+      "builder": "+{{generatorGeneration}} κτίριο/{{rate}}δευτ.",
+      "engineer": "+{{generatorGeneration}} οργάνωση/{{rate}}δευτ.",
+      "farmer": "+{{generatorGeneration}} τροφή/{{rate}}δευτ.",
+      "lumberjack": "+{{generatorGeneration}} ξύλο/{{rate}}δευτ.",
+      "miner": "+{{generatorGeneration}} μετάλλευμα/{{rate}}δευτ.",
+      "apprenticeships": "+{{generatorGeneration}} $t(tradespeople, {\"count\": {{generatorGeneration}} })/{{rate}}δευτ."
+    },
+    "tabsAriaLabel": "καρτέλες στρατευμάτων"
+  },
+  "settings": {
+    "settings": "Ρυθμίσεις",
+    "buy_max": "Αγορά μέγιστου",
+    "audio": "Μουσική/Ήχοι",
+    "game": "Παιχνίδι",
+    "graphics": "Γραφικά",
+    "offline_progress": "Πρόοδος εκτός παιχνιδιού",
+    "wishlist_now": "Λίστα επιθυμιών"
+  },
+  "menus": {
+    "settings": "Ρυθμίσεις",
+    "tabs": {
+      "game": "Παιχνίδι",
+      "graphics": "Γραφικά",
+      "audio": "Ήχος",
+      "levels": "Κεφάλαια",
+      "saveData": "Αποθήκευση",
+      "credits": "Συντελεστές"
+    },
+    "credits": {
+      "title": "Συντελεστές",
+      "developedBy": "Ανάπτυξη",
+      "developedWith": "Αναπτύχθηκε με",
+      "bigThanksTo": "Ιδιαίτερες ευχαριστίες",
+      "theRestOfTheDiscordServer": "και στους υπόλοιπους του Discord",
+      "andYou": "και σε σένα!"
+    },
+    "music": "Μουσική",
+    "sfx": "Ηχητικά εφέ",
+    "audioSettings": "Ρυθμίσεις ήχου",
+    "gameSettings": "Ρυθμίσεις παιχνιδιού",
+    "graphicsSettings": "Ρυθμίσεις γραφικών",
+    "language": "Γλώσσα",
+    "languages": {
+      "en": "Αγγλικά",
+      "fr": "Γαλλικά",
+      "de": "Γερμανικά",
+      "pt": "Πορτογαλικά",
+      "tr": "Τουρκικά"
+    },
+    "shakeIntensity": "Ένταση δόνησης",
+    "largerTextSize": "Μεγαλύτερα γράμματα",
+    "crtFilter": "Φίλτρο CRT",
+    "chromaticAberrationSlider": "Χρωματική εκτροπή",
+    "chromaticAberration": "Χρωματική εκτροπή",
+    "swordSwooshSounds": "Ήχοι σπαθιού & κρίσιμων",
+    "catSounds": "Ήχοι γάτας",
+    "fullscreen": "Πλήρης οθόνη",
+    "resume": "Συνέχεια παιχνιδιού",
+    "close": "Κλείσιμο",
+    "quitGame": "Έξοδος από το παιχνίδι",
+    "joinDiscord": "Μπες στο Discord",
+    "clear_save_label": "Να σβηστεί η πρόοδός σου;",
+    "zoom_adjustment": "Ζουμ διεπαφής",
+    "clear_save": "Σβήσε τώρα",
+    "are_you_sure": "Σίγουρα;",
+    "cannot_be_reversed": "Αυτή η ενέργεια δεν αναιρείται.",
+    "yes": "Ναι",
+    "no": "Όχι",
+    "saveData": {
+      "title": "Δεδομένα αποθήκευσης",
+      "clearChapterTitle": "Πρόοδος κεφαλαίων",
+      "clearChapterExplanation": "Σβήνει χρυσάφι, μονάδες, αναβαθμίσεις, πρόοδο στα μπουντρούμια και σήματα ολοκλήρωσης για κάθε κεφάλαιο. Τα ξεκλειδωμένα κεφάλαια, τα συνολικά στατιστικά, οι ρυθμίσεις και τα κειμήλια μένουν.",
+      "clearChapterButton": "Σβήσε την πρόοδο των κεφαλαίων",
+      "clearFullTitle": "Όλα τα δεδομένα του παιχνιδιού",
+      "clearFullExplanation": "Σβήνει ό,τι και η επαναφορά κεφαλαίων, συν τα κειμήλια, τα ξεκλειδωμένα κεφάλαια και τα συνολικά στατιστικά. Οι ρυθμίσεις ήχου, γραφικών και γλώσσας μένουν.",
+      "clearFullButton": "Σβήσε όλα τα δεδομένα",
+      "clearFullWarning": "Αυτό δεν αναιρείται. Θα χάσεις κειμήλια, ξεκλειδωμένα κεφάλαια και συνολικά στατιστικά."
+    }
+  },
+  "tooltip": {
+    "inspiration": "Έμπνευση",
+    "inspirationDescription": "Όταν ενεργοποιηθεί, οι δυνάμεις όλων των ηρώων πολλαπλασιάζονται κατά ένα ποσό.",
+    "maxInspiration": "Μέγιστος πολλαπλασιαστής",
+    "maxInspirationMultiplier": "Μέγιστος πολλαπλασιαστής",
+    "statisticsDescription": "Αναλυτικά στατιστικά για την πρόοδο και την απόδοσή σου στη μάχη.",
+    "hudStopBird": "Σταμάτα το πουλί",
+    "hudLifetimeStats": "Συνολικά στατιστικά",
+    "hudHideWindows": "Κρύψε τα παράθυρα",
+    "events": {
+      "roar": "Εκκωφαντικός βρυχηθμός",
+      "fire": "Φλογοβολία",
+      "claw": "Επίθεση με νύχια",
+      "dialog": "Ειδικό γεγονός",
+      "pope_visit": "Ένας ξεχωριστός επισκέπτης",
+      "dungeon_keys": "Ένα σκοτεινό μυστικό",
+      "missing_king": "Πού είναι ο Βασιλιάς;",
+      "catapult": "Πρωτότυπο μηχανικής",
+      "engineer": "Μια ευπρόσδεκτη βοήθεια",
+      "invasion_start": "Πλησιάζει εισβολή",
+      "invasion_end": "Νέα από τα στρατεύματά μας",
+      "apprenticeships_unlock": "Διαθέσιμες μαθητείες",
+      "trading": "Περιπλανώμενος έμπορος",
+      "dummy_toy_reveal": "Δεν το περίμενα αυτό"
+    }
+  },
+  "infos": {
+    "banner": {
+      "events": "Γεγονότα",
+      "stats": "Στατιστικά",
+      "engineering": "Μηχανική",
+      "resources": "Πόροι"
+    },
+    "tabs": {
+      "events": "Γεγον.",
+      "stats": "Στατ.",
+      "engineering": "Μηχ.",
+      "resources": "Πόροι"
+    },
+    "tabsAriaLabel": "καρτέλες πληροφοριών"
+  },
+  "game": {
+    "dummy": "Μεγάλο Ομοίωμα",
+    "infiniteBird": "Το Αβύθιστο Πουλί",
+    "king": "Ο Βασιλιάς",
+    "smallDragon": "Tuth'orieth, ο Ανθίζων",
+    "bigDragon": "Forth'aarh, ο Ζωοδότης και Τερματιστής"
+  },
+  "dungeon": {
+    "found": "Βρέθηκε",
+    "giveUp": "Παραιτούμαι",
+    "tooltipDescription": "Ξεκίνα μια εξερεύνηση μπουντρουμιού (Επ. {{level}})",
+    "cooldownMessage": "Το μπουντρούμι είναι σε αναμονή. Περίμενε {{seconds}} δευτ. για να ξαναμπείς.",
+    "cooldownShort": "{{seconds}}δ",
+    "levelLabel": "Επίπεδο",
+    "levelShort": "Επ.{{level}}",
+    "keysOwned": "Κλειδιά που έχεις",
+    "giveUpTooltip": "Βγες από το μπουντρούμι (κρατάς μέρος της λείας αν έχεις Γενναιόδωρη λεία)",
+    "moveHint": "WASD ή βελάκια για κίνηση",
+    "attackHint": "Κάνε κλικ στο τέρας για επίθεση",
+    "chestCountsTooltip": "{{opened}} από {{total}} σεντούκια ανοιχτά",
+    "exitDirection": "ΕΞΟΔΟΣ"
+  },
+  "summaries": {
+    "dungeonLoot": {
+      "titleSuccess": "Επιτυχής εξερεύνηση",
+      "titleFailed": "Αποτυχημένη εξερεύνηση",
+      "titleStuckRescue": "Ασφαλής έξοδος",
+      "lootSummarySubtitle": "Σύνοψη λείας",
+      "body_one": "Κέρδισες {{gold}} χρυσάφι και {{grayKeys}} κλειδί",
+      "body_other": "Κέρδισες {{gold}} χρυσάφι και {{grayKeys}} κλειδιά",
+      "artifactFound": "Βρήκες: {{artifactName}}."
+    },
+    "fireBreathCasualties": {
+      "title": "Απώλειες από τη φλογοβολία",
+      "body": "Έχασες {{list}}",
+      "none": "Καμία απώλεια"
+    },
+    "fireBreathBlocked": {
+      "title": "Η φλογοβολία μπλοκαρίστηκε!",
+      "body": "Ένα καπνογόνο έσωσε τα στρατεύματά σου."
+    },
+    "toastLabel": "Ειδοποίηση παιχνιδιού"
+  },
+  "levels": {
+    "title": "Κεφάλαια",
+    "locked": "Κλειδωμένο",
+    "active": "Σε εξέλιξη",
+    "completed": "Ολοκληρώθηκε",
+    "continue": "Συνέχεια",
+    "start": "Έναρξη",
+    "restart": "Από την αρχή",
+    "restart_progress_warning": "Να ξεκινήσει από την αρχή; Θα χάσεις όση πρόοδο δεν αποθηκεύτηκε σε αυτό το κεφάλαιο.",
+    "names": {
+      "mainGame": "Ένας Μεγάλος Δράκος",
+      "newGamePlus": "Διαχείριση πόρων",
+      "dummy": "Το Μαγικό Παιχνίδι",
+      "infinite": "Πραγματικά Ατελείωτο",
+      "kingBattle": "Η Τελευταία Στάση του Βασιλιά"
+    }
+  },
+  "artifacts": {
+    "title": "Κειμήλια",
+    "subtitle": "Σπάνια κειμήλια βρίσκονται πού και πού σε ειδικά σεντούκια των μπουντρουμιών. Παραμένουν σε όλα τα κεφάλαια.",
+    "notYetFound": "(δεν βρέθηκε ακόμη)",
+    "details": {
+      "phoenixWhistle": {
+        "title": "Σφυρίχτρα του Φοίνικα",
+        "description": "Ένα ξεχωριστό πουλί κουβαλά ένα νέο νόμισμα."
+      },
+      "emberforgedShield": {
+        "title": "Ασπίδα από Χόβολη",
+        "description": "Οι Πολεμιστές είναι άτρωτοι στη φωτιά του δράκου."
+      },
+      "moonwellFlask": {
+        "title": "Φιάλη Σεληνοπηγής",
+        "description": "Η μάνα των Μάγων καταναλώνεται με τον μισό ρυθμό."
+      },
+      "windstepAnklet": {
+        "title": "Περισφύριο Ανεμοβήματος",
+        "description": "Τα Ξωτικά δεν ζαλίζονται."
+      },
+      "fangSatchel": {
+        "title": "Σακίδιο Δοντιών",
+        "description": "Οι Κλέφτες παράγουν 1 δόντι δράκου κάθε 30 λεπτά όσο τρέχει μια παρτίδα."
+      },
+      "slumberBerries": {
+        "title": "Μούρα του Ύπνου",
+        "description": "Οι επιθέσεις με δηλητήριο καθυστερούν τον βρυχηθμό και τη φωτιά του δράκου κατά 10 δευτερόλεπτα."
+      },
+      "echoingLute": {
+        "title": "Λαούτο της Ηχούς",
+        "description": "Ο βάρδος διπλασιάζει το μπόνους Έμπνευσης."
+      },
+      "blessingCenser": {
+        "title": "Θυμιατό της Ευλογίας",
+        "description": "Ο ιερέας στρατολογεί πάντα διπλάσιες μονάδες."
+      },
+      "victoryTusk": {
+        "title": "Χαυλιόδοντας της Νίκης",
+        "description": "Η ολοκλήρωση ενός επιπέδου διπλασιάζει την ανταμοιβή σε δόντια δράκου."
+      },
+      "cartographersLedger": {
+        "title": "Κατάστιχο του Χαρτογράφου",
+        "description": "Δείχνει πόσα σεντούκια άνοιξες και πόσα υπάρχουν συνολικά."
+      },
+      "ironSkeletonKey": {
+        "title": "Σιδερένιο Αντικλείδι",
+        "description": "Ξεκλειδώνει το μπουντρούμι ως το επίπεδο 20."
+      },
+      "everflameLantern": {
+        "title": "Φανάρι της Αιώνιας Φλόγας",
+        "description": "Ο πυρσός δεν σβήνει ποτέ."
+      },
+      "midasCoin": {
+        "title": "Νόμισμα του Μίδα",
+        "description": "Διπλάσιο χρυσάφι στα μπουντρούμια."
+      },
+      "harvestIdol": {
+        "title": "Είδωλο της Σοδειάς",
+        "description": "Η παραγωγή πόρων αυξάνεται κατά 25%."
+      },
+      "titanGauntlet": {
+        "title": "Γάντι του Τιτάνα",
+        "description": "Ζημιά από κλικ x10."
+      },
+      "wayfindersCompass": {
+        "title": "Πυξίδα του Οδοιπόρου",
+        "description": "Δείχνει προς ποια μεριά είναι η έξοδος του μπουντρουμιού."
+      },
+      "loadedDice": {
+        "title": "Πειραγμένα Ζάρια",
+        "description": "Τα κλικ είναι πάντα κρίσιμα."
+      }
+    }
+  }
+}

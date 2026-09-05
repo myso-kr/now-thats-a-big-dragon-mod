@@ -1,8 +1,15 @@
 ---
 layout: default
-title: "Language patch, cheat widget, and autoplay for Now THAT'S a Big Dragon!"
-description: "Unofficial mod for the Steam idle game Now THAT'S a Big Dragon! — 14 language translations (한글패치 · 简体中文 · Русский · Español · 日本語), in-game cheat widget, and fully autonomous autoplay. Injected over the Chrome DevTools Protocol; no game files are modified."
-lang: en
+lang: "en"
+code: "en"
+title: "Now THAT'S a Big Dragon! — language patch, cheats, autoplay"
+description: "Unofficial mod for the Steam idle game Now THAT'S a Big Dragon! - 22 language translations, an in-game cheat widget, and fully autonomous autoplay. Injected over the Chrome DevTools Protocol; no game files are modified."
+native: "English"
+english: "English"
+share: 0
+status: "source"
+drawn: true
+dialogs: 32
 ---
 
 # Now THAT'S a Big Dragon! — mod
@@ -14,9 +21,9 @@ It does three things, and it does them **without touching a single game file**.
 
 | | |
 |---|---|
-| **Language patch** | 14 languages, each 620 UI strings and 32 dialogue scripts, with pixel fonts matched to the game's own 6 px/em grid. Languages are *added* to the settings screen, so the choice stays the player's |
+| **Language patch** | 22 languages, each 620 UI strings and 32 dialogue scripts, with pixel fonts matched to the game's own 6 px/em grid. Languages are *added* to the settings screen, so the choice stays the player's |
 | **Cheat widget** (F8) | Resources, upgrades, game speed. Achievement submission is blocked by default |
-| **Autoplay** (F9) | Buys units and upgrades, fights, answers dialogue, repeats chapters — unattended |
+| **Autoplay** (F9) | Buys units and upgrades, fights, answers dialogue, crawls dungeons and repeats chapters — unattended |
 
 > ## ⚠️ Read this first
 >
@@ -58,6 +65,8 @@ Then, in game: **F8** for cheats, **F9** for autoplay.
 
 | Game | Steam buildid | Bundle | Status |
 |---|---|---|---|
+| 1.1.0 | 25124954 | `index-DQTD9fhz.js` | Verified |
+| 1.0.5b | 25111589 | `index-om7GP7rM.js` | Verified |
 | 1.0.5 | 25092954 | `index-C5vCJZoP.js` | Verified |
 | newer | — | — | Unverified. The launcher warns you |
 
@@ -97,15 +106,15 @@ side effects all behave normally.
 
 ## For contributors
 
-- [Anchor catalogue](ANCHORS.md) — what the patch keys on, what breaks when it moves
-- [Directory conventions](CONVENTIONS.md) — where code goes and why
-- Tests run without the game: `npm test` (328 unit tests) and `cargo test`
+- [Anchor catalogue](ANCHORS) — what the patch keys on, what breaks when it moves
+- [Directory conventions](CONVENTIONS) — where code goes and why
+- Tests run without the game: `npm test` (451 unit tests) and `cargo test`
 - Translations are written under [`translations/`](https://github.com/myso-kr/now-thats-a-big-dragon-mod/tree/main/translations), one table per language
 
 Translation fixes are welcome. You only need a screenshot — see the issue templates.
 
 ## License
 
-Code is MIT. The Korean translation is a derivative work of the game's text and carries
-**no license grant**; the font is SIL OFL 1.1. See
+Code is MIT. The translations are derivative works of the game's text and carry
+**no license grant**; the fonts are CC BY 4.0 and SIL OFL 1.1. See
 [NOTICE](https://github.com/myso-kr/now-thats-a-big-dragon-mod/blob/main/NOTICE).

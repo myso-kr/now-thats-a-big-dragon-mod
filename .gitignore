@@ -24,15 +24,45 @@ doctor.txt
 dist/
 *.pdb
 
+# ── Python ────────────────────────────────────────────────────────
+# The translation sources and the site generator are Python modules, so importing one
+# leaves a byte-compiled copy beside it. Those are per-interpreter-version and were
+# being committed.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ── The site ──────────────────────────────────────────────────────
+# docs/ is the GitHub Pages *source*. What Jekyll makes from it is not.
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+.bundle/
+vendor/bundle/
+
 # ── Node ──────────────────────────────────────────────────────────
 # There are no runtime dependencies. A lint tool would land here.
 node_modules/
 package-lock.json
 
-# ── Editors and operating systems ─────────────────────────────────
+# ── Editors, agents and operating systems ─────────────────────────
 .vscode/
 .idea/
 *.swp
+*~
 .DS_Store
 Thumbs.db
 desktop.ini
+.claude/
+
+# ── Never, on a public repository ─────────────────────────────────
+# Nothing here is expected to exist; the rules are so that a slip does not become a
+# commit. A save file is somebody's account, and a key is a key.
+*.pem
+*.key
+.env
+.env.*
+secrets.*
+saves/
+*.sav

@@ -1,0 +1,13 @@
+# Written by tools/build-site.py from tools/site_faq.py.
+# question: the key that asks it. answer: the key that already answers it.
+
+- question: "q_files"
+  answer: "files"
+- question: "q_achievements"
+  answer: "achievements"
+- question: "q_copy"
+  answer: "copy"
+- question: "q_langs"
+  answer: "langs_note"
+- question: "q_save"
+  answer: "save"
