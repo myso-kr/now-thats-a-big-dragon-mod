@@ -177,20 +177,35 @@ fn handle(
             })
             .collect();
         let (css, rep) = crate::patch::css::patch_all(&src, &langs);
-        // A language may bundle no font at all — Spanish and Thai do, because the
-        // game's own font already draws Spanish and no pixel font draws Thai. Then
-        // zero @font-face rules is the correct outcome, and what still has to happen
-        // is the system fallback going onto both stacks.
-        let want = plan.fonts().len();
+        // What has to be true is that every carried language got its own rule, and that
+        // every font those languages name got a face. Both are counted over `langs`,
+        // which is all of them - this check used to compare against the *active*
+        // language's font count, from back when the patch carried one language, and so
+        // it read 23 faces against a wanted 2 and called a healthy patch a failure.
+        //
+        // `stacks` is not a pass condition. It counts the game's own rules that name a
+        // family directly and had to be pointed at the variable instead; a version of
+        // the game whose stylesheet already routes everything through `--font-primary`
+        // leaves nothing to rewrite, and zero is then the right answer rather than a
+        // fault. A language may also bundle no font at all - Spanish and Thai do,
+        // because the game's own font draws Spanish and no pixel font draws Thai - and
+        // then zero faces is correct too, and the fallback still has to reach the stack.
+        let want_faces: usize = langs.iter().map(|l| l.fonts.len()).sum();
+        let want_rules = langs
+            .iter()
+            .filter(|l| !l.fonts.is_empty() || !l.fallback.is_empty())
+            .count();
         crate::log::probe(
             "fonts",
-            rep.faces == want && rep.stacks > 0,
+            rep.faces == want_faces && rep.rules == want_rules,
             &format!(
-                "{}/{} faces, {} stacks{}",
+                "{}/{} faces, {}/{} language rules, {} direct references redirected{}",
                 rep.faces,
-                want,
+                want_faces,
+                rep.rules,
+                want_rules,
                 rep.stacks,
-                if want == 0 {
+                if want_faces == 0 {
                     " (system font by design)"
                 } else {
                     ""
