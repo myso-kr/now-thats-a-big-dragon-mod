@@ -83,7 +83,16 @@ jobs:
             test -s "$OUT/$f" || { echo "::error::$f is missing from the distribution"; exit 1; }
           done
 
-          ( cd dist && zip -r "bigdragon-${{ matrix.target }}.zip" "bigdragon-${{ matrix.target }}" )
+          # `zip` is not on the Windows runner - Git Bash ships without it, and the
+          # first tagged build is where you find that out. PowerShell has an archiver
+          # and Linux has zip, so each side uses the one it actually has.
+          NAME="bigdragon-${{ matrix.target }}"
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            powershell -NoProfile -Command "Compress-Archive -Path 'dist/$NAME' -DestinationPath 'dist/$NAME.zip' -Force"
+          else
+            ( cd dist && zip -r "$NAME.zip" "$NAME" )
+          fi
+          test -s "dist/$NAME.zip" || { echo "::error::the archive was not written"; exit 1; }
           ls -la dist/
 
       - name: Checksums

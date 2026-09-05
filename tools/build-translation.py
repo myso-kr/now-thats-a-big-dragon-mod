@@ -159,6 +159,18 @@ def main():
     if not todo:
         sys.exit("usage: build-translation.py <lang> | --all")
 
+    # The string half of the check compares each table against the game's own English
+    # text, and that file is the one thing this repository deliberately does not carry -
+    # it is the game's words. So on a machine without the game the strings cannot be
+    # checked at all, and dying here would mean CI could never run this at any depth.
+    # The dialogue half needs nothing but the repository, so that still runs, and what
+    # was skipped is said out loud rather than passing quietly.
+    if not args.dialogs and not (ROOT / "generated" / "i18n.en.json").exists():
+        print("generated/i18n.en.json is not here, so the strings cannot be compared - "
+              "checking the dialogues only. Run `node tools/extract-i18n.js` with the "
+              "game installed to check the strings too.", file=sys.stderr)
+        args.dialogs = True
+
     incomplete = 0
     for lang in todo:
         if not (SRC / lang).is_dir():
